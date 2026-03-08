@@ -1,0 +1,26 @@
+{
+    "title": "Satisfaction Suffices: SAT-Gated Structural Containment for Frontier AI",
+    "upload_type": "software",
+    "description": "A default-closed verification gate interposing Boolean satisfiability between a language model's forward pass and its output. Four-verdict classification (Verified, Contradiction, Paradox, Timeout) with proof evolution and Pigeonhole Paradox Logic.",
+    "creators": [
+        {
+            "name": "Roost, Tyler",
+            "affiliation": "Independent Researcher"
+        }
+    ],
+    "license": "AGPL-3.0-or-later",
+    "keywords": [
+        "SAT",
+        "verification",
+        "AI safety",
+        "structural containment",
+        "proof evolution",
+        "paradox logic"
+    ],
+    "related_identifiers": [
+        {
+            "relation": "isSupplementedBy",
+            "identifier": "https://github.com/TimeLordRaps/satisfiable-ai"
+        }
+    ]
+}

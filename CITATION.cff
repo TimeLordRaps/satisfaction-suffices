@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this software or build on this paper, please cite it as below."
+type: software
+title: "Satisfaction Suffices: SAT-Gated Structural Containment for Frontier AI"
+authors:
+  - family-names: Roost
+    given-names: Tyler
+    alias: TimeLordRaps
+date-released: 2026-03-07
+version: 0.1.0
+repository-code: https://github.com/TimeLordRaps/satisfaction-suffices
+license: AGPL-3.0-or-later
+keywords:
+  - sat-solver
+  - ai-safety
+  - verification
+  - structural-containment
+  - boolean-satisfiability
+  - proof-evolution
+  - paradox-logic
+  - formal-methods
+  - alignment
+abstract: >
+  A default-closed verification gate that interposes Boolean satisfiability
+  between a language model's forward pass and its output. The generation loop
+  cannot execute without SAT clearance. The system classifies every output into
+  one of four verdicts: Verified, Contradiction, Paradox, or Timeout. The
+  Paradox/Timeout distinction — structural impossibility versus operational
+  exhaustion of the solver — constitutes a novel contribution to AI safety
+  verification.
+preferred-citation:
+  type: article
+  title: "Satisfaction Suffices: SAT-Gated Structural Containment for Frontier AI"
+  authors:
+    - family-names: Roost
+      given-names: Tyler
+  year: 2026
+  notes: "Preprint — see paper/paper_01_submission.md"

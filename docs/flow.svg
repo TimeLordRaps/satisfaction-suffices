@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+    <marker id="arrG" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27AE60"/>
+    </marker>
+    <marker id="arrO" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#E67E22"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="600" fill="#F8F9FA" rx="10"/>
+
+  <!-- Header -->
+  <text x="300" y="28" text-anchor="middle" font-family="monospace" font-size="13" font-weight="bold" fill="#1A1A2E">satisfaction-suffices — critical path</text>
+
+  <!-- ① INPUT -->
+  <rect x="100" y="42" width="400" height="56" rx="6" fill="#2980B9" stroke="#1F618D" stroke-width="1.5"/>
+  <text x="300" y="65" text-anchor="middle" font-family="monospace" font-size="13" font-weight="bold" fill="white">YOUR CONTENT</text>
+  <text x="300" y="86" text-anchor="middle" font-family="monospace" font-size="10" fill="#AED6F1">text · code · proof · math · signals</text>
+
+  <!-- Arrow ①→② -->
+  <line x1="300" y1="98" x2="300" y2="122" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ② ENTRY POINT -->
+  <rect x="125" y="122" width="350" height="48" rx="6" fill="#1A1A2E" stroke="#0D0D1A" stroke-width="1.5"/>
+  <text x="300" y="144" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#F0F0F0">verify( content, domain )</text>
+  <text x="300" y="163" text-anchor="middle" font-family="monospace" font-size="10" fill="#7F8C8D">↑ entry point — everything starts here</text>
+
+  <!-- Arrow ②→③ -->
+  <line x1="300" y1="170" x2="300" y2="194" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ③ CONSTRAINT EXTRACTOR -->
+  <rect x="60" y="194" width="480" height="66" rx="6" fill="#27AE60" stroke="#1E8449" stroke-width="1.5"/>
+  <text x="300" y="217" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="white">CONSTRAINT EXTRACTOR</text>
+  <text x="300" y="235" text-anchor="middle" font-family="monospace" font-size="10" fill="#D5F5E3">content → propositional clauses → 3-SAT CNF</text>
+  <text x="300" y="252" text-anchor="middle" font-family="monospace" font-size="10" fill="#D5F5E3">Tseitin encoding · text_to_3sat · code_to_3sat</text>
+
+  <!-- Arrow ③→④ -->
+  <line x1="300" y1="260" x2="300" y2="284" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ④ SAT SOLVER -->
+  <rect x="60" y="284" width="480" height="66" rx="6" fill="#6C3483" stroke="#4A235A" stroke-width="1.5"/>
+  <text x="300" y="307" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="white">SAT SOLVER</text>
+  <text x="300" y="325" text-anchor="middle" font-family="monospace" font-size="10" fill="#E8DAEF">DPLL + unit propagation + WalkSAT fallback</text>
+  <text x="300" y="342" text-anchor="middle" font-family="monospace" font-size="10" fill="#E8DAEF">conflict budget · phase-transition zone α ∈ [3.2, 5.2]</text>
+
+  <!-- Branching line -->
+  <line x1="300" y1="350" x2="300" y2="372" stroke="#555" stroke-width="2"/>
+  <line x1="80"  y1="372" x2="520" y2="372" stroke="#555" stroke-width="2"/>
+  <line x1="80"  y1="372" x2="80"  y2="392" stroke="#555" stroke-width="1.5"/>
+  <line x1="208" y1="372" x2="208" y2="392" stroke="#555" stroke-width="1.5"/>
+  <line x1="392" y1="372" x2="392" y2="392" stroke="#555" stroke-width="1.5"/>
+  <line x1="520" y1="372" x2="520" y2="392" stroke="#555" stroke-width="1.5"/>
+
+  <!-- ⑤ VERIFIED -->
+  <rect x="25" y="392" width="110" height="72" rx="5" fill="#1E8449" stroke="#196F3D" stroke-width="1.5"/>
+  <text x="80" y="412" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="white">VERIFIED</text>
+  <text x="80" y="428" text-anchor="middle" font-family="monospace" font-size="9" fill="#A9DFBF">ratio ≥ 0.90</text>
+  <text x="80" y="444" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#ABEBC6">GATE OPENS</text>
+  <text x="80" y="458" text-anchor="middle" font-family="monospace" font-size="14" fill="#58D68D">✓</text>
+
+  <!-- ⑥ CONTRADICTION -->
+  <rect x="153" y="392" width="110" height="72" rx="5" fill="#C0392B" stroke="#922B21" stroke-width="1.5"/>
+  <text x="208" y="412" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="white">CONTRADICTION</text>
+  <text x="208" y="428" text-anchor="middle" font-family="monospace" font-size="9" fill="#FADBD8">ratio &lt; 0.75</text>
+  <text x="208" y="444" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#F1948A">GATE CLOSED</text>
+  <text x="208" y="458" text-anchor="middle" font-family="monospace" font-size="14" fill="#E74C3C">✗</text>
+
+  <!-- ⑦ PARADOX -->
+  <rect x="337" y="392" width="110" height="72" rx="5" fill="#D35400" stroke="#A04000" stroke-width="1.5"/>
+  <text x="392" y="412" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="white">PARADOX</text>
+  <text x="392" y="428" text-anchor="middle" font-family="monospace" font-size="9" fill="#FAD7A0">groups SAT;</text>
+  <text x="392" y="443" text-anchor="middle" font-family="monospace" font-size="9" fill="#FAD7A0">joint UNSAT</text>
+  <text x="392" y="459" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="#F0B27A">GATE CLOSED</text>
+
+  <!-- ⑧ TIMEOUT -->
+  <rect x="465" y="392" width="110" height="72" rx="5" fill="#7F8C8D" stroke="#566573" stroke-width="1.5"/>
+  <text x="520" y="412" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="white">TIMEOUT</text>
+  <text x="520" y="428" text-anchor="middle" font-family="monospace" font-size="9" fill="#D5D8DC">budget gone</text>
+  <text x="520" y="444" text-anchor="middle" font-family="monospace" font-size="9" fill="#D5D8DC">verdict unknown</text>
+  <text x="520" y="459" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="#BDC3C7">GATE CLOSED</text>
+
+  <!-- Arrow: VERIFIED → OUTPUT -->
+  <line x1="80" y1="464" x2="80" y2="494" stroke="#27AE60" stroke-width="2" marker-end="url(#arrG)"/>
+  <rect x="25" y="494" width="110" height="36" rx="5" fill="#0B5345" stroke="#0A3D2E" stroke-width="1.5"/>
+  <text x="80" y="511" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="white">OUTPUT</text>
+  <text x="80" y="524" text-anchor="middle" font-family="monospace" font-size="9" fill="#58D68D">proceeds</text>
+
+  <!-- Arrow: PARADOX → evolve_proof (dashed) -->
+  <line x1="392" y1="464" x2="392" y2="494" stroke="#E67E22" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrO)"/>
+  <rect x="337" y="494" width="110" height="36" rx="5" fill="#784212" stroke="#6E2F1A" stroke-width="1.5"/>
+  <text x="392" y="511" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="white">evolve_proof()</text>
+  <text x="392" y="524" text-anchor="middle" font-family="monospace" font-size="8" fill="#FAD7A0">mutation loop</text>
+
+  <!-- Legend note -->
+  <text x="300" y="558" text-anchor="middle" font-family="monospace" font-size="9" fill="#95A5A6">SAT_COHERENT=0.90 · SAT_PLATEAU_LO=0.75 · phase-transition α≈4.267</text>
+  <text x="300" y="574" text-anchor="middle" font-family="monospace" font-size="9" fill="#95A5A6">solver operates with extra restarts when α∈[3.2,5.2] (brackets the hard zone)</text>
+</svg>

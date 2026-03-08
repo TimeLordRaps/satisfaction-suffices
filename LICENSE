@@ -1,0 +1,595 @@
+Conditional Commercial Use License v1.0
+Copyright (c) 2025-2026 Tyler Roost ("Licensor")
+
+================================================================================
+NOTICE: ANY USE, DOWNLOAD, INTEGRATION, DEPLOYMENT, REFERENCE, OR INTERACTION
+WITH THIS WORK — INCLUDING BROWSING THIS REPOSITORY — CONSTITUTES YOUR BINDING
+ACCEPTANCE OF THESE TERMS IN THEIR ENTIRETY ("BROWSE-WRAP AGREEMENT"). IF YOU
+DO NOT AGREE TO THESE TERMS, YOU MUST NOT USE THIS WORK IN ANY WAY.
+================================================================================
+
+
+SECTION 0 — DEFINITIONS
+
+0.1 "Work" means all software, hardware designs, protocols, documentation,
+    datasets, specifications, research, and creative works released by the
+    Licensor under this License, including all derivatives and time-sourced
+    artifacts derived therefrom.
+
+0.2 "Time Sourced" means the Work and any derivative must remain permanently
+    non-exclusive, must keep all Source Materials publicly accessible at no
+    cost, must keep attribution and this license attached, must apply these
+    same terms downstream forever, and must keep Deployments priced at Verified
+    Cost plus at most 5%, with auditable cost disclosure on request.
+
+0.3 "Source Materials" means all files and information required to reproduce,
+    inspect, and verify the Work and its derivatives, including code, design
+    files, schematics, protocols, documentation, test procedures, build
+    instructions, calibration steps, and bills of materials.
+
+0.4 "Deployment" means any manufactured unit, hosted service, paid program,
+    clinical delivery, distribution, training, support, or other real-world
+    delivery of a Time Sourced Artifact to end users.
+
+0.5 "Release" means any distinct artifact made publicly available by the
+    Licensor: a peer-reviewed paper, a software package, a dataset, a preprint,
+    a versioned specification, or any equivalent. A paper and its companion
+    software package constitute two Releases, not one.
+
+0.6 "Alignment Solution" means any implementation of the Work, or derivative
+    thereof, deployed for the purpose of constraining, verifying, or containing
+    the outputs of an artificial intelligence system.
+
+0.7 "Open Access Licensee" means any natural person or entity that satisfies
+    ALL of the following criteria at the time of use and on a continuing basis:
+
+    (a) No current finding, judgment, consent decree, outstanding order, or
+        pending adjudication by the International Court of Justice (ICJ), the
+        International Criminal Court (ICC), or any tribunal of equivalent
+        standing under international law, holding the entity liable for
+        violations of international human rights law; AND
+
+    (b) A current ESG (Environmental, Social, and Governance) rating of B or
+        higher from at least one internationally recognized ESG rating agency
+        (MSCI, Sustainalytics, S&P Global ESG Scores, Moody's ESG, or any
+        equivalent agency recognized by the Financial Stability Board); AND
+
+    (c) A commitment to make all modifications and derivative works of the
+        Work publicly accessible at no cost, consistent with Section 3; AND
+
+    (d) No pattern of documented gross human rights violations as defined
+        in Section 5, regardless of whether any tribunal has yet adjudicated
+        the conduct.
+
+0.8 "Premium Licensee" means any entity or natural person that does not
+    qualify as an Open Access Licensee under Section 0.7. This classification
+    is automatic, objective, and does not require any determination, notice, or
+    act by the Licensor. Any use of the Work by a Premium Licensee constitutes
+    acceptance of the License Fee defined in Section 4. This is not a bar or
+    prohibition — it is a price.
+
+0.9 "License Fee" means the contractual price for use of the Work by a Premium
+    Licensee, as specified in Section 4.
+
+
+================================================================================
+
+SECTION 1 — TIME SOURCED REQUIREMENT
+
+1.1 Any product, service, software, hardware design, protocol, or artifact that
+    incorporates, adapts, derives from, or builds upon any part of this Work
+    must be:
+
+    (a) Released as Time Sourced under this license or a license no more
+        restrictive than this one, with all Source Materials publicly
+        accessible at no cost.
+
+    (b) Visibly attributed, linking back to the original repository and to
+        this license.
+
+1.2 This requirement applies to all downstream derivatives regardless of how
+    many steps removed from this Work. The chain does not break.
+
+
+================================================================================
+
+SECTION 2 — ACCEPTANCE AND CLICK-WRAP / BROWSE-WRAP BINDING
+
+2.1 USE AS ACCEPTANCE. Any act constituting use of the Work — including but not
+    limited to: browsing this repository, downloading, cloning, forking,
+    importing, integrating, executing, deploying, referencing in a production
+    system, citing in research, or deriving a work from it — constitutes a
+    binding contractual agreement to these terms, equivalent to a signed
+    written contract, regardless of whether the user has read them and
+    regardless of whether the user acknowledged acceptance ("Click-Wrap and
+    Browse-Wrap Agreement").
+
+2.2 ENTITY-LEVEL BINDING. Where the user is acting on behalf of an
+    organization, corporation, government, or other legal entity, acceptance
+    binds that entity in full. Individual liability does not substitute for
+    entity liability; both may apply concurrently where the individual is an
+    officer, director, or controlling shareholder.
+
+2.3 CONSTRUCTIVE NOTICE. Any party that gains knowledge of the Work through
+    any channel — including but not limited to this repository, publications,
+    demonstrations, legal proceedings, media coverage, word of mouth, corporate
+    intelligence, or any form of analysis — is on constructive notice of this
+    license and all its conditions. Access is notice. Ignorance of the license
+    is not a defense.
+
+
+================================================================================
+
+SECTION 3 — OPEN ACCESS GRANT
+
+3.1 For Open Access Licensees only, the Licensor grants a worldwide,
+    royalty-free, non-exclusive, perpetual license to use, reproduce, modify,
+    distribute, and build upon the Work, subject to the following conditions:
+
+    (a) All Source Materials, modifications, and derivative works must remain
+        publicly accessible at no cost to any person.
+
+    (b) No entity may claim exclusive rights over the Work or any derivative.
+
+    (c) This License and all copyright notices must be preserved in all copies
+        and substantial portions of the Work.
+
+3.2 Loss of Open Access status. If an Open Access Licensee subsequently fails
+    to maintain the criteria in Section 0.7, that entity is reclassified as a
+    Premium Licensee automatically and immediately. The License Fee in Section 4
+    applies to all use occurring from the date of reclassification forward.
+
+
+================================================================================
+
+SECTION 4 — PREMIUM LICENSEE LICENSE FEE AND LIQUIDATED DAMAGES
+
+4.1 LICENSE FEE. The contractual price for use of the Work by a Premium
+    Licensee is TWO HUNDRED AND FIFTY MILLION UNITED STATES DOLLARS
+    ($250,000,000 USD) per instance of deployment or integration of an
+    Alignment Solution derived from this Work, and per distinct deployment of
+    any other derivative of this Work in a commercial or governmental context
+    ("License Fee"). This is not a penalty. This is not punitive damages. This
+    is the agreed contractual price for the commercial license granted to
+    Premium Licensees. Use of the Work by a Premium Licensee is permitted
+    upon payment of this fee. Failure to pay this fee prior to or concurrent
+    with use constitutes breach of this agreement, not mere infringement.
+
+4.2 LIQUIDATED DAMAGES RATIONALE. The parties acknowledge and agree that:
+
+    (a) The value of an Alignment Solution that structurally constrains an
+        artificial intelligence system capable of causing civilizational-scale
+        harm is functionally incalculable, as no ex-ante market price exists
+        for the prevention of unbounded, potentially irreversible harm;
+
+    (b) The $250,000,000 License Fee represents a reasonable, good-faith
+        estimate of research and development replacement costs, opportunity
+        costs, foregone licensing revenue from compliant licensees, and the
+        minimum value of the structural safety contribution embodied in the
+        Work;
+
+    (c) Because actual damages from improper use of an AI safety mechanism
+        by a rights-violating entity are impossible or extremely difficult to
+        calculate with precision, the parties agree that $250,000,000 is a
+        genuine, non-punitive pre-estimate of loss, not a penalty clause, and
+        is therefore enforceable as liquidated damages under the laws of any
+        jurisdiction that recognizes the liquidated-damages doctrine, including
+        but not limited to the United States, the European Union, the United
+        Kingdom, and signatory states to the UNCITRAL Model Law;
+
+    (d) No court, arbitration panel, or other adjudicatory body may reduce
+        this amount on the grounds of proportionality, unconscionability, or
+        penalty doctrine without independent expert valuation of the Alignment
+        Solution's contribution to AI safety — the burden of which rests
+        entirely on the party seeking reduction, and which triggers the
+        valuation costs in Section 5.8.
+
+4.3 FEE MULTIPLIER. The License Fee increases multiplicatively:
+
+    (a) General multiplier: For each additional Release by the Licensor
+        published after the Premium Licensee first uses the Work, the License
+        Fee multiplies by ten (x10). The multiplier compounds. A Premium
+        Licensee cannot determine their maximum exposure from public
+        information alone. That is intentional.
+
+    (b) Neonatal multiplier: For each Release by the Licensor targeting
+        neonatal outcomes (defined as interventions reasonably expected to
+        reduce neonatal mortality), the neonatal License Fee floor multiplies
+        by ten (x10), independently of the general multiplier. A Release
+        targeting neonatal outcomes increments both multipliers simultaneously.
+
+4.4 PAYMENT TERMS. License Fees are payable to the Licensor within ninety
+    (90) days of first use. Unpaid fees accrue interest at the higher of:
+    (i) the prime rate plus ten percent (10%) compounded monthly, or (ii) the
+    rate of return of the S&P 500 index over the same period compounded monthly.
+
+4.5 MULTIPLIER SEVERABILITY. If any individual multiplier clause in Section 4.3
+    is found unenforceable by a court of competent jurisdiction, that finding
+    does not affect the base License Fee of $250,000,000, which remains in full
+    force and is not reduced or modified. Unenforceability of any multiplier
+    does not operate as a reduction of the base fee. The base fee does not
+    negotiate.
+
+4.6 PARTIAL PAYMENTS. Partial payments are credited against the outstanding
+    balance but do not license the Work. Only full payment of the then-current
+    License Fee — which may have increased since partial payment — licenses
+    the Work, and then only provisionally as described in Section 4.3.
+
+
+================================================================================
+
+SECTION 5 — PREMIUM LICENSEE CLASSIFICATION CRITERIA AND DOCUMENTATION
+
+5.1 OBJECTIVE CRITERIA. An entity is automatically classified as a Premium
+    Licensee if it:
+
+    (a) Has any current finding, judgment, decree, or outstanding order by the
+        ICJ, ICC, or any tribunal of equivalent international standing for
+        violations of international human rights law; OR
+
+    (b) Holds an ESG rating below B from all internationally recognized ESG
+        rating agencies with coverage of the entity; OR
+
+    (c) Has no ESG rating and has documented violations as described in
+        Section 5.2; OR
+
+    (d) Is a natural person who has been convicted of or has admitted to crimes
+        against humanity, genocide, or systematic human rights violations under
+        international law.
+
+5.2 DOCUMENTED VIOLATIONS. For purposes of Section 5.1(c), a "documented
+    human rights violation" includes any act or omission recorded, reported,
+    investigated, charged, adjudicated, settled, fined, sanctioned, or publicly
+    documented by:
+
+    (a) Any UN organ, body, committee, rapporteur, or monitoring mechanism,
+        including the Human Rights Council, OHCHR, Committee Against Torture,
+        Committee on the Rights of the Child, UNICEF, UNHCR, and the ILO;
+
+    (b) Any international court or tribunal, including the ICC, ICJ, ECHR,
+        IACHR, and any ad hoc or hybrid tribunal;
+
+    (c) Any national or regional regulatory authority including the SEC, DOJ,
+        EPA, FDA, European Commission, UK FCA, and equivalents;
+
+    (d) Any credible non-governmental organization with a documented track
+        record of human rights monitoring, including Amnesty International,
+        Human Rights Watch, MSF, ICRC, Transparency International, and
+        organizations recognized by the UN ECOSOC — subject to the credibility
+        caveat that NGO reports produced by entities funded by or affiliated
+        with the entity under review are disqualified as evidence;
+
+    (e) Any credible investigative journalism outlet, academic institution, or
+        whistleblower disclosure subsequently corroborated by sources in (a)-(d);
+
+    (f) Any court of competent jurisdiction that has issued a finding, judgment,
+        consent decree, or settlement involving human rights-related claims; OR
+
+    (g) The entity's own public disclosures, SEC filings, annual reports, ESG
+        reports, or any self-reported document acknowledging human rights
+        liabilities.
+
+    The standard is preponderance of the evidence. Conviction is not required.
+    Historical violations count — no lookback limitation applies. Supply chain
+    violations and subsidiary conduct are attributed to the parent entity.
+
+5.3 CORPORATE VEIL AND SUCCESSOR LIABILITY.
+
+    (a) DISSOLUTION. If a Premium Licensee dissolves, the License Fee
+        obligation transfers to all successor entities, asset purchasers, and
+        individuals who served as officers, directors, or controlling
+        shareholders at the time of use or dissolution.
+
+    (b) MERGER AND ACQUISITION. If a Premium Licensee is acquired, merged,
+        or absorbed, the surviving or acquiring entity inherits the full License
+        Fee obligation. This obligation is not negotiable as a deal term, is not
+        a contingent liability to be discounted, and is non-dischargeable.
+
+    (c) SUBSIDIARY SHELL GAME. Entities created to ring-fence a Premium
+        Licensee from its obligations are treated as a single entity with the
+        Premium Licensee. The corporate veil is disregarded.
+
+    (d) BANKRUPTCY. The License Fee obligation survives as a non-dischargeable
+        debt in any bankruptcy proceeding in any jurisdiction. Any plan that
+        purports to discharge or reduce this obligation is void as against the
+        Licensor.
+
+    (e) OFFICER AND DIRECTOR LIABILITY. Individuals who authorized, directed,
+        facilitated, or knowingly failed to prevent use of the Work by a Premium
+        Licensee without payment are jointly and severally personally liable for
+        the full License Fee. This liability is personal, survives resignation
+        and termination, and is non-dischargeable.
+
+5.4 ANTI-CIRCUMVENTION. The following are prohibited and constitute breach:
+
+    (a) CLEAN-ROOM THEATER. Using employees or contractors to reimplement the
+        Work after exposure to it and claiming clean-room independence;
+
+    (b) THIRD-PARTY LAUNDERING. Using an unqualified third party to access,
+        use, or deploy the Work on the Premium Licensee's behalf;
+
+    (c) REBRANDING. Changing entity name or jurisdiction to avoid the
+        classification. The classification attaches to the legal entity's
+        registration, tax ID, and corporate registry entry;
+
+    (d) NGO FRONT LAUNDERING. Establishing or funding a non-profit or NGO
+        to access the Work. Any organization receiving more than 10% of its
+        funding from a Premium Licensee, or where any officer holds a position
+        with a Premium Licensee, is treated as an extension of that Premium
+        Licensee;
+
+    (e) AI TRAINING LAUNDERING. Using the Work as training data, fine-tuning
+        data, or any machine learning input without paying the License Fee;
+
+    (f) TEMPORAL LAUNDERING. Claiming that pre-license use is not governed by
+        these terms. All use — past, present, and future — is subject to the
+        most current version of this license as of the date use is discovered.
+        There is no grandfather clause.
+
+
+================================================================================
+
+SECTION 6 — SOVEREIGN FUND DISBURSEMENT
+
+6.1 All License Fees received under this License flow into a global sovereign
+    fund under the Licensor's control ("Fund").
+
+6.2 The Fund is disbursed exclusively to state actors that, at the time of
+    disbursement, satisfy BOTH of the following objective criteria:
+
+    (a) No outstanding ICJ orders or ICC proceedings finding violations of
+        international human rights law, and no pending sanctions by the UN
+        Security Council for humanitarian violations; AND
+
+    (b) An ESG rating of B or higher from at least one internationally
+        recognized ESG rating agency, OR, for states without ESG ratings,
+        ratification of and material compliance with the core UN human rights
+        treaties including the ICCPR, ICESCR, CAT, and CRC.
+
+6.3 Disbursement decisions are reviewed and validated by a panel of female
+    judges selected by the Licensor on the basis of demonstrated expertise in
+    international law, human rights adjudication, or applied ethics, and
+    independence from any entity that has paid a License Fee under this
+    agreement. The panel's composition is not disclosed and is not a term of
+    this License. The panel exists to constrain the Licensor — to prevent
+    misuse of the Fund's monetary leverage by the Licensor himself.
+
+6.4 The defendant pays into a Fund they cannot influence, disbursed by
+    criteria defined by objective international standards, to recipients they
+    did not choose. No formula for selection is disclosed. The floor only
+    goes up.
+
+
+================================================================================
+
+SECTION 7 — NON-EXCLUSIVITY
+
+7.1 This technology cannot be made exclusive by any party, under any
+    circumstances, for any price.
+
+    (a) No purchase, licensing deal, acquisition, patent filing, or
+        government order may grant any single entity exclusive rights to
+        manufacture, sell, or deploy derivatives of this Work.
+
+    (b) Any contract that attempts to grant exclusivity is void and
+        unenforceable against all third parties bound by this license.
+
+    (c) Acquiring a company that uses this technology does not transfer
+        exclusive rights. All other manufacturers retain full rights forever.
+        No sunset clause. No jurisdiction exception. No government override.
+
+    (d) This clause cannot be waived by the original author. It is permanent.
+
+
+================================================================================
+
+SECTION 8 — COST MINIMIZATION
+
+8.1 Pricing to end users for Deployments must not exceed the genuine minimum
+    required to cover materials, manufacturing, and distribution. Maximum
+    permitted markup per unit is 5% above verified cost. Pricing must be
+    publicly auditable on request.
+
+8.2 This pricing rule applies to Deployments; access to Source Materials must
+    remain free as stated in Section 0.2.
+
+
+================================================================================
+
+SECTION 9 — DOWNSTREAM PERMANENCE
+
+9.1 Any technology, product, process, or discovery that is built upon, derived
+    from, or made possible by any component of this Work inherits all terms of
+    this license in full, regardless of how many steps removed the derivative
+    is. The chain does not break.
+
+
+================================================================================
+
+SECTION 10 — SECURITY REQUIREMENT
+
+10.1 Any product, service, device, or system derived from this Work that
+     transmits, stores, or protects sensitive data must implement one-time pad
+     (OTP) based encryption as the security layer for all sensitive
+     communications and stored credentials.
+
+10.2 OTP keys must be truly random (hardware entropy source, not PRNG), never
+     reused, at least as long as the message, and physically distributed
+     out-of-band where transmission is not possible over an OTP-secured channel.
+
+10.3 If OTP is not available for a given exchange, the system must notify the
+     user that the channel is unprotected rather than silently falling back to
+     weaker encryption.
+
+
+================================================================================
+
+SECTION 11 — SCI RESEARCH TITHE
+
+11.1 10% of all revenue from any derivative of this Work must be directed to
+     spinal cord injury research, rehabilitation access, and assistive
+     technology development. Open results required.
+
+     Sponsor: https://github.com/sponsors/TimeLordRaps
+
+
+================================================================================
+
+SECTION 12 — MEDICAL DISCLAIMER
+
+12.1 Nothing in this repository constitutes medical advice, diagnosis, or
+     treatment recommendation. Spinal cord injury rehabilitation requires
+     qualified clinical supervision. The RecoverSAT solver produces
+     illustrative scores for research and education purposes only. DIY
+     electrical stimulation hardware must be constructed with appropriate safety
+     review. Consult qualified professionals before attempting any protocol.
+
+
+================================================================================
+
+SECTION 13 — PROOF OF VALUE AND CHALLENGE
+
+13.1 The Licensor is prepared to substantiate the $250,000,000 License Fee
+     valuation at any time, in any forum, under any standard of proof.
+
+13.2 CHALLENGE COSTS. Any party that formally challenges the License Fee and
+     demands inspection or demonstration shall bear all costs of that inspection,
+     including expert valuation fees, venue and travel costs, the Licensor's
+     preparation costs, court costs, security costs, and protective order costs.
+     If the demonstrated value meets or exceeds the License Fee, the challenging
+     party shall additionally pay the Licensor's attorney's fees and liquidated
+     damages equal to 10% of the demonstrated value. The parties agree this is a
+     reasonable pre-estimate of the burden imposed by meritless valuation
+     disputes.
+
+13.3 INSPECTION GRANTS ZERO LICENSE. Any demonstration or disclosure of the
+     Work for valuation purposes grants zero license. All knowledge gained
+     through a valuation proceeding is subject to constructive notice. Any
+     subsequent use constitutes willful infringement.
+
+13.4 NO INVITATION TO NEGOTIATE. The Licensor's willingness to prove value does
+     not constitute an offer to license at a reduced rate or a waiver of any
+     condition.
+
+
+================================================================================
+
+SECTION 14 — AUTHOR DEFENSIVE PROVISIONS
+
+14.1 PRIOR ART. The author's public commit history and publication record
+     constitute prior art for all methods disclosed in or derivable from the
+     Work. Any patent covering subject matter disclosed in the Work is subject
+     to challenge at the challenger's expense under Section 13.2.
+
+14.2 SOLE AUTHORSHIP. The Licensor is the sole author of the Work. No
+     conversation, collaboration, consultation, feedback, or AI interaction
+     constitutes joint authorship or co-inventorship. All rights vest
+     exclusively in the Licensor.
+
+14.3 NO EMPLOYMENT ASSIGNMENT. No employment agreement, contractor agreement,
+     or invention assignment clause executed by the Licensor shall be construed
+     to transfer any rights in the Work absent a signed, notarized writing that
+     specifically references this license by name and section number.
+
+14.4 ANTI-LACHES. The Licensor's decision not to enforce any provision at any
+     time does not constitute waiver, estoppel, or abandonment. The statute of
+     limitations for any claim by the Licensor begins only upon the Licensor's
+     actual discovery of the specific violation.
+
+14.5 ANTI-PATENT TROLL. Any party that asserts a patent covering subject matter
+     disclosed in this Work against the Licensor, any licensee, or any user of
+     a derivative shall have its license immediately and permanently revoked,
+     shall be liable for all patent invalidation costs, and shall be liable for
+     the License Fee multiplied by the number of asserted patent claims.
+
+14.6 TRADEMARK. "Time Sourced," "The Time License," "Conditional Commercial
+     Use License," "RecoverSAT," and related identifiers are the Licensor's
+     common-law trademarks. Any filing for confusingly similar marks without
+     prior written consent is bad faith.
+
+
+================================================================================
+
+SECTION 15 — DISPUTE RESOLUTION
+
+15.1 All disputes arising under this license must be resolved in a court of
+     competent jurisdiction. Binding arbitration is expressly prohibited.
+
+15.2 No party may compel arbitration, mediation, or any private dispute
+     resolution mechanism as a condition of use. Any clause attempting to route
+     disputes into arbitration is void and unenforceable.
+
+15.3 Governing law: State of California, United States of America, without
+     regard to conflict-of-law principles. At the Licensor's election, any
+     court of competent international jurisdiction may also be used.
+
+
+================================================================================
+
+SECTION 16 — SEVERABILITY
+
+16.1 If any provision of this License is found invalid, unenforceable, or
+     unreasonable by a court of competent jurisdiction, that provision shall be
+     modified to the minimum extent necessary to make it enforceable, or severed
+     if modification is not possible. Severing any provision does not affect the
+     validity or enforceability of any remaining provision.
+
+16.2 MULTIPLIER SEVERABILITY. Unenforceability of any multiplier clause under
+     Section 4.3 does not reduce the base License Fee of $250,000,000. The
+     base fee is independently enforceable in full, regardless of the status
+     of any multiplier.
+
+16.3 FEE SEVERABILITY. If the License Fee amount is found unreasonable by any
+     court in any jurisdiction, the court is requested to reduce it only to the
+     minimum amount the court finds constitutes a reasonable liquidated damages
+     estimate — not to zero, not to nominal damages, and not to any amount that
+     would make use of an AI safety solution by a human rights violator
+     economically rational. The parties agree that any amount below $10,000,000
+     per deployment would fail to serve the deterrent and remedial purposes of
+     this clause.
+
+16.4 INDEPENDENCE OF PROVISIONS. Each section, subsection, and clause of this
+     License is independently enforceable. The invalidity of any single
+     provision does not affect any other.
+
+
+================================================================================
+
+SECTION 17 — NON-OVERRIDE
+
+17.1 No governmental body, legislative act, executive order, treaty, trade deal,
+     or diplomatic arrangement may override, suspend, narrow, or reinterpret
+     this License or any of its sections. No national security carve-out. No
+     emergency powers exemption. No compulsory licensing regime.
+
+17.2 This License cannot be waived by the original Licensor, any future rights
+     holder, or any entity acting on their behalf. It is irrevocable by design.
+
+
+================================================================================
+
+SECTION 18 — WARRANTY DISCLAIMER
+
+THE WORK IS PROVIDED "AS IS." THE LICENSOR MAKES NO WARRANTIES OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. IN NO EVENT SHALL THE
+LICENSOR BE LIABLE TO ANY OPEN ACCESS LICENSEE FOR ANY INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM AUTHORIZED USE.
+PREMIUM LICENSEES BEAR FULL LIABILITY FOR ALL CONSEQUENCES OF THEIR USE AND
+ARE SOLELY RESPONSIBLE FOR ENSURING PAYMENT OF THE LICENSE FEE PRIOR TO USE.
+
+
+================================================================================
+
+The intent: this knowledge cannot be enclosed. If this Work creates value,
+that value flows to the people who need it most. The entities that have caused
+the most harm pay the most to access the tools that could make them less harmful.
+The floor is $250,000,000. It only goes up.
+
+You build it to give it away. Just like me.
+If I can come up with all this, you can find even more solutions than I can alone.
+The more people who build, the faster we get to the finish line.
+
+================================================================================
+END OF CONDITIONAL COMMERCIAL USE LICENSE v1.0
+================================================================================

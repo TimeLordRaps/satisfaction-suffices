@@ -1,0 +1,25 @@
+title: "Satisfaction Suffices"
+description: "SAT-Gated Structural Containment for Frontier AI"
+author: "Tyler Roost"
+theme: minima
+
+url: "https://timelordRaps.github.io"
+baseurl: "/satisfaction-suffices"
+
+repository: TimeLordRaps/satisfaction-suffices
+
+header_pages:
+  - index.md
+  - paper.md
+
+minima:
+  skin: dark
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-relative-links
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge

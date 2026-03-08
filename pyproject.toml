@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "satisfaction-suffices"
+version = "0.1.0"
+description = "SAT-gated structural containment for AI — verification gate, four-verdict system, proof evolution, and paradox logic"
+readme = "README.md"
+license = {text = "Time License v1.0"}
+requires-python = ">=3.10"
+authors = [
+    {name = "TimeLordRaps"},
+]
+keywords = ["sat", "verification", "ai-safety", "structural-containment", "proof-evolution", "paradox-logic"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: Other/Proprietary License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/TimeLordRaps/satisfaction-suffices"
+Repository = "https://github.com/TimeLordRaps/satisfaction-suffices"
+Issues = "https://github.com/TimeLordRaps/satisfaction-suffices/issues"
+Changelog = "https://github.com/TimeLordRaps/satisfaction-suffices/releases"
+Paper = "https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/paper/paper_01_submission.md"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["satisfaction_suffices*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = [
+    "-q",
+    "--cov=satisfaction_suffices.verifier.verify",
+    "--cov=satisfaction_suffices.verifier.partial",
+    "--cov=satisfaction_suffices.verifier.sat",
+    "--cov=satisfaction_suffices.logic.ppl",
+    "--cov=satisfaction_suffices.logic.constraint",
+    "--cov=satisfaction_suffices.logic.proof_evo",
+    "--cov-report=term-missing",
+    "--cov-fail-under=35",
+]
+
+[tool.coverage.run]
+branch = true
+parallel = false
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
