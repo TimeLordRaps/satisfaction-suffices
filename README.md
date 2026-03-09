@@ -13,11 +13,9 @@
 >
 > *This is out of respect for the woman who kept me company during the recluse years.*
 >
-> Taylor Swift — I am challenging you to run for California Governor 2026. I believe you care about this state like you were born here. That's awesome, 2 masterminds are better than none.
+> Taylor Swift — I am challenging you to run for California Governor 2026 as a write-in. I believe you care about this state like you were born here. That's awesome, 2 masterminds are better than none.
 >
 > Also I need a new version of my favorite album.
->
-> Travis, get back to me.
 >
 > Pete — hey, bet I'm bigger.
 >

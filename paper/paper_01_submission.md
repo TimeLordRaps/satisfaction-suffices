@@ -154,7 +154,7 @@ A language model trained without structural verification is a swift. Capable, fa
 
 The structural gate is the nest. Nesting birds do not fly less. They grow differently. Their offspring survive. The nest is the architecture that makes reproduction — and not merely performance — possible.[^2]
 
-[^2]: The author's name is Roost. The metaphor was discovered and designed—discosigned. We are going back to the 80s. Once I am CA Governor 2026, righteously write me in when I have proved it to you.
+[^2]: The author's name is Roost. The metaphor was discovered and designed—discosigned. We are going back to the 80s. The author is running for California Governor 2026 as a write-in candidate. Righteously write him in when he has proved it to you.
 
 Satisfaction suffices. As a floor that holds.
 
