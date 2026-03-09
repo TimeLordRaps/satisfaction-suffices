@@ -162,9 +162,6 @@ Satisfaction suffices. As a floor that holds.
 
 ## 7. Future Work
 
-> *"I'm immortal now, baby dolls / I couldn't die if I tried"*
-> — *Apus apus*, *Once upon every time*
-
 1. **Classic unsatisfiable AI purge.** Systematic elimination of unsatisfiable output classes across domain-specific constraint extractors, with coverage instrumented via  probing.
 
 2. **Quantum alignment problems.** Extension of the SAT-gated verification framework to quantum constraint satisfaction, where superposition of satisfying assignments and entanglement between constraint groups introduce fundamentally new verification semantics beyond classical propositional logic.
