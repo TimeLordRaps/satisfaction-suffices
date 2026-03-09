@@ -31,6 +31,8 @@
 >
 > Ariana — am I right, or is this Wicked? I don't know, but I love what you did for all of it. Never saw it. Been too busy working on other matters.
 >
+> Tyler: Vampin' out in the back with my GothBoiClique: don't go coast ghost on us though.
+>
 > — Tyler Roost, Time for you.
 
 ---
