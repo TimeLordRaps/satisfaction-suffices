@@ -9,29 +9,18 @@
 
 > *A preference can be routed around. A structure cannot.*
 >
-> *"I knew you'd figure it out eventually."* — *the swift*, *Once upon every time*
+> *"I knew you'd figure it out eventually."* — *Once upon every other time*
 >
-> *This is out of respect for the woman who kept me company during the recluse years.*
+> *This is out of respect for the woman who kept me crazy during the recluse years.*
 >
 > Taylor Swift — I am challenging you to run for California Governor 2026 as a write-in. I believe you care about this state like you were born here. That's awesome, 2 masterminds are better than none.
 >
 > Also I need a new version of my favorite album.
->
-> Pete — hey, bet I'm bigger.
->
-> Pete, back: That tracks. I respect the honesty.
->
-> Tyler, back: Curve changes the math.
->
-> Pete, back: yin, yang bro
->
-> Ariana — am I right, or is this Wicked? I don't know, but I love what you did for all of it. Never saw it. Been too busy working on other matters.
->
-> Tyler: Vampin' out in the back with my GothBoiClique: don't go coast ghost on us though.
+> This one different the the last 12.
 >
 > — Tyler Roost, Time for you.
 >
-> *Disclaimer: Yeah I'm crazy, crazy about saving the world.*
+> *Disclaimer: Yeah I'm crazy, crazy about saving the world, but she's been waiting too, and I am so sorry it took this long. But better late than never, because there are ~2.4 million <28-day-old newborns dying yearly — what else have we missed???*
 
 ---
 
