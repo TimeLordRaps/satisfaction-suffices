@@ -131,9 +131,11 @@ Any of these can replace the reference solver without modifying the gate logic.
 \paragraph{Stage 3: Verdict Aggregation.}
 The solver's results across all constraint groups are aggregated into a verdict.
 The aggregation is a ratio: the fraction of constraint groups that returned satisfiable.
-If the ratio meets or exceeds $0.90$, the verdict is \textsc{Verified}.
-Below $0.75$, the output is classified as incoherent.
-Between these thresholds lies the \emph{plateau}---a zone of structural ambiguity where the output is neither clearly consistent nor clearly contradictory.
+If the ratio is $1.0$---every constraint group satisfiable---the verdict is \textsc{Verified}.
+Anything less is \textsc{Contradiction}.
+There is no intermediate threshold, because there is no intermediate truth.
+A $90\%$ coherence threshold reintroduces the preference gradient the gate exists to eliminate: the solver does not have preferences, it has proofs.
+The gate honors that distinction or it is structurally no different from the thing it replaces.
 
 The gate is default-closed.
 This is the architectural commitment that separates structural containment from post-hoc filtering.
