@@ -10,6 +10,8 @@
 > *A preference can be routed around. A structure cannot.*
 >
 > *"I knew you'd figure it out eventually."* — *Apus apus*, *Once upon every time*
+>
+> *This is out of respect for the woman who kept me company during the recluse years.*
 
 ---
 
