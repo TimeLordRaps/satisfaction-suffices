@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "satisfaction-suffices"
-version = "0.1.0"
+version = "0.2.0"
 description = "SAT-gated structural containment for AI — verification gate, four-verdict system, proof evolution, and paradox logic"
 readme = "README.md"
 license = {text = "Time License v1.0"}
