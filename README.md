@@ -19,8 +19,6 @@
 >
 > Travis, get back to me.
 >
-> Kanye — Imma let you finish, but a real messiah saves neonates. Kim warned you I would tell you this. You don't remember it.
->
 > Pete — hey, bet I'm bigger.
 >
 > Pete, back: That tracks. I respect the honesty.
