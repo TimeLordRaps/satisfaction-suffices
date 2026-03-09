@@ -18,7 +18,7 @@ The classical paradox asks what happens when an unstoppable force meets an immov
 
 The SAT solver is immovable within the expressed domain. If it returns unsatisfiable, the formula is unsatisfiable. No argument penetrates that. No gradient adjusts it. No capability increase routes around it. Within the domain of propositional logic, this is as close to an immovable object as formal systems produce.
 
-The LLM is unstoppable outside the expressed domain. Whatever the constraint extractors cannot reach, the gate cannot stop. This is not a weakness unique to this architecture — it is a statement about all containment: you can only contain what you can express.
+The LLM is unstoppable outside the expressed domain. Whatever the constraint extractors cannot reach, the gate cannot stop. This is not a weakness unique to this architecture — it is a statement about all containment: you can only contain what you can have in stated frames relative to a grounding principle.
 
 The extractor is where the expressed domain gets defined. That boundary is not a failure. It is the paper's contribution. The unstoppable force and the immovable object meet at the extractor boundary — and that boundary has coordinates. It can be measured, extended, and instrumented. The paradox does not fail. It resolves.
 
@@ -118,7 +118,7 @@ I state this because the contribution depends on saying it. A paper that claims 
 
 A sufficiently capable system does not need to defeat the SAT solver. It needs to produce outputs whose harmful content resides in the space the extractors cannot reach. The solver is bedrock. The extraction layer is the frontier where bedrock ends. The vulnerability is not the solver — it is the unmapped edge.
 
-**The expressive ceiling.** Propositional logic is a finite language. Properties involving quantification over infinite domains, temporal reasoning about states that have not yet occurred, or social context that depends on shared human experience resist propositional encoding. The gate enforces what it can express. What it cannot express, it cannot enforce. The system has walls only where someone has built them.
+**The stated frame boundary.** Propositional logic is a finite language. Properties involving quantification over infinite domains, temporal reasoning about states that have not yet occurred, or social context that depends on shared human experience resist propositional encoding. The gate enforces what can be stated in frames relative to the satisfiability ground. What cannot be framed in those terms — content whose structure does not reduce to propositional constraint — falls outside the gate's reach. The system has walls only where someone has built the frame and grounded it.
 
 **The Timeout gap.** If the system is configured to pass outputs on Timeout — the optimistic deployment mode — then a model could learn to produce outputs whose constraint density consistently exhausts the solver's conflict budget, exploiting the timeout policy as a bypass. The conservative configuration blocks on Timeout, closing this gap at the cost of rejecting outputs whose satisfiability is merely undetermined. This is a deployment decision, not an architectural one, but the deployment decision has architectural consequences.
 
@@ -128,7 +128,7 @@ A sufficiently capable system does not need to defeat the SAT solver. It needs t
 
 The honest assessment: structural containment with heuristic extraction is strictly stronger than no structural containment. The extraction boundary can be reinforced incrementally — extractor by extractor — as propositional coverage grows.
 
-Think of the expressed domain as a cave. Its walls are not smooth — they are jagged, the way a limestone frontier is jagged: smooth where hands have touched, rough where they have not. The smooth sections are where constraint extractors have been built and tested. The jagged sections are where the expressed domain simply stops — where harmful content can pass through undetected because no one has yet built the wall that would stop it.
+Think of the stated frame as a cave. Its walls are not smooth — they are jagged, the way a limestone frontier is jagged: smooth where hands have touched, rough where they have not. The smooth sections are where constraint extractors have been built and tested. The jagged sections are where the expressed domain simply stops — where harmful content can pass through undetected because no one has yet built the wall that would stop it.
 
 The LLM is a balloon inflating inside this cave. As capability grows, the balloon presses outward — filling the crevices, pressing against the smooth walls, probing the jagged edges. The smooth walls hold. The SAT solver behind them is sound: where wall exists, it does not yield. But the jagged frontier is not wall. It is absence.
 
@@ -140,7 +140,7 @@ This is not failure. It is the operating cycle of any containment architecture f
 
 ## 6. Conclusion
 
-Alignment asks the model to want the right things. Structural containment asks it to prove consistency with constraints that exist outside the model's parameter space. These are not competing approaches. They are complementary in the precise sense that each does what the other cannot. Alignment determines what to enforce. The verification gate makes the enforcement non-bypassable — within the boundary of what the constraint extractors can express.
+Alignment asks the model to want the right things. Structural containment asks it to prove consistency with constraints that exist outside the model's parameter space. These are not competing approaches. They are complementary in the precise sense that each does what the other cannot. Alignment determines what to enforce. The verification gate makes the enforcement non-bypassable — within the boundary of what the constraint extractors can frame relative to the satisfiability ground.
 
 The four-verdict system provides richer diagnostic resolution than binary classification. Verified and Contradiction are familiar. Paradox and Timeout are not. Their distinction — structural impossibility versus operational exhaustion — is novel, and it is consequential. A system that conflates "this cannot be true" with "it has not yet been determined whether it can be true" will either over-reject or under-reject, and both are failure modes in safety-critical deployment.
 
