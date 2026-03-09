@@ -162,7 +162,7 @@ Satisfaction suffices. As a floor that holds.
 
 ## 7. Future Work
 
-> *"I'm immortal now, baby dolls / I couldn't die if I tried"*
+> *"Race me Swift to save Neonates — we win together."*
 > — *Apus apus*, *Once upon every time*
 
 1. **Classic unsatisfiable AI purge.** Systematic elimination of unsatisfiable output classes across domain-specific constraint extractors, with coverage instrumented via  probing.
