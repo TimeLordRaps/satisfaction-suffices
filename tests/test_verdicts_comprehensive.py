@@ -307,8 +307,10 @@ class TestMustVerify:
             n_constraints=1, n_satisfied=0,
             n_refuted=1, n_timeout=0,
         )
+        import sys
         from unittest.mock import patch
-        with patch("satisfaction_suffices.verifier.verify.get_gate") as mock_gate:
+        _verify_mod = sys.modules["satisfaction_suffices.verifier.verify"]
+        with patch.object(_verify_mod, "get_gate") as mock_gate:
             mock_gate.return_value.verify.return_value = contradiction
             with pytest.raises(VerificationError) as exc_info:
                 must_verify("anything")
