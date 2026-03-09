@@ -115,9 +115,11 @@ Content + Domain
           ▼
 ┌─────────────────────┐
 │  Verdict            │  Verified / Contradiction / Paradox / Timeout
-│  Aggregator         │  SAT ratio ≥ 0.90 → Verified; < 0.75 → Contradiction
+│  Aggregator         │  SAT ratio = 1.0 → Verified; < 1.0 → Contradiction
 └─────────────────────┘
 ```
+
+The threshold is 100%. Not 90%, not 99%. If any constraint group is unsatisfiable, the output has a provable logical failure. A system that calls 90%-consistent output "Verified" has reintroduced preference — the very thing the gate exists to eliminate. The SAT solver does not have preferences. It has proofs. The gate honors that or it is nothing.
 
 **Modules:**
 - `verifier/` — SAT solver (DPLL + WalkSAT), verification gate, text/code → 3-SAT translation, partial constraint evaluation

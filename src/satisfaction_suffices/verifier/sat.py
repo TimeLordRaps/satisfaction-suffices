@@ -371,7 +371,7 @@ CDCLSolver = SATSolver
 
 # ── High-level interface ──────────────────────────────────────────────────────
 
-SAT_COHERENT   = 0.90
+SAT_COHERENT   = 1.0
 SAT_PLATEAU_LO = 0.75
 
 ZONE_REWARDS = {
