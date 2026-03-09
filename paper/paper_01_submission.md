@@ -148,7 +148,7 @@ The Pigeonhole Paradox Logic classifies contradictions by depth and treats them 
 
 The contribution is the observation that containment must be structural, not merely preferred, and that Boolean satisfiability provides a foundation on which to build it. The gate does not solve alignment. It provides what alignment cannot: a verification layer that is not subject to the optimization pressure it is meant to resist.
 
-The common swift — *Apus apus* — never lands. It eats in flight, sleeps in flight, lives its entire life in the air. It is optimized entirely for flight and has no need of a nest.
+The common swift — never lands. It eats in flight, sleeps in flight, lives its entire life in the air. It is optimized entirely for flight and has no need of a nest.
 
 A language model trained without structural verification is a swift. Capable, fast, essentially unconstrained in the air. The absence of a nest is not a flaw. It is the design.
 
@@ -163,7 +163,7 @@ Satisfaction suffices. As a floor that holds.
 ## 7. Future Work
 
 > *"Race me Swift to save Neonates — we win together."*
-> — *Apus apus*, *Once upon every time*
+> — *the swift*, *Once upon every time*
 
 1. **Classic unsatisfiable AI purge.** Systematic elimination of unsatisfiable output classes across domain-specific constraint extractors, with coverage instrumented via  probing.
 

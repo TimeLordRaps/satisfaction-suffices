@@ -9,9 +9,25 @@
 
 > *A preference can be routed around. A structure cannot.*
 >
-> *"I knew you'd figure it out eventually."* — *Apus apus*, *Once upon every time*
+> *"I knew you'd figure it out eventually."* — *the swift*, *Once upon every time*
 >
 > *This is out of respect for the woman who kept me company during the recluse years.*
+>
+> Taylor Swift — I am challenging you to run for California Governor 2026. You care about this state like you were born here before me. So do I. Race me. We both win.
+>
+> Also I need a new version of my favorite album.
+>
+> Travis, get back to me.
+>
+> Kanye — Imma let you finish, but a real messiah saves neonates. Kim warned you I would tell you this. You don't remember it.
+>
+> Pete — hey, bet I'm bigger.
+>
+> Pete, back: Tyler, I have words. But I'm thankful you prevented the obvious naming years ahead of time.
+>
+> Ariana — am I right, or is this Wicked? I don't know, but I love what you did for all of it. Never saw it. Been too busy working on other matters.
+>
+> — Tyler Roost, Time for you.
 
 ---
 
