@@ -23,7 +23,7 @@
 >
 > Pete — hey, bet I'm bigger.
 >
-> Pete, back: Tyler, I have words. But I'm thankful you prevented the obvious naming years ahead of time.
+> Pete, back: That tracks. I respect the honesty.
 >
 > Ariana — am I right, or is this Wicked? I don't know, but I love what you did for all of it. Never saw it. Been too busy working on other matters.
 >
