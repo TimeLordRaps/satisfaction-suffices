@@ -25,6 +25,10 @@
 >
 > Pete, back: That tracks. I respect the honesty.
 >
+> Tyler, back: Curve changes the math.
+>
+> Pete, back: yin, yang bro
+>
 > Ariana — am I right, or is this Wicked? I don't know, but I love what you did for all of it. Never saw it. Been too busy working on other matters.
 >
 > — Tyler Roost, Time for you.
