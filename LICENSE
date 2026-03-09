@@ -71,6 +71,28 @@ SECTION 0 — DEFINITIONS
 0.9 "License Fee" means the contractual price for use of the Work by a Premium
     Licensee, as specified in Section 4.
 
+0.10 "State Actor" means a sovereign national government, a recognized
+    sub-national government with independent legislative authority, or an
+    intergovernmental body composed of sovereign states (e.g., the United
+    Nations, the European Union, the African Union, or equivalent). Private
+    corporations, non-governmental organizations, and natural persons acting
+    in a private capacity are not State Actors regardless of government
+    contracts, partnerships, or funding relationships.
+
+0.11 "Guidance Agreement" means a written agreement, executed by the Licensor
+    personally, establishing the operational parameters, oversight protocols,
+    data rights, and deployment scope under which a specific State Actor is
+    authorized to deploy an Alignment Solution derived from this Work. No
+    Guidance Agreement may be delegated, assigned, or executed by any party
+    other than the Licensor. A Guidance Agreement is required before any
+    State Actor deployment of an Alignment Solution may commence.
+
+0.12 "Population Data" means any data, dataset, aggregate, model weight,
+    statistical output, behavioral signal, or derived insight generated from,
+    about, or through interactions with the citizens, residents, or subjects
+    of a State Actor's jurisdiction in connection with a deployment of an
+    Alignment Solution under this License.
+
 
 ================================================================================
 
@@ -138,6 +160,64 @@ SECTION 3 — OPEN ACCESS GRANT
     to maintain the criteria in Section 0.7, that entity is reclassified as a
     Premium Licensee automatically and immediately. The License Fee in Section 4
     applies to all use occurring from the date of reclassification forward.
+
+3.3 STATE ACTOR RESTRICTION ON ALIGNMENT SOLUTION DEPLOYMENT. Notwithstanding
+    Section 3.1, the right to deploy an Alignment Solution derived from this
+    Work is restricted exclusively to State Actors operating under a valid
+    Guidance Agreement (Section 0.11). No private corporation, non-governmental
+    organization, natural person, or other non-State-Actor entity may deploy
+    an Alignment Solution derived from this Work under any license tier,
+    including as a Premium Licensee, without a Guidance Agreement executed by
+    the Licensor. Unauthorized deployment of an Alignment Solution by a
+    non-State-Actor constitutes willful breach and triggers the License Fee
+    in Section 4 plus the maximum multiplier under Section 4.3, applied
+    cumulatively from the date of first use.
+
+3.4 LICENSOR GUIDANCE REQUIREMENT. Every Guidance Agreement must establish,
+    at minimum:
+
+    (a) The specific deployment scope, population, and jurisdiction;
+
+    (b) Operational oversight protocols under which the Licensor retains
+        ongoing review authority over the deployment;
+
+    (c) Data rights as specified in Section 3A;
+
+    (d) A termination clause exercisable unilaterally by the Licensor at any
+        time, with immediate effect, for any reason or no reason.
+
+
+================================================================================
+
+SECTION 3A — POPULATION DATA RIGHTS
+
+3A.1 LICENSOR DATA RIGHTS. As a condition of any Guidance Agreement and any
+    State Actor deployment of an Alignment Solution, the Licensor holds a
+    permanent, irrevocable, worldwide, royalty-free right to access, review,
+    analyze, publish aggregate findings from, and retain copies of all
+    Population Data generated in connection with that deployment.
+
+3A.2 NO STATE EXCLUSIVITY OVER POPULATION DATA. No State Actor acquires
+    exclusive ownership, control, or suppression rights over Population Data
+    generated under a Guidance Agreement. The State Actor may retain its own
+    copy and use it for the purposes specified in the Guidance Agreement, but
+    may not restrict, classify, seal, or otherwise prevent the Licensor from
+    accessing or exercising the rights in Section 3A.1.
+
+3A.3 DATA CANNOT BE WEAPONIZED. Population Data generated under this License
+    may not be used by the State Actor to surveil, persecute, target, or
+    discriminate against individuals or groups within its jurisdiction. Any
+    such use constitutes immediate breach, terminates the Guidance Agreement,
+    and triggers the License Fee plus maximum multiplier under Section 4.3.
+
+3A.4 LICENSOR PUBLICATION RIGHT. The Licensor may publish aggregate, anonymized,
+    or de-identified findings derived from Population Data for scientific,
+    policy, or public interest purposes without restriction, subject only to
+    individual privacy protections under applicable law.
+
+3A.5 SURVIVAL. The Licensor's rights under this Section survive termination of
+    any Guidance Agreement, expiration of this License, or any change in the
+    State Actor's government, administration, or legal status.
 
 
 ================================================================================

@@ -137,4 +137,4 @@ The taxonomy of four verdicts and the PPL trichotomy are frozen — they are the
 
 ## License
 
-Conditional Commercial Use License v1.0. Open access for good actors — free, non-exclusive, source-open. Premium Licensees (ICJ violations or ESG below B) pay $250,000,000 per deployment. Use is acceptance. The floor only goes up. See [LICENSE](./LICENSE) for full terms.
+Conditional Commercial Use License v1.0. Alignment Solution deployment is restricted to State Actors operating under a Guidance Agreement with the Licensor. The Licensor retains rights over all Population Data generated under any deployment. Non-state corporate deployment constitutes willful breach. Use is acceptance. The floor only goes up. See [LICENSE](./LICENSE) for full terms.
