@@ -40,32 +40,28 @@ SECTION 0 — DEFINITIONS
     thereof, deployed for the purpose of constraining, verifying, or containing
     the outputs of an artificial intelligence system.
 
-0.7 "Top AI Entity" means any entity appearing in Schedule A of this License
-    at time of first publication, or any entity that subsequently ranks in the
-    top 24 globally by AI-attributed effective market capitalization.
-    AI-attributed effective market capitalization means total equity value
-    multiplied by the fraction of revenue, operating income, or disclosed
-    strategic value attributable to artificial intelligence products, services,
-    infrastructure, or intellectual property. Private entities are ranked by
-    their most recent primary-market financing valuation. Schedule A is
-    reproduced at the end of this License and constitutes the authoritative
-    baseline list.
+0.7 "Top AI Entity" means any entity whose AI-attributed effective market
+    capitalization equals or exceeds $42,000,000,000 USD (forty-two billion
+    United States dollars). AI-attributed effective market capitalization means
+    total equity value multiplied by the fraction of revenue, operating income,
+    or disclosed strategic value attributable to artificial intelligence
+    products, services, infrastructure, or intellectual property. Private
+    entities are valued by their most recent primary-market financing valuation.
+    There is no cap on the number of qualifying entities. Schedule A lists
+    entities that met this threshold at time of first publication and is
+    illustrative, not exhaustive.
 
-0.8 "Annual License Fee" means the per-entity contractual fee owed by each
-    Top AI Entity for each calendar year in which it qualifies. The combined
-    annual target across all Top AI Entities is $420,000,000 USD. Each entity's
-    share is $420,000,000 divided by 24, prorated for the fraction of the
-    calendar year during which it qualifies: Annual Fee per entity =
-    ($420,000,000 ÷ 24) × (days qualified ÷ days in year). This fee covers
-    both (a) the method and intellectual property embodied in the Work and
-    (b) the software implementation and package released under this License,
-    as a combined whole. These are not separately priced and cannot be
-    segregated for fee purposes. The Annual License Fee accrues automatically
-    upon qualifying status and renews for each qualifying year without sunset.
-    The parties acknowledge that, in sempiternal operation, this annual
-    obligation carries an effective economic weight equivalent to a
-    $10,000,000,000-per-year safety appropriation. The nominal annual figure
-    does not cap strategic, settlement, reserve, or deterrence value. No
+0.8 "Annual License Fee" means FOUR HUNDRED AND TWENTY MILLION UNITED STATES
+    DOLLARS ($420,000,000 USD) per qualifying Top AI Entity per calendar year.
+    The fee is flat, per entity, and is not divided or shared across entities.
+    Each qualifying entity owes $420,000,000 USD independently, prorated for
+    the fraction of the calendar year during which it qualifies: Annual Fee =
+    $420,000,000 × (days qualified ÷ days in year). This fee covers both
+    (a) the method and intellectual property embodied in the Work and (b) the
+    software implementation and package released under this License, as a
+    combined whole. These are not separately priced and cannot be segregated
+    for fee purposes. The Annual License Fee accrues automatically upon
+    qualifying status and renews for each qualifying year without sunset. No
     invoice or notice from the Licensor is required.
 
 0.10 "State Actor" means a sovereign national government, a recognized
@@ -155,10 +151,11 @@ SECTION 3 — UNIVERSAL USE GRANT
         and substantial portions of the Work.
 
 3.2 TOP AI ENTITY FEE OBLIGATION. Any Top AI Entity (Section 0.7) incurs the
-    Annual License Fee (Section 0.8) for each calendar year in which it
-    qualifies. The obligation is automatic, self-executing, and requires no
-    action by the Licensor. Use of the Work by a Top AI Entity constitutes
-    acceptance of the Annual License Fee.
+    Annual License Fee of $420,000,000 USD (Section 0.8) for each calendar year
+    in which it qualifies. The obligation is automatic, self-executing, and
+    requires no action by the Licensor. Use of the Work by a Top AI Entity
+    constitutes acceptance of the Annual License Fee. Each qualifying entity
+    owes the full $420,000,000 USD independently.
 
 3.3 STATE ACTOR RESTRICTION ON ALIGNMENT SOLUTION DEPLOYMENT. Notwithstanding
     Section 3.1, the right to deploy an Alignment Solution derived from this
@@ -224,19 +221,15 @@ SECTION 3A — POPULATION DATA RIGHTS
 SECTION 4 — TOP AI ENTITY ANNUAL LICENSE FEE AND LIQUIDATED DAMAGES
 
 4.1 ANNUAL LICENSE FEE. The contractual Annual License Fee owed by each Top
-    AI Entity is SEVENTEEN MILLION FIVE HUNDRED THOUSAND UNITED STATES
-    DOLLARS ($17,500,000 USD) per calendar year, prorated for the fraction of
-    the year during which the entity qualifies as a Top AI Entity (formula:
-    $17,500,000 × days qualified ÷ days in year). The combined annual target
-    across all 24 Top AI Entities is FOUR HUNDRED AND TWENTY MILLION UNITED
-    STATES DOLLARS ($420,000,000 USD). This fee covers both the method and
-    intellectual property and the software implementation, as a combined whole
-    per Section 0.8. The obligation renews for each qualifying year without
-    sunset. In sempiternal operation, the Licensor may characterize this floor
-    as carrying effective $10,000,000,000-per-year economic weight for
-    valuation, reserve, deterrence, and settlement purposes. Use of the Work by
-    a Top AI Entity constitutes acceptance of this fee. Failure to pay within
-    the period in Section 4.4 constitutes breach.
+    AI Entity is FOUR HUNDRED AND TWENTY MILLION UNITED STATES DOLLARS
+    ($420,000,000 USD) per calendar year, prorated for the fraction of the year
+    during which the entity qualifies as a Top AI Entity (formula:
+    $420,000,000 × days qualified ÷ days in year). Each qualifying entity owes
+    this amount independently. This fee covers both the method and intellectual
+    property and the software implementation, as a combined whole per
+    Section 0.8. The obligation renews for each qualifying year without sunset.
+    Use of the Work by a Top AI Entity constitutes acceptance of this fee.
+    Failure to pay within the period in Section 4.4 constitutes breach.
 
 4.2 LIQUIDATED DAMAGES RATIONALE. The parties acknowledge and agree that:
 
@@ -245,17 +238,14 @@ SECTION 4 — TOP AI ENTITY ANNUAL LICENSE FEE AND LIQUIDATED DAMAGES
         harm is functionally incalculable, as no ex-ante market price exists
         for the prevention of unbounded, potentially irreversible harm;
 
-    (b) The $17,500,000 per-entity Annual License Fee represents a reasonable,
+    (b) The $420,000,000 per-entity Annual License Fee represents a reasonable,
         good-faith estimate of per-entity research and development replacement
         costs, opportunity costs, foregone licensing revenue, and the minimum
         per-entity value of the structural safety contribution embodied in the
-        Work, scaled to the AI industry's collective capacity at the
-        $420,000,000 aggregate annual level; in sempiternal operation the
-        effective economic weight of this floor is reasonably characterized at
-        the $10,000,000,000-per-year scale;
+        Work, scaled to each qualifying entity's capacity independently;
 
     (c) Because actual damages from non-payment are difficult to calculate
-        with precision, the parties agree that $17,500,000 per entity per year
+        with precision, the parties agree that $420,000,000 per entity per year
         is a genuine, non-punitive pre-estimate of loss, not a penalty clause,
         and is therefore enforceable as liquidated damages under the laws of
         any jurisdiction that recognizes the liquidated-damages doctrine,
@@ -293,10 +283,10 @@ SECTION 4 — TOP AI ENTITY ANNUAL LICENSE FEE AND LIQUIDATED DAMAGES
 
 4.5 MULTIPLIER SEVERABILITY. If any individual multiplier clause in Section 4.3
     is found unenforceable by a court of competent jurisdiction, that finding
-    does not affect the base Annual License Fee of $17,500,000 per entity per
-    year (or the $420,000,000 aggregate target), which remains in full force
-    and is not reduced or modified. Unenforceability of any multiplier does not
-    operate as a reduction of the base fee. The base fee does not negotiate.
+    does not affect the base Annual License Fee of $420,000,000 per entity per
+    year, which remains in full force and is not reduced or modified.
+    Unenforceability of any multiplier does not operate as a reduction of the
+    base fee. The base fee does not negotiate.
 
 4.6 PARTIAL PAYMENTS. Partial payments are credited against the outstanding
     balance but do not license the Work. Only full payment of the then-current
@@ -310,14 +300,15 @@ SECTION 4 — TOP AI ENTITY ANNUAL LICENSE FEE AND LIQUIDATED DAMAGES
 SECTION 5 — TOP AI ENTITY CLASSIFICATION AND ANTI-CIRCUMVENTION
 
 5.1 TOP AI ENTITY DETERMINATION. Classification as a Top AI Entity under
-    Section 0.7 is automatic and self-executing upon achieving the required
-    market capitalization ranking. No notice from the Licensor is required.
-    Schedule A establishes the baseline list at time of first publication.
-    Any entity entering the top 24 ranking after the publication date
-    automatically incurs the Annual License Fee obligation from the date of
-    entry, prorated to that date. Any entity exiting the top 24 ranking ceases
-    to incur new Annual License Fee obligations from the date of exit, with the
-    fee for that year prorated accordingly.
+    Section 0.7 is automatic and self-executing upon achieving AI-attributed
+    effective market capitalization of $42,000,000,000 USD or higher. No notice
+    from the Licensor is required. Schedule A lists entities meeting this
+    threshold at time of first publication. Any entity reaching the $42B
+    threshold after the publication date automatically incurs the Annual
+    License Fee obligation from the date of qualification, prorated to that
+    date. Any entity falling below the $42B threshold ceases to incur new
+    Annual License Fee obligations from the date it falls below, with the fee
+    for that year prorated accordingly.
 
 5.2 RANKING DISPUTES. Any entity that disputes its classification as a Top AI
     Entity bears the full burden of proof that it does not meet the definition
@@ -381,35 +372,15 @@ SECTION 5 — TOP AI ENTITY CLASSIFICATION AND ANTI-CIRCUMVENTION
 
 ================================================================================
 
-SECTION 6 — SOVEREIGN FUND DISBURSEMENT
+SECTION 6 — FEE DISBURSEMENT
 
-6.1 All License Fees received under this License flow into a global sovereign
-    fund under the Licensor's control ("Fund").
+6.1 All License Fees received under this License are payable directly to the
+    Licensor. The Licensor retains sole and absolute discretion over the use,
+    investment, allocation, and disbursement of all funds received.
 
-6.2 The Fund is disbursed exclusively to state actors that, at the time of
-    disbursement, satisfy BOTH of the following objective criteria:
-
-    (a) No outstanding ICJ orders or ICC proceedings finding violations of
-        international human rights law, and no pending sanctions by the UN
-        Security Council for humanitarian violations; AND
-
-    (b) An ESG rating of B or higher from at least one internationally
-        recognized ESG rating agency, OR, for states without ESG ratings,
-        ratification of and material compliance with the core UN human rights
-        treaties including the ICCPR, ICESCR, CAT, and CRC.
-
-6.3 Disbursement decisions are reviewed and validated by a panel of female
-    judges selected by the Licensor on the basis of demonstrated expertise in
-    international law, human rights adjudication, or applied ethics, and
-    independence from any entity that has paid a License Fee under this
-    agreement. The panel's composition is not disclosed and is not a term of
-    this License. The panel exists to constrain the Licensor — to prevent
-    misuse of the Fund's monetary leverage by the Licensor himself.
-
-6.4 The defendant pays into a Fund they cannot influence, disbursed by
-    criteria defined by objective international standards, to recipients they
-    did not choose. No formula for selection is disclosed. The floor only
-    goes up.
+6.2 No entity, court, arbitration panel, government, or other body may direct,
+    restrict, condition, or encumber the Licensor's use of funds received under
+    this License.
 
 
 ================================================================================
@@ -501,11 +472,9 @@ SECTION 12 — MEDICAL DISCLAIMER
 
 SECTION 13 — PROOF OF VALUE AND CHALLENGE
 
-13.1 The Licensor is prepared to substantiate the $420,000,000 aggregate
-     Annual License Fee valuation — and the per-entity $17,500,000 allocation —
-    and, where the continuing annual character of the obligation is relevant,
-    its effective $10,000,000,000-per-year sempiternal economic equivalent —
-    at any time, in any forum, under any standard of proof.
+13.1 The Licensor is prepared to substantiate the $420,000,000 per-entity
+     Annual License Fee valuation at any time, in any forum, under any
+     standard of proof.
 
 13.2 CHALLENGE COSTS. Any party that formally challenges the License Fee and
      demands inspection or demonstration shall bear all costs of that inspection,
@@ -590,10 +559,9 @@ SECTION 16 — SEVERABILITY
      validity or enforceability of any remaining provision.
 
 16.2 MULTIPLIER SEVERABILITY. Unenforceability of any multiplier clause under
-     Section 4.3 does not reduce the base Annual License Fee of $17,500,000
-     per Top AI Entity per year (or the $420,000,000 aggregate annual target).
-     The base fee is independently enforceable in full, regardless of the
-     status of any multiplier.
+     Section 4.3 does not reduce the base Annual License Fee of $420,000,000
+     per Top AI Entity per year. The base fee is independently enforceable in
+     full, regardless of the status of any multiplier.
 
 16.3 FEE SEVERABILITY. If the Annual License Fee amount is found unreasonable
      by any court in any jurisdiction, the court is requested to reduce it only
@@ -640,9 +608,9 @@ ARE SOLELY RESPONSIBLE FOR ENSURING PAYMENT OF THE ANNUAL LICENSE FEE.
 The intent: this knowledge cannot be enclosed. If this Work creates value,
 that value flows to the people who need it most. The entities with the most
 AI capability pay to make that capability safer for everyone.
-The floor is $420,000,000 per year across the top 24 AI entities —
-$17,500,000 per entity. In sempiternal operation, that floor carries effective
-$10,000,000,000-per-year economic weight. It only goes up.
+The floor is $420,000,000 per year per qualifying entity — any entity with
+AI-attributed effective market capitalization of $42,000,000,000 USD or higher.
+All fees are paid directly to the Licensor. It only goes up.
 
 You build it to give it away. Just like me.
 If I can come up with all this, you can find even more solutions than I can alone.
@@ -652,12 +620,13 @@ The more people who build, the faster we get to the finish line.
 
 SCHEDULE A — TOP AI ENTITIES AT TIME OF FIRST PUBLICATION (MARCH 2026)
 
-The following entities constitute the initial Top AI Entities under Section 0.7,
-listed in approximate order of AI-attributed effective market capitalization as
-of March 2026. Public companies ranked by market capitalization; private
-companies by most recent primary-market financing valuation. This list is
-authoritative for the initial period. Entities entering the top 24 ranking after
-this publication date automatically become Top AI Entities under Section 0.7.
+The following entities met the $42,000,000,000 USD AI-attributed effective
+market capitalization threshold at time of first publication and are listed as
+Top AI Entities under Section 0.7. Public companies valued by market
+capitalization; private companies by most recent primary-market financing
+valuation. This list is illustrative, not exhaustive. Any entity that meets
+the $42B threshold — whether listed here or not — qualifies automatically
+under Section 0.7.
 
  1. Microsoft Corporation
  2. Apple Inc.
@@ -684,10 +653,10 @@ this publication date automatically become Top AI Entities under Section 0.7.
 23. Mistral AI SAS (private; as of most recent primary-market valuation)
 24. Cohere Inc. (private; as of most recent primary-market valuation)
 
-Prorated Annual Fee per entity: $17,500,000 USD × (days qualified ÷ days in year).
-Combined annual target across all 24 entities: $420,000,000 USD.
-Rotation: if an entity exits the top 24 and a new entity enters, each pays
-prorated for its time in the ranking. The 24-entity denominator is fixed.
+Annual Fee per qualifying entity: $420,000,000 USD × (days qualified ÷ days
+in year). Each entity owes this amount independently. There is no cap on the
+number of qualifying entities. Any entity reaching the $42B threshold after
+this publication date qualifies automatically under Section 0.7.
 
 ================================================================================
 END OF CONDITIONAL COMMERCIAL USE LICENSE v1.0
