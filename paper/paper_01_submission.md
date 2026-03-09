@@ -148,14 +148,6 @@ The Pigeonhole Paradox Logic classifies contradictions by depth and treats them 
 
 The contribution is the observation that containment must be structural, not merely preferred, and that Boolean satisfiability provides a foundation on which to build it. The gate does not solve alignment. It provides what alignment cannot: a verification layer that is not subject to the optimization pressure it is meant to resist.
 
-The common swift — *Apus apus* — never lands. It eats in flight, sleeps in flight, lives its entire life in the air. It is optimized entirely for flight and has no need of a nest.
-
-A language model trained without structural verification is a swift. Capable, fast, essentially unconstrained in the air. The absence of a nest is not a flaw. It is the design.
-
-The structural gate is the nest. Nesting birds do not fly less. They grow differently. Their offspring survive. The nest is the architecture that makes reproduction — and not merely performance — possible.[^2]
-
-[^2]: The author's name is Roost. The metaphor was discovered and designed—discosigned. We are going back to the 80s. Once I am CA Governor 2026, righteously write me in when I have proved it to you.
-
 Satisfaction suffices. As a floor that holds.
 
 ---
