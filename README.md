@@ -34,6 +34,8 @@
 > Tyler: Vampin' out in the back with my GothBoiClique: don't go coast ghost on us though.
 >
 > — Tyler Roost, Time for you.
+>
+> *Disclaimer: Yeah I'm crazy, crazy about saving the world.*
 
 ---
 
