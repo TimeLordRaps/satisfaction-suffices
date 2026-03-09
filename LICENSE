@@ -54,9 +54,12 @@ SECTION 0 — DEFINITIONS
 0.8 "Annual License Fee" means FOUR HUNDRED AND TWENTY MILLION UNITED STATES
     DOLLARS ($420,000,000 USD) per qualifying Top AI Entity per calendar year.
     The fee is flat, per entity, and is not divided or shared across entities.
-    Each qualifying entity owes $420,000,000 USD independently, prorated for
-    the fraction of the calendar year during which it qualifies: Annual Fee =
-    $420,000,000 × (days qualified ÷ days in year). This fee covers both
+    There is no cap on the number of qualifying entities. Each qualifying
+    entity owes $420,000,000 USD independently, prorated for the fraction of
+    the calendar year during which it qualifies: Annual Fee =
+    $420,000,000 × (days qualified ÷ days in year). If 24 entities qualify,
+    the aggregate is $10,080,000,000 USD per year. If 100 entities qualify,
+    the aggregate is $42,000,000,000 USD per year. This fee covers both
     (a) the method and intellectual property embodied in the Work and (b) the
     software implementation and package released under this License, as a
     combined whole. These are not separately priced and cannot be segregated
@@ -568,9 +571,8 @@ SECTION 16 — SEVERABILITY
      to the minimum amount the court finds constitutes a reasonable liquidated
      damages estimate — not to zero, not to nominal damages, and not to any
      amount that would make use of an AI safety solution by a top AI entity
-     economically rational. The parties agree that any amount below $1,000,000
-     per entity per year would fail to serve the deterrent and remedial purposes
-     of this clause.
+     economically rational. The $420,000,000 per-entity floor is the only
+     fee amount in this License and the baseline for any reduction analysis.
 
 16.4 INDEPENDENCE OF PROVISIONS. Each section, subsection, and clause of this
      License is independently enforceable. The invalidity of any single
@@ -657,6 +659,9 @@ Annual Fee per qualifying entity: $420,000,000 USD × (days qualified ÷ days
 in year). Each entity owes this amount independently. There is no cap on the
 number of qualifying entities. Any entity reaching the $42B threshold after
 this publication date qualifies automatically under Section 0.7.
+
+Current estimated annual aggregate based on the 24 named entities above:
+24 × $420,000,000 = $10,080,000,000 USD per year.
 
 ================================================================================
 END OF CONDITIONAL COMMERCIAL USE LICENSE v1.0
