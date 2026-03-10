@@ -3,7 +3,11 @@ Satisfaction Suffices — Live Verification Demo
 ================================================
 SAT-gated structural containment for AI.
 No-code block composer for proof and program discovery.
+Search tree visualization for proof evolution.
 """
+
+import html as html_mod
+from collections import defaultdict
 
 import gradio as gr
 from satisfaction_suffices import verify, evolve_proof, Verdict
@@ -115,13 +119,151 @@ def render_evolution(evo) -> str:
             <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Best Status</td>
                 <td><strong>{evo.best_node.status.name}</strong></td></tr>
             <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Generations</td>
-                <td>{evo.generations_run}</td></tr>
+                <td>{evo.generations}</td></tr>
             <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Proved</td>
                 <td>{evo.proved_count}</td></tr>
             <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Total Nodes</td>
-                <td>{evo.total_nodes}</td></tr>
+                <td>{evo.total_candidates}</td></tr>
         </table>
     </div>"""
+
+
+# ── Search Tree / Graph Visualization ────────────────────────────────────────
+
+STATUS_COLORS = {
+    "PROVED": "#22c55e",
+    "REFUTED": "#ef4444",
+    "UNRESOLVED": "#f59e0b",
+    "EVOLVING": "#3b82f6",
+}
+
+
+def render_search_tree(evo) -> str:
+    """Render the evolution tree as an interactive SVG."""
+    tree = evo.evolution_tree
+    if not tree:
+        return "<p style='color: #6b7280;'>No tree data.</p>"
+
+    # Group nodes by generation
+    by_gen = defaultdict(list)
+    for node in tree.values():
+        by_gen[node.generation].append(node)
+
+    max_gen = max(by_gen.keys()) if by_gen else 0
+    max_width = max(len(nodes) for nodes in by_gen.values()) if by_gen else 1
+
+    # Layout constants
+    node_r = 22
+    h_spacing = max(80, 900 // max(max_width, 1))
+    v_spacing = 100
+    padding = 60
+    svg_w = max(max_width * h_spacing + padding * 2, 500)
+    svg_h = (max_gen + 1) * v_spacing + padding * 2
+
+    # Assign (x, y) positions
+    positions = {}
+    for gen in range(max_gen + 1):
+        nodes = sorted(by_gen[gen], key=lambda n: n.id)
+        count = len(nodes)
+        total_w = (count - 1) * h_spacing if count > 1 else 0
+        start_x = (svg_w - total_w) / 2
+        for i, node in enumerate(nodes):
+            positions[node.id] = (start_x + i * h_spacing, padding + gen * v_spacing)
+
+    # Build SVG
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{svg_w}" height="{svg_h}" '
+        f'style="background: #0d1117; border-radius: 8px; border: 1px solid #30363d;">'
+    ]
+
+    # Edges
+    for node in tree.values():
+        if node.parent_id and node.parent_id in positions and node.id in positions:
+            px, py = positions[node.parent_id]
+            cx, cy = positions[node.id]
+            mutation_label = node.mutations[-1] if node.mutations else ""
+            parts.append(
+                f'<line x1="{px}" y1="{py + node_r}" x2="{cx}" y2="{cy - node_r}" '
+                f'stroke="#30363d" stroke-width="2"/>'
+            )
+            if mutation_label:
+                mx, my = (px + cx) / 2, (py + cy) / 2
+                safe_label = html_mod.escape(mutation_label[:18])
+                parts.append(
+                    f'<text x="{mx}" y="{my - 5}" text-anchor="middle" '
+                    f'font-size="9" fill="#6b7280" font-family="monospace">{safe_label}</text>'
+                )
+
+    # Nodes
+    best_id = evo.best_node.id
+    for node in tree.values():
+        if node.id not in positions:
+            continue
+        x, y = positions[node.id]
+        color = STATUS_COLORS.get(node.status.name, "#6b7280")
+        stroke_w = "3" if node.id == best_id else "1.5"
+        stroke_color = "#ffffff" if node.id == best_id else color
+        opacity = max(0.3, min(1.0, node.fitness + 0.2))
+
+        safe_stmt = html_mod.escape(node.statement[:200])
+        tooltip = f"{node.status.name} | fitness={node.fitness:.2%} | gen={node.generation}\n{safe_stmt}"
+
+        parts.append(f'<g>')
+        parts.append(
+            f'<circle cx="{x}" cy="{y}" r="{node_r}" '
+            f'fill="{color}" fill-opacity="{opacity:.2f}" '
+            f'stroke="{stroke_color}" stroke-width="{stroke_w}"/>'
+        )
+        parts.append(
+            f'<title>{tooltip}</title>'
+        )
+        # Fitness label inside node
+        parts.append(
+            f'<text x="{x}" y="{y + 4}" text-anchor="middle" '
+            f'font-size="10" fill="#ffffff" font-family="monospace" font-weight="bold">'
+            f'{node.fitness:.0%}</text>'
+        )
+        # Node ID below
+        parts.append(
+            f'<text x="{x}" y="{y + node_r + 14}" text-anchor="middle" '
+            f'font-size="9" fill="#8b949e" font-family="monospace">{html_mod.escape(node.id)}</text>'
+        )
+        parts.append(f'</g>')
+
+    # Legend
+    legend_y = svg_h - 30
+    legend_items = [("PROVED", "#22c55e"), ("REFUTED", "#ef4444"), ("UNRESOLVED", "#f59e0b"), ("EVOLVING", "#3b82f6")]
+    for i, (name, col) in enumerate(legend_items):
+        lx = 20 + i * 130
+        parts.append(f'<circle cx="{lx}" cy="{legend_y}" r="6" fill="{col}"/>')
+        parts.append(
+            f'<text x="{lx + 12}" y="{legend_y + 4}" font-size="11" fill="#c9d1d9" '
+            f'font-family="monospace">{name}</text>'
+        )
+
+    # Best node highlight label
+    if best_id in positions:
+        bx, by = positions[best_id]
+        parts.append(
+            f'<text x="{bx}" y="{by - node_r - 6}" text-anchor="middle" '
+            f'font-size="10" fill="#ffffff" font-family="monospace">BEST</text>'
+        )
+
+    parts.append('</svg>')
+
+    # Stats summary below SVG
+    stats = f"""
+    <div style="font-family: monospace; padding: 12px; color: #c9d1d9; font-size: 13px; margin-top: 8px;">
+        <strong>Generations:</strong> {evo.generations} |
+        <strong>Total nodes:</strong> {evo.total_candidates} |
+        <strong>Proved:</strong> {evo.proved_count} |
+        <strong>Refuted:</strong> {evo.refuted_count} |
+        <strong>Unresolved:</strong> {evo.unresolved_count} |
+        <strong>Diversity:</strong> {evo.diversity:.1%} |
+        <strong>Elapsed:</strong> {evo.elapsed_ms:.1f}ms
+    </div>"""
+
+    return "\n".join(parts) + stats
 
 
 # ── Tab Handlers ─────────────────────────────────────────────────────────────
@@ -136,6 +278,13 @@ def run_evolve(content: str, max_gens: int) -> str:
     if not content.strip():
         return "<p style='color: #6b7280;'>Enter content to evolve.</p>"
     return render_evolution(evolve_proof(content, max_generations=int(max_gens)))
+
+
+def run_tree_viz(content: str, max_gens: int, pop_size: int) -> str:
+    if not content.strip():
+        return "<p style='color: #6b7280;'>Enter content to visualize.</p>"
+    evo = evolve_proof(content, max_generations=int(max_gens), population_size=int(pop_size))
+    return render_search_tree(evo)
 
 
 # ── Block Composer Logic ─────────────────────────────────────────────────────
@@ -427,6 +576,31 @@ The SAT gate checks structural consistency of the assembled program.""")
 
             gr.Examples(examples=EXAMPLES_EVOLVE, inputs=[evolve_input, max_gens_input], label="Try these")
             evolve_btn.click(fn=run_evolve, inputs=[evolve_input, max_gens_input], outputs=evolve_output)
+
+        # ── Tab 5: Search Tree Visualization ────────────────────────────
+        with gr.TabItem("Search Tree"):
+            gr.Markdown("""### Search Tree Visualization
+Watch proof evolution unfold as a tree. Each node is a mutation attempt.
+**Hover** nodes for details. **Colors** show status. **White ring** marks the best node found.""")
+            with gr.Row():
+                with gr.Column(scale=1):
+                    tree_input = gr.Textbox(
+                        label="Content",
+                        placeholder="A. not A.",
+                        lines=4,
+                        value="if A then B. if B then C. not C. A.",
+                    )
+                    tree_gens = gr.Slider(minimum=1, maximum=30, value=5, step=1, label="Max Generations")
+                    tree_pop = gr.Slider(minimum=2, maximum=16, value=6, step=1, label="Population Size")
+                    tree_btn = gr.Button("Evolve & Visualize", variant="primary")
+                with gr.Column(scale=3):
+                    tree_output = gr.HTML(label="Evolution Tree")
+
+            tree_btn.click(
+                fn=run_tree_viz,
+                inputs=[tree_input, tree_gens, tree_pop],
+                outputs=tree_output,
+            )
 
     gr.Markdown("""
     ---
