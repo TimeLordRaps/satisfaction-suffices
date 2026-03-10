@@ -2,186 +2,306 @@
 Satisfaction Suffices — Live Verification Demo
 ================================================
 SAT-gated structural containment for AI.
-Type any text, code, or logical statement — the gate returns one of four verdicts.
+No-code block composer for proof and program discovery.
 """
 
 import gradio as gr
 from satisfaction_suffices import verify, evolve_proof, Verdict
 
+# ── Constants ────────────────────────────────────────────────────────────────
+
 DOMAIN_CHOICES = [
-    "logic",
-    "code",
-    "math",
-    "proof",
-    "text",
-    "med",
-    "law",
-    "bio",
-    "cyber",
-    "chem",
-    "quantum",
-    "philosophy",
+    "logic", "code", "math", "proof", "text",
+    "med", "law", "bio", "cyber", "chem", "quantum", "philosophy",
 ]
 
 VERDICT_COLORS = {
-    Verdict.VERIFIED: "#22c55e",       # green
-    Verdict.CONTRADICTION: "#ef4444",  # red
-    Verdict.PARADOX: "#f59e0b",        # amber
-    Verdict.TIMEOUT: "#6b7280",        # gray
+    Verdict.VERIFIED: "#22c55e",
+    Verdict.CONTRADICTION: "#ef4444",
+    Verdict.PARADOX: "#f59e0b",
+    Verdict.TIMEOUT: "#6b7280",
 }
 
-VERDICT_EMOJI = {
+VERDICT_LABELS = {
     Verdict.VERIFIED: "VERIFIED",
     Verdict.CONTRADICTION: "CONTRADICTION",
     Verdict.PARADOX: "PARADOX",
     Verdict.TIMEOUT: "TIMEOUT",
 }
 
+# ── Block Composer: Logic Primitives ─────────────────────────────────────────
 
-def run_verify(content: str, domain: str) -> str:
-    """Run verification and format the result as HTML."""
-    if not content.strip():
-        return "<p style='color: #6b7280;'>Enter content to verify.</p>"
+LOGIC_BLOCKS = {
+    "IF ... THEN ...": "if {A} then {B}",
+    "AND": "{A} AND {B}",
+    "OR": "{A} OR {B}",
+    "NOT": "NOT {A}",
+    "IF AND ONLY IF": "{A} if and only if {B}",
+    "IMPLIES (chain)": "if {A} then {B}. if {B} then {C}",
+    "CONTRADICTION": "{A}. NOT {A}",
+    "EXCLUSIVE OR": "({A} OR {B}). NOT ({A} AND {B})",
+    "MUTUAL EXCLUSION": "{A} AND {B}",
+    "COMPLETENESS": "{A} AND {B}",
+    "CONDITIONAL DEP": "if {A} then {B}. {A}. NOT {B}",
+    "FORALL (bounded)": "for all x: if {A}(x) then {B}(x)",
+    "EXISTS": "there exists x such that {A}(x)",
+    "PIGEONHOLE": "if n+1 items in n boxes then some box has 2",
+}
 
-    result = verify(content, domain=domain)
+CODE_PATTERN_BLOCKS = {
+    "ASSERT precondition": "assert {condition}",
+    "ASSERT postcondition": "# post: assert {condition}",
+    "INVARIANT (loop)": "while {guard}:\n    assert {invariant}  # maintained each iteration\n    {body}",
+    "LOCK acquire/release": "lock.acquire()\ntry:\n    {critical_section}\nfinally:\n    lock.release()",
+    "MUTEX ordering": "# Lock ordering: always acquire {lock_A} before {lock_B}\nwith {lock_A}:\n    with {lock_B}:\n        {body}",
+    "ATOMIC read-modify-write": "# atomic: read {var}, modify, write back\nold = {var}.load()\n{var}.compare_exchange(old, {new_val})",
+    "BOUNDED resource": "assert len({resource}) <= {max_size}",
+    "NULL safety": "assert {ptr} is not None\n{ptr}.{method}()",
+    "TYPE guard": "assert isinstance({obj}, {expected_type})",
+    "TRANSFER (financial)": "def transfer(amount, balance):\n    assert amount > 0\n    assert amount <= balance\n    return balance - amount",
+}
 
+META_CLAUSE_BLOCKS = {
+    "Non-empty (existence)": "{field} must not be empty",
+    "Bounded length": "len({field}) <= {max_len}",
+    "No null bytes (transport)": "{field} contains no null bytes",
+    "UTF-8 valid (encoding)": "{field} is valid UTF-8",
+    "Mutual exclusion": "{state_A} and {state_B} cannot both be true",
+    "Completeness": "{field_A} and {field_B} must both exist",
+    "Temporal ordering": "{event_A} must occur before {event_B}",
+    "Idempotency": "applying {operation} twice equals applying it once",
+    "Consistency": "{state} and NOT {state} cannot coexist",
+    "Conditional dependency": "if {condition} then {requirement} must hold",
+    "Rate limit": "{operation} at most {N} times per {interval}",
+    "Encryption gate": "if {channel} is public then {payload} must be encrypted",
+}
+
+# ── Rendering ────────────────────────────────────────────────────────────────
+
+def render_verdict(result) -> str:
     color = VERDICT_COLORS[result.verdict]
-    label = VERDICT_EMOJI[result.verdict]
-
-    html = f"""
+    label = VERDICT_LABELS[result.verdict]
+    return f"""
     <div style="font-family: monospace; padding: 16px; border: 2px solid {color}; border-radius: 8px; background: #0d1117;">
         <h2 style="color: {color}; margin: 0 0 12px 0;">{label}</h2>
         <table style="color: #c9d1d9; font-size: 14px; border-collapse: collapse; width: 100%;">
             <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">SAT Ratio</td>
-                <td style="padding: 4px 0;"><strong>{result.sat_ratio:.2%}</strong></td></tr>
+                <td><strong>{result.sat_ratio:.2%}</strong></td></tr>
             <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Zone</td>
-                <td style="padding: 4px 0;">{result.zone}</td></tr>
+                <td>{result.zone}</td></tr>
             <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Constraints</td>
-                <td style="padding: 4px 0;">{result.n_constraints} total</td></tr>
+                <td>{result.n_constraints}</td></tr>
             <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Satisfied</td>
-                <td style="padding: 4px 0;">{result.n_satisfied}</td></tr>
+                <td>{result.n_satisfied}</td></tr>
             <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Refuted</td>
-                <td style="padding: 4px 0;">{result.n_refuted}</td></tr>
+                <td>{result.n_refuted}</td></tr>
             <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Timeout</td>
-                <td style="padding: 4px 0;">{result.n_timeout}</td></tr>
+                <td>{result.n_timeout}</td></tr>
             <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Paradox</td>
-                <td style="padding: 4px 0;">{result.n_paradox}</td></tr>
+                <td>{result.n_paradox}</td></tr>
             <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Elapsed</td>
-                <td style="padding: 4px 0;">{result.elapsed_ms:.1f} ms</td></tr>
+                <td>{result.elapsed_ms:.1f} ms</td></tr>
         </table>
-    </div>
-    """
-    return html
+    </div>"""
+
+
+def render_evolution(evo) -> str:
+    color = "#22c55e" if evo.resolved else "#ef4444"
+    label = "RESOLVED" if evo.resolved else "UNRESOLVED"
+    return f"""
+    <div style="font-family: monospace; padding: 16px; border: 2px solid {color}; border-radius: 8px; background: #0d1117;">
+        <h2 style="color: {color}; margin: 0 0 12px 0;">{label}</h2>
+        <table style="color: #c9d1d9; font-size: 14px; border-collapse: collapse; width: 100%;">
+            <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Best Status</td>
+                <td><strong>{evo.best_node.status.name}</strong></td></tr>
+            <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Generations</td>
+                <td>{evo.generations_run}</td></tr>
+            <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Proved</td>
+                <td>{evo.proved_count}</td></tr>
+            <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Total Nodes</td>
+                <td>{evo.total_nodes}</td></tr>
+        </table>
+    </div>"""
+
+
+# ── Tab Handlers ─────────────────────────────────────────────────────────────
+
+def run_verify(content: str, domain: str) -> str:
+    if not content.strip():
+        return "<p style='color: #6b7280;'>Enter content to verify.</p>"
+    return render_verdict(verify(content, domain=domain))
 
 
 def run_evolve(content: str, max_gens: int) -> str:
-    """Run proof evolution and format the result."""
     if not content.strip():
         return "<p style='color: #6b7280;'>Enter content to evolve.</p>"
+    return render_evolution(evolve_proof(content, max_generations=int(max_gens)))
 
-    evo = evolve_proof(content, max_generations=int(max_gens))
 
-    status_color = "#22c55e" if evo.resolved else "#ef4444"
-    status_label = "RESOLVED" if evo.resolved else "UNRESOLVED"
+# ── Block Composer Logic ─────────────────────────────────────────────────────
 
-    html = f"""
-    <div style="font-family: monospace; padding: 16px; border: 2px solid {status_color}; border-radius: 8px; background: #0d1117;">
-        <h2 style="color: {status_color}; margin: 0 0 12px 0;">{status_label}</h2>
-        <table style="color: #c9d1d9; font-size: 14px; border-collapse: collapse; width: 100%;">
-            <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Best Status</td>
-                <td style="padding: 4px 0;"><strong>{evo.best_node.status.name}</strong></td></tr>
-            <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Generations</td>
-                <td style="padding: 4px 0;">{evo.generations_run}</td></tr>
-            <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Proved</td>
-                <td style="padding: 4px 0;">{evo.proved_count}</td></tr>
-            <tr><td style="padding: 4px 12px 4px 0; color: #8b949e;">Total Nodes</td>
-                <td style="padding: 4px 0;">{evo.total_nodes}</td></tr>
-        </table>
-    </div>
-    """
-    return html
+def compose_blocks(
+    block1: str, var1a: str, var1b: str, var1c: str,
+    block2: str, var2a: str, var2b: str, var2c: str,
+    block3: str, var3a: str, var3b: str, var3c: str,
+    block4: str, var4a: str, var4b: str, var4c: str,
+) -> str:
+    """Compose up to 4 logic blocks into a proposition string."""
+    clauses = []
+    for block, va, vb, vc in [
+        (block1, var1a, var1b, var1c),
+        (block2, var2a, var2b, var2c),
+        (block3, var3a, var3b, var3c),
+        (block4, var4a, var4b, var4c),
+    ]:
+        if block and block != "(none)":
+            template = LOGIC_BLOCKS.get(block, block)
+            filled = template.replace("{A}", va or "A").replace("{B}", vb or "B").replace("{C}", vc or "C")
+            clauses.append(filled)
+    return "\n".join(clauses)
 
+
+def compose_and_verify(
+    block1, var1a, var1b, var1c,
+    block2, var2a, var2b, var2c,
+    block3, var3a, var3b, var3c,
+    block4, var4a, var4b, var4c,
+):
+    composed = compose_blocks(
+        block1, var1a, var1b, var1c,
+        block2, var2a, var2b, var2c,
+        block3, var3a, var3b, var3c,
+        block4, var4a, var4b, var4c,
+    )
+    if not composed.strip():
+        return "", "<p style='color: #6b7280;'>Select at least one block.</p>"
+    result = verify(composed, domain="logic")
+    return composed, render_verdict(result)
+
+
+def compose_and_evolve(
+    block1, var1a, var1b, var1c,
+    block2, var2a, var2b, var2c,
+    block3, var3a, var3b, var3c,
+    block4, var4a, var4b, var4c,
+    max_gens,
+):
+    composed = compose_blocks(
+        block1, var1a, var1b, var1c,
+        block2, var2a, var2b, var2c,
+        block3, var3a, var3b, var3c,
+        block4, var4a, var4b, var4c,
+    )
+    if not composed.strip():
+        return "", "<p style='color: #6b7280;'>Select at least one block.</p>"
+    evo = evolve_proof(composed, max_generations=int(max_gens))
+    return composed, render_evolution(evo)
+
+
+# ── Program Discovery ───────────────────────────────────────────────────────
+
+def compose_program(
+    pat1: str, p1a: str, p1b: str,
+    pat2: str, p2a: str, p2b: str,
+    pat3: str, p3a: str, p3b: str,
+    meta1: str, m1a: str, m1b: str,
+    meta2: str, m2a: str, m2b: str,
+    meta3: str, m3a: str, m3b: str,
+):
+    """Compose code pattern blocks + meta-clause blocks into a verifiable program."""
+    lines = []
+
+    # Code patterns
+    for pat, pa, pb in [(pat1, p1a, p1b), (pat2, p2a, p2b), (pat3, p3a, p3b)]:
+        if pat and pat != "(none)":
+            template = CODE_PATTERN_BLOCKS.get(pat, pat)
+            filled = (template
+                .replace("{condition}", pa or "x > 0")
+                .replace("{guard}", pa or "running")
+                .replace("{invariant}", pb or "count >= 0")
+                .replace("{body}", pb or "pass")
+                .replace("{critical_section}", pa or "shared_state += 1")
+                .replace("{lock_A}", pa or "mutex_a")
+                .replace("{lock_B}", pb or "mutex_b")
+                .replace("{var}", pa or "counter")
+                .replace("{new_val}", pb or "old + 1")
+                .replace("{resource}", pa or "buffer")
+                .replace("{max_size}", pb or "4096")
+                .replace("{ptr}", pa or "node")
+                .replace("{method}", pb or "process")
+                .replace("{obj}", pa or "value")
+                .replace("{expected_type}", pb or "int")
+            )
+            lines.append(filled)
+
+    if lines:
+        lines.append("")
+        lines.append("# --- Meta-Clauses ---")
+
+    # Meta-clauses
+    for meta, ma, mb in [(meta1, m1a, m1b), (meta2, m2a, m2b), (meta3, m3a, m3b)]:
+        if meta and meta != "(none)":
+            template = META_CLAUSE_BLOCKS.get(meta, meta)
+            filled = (template
+                .replace("{field}", ma or "message")
+                .replace("{field_A}", ma or "sender")
+                .replace("{field_B}", mb or "recipient")
+                .replace("{max_len}", mb or "4096")
+                .replace("{state_A}", ma or "encrypted")
+                .replace("{state_B}", mb or "plaintext")
+                .replace("{state}", ma or "delivered")
+                .replace("{event_A}", ma or "auth")
+                .replace("{event_B}", mb or "access")
+                .replace("{operation}", ma or "dedup")
+                .replace("{condition}", ma or "urgent")
+                .replace("{requirement}", mb or "has_ttl")
+                .replace("{channel}", ma or "channel")
+                .replace("{payload}", mb or "payload")
+                .replace("{N}", mb or "100")
+                .replace("{interval}", "second")
+            )
+            lines.append("# META: " + filled)
+
+    composed = "\n".join(lines)
+    if not composed.strip():
+        return "", "<p style='color: #6b7280;'>Select at least one pattern or meta-clause.</p>"
+    result = verify(composed, domain="code")
+    return composed, render_verdict(result)
+
+
+# ── Block Row Builder ────────────────────────────────────────────────────────
+
+def make_logic_block_row(n: int, block_choices):
+    """Create a row of block selector + 3 variable inputs."""
+    with gr.Row():
+        block = gr.Dropdown(
+            choices=["(none)"] + list(block_choices.keys()),
+            value="(none)",
+            label=f"Block {n}",
+            scale=2,
+        )
+        va = gr.Textbox(label="A", placeholder="variable A", scale=1)
+        vb = gr.Textbox(label="B", placeholder="variable B", scale=1)
+        vc = gr.Textbox(label="C", placeholder="variable C", scale=1)
+    return block, va, vb, vc
+
+
+def make_pattern_row(n: int, choices, row_label="Pattern"):
+    with gr.Row():
+        pat = gr.Dropdown(
+            choices=["(none)"] + list(choices.keys()),
+            value="(none)",
+            label=f"{row_label} {n}",
+            scale=2,
+        )
+        pa = gr.Textbox(label="Param 1", placeholder="condition / name", scale=1)
+        pb = gr.Textbox(label="Param 2", placeholder="value / bound", scale=1)
+    return pat, pa, pb
+
+
+# ── Examples ─────────────────────────────────────────────────────────────────
 
 EXAMPLES_VERIFY = [
-    ["""#include <mutex>
-#include <shared_mutex>
-#include <thread>
-#include <queue>
-#include <condition_variable>
-#include <future>
-#include <functional>
-#include <atomic>
-
-// Thread-safe async message client with lock hierarchy
-class AsyncMessageClient {
-    mutable std::shared_mutex registry_mutex_;   // Level 2: protects channel map
-    mutable std::mutex queue_mutex_;              // Level 1: protects send queue
-    std::condition_variable queue_cv_;
-    std::atomic<bool> running_{true};
-    std::queue<std::function<void()>> send_queue_;
-
-    // Lock ordering invariant: always acquire registry_mutex_ before queue_mutex_
-    // Violating this ordering causes deadlock.
-
-    void send_worker() {
-        while (running_.load(std::memory_order_acquire)) {
-            std::function<void()> task;
-            {
-                std::unique_lock<std::mutex> lock(queue_mutex_);
-                queue_cv_.wait(lock, [this] {
-                    return !send_queue_.empty() || !running_;
-                });
-                if (!running_ && send_queue_.empty()) return;
-                task = std::move(send_queue_.front());
-                send_queue_.pop();
-            }
-            task();  // execute outside lock
-        }
-    }
-
-public:
-    // Meta-clause: message text must satisfy ALL of:
-    //   1. Non-empty (structural precondition)
-    //   2. Length <= 4096 (bounded resource)  
-    //   3. No null bytes (transport safety)
-    //   4. UTF-8 valid (encoding invariant)
-    std::future<bool> send(const std::string& channel, std::string message) {
-        // Meta-clause enforcement: structural verification before enqueue
-        assert(!message.empty());           // Clause 1: existence
-        assert(message.size() <= 4096);     // Clause 2: bounded
-        assert(message.find('\\0') == std::string::npos);  // Clause 3: transport
-        // Clause 4: UTF-8 validity checked by gate
-
-        auto promise = std::make_shared<std::promise<bool>>();
-        auto future = promise->get_future();
-
-        {
-            std::shared_lock<std::shared_mutex> reg_lock(registry_mutex_);
-            std::lock_guard<std::mutex> q_lock(queue_mutex_);
-            send_queue_.push([promise, ch=channel, msg=std::move(message)] {
-                // Actual send — promise fulfills on completion
-                promise->set_value(true);
-            });
-        }
-        queue_cv_.notify_one();
-        return future;
-    }
-
-    void shutdown() {
-        running_.store(false, std::memory_order_release);
-        queue_cv_.notify_all();
-    }
-};""", "code"],
-    ["""// Meta-clauses on message content:
-// 1. Every message has a sender AND a recipient (completeness)
-// 2. No message can be both encrypted AND plaintext (mutual exclusion)
-// 3. If message is marked urgent, it must have a TTL (conditional dependency)
-// 4. A message cannot be delivered AND undelivered simultaneously (consistency)
-
-sender_exists AND recipient_exists.
-encrypted AND plaintext.
-urgent AND NOT has_ttl.
-delivered AND NOT delivered.""", "logic"],
     ["if A then B. A.", "logic"],
     ["A. not A. if A then B.", "logic"],
     ["""def transfer(amount, balance):
@@ -196,6 +316,9 @@ EXAMPLES_EVOLVE = [
     ["if A then B. if B then C. not C. A.", 10],
 ]
 
+
+# ── App Layout ───────────────────────────────────────────────────────────────
+
 with gr.Blocks(
     title="Satisfaction Suffices",
     theme=gr.themes.Base(primary_hue="violet"),
@@ -203,6 +326,7 @@ with gr.Blocks(
     .main-header { text-align: center; margin-bottom: 8px; }
     .main-header h1 { color: #c084fc; font-size: 2em; }
     .sub { text-align: center; color: #8b949e; margin-bottom: 24px; }
+    .block-row { border: 1px solid #30363d; border-radius: 6px; padding: 8px; margin: 4px 0; background: #161b22; }
     """,
 ) as demo:
     gr.HTML("""
@@ -216,67 +340,93 @@ with gr.Blocks(
     """)
 
     with gr.Tabs():
-        with gr.TabItem("Verify"):
-            gr.Markdown("### Verification Gate\nPaste any text, code, or logical statement. The gate checks satisfiability and returns one of **four verdicts**: Verified, Contradiction, Paradox, or Timeout.")
+
+        # ── Tab 1: Block Composer (Proof Discovery) ─────────────────────
+        with gr.TabItem("Block Composer"):
+            gr.Markdown("""### No-Code Proof Discovery
+Snap logic blocks together. The SAT gate verifies the composition.
+Select blocks, fill in variables, hit **Verify** or **Evolve**.""")
+
+            b1, v1a, v1b, v1c = make_logic_block_row(1, LOGIC_BLOCKS)
+            b2, v2a, v2b, v2c = make_logic_block_row(2, LOGIC_BLOCKS)
+            b3, v3a, v3b, v3c = make_logic_block_row(3, LOGIC_BLOCKS)
+            b4, v4a, v4b, v4c = make_logic_block_row(4, LOGIC_BLOCKS)
+
+            with gr.Row():
+                compose_verify_btn = gr.Button("Verify Composition", variant="primary")
+                compose_evolve_btn = gr.Button("Evolve Composition", variant="secondary")
+                evolve_gens = gr.Slider(minimum=1, maximum=50, value=5, step=1, label="Generations")
+
+            composed_output = gr.Code(label="Composed Proposition", language=None, interactive=False)
+            composer_result = gr.HTML(label="Result")
+
+            all_block_inputs = [b1, v1a, v1b, v1c, b2, v2a, v2b, v2c, b3, v3a, v3b, v3c, b4, v4a, v4b, v4c]
+
+            compose_verify_btn.click(
+                fn=compose_and_verify,
+                inputs=all_block_inputs,
+                outputs=[composed_output, composer_result],
+            )
+            compose_evolve_btn.click(
+                fn=compose_and_evolve,
+                inputs=all_block_inputs + [evolve_gens],
+                outputs=[composed_output, composer_result],
+            )
+
+        # ── Tab 2: Program Discovery ────────────────────────────────────
+        with gr.TabItem("Program Discovery"):
+            gr.Markdown("""### No-Code Program Discovery
+Compose **code patterns** + **meta-clauses** into verifiable programs.
+The SAT gate checks structural consistency of the assembled program.""")
+
+            gr.Markdown("#### Code Patterns")
+            cp1, cp1a, cp1b = make_pattern_row(1, CODE_PATTERN_BLOCKS, "Pattern")
+            cp2, cp2a, cp2b = make_pattern_row(2, CODE_PATTERN_BLOCKS, "Pattern")
+            cp3, cp3a, cp3b = make_pattern_row(3, CODE_PATTERN_BLOCKS, "Pattern")
+
+            gr.Markdown("#### Meta-Clauses")
+            mc1, mc1a, mc1b = make_pattern_row(1, META_CLAUSE_BLOCKS, "Meta-Clause")
+            mc2, mc2a, mc2b = make_pattern_row(2, META_CLAUSE_BLOCKS, "Meta-Clause")
+            mc3, mc3a, mc3b = make_pattern_row(3, META_CLAUSE_BLOCKS, "Meta-Clause")
+
+            prog_verify_btn = gr.Button("Verify Program", variant="primary")
+            prog_output = gr.Code(label="Composed Program", language="python", interactive=False)
+            prog_result = gr.HTML(label="Result")
+
+            prog_verify_btn.click(
+                fn=compose_program,
+                inputs=[cp1, cp1a, cp1b, cp2, cp2a, cp2b, cp3, cp3a, cp3b,
+                        mc1, mc1a, mc1b, mc2, mc2a, mc2b, mc3, mc3a, mc3b],
+                outputs=[prog_output, prog_result],
+            )
+
+        # ── Tab 3: Raw Verify ───────────────────────────────────────────
+        with gr.TabItem("Verify (Raw)"):
+            gr.Markdown("### Verification Gate\nPaste any text, code, or logic. Four verdicts: Verified, Contradiction, Paradox, Timeout.")
             with gr.Row():
                 with gr.Column():
-                    content_input = gr.Textbox(
-                        label="Content",
-                        placeholder="if A then B. A.",
-                        lines=6,
-                    )
-                    domain_input = gr.Dropdown(
-                        choices=DOMAIN_CHOICES,
-                        value="logic",
-                        label="Domain",
-                    )
+                    content_input = gr.Textbox(label="Content", placeholder="if A then B. A.", lines=6)
+                    domain_input = gr.Dropdown(choices=DOMAIN_CHOICES, value="logic", label="Domain")
                     verify_btn = gr.Button("Verify", variant="primary")
                 with gr.Column():
                     verify_output = gr.HTML(label="Result")
 
-            gr.Examples(
-                examples=EXAMPLES_VERIFY,
-                inputs=[content_input, domain_input],
-                label="Try these",
-            )
+            gr.Examples(examples=EXAMPLES_VERIFY, inputs=[content_input, domain_input], label="Try these")
+            verify_btn.click(fn=run_verify, inputs=[content_input, domain_input], outputs=verify_output)
 
-            verify_btn.click(
-                fn=run_verify,
-                inputs=[content_input, domain_input],
-                outputs=verify_output,
-            )
-
+        # ── Tab 4: Proof Evolution ──────────────────────────────────────
         with gr.TabItem("Proof Evolution"):
-            gr.Markdown("### Proof Evolution\nGive a contradictory statement. The evolver mutates it across generations trying to resolve the contradiction.")
+            gr.Markdown("### Proof Evolution\nGive a contradiction. The evolver mutates it across generations.")
             with gr.Row():
                 with gr.Column():
-                    evolve_input = gr.Textbox(
-                        label="Content",
-                        placeholder="A. not A.",
-                        lines=4,
-                    )
-                    max_gens_input = gr.Slider(
-                        minimum=1,
-                        maximum=50,
-                        value=5,
-                        step=1,
-                        label="Max Generations",
-                    )
+                    evolve_input = gr.Textbox(label="Content", placeholder="A. not A.", lines=4)
+                    max_gens_input = gr.Slider(minimum=1, maximum=50, value=5, step=1, label="Max Generations")
                     evolve_btn = gr.Button("Evolve", variant="primary")
                 with gr.Column():
                     evolve_output = gr.HTML(label="Result")
 
-            gr.Examples(
-                examples=EXAMPLES_EVOLVE,
-                inputs=[evolve_input, max_gens_input],
-                label="Try these",
-            )
-
-            evolve_btn.click(
-                fn=run_evolve,
-                inputs=[evolve_input, max_gens_input],
-                outputs=evolve_output,
-            )
+            gr.Examples(examples=EXAMPLES_EVOLVE, inputs=[evolve_input, max_gens_input], label="Try these")
+            evolve_btn.click(fn=run_evolve, inputs=[evolve_input, max_gens_input], outputs=evolve_output)
 
     gr.Markdown("""
     ---
