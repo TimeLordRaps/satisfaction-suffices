@@ -103,15 +103,92 @@ def run_evolve(content: str, max_gens: int) -> str:
 
 
 EXAMPLES_VERIFY = [
+    ["""#include <mutex>
+#include <shared_mutex>
+#include <thread>
+#include <queue>
+#include <condition_variable>
+#include <future>
+#include <functional>
+#include <atomic>
+
+// Thread-safe async message client with lock hierarchy
+class AsyncMessageClient {
+    mutable std::shared_mutex registry_mutex_;   // Level 2: protects channel map
+    mutable std::mutex queue_mutex_;              // Level 1: protects send queue
+    std::condition_variable queue_cv_;
+    std::atomic<bool> running_{true};
+    std::queue<std::function<void()>> send_queue_;
+
+    // Lock ordering invariant: always acquire registry_mutex_ before queue_mutex_
+    // Violating this ordering causes deadlock.
+
+    void send_worker() {
+        while (running_.load(std::memory_order_acquire)) {
+            std::function<void()> task;
+            {
+                std::unique_lock<std::mutex> lock(queue_mutex_);
+                queue_cv_.wait(lock, [this] {
+                    return !send_queue_.empty() || !running_;
+                });
+                if (!running_ && send_queue_.empty()) return;
+                task = std::move(send_queue_.front());
+                send_queue_.pop();
+            }
+            task();  // execute outside lock
+        }
+    }
+
+public:
+    // Meta-clause: message text must satisfy ALL of:
+    //   1. Non-empty (structural precondition)
+    //   2. Length <= 4096 (bounded resource)  
+    //   3. No null bytes (transport safety)
+    //   4. UTF-8 valid (encoding invariant)
+    std::future<bool> send(const std::string& channel, std::string message) {
+        // Meta-clause enforcement: structural verification before enqueue
+        assert(!message.empty());           // Clause 1: existence
+        assert(message.size() <= 4096);     // Clause 2: bounded
+        assert(message.find('\\0') == std::string::npos);  // Clause 3: transport
+        // Clause 4: UTF-8 validity checked by gate
+
+        auto promise = std::make_shared<std::promise<bool>>();
+        auto future = promise->get_future();
+
+        {
+            std::shared_lock<std::shared_mutex> reg_lock(registry_mutex_);
+            std::lock_guard<std::mutex> q_lock(queue_mutex_);
+            send_queue_.push([promise, ch=channel, msg=std::move(message)] {
+                // Actual send — promise fulfills on completion
+                promise->set_value(true);
+            });
+        }
+        queue_cv_.notify_one();
+        return future;
+    }
+
+    void shutdown() {
+        running_.store(false, std::memory_order_release);
+        queue_cv_.notify_all();
+    }
+};""", "code"],
+    ["""// Meta-clauses on message content:
+// 1. Every message has a sender AND a recipient (completeness)
+// 2. No message can be both encrypted AND plaintext (mutual exclusion)
+// 3. If message is marked urgent, it must have a TTL (conditional dependency)
+// 4. A message cannot be delivered AND undelivered simultaneously (consistency)
+
+sender_exists AND recipient_exists.
+encrypted AND plaintext.
+urgent AND NOT has_ttl.
+delivered AND NOT delivered.""", "logic"],
     ["if A then B. A.", "logic"],
     ["A. not A. if A then B.", "logic"],
-    ["x + 2 = 5", "math"],
     ["""def transfer(amount, balance):
     assert amount > 0
     assert amount <= balance
     return balance - amount""", "code"],
     ["The patient has fever and no fever.", "med"],
-    ["Energy is conserved. Energy is not conserved.", "text"],
 ]
 
 EXAMPLES_EVOLVE = [
