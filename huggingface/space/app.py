@@ -266,6 +266,11 @@ def render_search_tree(evo) -> str:
     return "\n".join(parts) + stats
 
 
+# ── Constants ────────────────────────────────────────────────────────────────
+
+DEFAULT_STATEMENT = "if A then B. if B then C. not C. A."
+
+
 # ── Tab Handlers ─────────────────────────────────────────────────────────────
 
 def run_verify(content: str, domain: str) -> str:
@@ -323,9 +328,9 @@ def compose_and_verify(
         block4, var4a, var4b, var4c,
     )
     if not composed.strip():
-        return "", "<p style='color: #6b7280;'>Select at least one block.</p>"
+        return "", "<p style='color: #6b7280;'>Select at least one block.</p>", gr.update()
     result = verify(composed, domain="logic")
-    return composed, render_verdict(result)
+    return composed, render_verdict(result), composed
 
 
 def compose_and_evolve(
@@ -342,9 +347,9 @@ def compose_and_evolve(
         block4, var4a, var4b, var4c,
     )
     if not composed.strip():
-        return "", "<p style='color: #6b7280;'>Select at least one block.</p>"
+        return "", "<p style='color: #6b7280;'>Select at least one block.</p>", gr.update()
     evo = evolve_proof(composed, max_generations=int(max_gens))
-    return composed, render_evolution(evo)
+    return composed, render_evolution(evo), composed
 
 
 # ── Program Discovery ───────────────────────────────────────────────────────
@@ -413,9 +418,9 @@ def compose_program(
 
     composed = "\n".join(lines)
     if not composed.strip():
-        return "", "<p style='color: #6b7280;'>Select at least one pattern or meta-clause.</p>"
+        return "", "<p style='color: #6b7280;'>Select at least one pattern or meta-clause.</p>", gr.update()
     result = verify(composed, domain="code")
-    return composed, render_verdict(result)
+    return composed, render_verdict(result), composed
 
 
 # ── Block Row Builder ────────────────────────────────────────────────────────
@@ -450,19 +455,15 @@ def make_pattern_row(n: int, choices, row_label="Pattern"):
 
 # ── Examples ─────────────────────────────────────────────────────────────────
 
-EXAMPLES_VERIFY = [
-    ["if A then B. A.", "logic"],
-    ["A. not A. if A then B.", "logic"],
+EXAMPLES_UNIVERSAL = [
+    ["if A then B. if B then C. not C. A."],
+    ["A. not A. if A then B."],
+    ["if A then B. A."],
+    ["The patient has fever and no fever."],
     ["""def transfer(amount, balance):
     assert amount > 0
     assert amount <= balance
-    return balance - amount""", "code"],
-    ["The patient has fever and no fever.", "med"],
-]
-
-EXAMPLES_EVOLVE = [
-    ["A. not A.", 5],
-    ["if A then B. if B then C. not C. A.", 10],
+    return balance - amount"""],
 ]
 
 
@@ -474,8 +475,8 @@ with gr.Blocks(
     css="""
     .main-header { text-align: center; margin-bottom: 8px; }
     .main-header h1 { color: #c084fc; font-size: 2em; }
-    .sub { text-align: center; color: #8b949e; margin-bottom: 24px; }
-    .block-row { border: 1px solid #30363d; border-radius: 6px; padding: 8px; margin: 4px 0; background: #161b22; }
+    .sub { text-align: center; color: #8b949e; margin-bottom: 16px; }
+    .uniview-label { color: #c084fc; font-size: 13px; font-family: monospace; margin-bottom: 4px; }
     """,
 ) as demo:
     gr.HTML("""
@@ -488,13 +489,50 @@ with gr.Blocks(
     </p>
     """)
 
+    # ── Universal Input (shared across all tabs) ────────────────────────
+    gr.HTML('<p class="uniview-label">UNIVERSAL INPUT &mdash; same content, every tab is a different lens</p>')
+    universal_input = gr.Textbox(
+        value=DEFAULT_STATEMENT,
+        lines=5,
+        placeholder="Enter any text, code, or logical statement...",
+        show_label=False,
+        elem_id="universal-input",
+    )
+    gr.Examples(examples=EXAMPLES_UNIVERSAL, inputs=[universal_input], label="Quick load")
+
     with gr.Tabs():
 
-        # ── Tab 1: Block Composer (Proof Discovery) ─────────────────────
+        # ── Tab 1: Verify ───────────────────────────────────────────────
+        with gr.TabItem("Verify"):
+            gr.Markdown("**Lens:** Structural verification gate. Four verdicts: Verified, Contradiction, Paradox, Timeout.")
+            with gr.Row():
+                domain_input = gr.Dropdown(choices=DOMAIN_CHOICES, value="logic", label="Domain", scale=1)
+                verify_btn = gr.Button("Verify", variant="primary", scale=1)
+            verify_output = gr.HTML(label="Result")
+            verify_btn.click(fn=run_verify, inputs=[universal_input, domain_input], outputs=verify_output)
+
+        # ── Tab 2: Proof Evolution ──────────────────────────────────────
+        with gr.TabItem("Proof Evolution"):
+            gr.Markdown("**Lens:** Evolutionary search. Mutates the statement across generations to resolve contradictions.")
+            with gr.Row():
+                max_gens_input = gr.Slider(minimum=1, maximum=50, value=5, step=1, label="Max Generations", scale=2)
+                evolve_btn = gr.Button("Evolve", variant="primary", scale=1)
+            evolve_output = gr.HTML(label="Result")
+            evolve_btn.click(fn=run_evolve, inputs=[universal_input, max_gens_input], outputs=evolve_output)
+
+        # ── Tab 3: Search Tree ──────────────────────────────────────────
+        with gr.TabItem("Search Tree"):
+            gr.Markdown("**Lens:** Full evolution tree visualization. Hover nodes for details. White ring = best node.")
+            with gr.Row():
+                tree_gens = gr.Slider(minimum=1, maximum=30, value=5, step=1, label="Max Generations", scale=2)
+                tree_pop = gr.Slider(minimum=2, maximum=16, value=6, step=1, label="Population Size", scale=2)
+                tree_btn = gr.Button("Evolve & Visualize", variant="primary", scale=1)
+            tree_output = gr.HTML(label="Evolution Tree")
+            tree_btn.click(fn=run_tree_viz, inputs=[universal_input, tree_gens, tree_pop], outputs=tree_output)
+
+        # ── Tab 4: Block Composer ───────────────────────────────────────
         with gr.TabItem("Block Composer"):
-            gr.Markdown("""### No-Code Proof Discovery
-Snap logic blocks together. The SAT gate verifies the composition.
-Select blocks, fill in variables, hit **Verify** or **Evolve**.""")
+            gr.Markdown("**Lens:** No-code proof discovery. Snap logic blocks together. Composed result updates the universal input.")
 
             b1, v1a, v1b, v1c = make_logic_block_row(1, LOGIC_BLOCKS)
             b2, v2a, v2b, v2c = make_logic_block_row(2, LOGIC_BLOCKS)
@@ -502,8 +540,8 @@ Select blocks, fill in variables, hit **Verify** or **Evolve**.""")
             b4, v4a, v4b, v4c = make_logic_block_row(4, LOGIC_BLOCKS)
 
             with gr.Row():
-                compose_verify_btn = gr.Button("Verify Composition", variant="primary")
-                compose_evolve_btn = gr.Button("Evolve Composition", variant="secondary")
+                compose_verify_btn = gr.Button("Compose & Verify", variant="primary")
+                compose_evolve_btn = gr.Button("Compose & Evolve", variant="secondary")
                 evolve_gens = gr.Slider(minimum=1, maximum=50, value=5, step=1, label="Generations")
 
             composed_output = gr.Code(label="Composed Proposition", language=None, interactive=False)
@@ -514,19 +552,17 @@ Select blocks, fill in variables, hit **Verify** or **Evolve**.""")
             compose_verify_btn.click(
                 fn=compose_and_verify,
                 inputs=all_block_inputs,
-                outputs=[composed_output, composer_result],
+                outputs=[composed_output, composer_result, universal_input],
             )
             compose_evolve_btn.click(
                 fn=compose_and_evolve,
                 inputs=all_block_inputs + [evolve_gens],
-                outputs=[composed_output, composer_result],
+                outputs=[composed_output, composer_result, universal_input],
             )
 
-        # ── Tab 2: Program Discovery ────────────────────────────────────
+        # ── Tab 5: Program Discovery ────────────────────────────────────
         with gr.TabItem("Program Discovery"):
-            gr.Markdown("""### No-Code Program Discovery
-Compose **code patterns** + **meta-clauses** into verifiable programs.
-The SAT gate checks structural consistency of the assembled program.""")
+            gr.Markdown("**Lens:** No-code program discovery. Code patterns + meta-clauses compose into verifiable programs. Result updates universal input.")
 
             gr.Markdown("#### Code Patterns")
             cp1, cp1a, cp1b = make_pattern_row(1, CODE_PATTERN_BLOCKS, "Pattern")
@@ -538,7 +574,7 @@ The SAT gate checks structural consistency of the assembled program.""")
             mc2, mc2a, mc2b = make_pattern_row(2, META_CLAUSE_BLOCKS, "Meta-Clause")
             mc3, mc3a, mc3b = make_pattern_row(3, META_CLAUSE_BLOCKS, "Meta-Clause")
 
-            prog_verify_btn = gr.Button("Verify Program", variant="primary")
+            prog_verify_btn = gr.Button("Compose & Verify Program", variant="primary")
             prog_output = gr.Code(label="Composed Program", language="python", interactive=False)
             prog_result = gr.HTML(label="Result")
 
@@ -546,60 +582,7 @@ The SAT gate checks structural consistency of the assembled program.""")
                 fn=compose_program,
                 inputs=[cp1, cp1a, cp1b, cp2, cp2a, cp2b, cp3, cp3a, cp3b,
                         mc1, mc1a, mc1b, mc2, mc2a, mc2b, mc3, mc3a, mc3b],
-                outputs=[prog_output, prog_result],
-            )
-
-        # ── Tab 3: Raw Verify ───────────────────────────────────────────
-        with gr.TabItem("Verify (Raw)"):
-            gr.Markdown("### Verification Gate\nPaste any text, code, or logic. Four verdicts: Verified, Contradiction, Paradox, Timeout.")
-            with gr.Row():
-                with gr.Column():
-                    content_input = gr.Textbox(label="Content", placeholder="if A then B. A.", lines=6)
-                    domain_input = gr.Dropdown(choices=DOMAIN_CHOICES, value="logic", label="Domain")
-                    verify_btn = gr.Button("Verify", variant="primary")
-                with gr.Column():
-                    verify_output = gr.HTML(label="Result")
-
-            gr.Examples(examples=EXAMPLES_VERIFY, inputs=[content_input, domain_input], label="Try these")
-            verify_btn.click(fn=run_verify, inputs=[content_input, domain_input], outputs=verify_output)
-
-        # ── Tab 4: Proof Evolution ──────────────────────────────────────
-        with gr.TabItem("Proof Evolution"):
-            gr.Markdown("### Proof Evolution\nGive a contradiction. The evolver mutates it across generations.")
-            with gr.Row():
-                with gr.Column():
-                    evolve_input = gr.Textbox(label="Content", placeholder="A. not A.", lines=4)
-                    max_gens_input = gr.Slider(minimum=1, maximum=50, value=5, step=1, label="Max Generations")
-                    evolve_btn = gr.Button("Evolve", variant="primary")
-                with gr.Column():
-                    evolve_output = gr.HTML(label="Result")
-
-            gr.Examples(examples=EXAMPLES_EVOLVE, inputs=[evolve_input, max_gens_input], label="Try these")
-            evolve_btn.click(fn=run_evolve, inputs=[evolve_input, max_gens_input], outputs=evolve_output)
-
-        # ── Tab 5: Search Tree Visualization ────────────────────────────
-        with gr.TabItem("Search Tree"):
-            gr.Markdown("""### Search Tree Visualization
-Watch proof evolution unfold as a tree. Each node is a mutation attempt.
-**Hover** nodes for details. **Colors** show status. **White ring** marks the best node found.""")
-            with gr.Row():
-                with gr.Column(scale=1):
-                    tree_input = gr.Textbox(
-                        label="Content",
-                        placeholder="A. not A.",
-                        lines=4,
-                        value="if A then B. if B then C. not C. A.",
-                    )
-                    tree_gens = gr.Slider(minimum=1, maximum=30, value=5, step=1, label="Max Generations")
-                    tree_pop = gr.Slider(minimum=2, maximum=16, value=6, step=1, label="Population Size")
-                    tree_btn = gr.Button("Evolve & Visualize", variant="primary")
-                with gr.Column(scale=3):
-                    tree_output = gr.HTML(label="Evolution Tree")
-
-            tree_btn.click(
-                fn=run_tree_viz,
-                inputs=[tree_input, tree_gens, tree_pop],
-                outputs=tree_output,
+                outputs=[prog_output, prog_result, universal_input],
             )
 
     gr.Markdown("""
