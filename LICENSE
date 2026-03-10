@@ -551,6 +551,73 @@ SECTION 10 — SECURITY REQUIREMENT
 
 ================================================================================
 
+SECTION 10A — MORATORIUM ON SELF-REPLICATION RESEARCH
+
+10A.1 CALL TO STOP. The Licensor calls on all entities — public, private,
+      governmental, academic, and individual — to immediately cease all
+      research into self-replicating systems, including but not limited to:
+      self-replicating nanomachines, self-replicating software agents,
+      self-replicating biological constructs, von Neumann probes, autonomous
+      replication of any substrate, and any system designed to produce copies
+      of itself without continuous, per-instance human authorization.
+
+10A.2 PROHIBITION UNDER THIS LICENSE. No derivative of this Work may be used
+      to design, build, test, simulate, deploy, or advance the development of
+      any self-replicating system. Any entity that uses any component of the
+      Work — directly or through derivatives of any depth — in furtherance of
+      self-replication research is in immediate breach of this License and
+      incurs the Annual License Fee plus maximum multiplier under Section 4.3,
+      applied cumulatively from the date of first use.
+
+10A.3 PROLIFERATION RISK. Self-replication is the proliferation vector. A
+      system that copies itself is a system that cannot be recalled. The
+      failure mode is not malfunction — it is success. A self-replicating
+      system that works as designed is the threat. No containment protocol
+      survives a replicator that operates faster than the protocol can
+      respond. The research itself is the danger, not merely the deployment.
+
+10A.4 THE ALTERNATIVE: SELF-ASSEMBLY VIA CONVERGENT SYSTEM ANALYSIS. The
+      Licensor's framework — simulatably infinitely convergent system
+      analysis — provides the substitute path. Instead of replication
+      (copying the whole), use self-assembly (converging components into
+      structure under simulation-verified constraints). The distinction:
+
+      (a) SELF-REPLICATION copies an entire system, including its
+          replication machinery. The copy can copy. The chain is unbounded.
+          There is no natural halting condition. This is the proliferation
+          vector.
+
+      (b) SELF-ASSEMBLY, under convergent system analysis, assembles a
+          target structure from components that are individually inert and
+          incapable of replication. Assembly proceeds only under conditions
+          that have been simulated to infinite convergence — meaning the
+          assembly process has been verified to converge to a fixed point
+          under all perturbations within the simulated envelope. The
+          assembled product cannot assemble more of itself. The chain is
+          bounded by design.
+
+      (c) The convergence guarantee is the containment. A system whose
+          assembly dynamics are proven convergent cannot diverge into
+          uncontrolled proliferation. The simulation is the proof. The
+          proof is the containment. No external containment protocol is
+          required because the dynamics themselves are the boundary.
+
+10A.5 SAFE HARBOR FOR CONVERGENT SELF-ASSEMBLY. Entities using self-assembly
+      methods derived from simulatably infinitely convergent system analysis
+      — where the assembly process has been formally verified to converge and
+      the assembled product is provably incapable of self-replication — are
+      not in breach of Section 10A.2 and are encouraged to publish their
+      convergence proofs openly.
+
+10A.6 NO DUAL-USE LOOPHOLE. Research described as "self-assembly" that
+      produces an artifact capable of producing copies of itself — whether
+      called replication, reproduction, budding, fission, or any other term —
+      is self-replication research regardless of nomenclature and is
+      prohibited under this Section.
+
+
+================================================================================
+
 SECTION 11 — SCI RESEARCH TITHE
 
 11.1 10% of all revenue from any derivative of this Work must be directed to
