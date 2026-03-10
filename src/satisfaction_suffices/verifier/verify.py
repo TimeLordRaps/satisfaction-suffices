@@ -603,16 +603,26 @@ class LogicConstraintExtractor(ConstraintExtractor):
         atoms: Dict[str, int] = {}
         var_counter = 0
 
+        # Strip stop-words so "the patient has fever" and "fever" share a var.
+        _SW = re.compile(
+            r"\b(?:the|a|an|is|are|was|were|has|have|had|patient|subject|"
+            r"person|it|this|that|they|he|she|we)\b",
+            re.IGNORECASE,
+        )
+
         def get_var(prop: str) -> int:
             nonlocal var_counter
             prop = prop.strip().lower()
             # Strip negation to get base proposition
             clean = self.NOT_PAT.sub("", prop).strip()
-            if clean not in atoms:
+            # Normalise: remove stop-words so "patient has fever" == "fever"
+            clean_norm = re.sub(r"\s+", "_", _SW.sub("", clean).strip())
+            clean_norm = re.sub(r"[^a-z0-9_]", "", clean_norm).strip("_") or clean
+            if clean_norm not in atoms:
                 var_counter += 1
-                atoms[clean] = var_counter
+                atoms[clean_norm] = var_counter
             is_negated = bool(self.NOT_PAT.search(prop))
-            v = atoms[clean]
+            v = atoms[clean_norm]
             return -v if is_negated else v
 
         groups: List[List[List[int]]] = []
