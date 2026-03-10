@@ -609,6 +609,59 @@ SECTION 10A — MORATORIUM ON SELF-REPLICATION RESEARCH
       not in breach of Section 10A.2 and are encouraged to publish their
       convergence proofs openly.
 
+10A.5A NEAR-TERM SCOPE: SUB-150nm SINGLE-CELL AND MULTICELLULAR SYSTEMS.
+      The immediate and highest-priority application of convergent
+      self-assembly under this Section is in the sub-150 nanometer range
+      for single-cell and multicellular biological systems. This is the
+      scale at which proliferation risk is most acute and where the
+      distinction between self-replication and self-assembly is existential:
+
+      (a) SCALE CONSTRAINT. All near-term self-assembly work under this
+          safe harbor must operate at structures below 150nm — the regime
+          where molecular machinery, protein complexes, viral capsids, and
+          subcellular organelles are constructed. This is the range where
+          a single design error in replication machinery produces
+          uncontrollable exponential proliferation at biological timescales.
+
+      (b) SINGLE-CELL SYSTEMS. Self-assembly of single-cell constructs
+          (synthetic cells, minimal cells, protocells, engineered bacteria)
+          must be convergent-verified: the assembled cell must be provably
+          incapable of division, budding, sporulation, or any form of
+          autonomous reproduction without continuous external activation
+          that is itself non-replicable.
+
+      (c) MULTICELLULAR SYSTEMS. Self-assembly of multicellular constructs
+          (tissue engineering, organoids, synthetic embryos, bioprinted
+          structures) must be convergent-verified at both the single-cell
+          and tissue levels: no individual cell in the assembly may be
+          capable of autonomous replication, and the multicellular
+          structure itself must converge to a fixed morphology under the
+          simulated envelope. Unbounded growth is replication by another
+          name.
+
+      (d) WHY THIS SCALE. Below 150nm is where chemistry becomes machinery.
+          A ribosome is ~25nm. A viral capsid is ~30-100nm. A cell membrane
+          channel is ~10nm. This is the scale where self-assembly is
+          already the natural mechanism — biology assembles, it does not
+          replicate from blueprints. The convergent framework makes the
+          natural mechanism safe by proving its dynamics halt. The
+          alternative — self-replication research at this scale — is how
+          pandemics are engineered.
+
+      (e) UPWARD APPLICABILITY. The sub-150nm range defines the floor of
+          urgency, not the ceiling of applicability. The higher up the
+          scale hierarchy that safety-first convergent design is practiced
+          — from molecular (sub-150nm) to cellular (1-100μm) to tissue
+          (mm-scale) to organ (cm-scale) to organism (m-scale) to
+          ecosystem — the greater the compounding safety margin. A system
+          that is convergent-verified at the molecular level and again at
+          the cellular level and again at the tissue level has three
+          independent containment guarantees, each of which is sufficient
+          alone. Safety practiced at every scale is not redundancy — it is
+          multiplication of proof. Entities are strongly encouraged to
+          apply convergent self-assembly verification at every accessible
+          scale, not merely the minimum required under this Section.
+
 10A.6 NO DUAL-USE LOOPHOLE. Research described as "self-assembly" that
       produces an artifact capable of producing copies of itself — whether
       called replication, reproduction, budding, fission, or any other term —
