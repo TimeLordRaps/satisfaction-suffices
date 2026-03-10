@@ -672,7 +672,8 @@ class CodeConstraintExtractor(ConstraintExtractor):
     """
 
     ASSERT_PAT = re.compile(r"assert\s+(.+?)(?:\s*,|\s*$|\s*#)", re.MULTILINE)
-    IF_PAT = re.compile(r"if\s+(.+?):", re.MULTILINE)
+    # Negative lookbehind prevents matching the 'if' inside 'elif'.
+    IF_PAT = re.compile(r"(?<![a-zA-Z])if\s+(.+?):", re.MULTILINE)
     ELIF_PAT = re.compile(r"elif\s+(.+?):", re.MULTILINE)
     ASSIGN_PAT = re.compile(r"(\w+)\s*=\s*(.+?)$", re.MULTILINE)
     RETURN_PAT = re.compile(r"return\s+(.+?)$", re.MULTILINE)
@@ -726,11 +727,10 @@ class CodeConstraintExtractor(ConstraintExtractor):
 
         if len(if_vars) > 1:
             # At most one branch taken: for each pair, ¬A ∨ ¬B
+            # Note: NOT adding "at least one" — if/elif branches need not fire.
             for i in range(len(if_vars)):
                 for j in range(i + 1, len(if_vars)):
                     groups.append([[-if_vars[i], -if_vars[j]]])
-            # At least one must be true (including implicit else)
-            groups.append([if_vars[:]])
 
         return var_counter, groups
 
@@ -792,7 +792,7 @@ class MathConstraintExtractor(ConstraintExtractor):
             v = get_var(f"exists_{m.group(1)}")
             exists_vars.append(v)
         if exists_vars:
-            groups.append(exists_vars)  # disjunction: at least one exists
+            groups.append([exists_vars])  # disjunction: at least one exists (one clause)
 
         return var_counter, groups
 
@@ -819,11 +819,23 @@ class ProofConstraintExtractor(ConstraintExtractor):
     ASSUME_PAT = re.compile(r"(?:assume|let|given|suppose)\s+(.+?)(?:\.|,|$)", re.IGNORECASE | re.MULTILINE)
     THEREFORE_PAT = re.compile(r"(?:therefore|hence|thus|so|then|conclude)\s+(.+?)(?:\.|$)", re.IGNORECASE | re.MULTILINE)
     BY_PAT = re.compile(r"(?:by|from|using|via)\s+(.+?)(?:\.|,|$)", re.IGNORECASE | re.MULTILINE)
-    CONTRA_PAT = re.compile(r"(?:contradiction|absurd|impossible|paradox)", re.IGNORECASE)
+    # Only match Lean4-style bare tactics, not English uses of these words.
+    # "contradiction" and "absurd" as standalone proof tactics (one per line).
+    CONTRA_PAT = re.compile(r"^\s*(?:contradiction|absurd)\s*$", re.IGNORECASE | re.MULTILINE)
     QED_PAT = re.compile(r"(?:qed|□|∎|proved|done)", re.IGNORECASE)
 
     # Lean4-style
-    SORRY_PAT = re.compile(r"\bsorry\b")
+    # Match "sorry" only in tactic position:
+    #   - alone on a line (standalone tactic)
+    #   - after "by" or "exact" (tactic combinators)
+    #   - after a period with optional whitespace (statement-final tactic)
+    # This prevents English "I am sorry" from injecting a false contradiction.
+    SORRY_PAT = re.compile(
+        r"(?:^\s*sorry\s*$"               # alone on its own line
+        r"|(?:by|exact)\s+sorry\b"        # tactic: "by sorry" / "exact sorry"
+        r"|\.\s*sorry\b)",                # statement-final: ". sorry"
+        re.IGNORECASE | re.MULTILINE,
+    )
     EXACT_PAT = re.compile(r"exact\s+(.+?)$", re.MULTILINE)
     APPLY_PAT = re.compile(r"apply\s+(.+?)$", re.MULTILINE)
     HAVE_PAT = re.compile(r"have\s+(\w+)\s*:\s*(.+?)\s*:=", re.MULTILINE)
