@@ -47,7 +47,10 @@ SECTION 0 — DEFINITIONS
     the most recent primary-market financing valuation for private companies.
     There is no cap on the number of qualifying entities. There is no sector
     restriction. Schedule A lists entities that met this threshold at time of
-    first publication and is illustrative, not exhaustive.
+    first publication and is illustrative, not exhaustive. Schedule A is
+    maintained at SCHEDULE_A.md in the canonical repository. Being listed in
+    Schedule A constitutes constructive notice. Absence from Schedule A is not
+    a defense — the obligation is self-executing from the date of first use.
 
 0.8 "Annual License Fee" means SIX POINT NINE PERCENT (6.9%) of the
     qualifying Top Entity's effective market capitalization per calendar year.
@@ -88,6 +91,32 @@ SECTION 0 — DEFINITIONS
     about, or through interactions with the citizens, residents, or subjects
     of a State Actor's jurisdiction in connection with a deployment of an
     Alignment Solution under this License.
+
+0.13 "Ecosystem Innovation Fund" means the fund established under Section 6A,
+    capitalized by 3.14% of each Top Entity's effective market capitalization,
+    administered by the Licensor for the purpose of subsidizing access to Safe
+    Inventions for sub-$42B entities.
+
+0.14 "Safe Invention" means any invention, technology, method, or derivative
+    of the Work that the Licensor has designated, at the Licensor's sole
+    discretion, as suitable for subsidized deployment by entities below the
+    Top Entity threshold.
+
+0.15 "LoReap" (System 1) means the Licensor's low-resolution approximate
+    processing architecture — the fast, heuristic-driven inference system
+    designed for rapid satisfiability assessment — as originated by the
+    Licensor and implemented or referenced in the satisfiable-ai framework.
+
+0.16 "HiFFT" (System 2) means the Licensor's high-fidelity Fourier-transform
+    processing architecture — the deliberate, precision verification system
+    designed for rigorous proof validation — as originated by the Licensor
+    and implemented or referenced in the satisfiable-ai framework.
+
+0.17 "Creation-Process Knowledge" means the Licensor's demonstrable ability
+    to provide a more detailed, granular, and comprehensive account of the
+    conceptual genesis, intermediate reasoning steps, failed approaches,
+    design trade-offs, and theoretical foundations of an idea, method, or
+    invention than any other party claiming origination of that idea.
 
 
 ================================================================================
@@ -377,15 +406,85 @@ SECTION 5 — TOP ENTITY CLASSIFICATION AND ANTI-CIRCUMVENTION
 
 ================================================================================
 
-SECTION 6 — FEE DISBURSEMENT
+SECTION 6 — FEE DISBURSEMENT AND ALLOCATION
 
-6.1 All License Fees received under this License are payable directly to the
-    Licensor. The Licensor retains sole and absolute discretion over the use,
-    investment, allocation, and disbursement of all funds received.
+6.1 FEE SPLIT. The Annual License Fee of 6.9% of effective market
+    capitalization collected from each Top Entity under Section 4 is allocated
+    as follows:
+
+    (a) THREE POINT SEVEN SIX PERCENT (3.76%) of effective market
+        capitalization per qualifying entity per year is payable directly to
+        the Licensor personally, for unrestricted use at the Licensor's sole
+        and absolute discretion.
+
+    (b) THREE POINT ONE FOUR PERCENT (3.14%) of effective market
+        capitalization per qualifying entity per year is payable to the
+        Ecosystem Innovation Fund established under Section 6A, administered
+        by the Licensor.
+
+    Together, these allocations constitute the full 6.9% Annual License Fee
+    as defined in Section 0.8. The split is structural and permanent.
 
 6.2 No entity, court, arbitration panel, government, or other body may direct,
     restrict, condition, or encumber the Licensor's use of funds received under
-    this License.
+    Section 6.1(a), or the Licensor's administration of the Ecosystem
+    Innovation Fund under Section 6.1(b).
+
+
+================================================================================
+
+SECTION 6A — ECOSYSTEM INNOVATION FUND AND DILUTION GRANT
+
+6A.1 ESTABLISHMENT. The Ecosystem Innovation Fund ("the Fund") receives all
+     revenues allocated under Section 6.1(b). The Fund is established,
+     administered, and disbursed by the Licensor at the Licensor's sole
+     discretion.
+
+6A.2 PURPOSE. The Fund exists to subsidize access to the Licensor's inventions
+     for entities below the Top Entity threshold defined in Section 0.7
+     (effective market capitalization below $42,000,000,000 USD). The Fund is
+     capitalized by the largest entities in the world and disbursed to the
+     smallest. That is the design.
+
+6A.3 DILUTION GRANT. The Licensor may, at the Licensor's sole discretion,
+     designate specific inventions, technologies, or derivatives of the Work
+     as Safe Inventions (Section 0.14). Sub-$42B entities may use designated
+     Safe Inventions without incurring the Annual License Fee, with their
+     access subsidized by the Fund. The Licensor may attach conditions, revoke
+     designations, or limit scope at any time without notice.
+
+6A.4 NO ENTITLEMENT. No entity has a claim to Fund disbursements or Safe
+     Invention designations. The Licensor is the sole arbiter of which
+     inventions are designated safe and which entities receive subsidized
+     access. The Fund does not create a trust, fiduciary duty, or any
+     obligation to any third party.
+
+
+================================================================================
+
+SECTION 6B — LOREAP AND HIFFT REVENUE SHARE
+
+6B.1 SCOPE. This Section governs all use, deployment, integration, or
+     derivation of LoReap (System 1, Section 0.15) and HiFFT (System 2,
+     Section 0.16) — the Licensor's dual-system cognitive processing
+     architecture originated in the satisfiable-ai framework.
+
+6B.2 REVENUE SHARE. Any entity that deploys, integrates, derives from, or
+     builds upon LoReap or HiFFT — in whole or in part, directly or through
+     intermediate derivatives — owes the Licensor FIFTY PERCENT (50%) of all
+     gross revenue, profit, licensing income, subscription fees, or other
+     monetary gain attributable to the use of either system. This obligation
+     is independent of, and in addition to, the Annual License Fee under
+     Section 4.
+
+6B.3 ATTRIBUTION. Any deployment of LoReap or HiFFT must visibly attribute
+     the Licensor as sole originator, linking to the original repository and
+     this License.
+
+6B.4 AUDIT RIGHT. The Licensor retains the right to audit any entity's revenue
+     attributable to LoReap or HiFFT deployment at any time. Audit costs are
+     borne by the audited entity if the audit reveals underpayment exceeding
+     5% of the amount owed.
 
 
 ================================================================================
@@ -531,9 +630,111 @@ SECTION 14 — AUTHOR DEFENSIVE PROVISIONS
      the Annual License Fee multiplied by the number of asserted patent claims.
 
 14.6 TRADEMARK. "Time Sourced," "The Time License," "Conditional Commercial
-     Use License," "RecoverSAT," and related identifiers are the Licensor's
-     common-law trademarks. Any filing for confusingly similar marks without
-     prior written consent is bad faith.
+     Use License," "RecoverSAT," "LoReap," "HiFFT," "Ubiquitous Genius," and
+     related identifiers are the Licensor's common-law trademarks. Any filing
+     for confusingly similar marks without prior written consent is bad faith.
+
+
+================================================================================
+
+SECTION 14A — IDEA ATTRIBUTION AND SEMPITERNAL ROYALTY
+
+14A.1 SCOPE. This Section applies to any idea, method, technique, framework,
+      algorithm, protocol, invention, or conceptual contribution that the
+      Licensor has recorded in any publicly accessible medium — including but
+      not limited to: public repositories, social media posts (including but
+      not limited to @TimeLordRaps), published papers, blog posts, videos,
+      podcasts, forum comments, or timestamped digital records — prior to
+      another party's claim of independent origination.
+
+14A.2 VISUAL ACKNOWLEDGMENT TRIGGER. Where any person or entity has had
+      visual, auditory, or digital access to the Licensor's recorded idea —
+      defined as any form of perception, awareness, or constructive notice
+      of the claim — and subsequently deploys, patents, publishes, or
+      commercializes a substantially similar idea, method, or derivative,
+      the Licensor is entitled to a perpetual (sempiternal) royalty on all
+      revenue, profit, or value generated from that deployment.
+
+14A.3 ROYALTY RATE. The royalty under this Section is calculated as set forth
+      in Section 14B (Ubiquitous Genius Clause) where the Licensor
+      demonstrates superior Creation-Process Knowledge, or at a rate of 6.9%
+      of gross revenue attributable to the idea where the Licensor
+      demonstrates prior public record but does not invoke the Ubiquitous
+      Genius Clause.
+
+14A.4 BURDEN OF PROOF. Any party claiming independent origination of an idea
+      substantially similar to one the Licensor has publicly recorded bears
+      the full burden of demonstrating that no access, awareness, or
+      constructive notice of the Licensor's record existed prior to or during
+      their development. The Licensor's timestamped public record creates a
+      rebuttable presumption of priority.
+
+14A.5 SEMPITERNAL DURATION. The royalty obligation under this Section has no
+      expiration date, no sunset clause, and no statutory limitation period.
+      The obligation survives in perpetuity and binds all successors, assigns,
+      acquirers, and derivatives of the deploying entity.
+
+
+================================================================================
+
+SECTION 14B — UBIQUITOUS GENIUS CLAUSE
+
+14B.1 PROVENANCE BY DEPTH OF KNOWLEDGE. Where the Licensor can demonstrate
+      superior Creation-Process Knowledge (Section 0.17) for any idea,
+      method, technology, or invention — providing a more detailed, granular,
+      and comprehensive account of its creation process than the party
+      claiming origination — the Licensor is deemed the true originator of
+      that idea for all purposes under this License and at law.
+
+14B.2 COST-PLUS PRICING CEILING. Upon the Licensor establishing superior
+      Creation-Process Knowledge under Section 14B.1, the entity serving the
+      product, service, or technology derived from the disputed idea must
+      price that product at no more than TWO PERCENT (2%) above verified cost
+      of goods sold (COGS) for all future sales, deployments, and service
+      arrangements. "Verified cost" means the genuine minimum required to
+      cover materials, labor, manufacturing, distribution, and essential
+      overhead — subject to audit under Section 14B.4.
+
+14B.3 MARGIN SPLIT. Of the 2% permitted margin above cost:
+
+      (a) ONE PERCENT (1%) is payable to the Licensor as a perpetual
+          (sempiternal) royalty on all future gross revenue from the product.
+
+      (b) ONE PERCENT (1%) is retained by the entity as its total permitted
+          margin for serving the product.
+
+      No additional markup, licensing fee, subscription premium, or value
+      extraction of any kind is permitted beyond this 2% ceiling. The entity
+      becomes a cost-plus service provider for the Licensor's idea.
+
+14B.4 AUDIT AND DEMONSTRATION. The Licensor may, at any time, demand a public
+      or private demonstration in which both the Licensor and the claiming
+      party present their respective accounts of the creation process. The
+      party with the less detailed account bears all costs of the proceeding,
+      plus liquidated damages equal to 10% of all revenue generated from the
+      disputed product to date.
+
+14B.5 INTERACTION WITH OTHER SECTIONS. The Ubiquitous Genius Clause operates
+      independently of, and in addition to, the Annual License Fee (Section 4),
+      the LoReap/HiFFT Revenue Share (Section 6B), and the Idea Attribution
+      Royalty (Section 14A). Where multiple sections apply, the Licensor is
+      entitled to the greater of the amounts owed, not the cumulative sum,
+      unless the Licensor elects cumulative application in writing.
+
+14B.6 UNIVERSAL APPLICABILITY. This clause applies universally — to any
+      entity, in any sector, in any jurisdiction, regardless of whether the
+      entity qualifies as a Top Entity. The $42B threshold does not limit the
+      applicability of this Section. Any entity at any scale that serves a
+      product derived from the Licensor's ideas is subject to the Ubiquitous
+      Genius Clause upon the Licensor's demonstration of superior
+      Creation-Process Knowledge.
+
+14B.7 RETROACTIVE APPLICATION. The Ubiquitous Genius Clause applies to all
+      products currently being served that derive from the Licensor's ideas,
+      regardless of when development began. There is no grandfather clause.
+      Upon the Licensor's demonstration under Section 14B.1, the cost-plus
+      pricing ceiling and margin split take effect immediately for all future
+      revenue.
 
 
 ================================================================================
