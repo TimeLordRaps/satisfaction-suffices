@@ -34,6 +34,8 @@ Repository = "https://github.com/TimeLordRaps/satisfaction-suffices"
 Issues = "https://github.com/TimeLordRaps/satisfaction-suffices/issues"
 Changelog = "https://github.com/TimeLordRaps/satisfaction-suffices/releases"
 Paper = "https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/paper/paper_01_submission.md"
+License = "https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/LICENSE"
+"License Registry" = "https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/SCHEDULE_A.md"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
