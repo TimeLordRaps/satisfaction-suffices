@@ -668,6 +668,105 @@ SECTION 10A — MORATORIUM ON SELF-REPLICATION RESEARCH
       is self-replication research regardless of nomenclature and is
       prohibited under this Section.
 
+10A.7 CONVERGENT CONTAINMENT PROOF METAPROGRAM. The following natural-language
+      metaprogram defines the procedure by which any entity may produce a
+      valid convergent containment proof under this Section. This is not
+      pseudocode — it is a binding specification of the proof obligation.
+      Any proof that does not satisfy every step is incomplete.
+
+      PROGRAM: CONVERGENT_CONTAINMENT_PROOF
+      INPUT:   System S (the assembly to be verified)
+               Scale K (the scale level: molecular, cellular, tissue, ...)
+               Envelope E (the set of all perturbations to be tolerated)
+
+      STEP 1 — DECOMPOSE.
+        Identify every component C_i of System S at Scale K.
+        For each C_i, assert: C_i is individually inert.
+        "Individually inert" means: C_i, in isolation and without external
+        activation, cannot initiate assembly, replication, division, growth,
+        signaling, or state change. If any C_i is not individually inert,
+        HALT — the system cannot be verified at this scale. Redesign.
+
+      STEP 2 — DEFINE ASSEMBLY DYNAMICS.
+        Specify the assembly function A(C_1, ..., C_n, t) → S(t) that
+        maps the component set to the system state at time t.
+        Assert: A is deterministic given the component set and initial
+        conditions. If A contains stochastic elements, bound them:
+        for every random variable in A, specify the support, and verify
+        that all realizations within the support produce convergent
+        trajectories. If any realization diverges, HALT — redesign.
+
+      STEP 3 — DEFINE FIXED POINT.
+        Specify the target state S* to which A must converge.
+        S* is the intended assembled product.
+        Assert: S* is a fixed point of A. That is: A(S*, t) = S* for all
+        t > t_converge. Once the system reaches S*, it stays at S*.
+        If S* is not a fixed point, HALT — the system has no stable
+        endpoint. Redesign.
+
+      STEP 4 — PROVE CONVERGENCE.
+        For all initial conditions within the design envelope:
+          Show that lim(t → ∞) A(C_1, ..., C_n, t) = S*.
+        The convergence must be:
+          (a) Global within the envelope — not merely local stability.
+          (b) Monotonic or Lyapunov-bounded — the distance metric
+              d(S(t), S*) must be non-increasing after some finite t_0.
+          (c) Finite-time — convergence must occur within a computable
+              time bound T_max. Asymptotic-only convergence is
+              insufficient. If S(t) ≠ S* for all finite t, the system
+              is not contained. HALT.
+
+      STEP 5 — PROVE NON-REPLICATION.
+        Assert: S* cannot produce any component C_i, nor any copy of S*,
+        nor any system capable of executing A.
+        Formally: there exists no function R such that S* → S* + S'
+        where S' is a copy, partial copy, or functional equivalent.
+        This is the containment guarantee. If S* can produce components
+        or copies, it is a replicator regardless of what it is called.
+        HALT — prohibited under 10A.2.
+
+      STEP 6 — PERTURBATION SWEEP.
+        For every perturbation P_j in Envelope E:
+          Apply P_j to A at every time step.
+          Verify that the perturbed trajectory still converges to S*
+          or to a safe degraded state S_d where S_d is also a fixed
+          point and S_d is also non-replicating.
+        "Safe degraded state" means: partial assembly or disassembly,
+        but never runaway assembly, growth, or replication.
+        If any P_j produces divergence, unbounded growth, or replication
+        capability, HALT — the envelope is insufficient. Either narrow
+        the envelope or redesign the system.
+
+      STEP 7 — SCALE RECURSION.
+        If Scale K is not the lowest applicable scale:
+          For each component C_i that is itself a composite at Scale K-1:
+            RECURSE: Run CONVERGENT_CONTAINMENT_PROOF(C_i, K-1, E').
+          Each sub-proof must independently pass all steps.
+        This is the upward applicability guarantee from 10A.5A(e).
+        Safety at every scale is multiplication of proof.
+
+      STEP 8 — EMIT PROOF ARTIFACT.
+        Produce a cryptographically timestamped proof artifact containing:
+          (a) The component inventory {C_i} and inertness assertions.
+          (b) The assembly function A, formally specified.
+          (c) The fixed point S* and its stability proof.
+          (d) The non-replication proof for S*.
+          (e) The perturbation envelope E and sweep results.
+          (f) All recursive sub-proofs at lower scales.
+          (g) The time bound T_max.
+          (h) A hash of the simulation code used to verify convergence.
+        Sign the artifact. Publish it. The timestamp is the proof date.
+        The proof is the containment. The publication is the accountability.
+
+      OUTPUT:  PROOF_VALID if all steps pass.
+               HALT with specific failure step if any step fails.
+
+      There is no "PROOF_PARTIAL." A containment proof is complete or it is
+      not a containment proof. Partial proofs do not grant safe harbor
+      under Section 10A.5.
+
+      END PROGRAM.
+
 
 ================================================================================
 
