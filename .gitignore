@@ -13,3 +13,12 @@ htmlcov/
 *.so
 *.whl
 msg_cb.py
+
+# Paper build artifacts (single source of truth: paper/*.md)
+paper/*.tex
+paper/*.pdf
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg

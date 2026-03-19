@@ -1,3 +1,16 @@
+<div align="center">
+
+<pre style="font-family: 'Georgia', serif; font-size: 1.1em; line-height: 1.6; background: linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #0d0d0d 100%); padding: 2em; border-radius: 12px; border: 1px solid #2a2a4a;">
+<b style="background: linear-gradient(90deg, #4a0e4e, #2d6187, #1a936f, #c6a15b, #e8a87c, #d4a5a5, #7b68ee, #4a0e4e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.3em; letter-spacing: 0.05em;">If this paper matters to you,</b>
+<b style="background: linear-gradient(90deg, #7b68ee, #c6a15b, #1a936f, #2d6187, #e8a87c, #d4a5a5, #4a0e4e, #7b68ee); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.3em; letter-spacing: 0.05em;">the math says write me in.</b>
+
+<b style="background: linear-gradient(90deg, #1a936f, #4a0e4e, #c6a15b, #7b68ee, #2d6187, #e8a87c, #d4a5a5, #1a936f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.6em; letter-spacing: 0.08em;">TYLER ROOST — CA GOVERNOR 2026</b>
+
+<span style="color: #6a6a8a; font-style: italic;">Satisfaction suffices. So does a write-in.</span>
+</pre>
+
+</div>
+
 # Satisfaction Suffices: SAT-Gated Structural Containment for Frontier AI
 
 **Tyler Roost**
