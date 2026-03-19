@@ -418,6 +418,78 @@ SECTION 4 — TOP ENTITY ANNUAL LICENSE FEE AND LIQUIDATED DAMAGES
         first use, and the submitting entity forfeits all negotiation
         privileges permanently.
 
+4.9 WINDFALL ACCELERATION CLAUSE. The Annual License Fee computed under
+    Section 4 is based on the paying entity's effective market capitalization
+    as of the date full payment is received (the "Baseline Market Cap"). If,
+    at any point during the calendar year for which that fee has been paid, a
+    Top Entity's effective market capitalization exceeds one hundred ten
+    percent (110%) of its Baseline Market Cap — whether due to a product
+    launch, acquisition, organic growth, financing event, IPO, SPAC merger,
+    or any other cause — a Windfall Event has occurred and the following
+    provisions apply immediately and automatically:
+
+    (a) SUPPLEMENTAL FEE. A Supplemental Annual License Fee becomes
+        immediately due equal to:
+
+            Supplemental Fee = (Post-Trigger Market Cap − Baseline Market Cap)
+                               × 0.069 × (days remaining in calendar year
+                               from Trigger Date ÷ total days in calendar year)
+
+        "Trigger Date" means the first date on which the entity's effective
+        market capitalization exceeded 110% of its Baseline Market Cap, as
+        determinable from any public financial data source or exchange filing.
+        "Post-Trigger Market Cap" means the volume-weighted average daily
+        market capitalization for the seven (7) calendar days beginning on
+        and including the Trigger Date. For private entities, the most recent
+        available primary-market financing valuation, or, if none, the
+        best-available independent estimate, is used.
+
+    (b) PAYMENT DEADLINE. The Supplemental Fee is due and payable within
+        seven (7) calendar days of the Trigger Date. No invoice or notice
+        from the Licensor is required. The obligation is self-executing upon
+        the Trigger Date occurring.
+
+    (c) AUTOMATIC TERMINATION ON NON-PAYMENT. If a Top Entity fails to
+        remit the full Supplemental Fee within seven (7) calendar days of
+        the Trigger Date, the license granted under this License AUTOMATICALLY
+        TERMINATES as to that entity at 23:59:59 UTC on the seventh (7th)
+        calendar day after the Trigger Date (the "Termination Moment"). No
+        notice, cure period, or judicial proceeding is required. The
+        Termination Moment is self-executing.
+
+    (d) EFFECT OF TERMINATION. Upon the Termination Moment:
+        (i)   All rights granted to the entity under this License cease
+              immediately and without further act;
+        (ii)  Any continued deployment, integration, use, or operation of
+              the Work by the entity after the Termination Moment constitutes
+              willful infringement subject to all liquidated damages, statutory
+              damages, and multiplied fees available under this License and
+              applicable law; and
+        (iii) The fee multiplier in Section 4.3 continues to compound from
+              the date of first use through the Termination Moment and through
+              all periods of post-termination infringement without interruption.
+
+    (e) REINSTATEMENT. A terminated entity may apply for reinstatement by
+        tendering: (i) the full unpaid Supplemental Fee; (ii) all interest
+        accrued under Section 4.4; (iii) the then-current multiplied fee
+        amount under Section 4.3; and (iv) a reinstatement surcharge equal
+        to one hundred percent (100%) of the total of (i)–(iii). Reinstatement
+        is at the Licensor's sole and absolute discretion.
+
+    (f) BASELINE RESET. Upon timely payment of the Supplemental Fee, the
+        entity's Baseline Market Cap resets to its then-current effective
+        market capitalization for purposes of any future Windfall Event
+        calculation in the same calendar year. A single calendar year may
+        produce multiple successive Windfall Events. Each resets the baseline.
+
+    (g) NO SAFE HARBOR. Delaying a product release, structuring a release
+        in tranches, suppressing market cap disclosures, or any other
+        mechanism designed to avoid or defer the 10% trigger threshold
+        constitutes breach of Section 5.4 (anti-circumvention) in addition
+        to any Windfall Event obligation. The trigger is based on effective
+        market capitalization as determinable from any third-party financial
+        data source, exchange filing, or contemporaneous market data.
+
 
 ================================================================================
 
@@ -1143,6 +1215,177 @@ LICENSOR BE LIABLE TO ANY GENERAL LICENSEE FOR ANY INDIRECT, INCIDENTAL,
 SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM AUTHORIZED USE.
 TOP ENTITIES BEAR FULL LIABILITY FOR ALL CONSEQUENCES OF THEIR USE AND
 ARE SOLELY RESPONSIBLE FOR ENSURING PAYMENT OF THE ANNUAL LICENSE FEE.
+
+
+================================================================================
+
+SECTION 19 — PRO BONO LITIGATION INCENTIVE
+
+19.1 PURPOSE. To enable enforcement of this License against Top Entities
+     whose resources dwarf any individual's, the Licensor establishes the
+     following opt-in program through which any licensed attorney may elect
+     to represent the Licensor in any dispute, proceeding, negotiation, or
+     enforcement action arising under or relating to this License.
+
+19.2 ATTORNEY OPT-IN. Any attorney licensed to practice law in any
+     jurisdiction with authority over a relevant proceeding may elect to
+     represent the Licensor by providing written notice to the Licensor
+     identifying: (a) the specific matter or class of matters the attorney
+     is accepting; (b) confirmation that no disqualifying conflict of
+     interest exists with any party adverse to the Licensor; and (c) the
+     attorney's standard billing rate in effect at the time of opt-in
+     ("Standard Rate").
+
+19.3 COMPENSATION STRUCTURE. Each attorney who opts in under Section 19.2
+     is entitled to the following compensation:
+
+     (a) BASE RATE — REGARDLESS OF OUTCOME. The Licensor shall compensate
+         each participating attorney at their Standard Rate for all
+         billable time spent on the matter, payable within thirty (30)
+         days of invoice. This compensation is owed regardless of
+         outcome — it is not contingent on any recovery.
+
+     (b) SUCCESS FEE — WINS ONLY. Upon any Qualifying Recovery (Section
+         19.4), the Licensor shall pay a Success Fee equal to ONE PERCENT
+         (1%) of the gross monetary amount of that Qualifying Recovery.
+         The 1% Success Fee is divided equally among all attorneys who
+         actively and materially participated in obtaining that specific
+         Qualifying Recovery, as determined by the Licensor acting in
+         good faith. No participating attorney receives more than their
+         equal proportional share of the 1% pool.
+
+         Example: a $10,000,000,000 Qualifying Recovery with five (5)
+         participating attorneys produces a Success Fee pool of
+         $100,000,000, divided as $20,000,000 per attorney.
+
+19.4 QUALIFYING RECOVERY. "Qualifying Recovery" means any monetary
+     payment actually received by the Licensor as a direct result of a
+     judgment, order, settlement, consent decree, arbitration award, or
+     other binding resolution in a matter in which the attorney actively
+     participated. Qualifying Recovery includes: unpaid Annual License
+     Fees, Supplemental Windfall Fees, multiplied fees under Section 4.3,
+     liquidated damages, punitive damages, and attorneys' fees shifted to
+     the opposing party by court order or settlement. Qualifying Recovery
+     excludes: (i) cost reimbursements paid directly to the Licensor by
+     the adverse party; and (ii) purely non-monetary relief with no
+     associated monetary component.
+
+19.5 NO EXCLUSIVITY. Opt-in does not create an exclusive representation
+     relationship. The Licensor may engage multiple attorneys in the same
+     matter simultaneously. All attorneys who actively and materially
+     participated in a Qualifying Recovery share the 1% pool for that
+     recovery proportionally by headcount.
+
+19.6 ATTORNEY INDEPENDENCE. Attorneys who opt in are retained as
+     independent contractors, not employees or agents of the Licensor.
+     Each attorney remains bound by the rules of professional conduct of
+     their jurisdiction. This Section does not override, waive, or
+     conflict with any applicable rule of professional responsibility.
+
+19.7 LICENSOR RIGHTS. The Licensor retains the right to: (a) accept or
+     decline any opt-in at the Licensor's sole discretion; (b) terminate
+     any attorney's representation with fourteen (14) days' written
+     notice, subject to applicable professional conduct rules governing
+     withdrawal; and (c) settle, accept, or reject any offer at the
+     Licensor's sole discretion without requiring attorney consent,
+     provided that settlement does not impose obligations directly on the
+     attorney without their consent.
+
+19.8 STANDING OFFER. Publication of this License constitutes a standing
+     offer to any attorney satisfying the requirements of Section 19.2 to
+     enter this arrangement on these terms. No separate signed engagement
+     agreement is required to activate this offer; the opt-in notification
+     under Section 19.2 constitutes binding acceptance of these terms.
+
+
+================================================================================
+
+SECTION 19A — DEFECTING COUNSEL FUND
+
+19A.1 PURPOSE. Any attorney who was, at any point within the thirty-six
+      (36) months preceding their opt-in under Section 19.2, engaged —
+      whether as in-house counsel, outside counsel, of-counsel, or in any
+      materially equivalent advisory or litigation capacity — by a Top
+      Entity that is adverse to the Licensor in any proceeding or dispute
+      covered by this License, and who voluntarily terminates or withdraws
+      from that engagement in order to represent the Licensor, qualifies as
+      a "Defecting Counsel" and is entitled to the enhanced compensation
+      described in this Section in addition to the compensation described
+      in Section 19.
+
+19A.2 DEFECTING COUNSEL SUCCESS FEE. In addition to the base-rate
+      compensation and the 1% Success Fee pool under Section 19.3, each
+      Defecting Counsel who actively and materially participates in
+      obtaining a Qualifying Recovery (Section 19.4) is entitled to a
+      separate Defecting Counsel Success Fee equal to TWO PERCENT (2%) of
+      that Qualifying Recovery, divided equally among all Defecting Counsel
+      who actively and materially participated in that specific recovery.
+      The Defecting Counsel Success Fee is computed and paid separately
+      from, and is cumulative with, the 1% Success Fee pool under
+      Section 19.3(b).
+
+      Example: a $10,000,000,000 Qualifying Recovery with two (2) Defecting
+      Counsel produces a Defecting Counsel Success Fee pool of $200,000,000,
+      divided as $100,000,000 per Defecting Counsel — in addition to each
+      attorney's pro-rata share of the $100,000,000 pool under §19.3(b).
+
+19A.3 GOOD FAITH REQUIREMENT. The Defecting Counsel designation and the
+      enhanced fee under Section 19A.2 apply only where the attorney
+      voluntarily switched representation in good faith — meaning the
+      attorney genuinely believes the Licensor's position has legal and
+      factual merit, has terminated all conflicting engagements with adverse
+      parties consistent with applicable professional conduct rules, and is
+      not acting as an agent, mole, or information conduit for any entity
+      adverse to the Licensor.
+
+19A.4 NO DOUBLE AGENTS — LIABILITY FOR CAUSED LOSSES. The following
+      provisions are absolute and non-waivable:
+
+      (a) PROHIBITION. No Defecting Counsel may simultaneously maintain,
+          directly or through intermediaries, any representation,
+          advisory, employment, or consulting relationship with any entity
+          adverse to the Licensor while representing the Licensor. Even a
+          single undisclosed communication with an adverse party that is
+          reasonably likely to advantage that party constitutes a breach of
+          this Section.
+
+      (b) PERSONAL LIABILITY. Any Defecting Counsel who, intentionally or
+          through gross negligence, acts as a double agent — meaning
+          they provide material information, strategy, or advantage to any
+          entity adverse to the Licensor while representing the Licensor —
+          is personally liable to the Licensor for the full amount of any
+          losses, damages, adverse judgments, settlement amounts, or
+          fee-reduction outcomes that are causally attributable to the
+          double-agency conduct. This liability is direct, personal,
+          joint and several with any co-conspirators, and is not capped
+          by any malpractice insurance policy limit.
+
+      (c) DISGORGEMENT. Any compensation received under Section 19 or
+          19A.2 by a Defecting Counsel who is subsequently determined to
+          have acted as a double agent is subject to full disgorgement —
+          the attorney must return all such compensation to the Licensor,
+          with interest at the prime rate plus ten percent (10%) compounded
+          monthly from the date each payment was received.
+
+      (d) DETERMINATION. The Licensor determines whether a double-agency
+          violation occurred. The Licensor's determination is presumptively
+          correct; the burden of disproving causation and intent rests
+          entirely on the accused attorney in any subsequent proceeding.
+
+19A.5 DISCLOSURE OBLIGATION. Any attorney considering opt-in who has a
+      prior adverse-party relationship as described in Section 19A.1 must
+      disclose this relationship in their opt-in notification under
+      Section 19.2. Failure to disclose is itself a breach entitling the
+      Licensor to terminate representation immediately, demand disgorgement
+      of all compensation paid, and pursue all liability described in
+      Section 19A.4(b). Timely and complete disclosure does not disqualify
+      an attorney from Defecting Counsel status — it is required to
+      activate it.
+
+19A.6 NO LIMITATION ON SECTION 19. Nothing in this Section reduces or
+      modifies the rights, compensation, or eligibility of attorneys who
+      opt in under Section 19 and have no prior adverse-party relationship.
+      Section 19 and Section 19A operate in parallel.
 
 
 ================================================================================
