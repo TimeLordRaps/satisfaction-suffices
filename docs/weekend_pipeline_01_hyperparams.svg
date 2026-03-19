@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 980" width="1400" height="980">
+  <defs>
+    <style>
+      .bg { fill:#0b1020; }
+      .frame { fill:#121a31; stroke:#4da3ff; stroke-width:2; rx:14; }
+      .frame2 { fill:#15223d; stroke:#6ad3ff; stroke-width:1.5; rx:10; }
+      .title { fill:#eaf3ff; font-family:monospace; font-size:28px; font-weight:bold; }
+      .h { fill:#9ad0ff; font-family:monospace; font-size:18px; font-weight:bold; }
+      .t { fill:#dbe8ff; font-family:monospace; font-size:15px; }
+      .k { fill:#8ee7ff; font-family:monospace; font-size:15px; }
+      .warn { fill:#ffd08a; font-family:monospace; font-size:14px; }
+      .ok { fill:#89f7b8; font-family:monospace; font-size:14px; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="980"/>
+  <rect class="frame" x="24" y="24" width="1352" height="932"/>
+
+  <text class="title" x="50" y="70">Weekend Pipeline Hyperparameter Sheet (1.2B base -&gt; REAP -&gt; 4x0.6B MoE)</text>
+  <text class="t" x="50" y="98">Target: byteword SAT-framed training; local 4090 path with cloud-burst fallback for base stage</text>
+
+  <rect class="frame2" x="46" y="126" width="646" height="382"/>
+  <text class="h" x="68" y="158">A) Base model (dense) specification</text>
+  <text class="k" x="68" y="186">Architecture:</text><text class="t" x="240" y="186">Decoder-only hybrid transformer/SSM-lite</text>
+  <text class="k" x="68" y="212">Layers (L):</text><text class="t" x="240" y="212">28</text>
+  <text class="k" x="68" y="238">d_model:</text><text class="t" x="240" y="238">1920</text>
+  <text class="k" x="68" y="264">Heads / KV:</text><text class="t" x="240" y="264">30 heads / GQA 6 KV heads</text>
+  <text class="k" x="68" y="290">FFN hidden:</text><text class="t" x="240" y="290">7168 (SwiGLU)</text>
+  <text class="k" x="68" y="316">Vocab:</text><text class="t" x="240" y="316">8192 bytewords (SAT DSL + byte fallback)</text>
+  <text class="k" x="68" y="342">Context:</text><text class="t" x="240" y="342">8192</text>
+  <text class="k" x="68" y="368">Precision:</text><text class="t" x="240" y="368">BF16 train, FP16 fallback</text>
+  <text class="k" x="68" y="394">Optimizer:</text><text class="t" x="240" y="394">AdamW (beta1=0.9 beta2=0.95 eps=1e-8 wd=0.1)</text>
+  <text class="k" x="68" y="420">LR schedule:</text><text class="t" x="240" y="420">cosine, peak 2e-4, warmup 2%</text>
+  <text class="k" x="68" y="446">Global batch:</text><text class="t" x="240" y="446">2M tokens effective via grad accumulation</text>
+  <text class="warn" x="68" y="478">Local 4090: use 100M-200M tokens for 6h; run full 10B only with short cloud burst.</text>
+
+  <rect class="frame2" x="708" y="126" width="646" height="382"/>
+  <text class="h" x="730" y="158">B) REAP + Expert configuration</text>
+  <text class="k" x="730" y="186">Upcycle:</text><text class="t" x="920" y="186">dense 1.2B -&gt; 8 candidate experts (0.6B each skeletonized)</text>
+  <text class="k" x="730" y="212">REAP prune:</text><text class="t" x="920" y="212">50% keep ratio (8 -&gt; 4 experts)</text>
+  <text class="k" x="730" y="238">Calibration set:</text><text class="t" x="920" y="238">2M-5M byteword tokens SAT-balanced</text>
+  <text class="k" x="730" y="264">REAP score:</text><text class="t" x="920" y="264">mean(router_gate * expert_activation_norm)</text>
+  <text class="k" x="730" y="290">Final MoE:</text><text class="t" x="920" y="290">4 x 0.6B total = 2.4B params</text>
+  <text class="k" x="730" y="316">Top-k routing:</text><text class="t" x="920" y="316">top-2 experts/token (load-balance aux loss 0.01)</text>
+  <text class="k" x="730" y="342">Active params:</text><text class="t" x="920" y="342">~0.9B-1.2B/token depending on shared blocks</text>
+  <text class="k" x="730" y="368">Expert fine-tune:</text><text class="t" x="920" y="368">1.2B tokens/expert target (or local short-run subset)</text>
+  <text class="k" x="730" y="394">Expert LR:</text><text class="t" x="920" y="394">8e-5 full FT, 2e-4 LoRA</text>
+  <text class="k" x="730" y="420">Router FT:</text><text class="t" x="920" y="420">2 hours, frozen experts first 30%, then joint</text>
+  <text class="ok" x="730" y="478">Faith-test version: keep 10B SAT-quality objective; mechanics differ only by hardware budget.</text>
+
+  <rect class="frame2" x="46" y="528" width="1308" height="404"/>
+  <text class="h" x="68" y="560">C) Parameter-efficient knobs (for 4090 weekend mode)</text>
+  <text class="k" x="68" y="590">LoRA rank (base):</text><text class="t" x="320" y="590">r=32 (q,k,v,o,up,down), alpha=64, dropout=0.05</text>
+  <text class="k" x="68" y="618">QLoRA fallback:</text><text class="t" x="320" y="618">NF4 + double quant; paged optimizer; grad checkpointing ON</text>
+  <text class="k" x="68" y="646">Max seq (local):</text><text class="t" x="320" y="646">4096 during base continuation; 8192 for eval slices</text>
+  <text class="k" x="68" y="674">Clip / EMA:</text><text class="t" x="320" y="674">grad clip=1.0, EMA decay=0.999 optional for router stability</text>
+  <text class="k" x="68" y="702">SAT rewards:</text><text class="t" x="320" y="702">+1 verified, +0.2 frontier, -1 contradiction, -0.5 timeout</text>
+  <text class="k" x="68" y="730">Holdout split:</text><text class="t" x="320" y="730">90/5/5 with domain stratification and contradiction parity</text>
+  <text class="k" x="68" y="758">Router metrics:</text><text class="t" x="320" y="758">expert entropy, overflow rate, contradiction-weighted loss</text>
+  <text class="k" x="68" y="786">Stop criteria:</text><text class="t" x="320" y="786">no SAT-verdict gain in 3 eval windows OR loss oscillation &gt;15%</text>
+  <text class="warn" x="68" y="826">If base step is offloaded to cloud, keep byteword tokenizer and SAT framing identical to local path.</text>
+  <text class="t" x="68" y="864">Note: these settings are a practical launch sheet, not a theorem. Tune per measured tokens/sec and VRAM headroom.</text>
+  <text class="t" x="68" y="900">File: docs/weekend_pipeline_01_hyperparams.svg</text>
+</svg>

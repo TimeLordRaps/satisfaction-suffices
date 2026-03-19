@@ -1,0 +1,265 @@
+{
+  "profile": "smoke",
+  "task_benchmarks": {
+    "passed": 12,
+    "total": 12,
+    "accuracy": 1.0,
+    "verdict": {
+      "passed": 10,
+      "total": 10,
+      "accuracy": 1.0,
+      "suites": {
+        "logic": {
+          "passed": 3,
+          "total": 3,
+          "accuracy": 1.0,
+          "cases": [
+            {
+              "name": "implication_keeps_gate_open",
+              "domain": "logic",
+              "content": "if A then B. A.",
+              "expected_verdict": "VERIFIED",
+              "description": "basic implication chain remains satisfiable",
+              "predicted_verdict": "VERIFIED",
+              "passed": true,
+              "zone": "coherent",
+              "sat_ratio": 1.0,
+              "n_constraints": 2,
+              "n_timeout": 0,
+              "n_paradox": 0
+            },
+            {
+              "name": "direct_negation_forms_paradox",
+              "domain": "logic",
+              "content": "A. not A.",
+              "expected_verdict": "PARADOX",
+              "description": "single claim and negation are jointly inconsistent",
+              "predicted_verdict": "PARADOX",
+              "passed": true,
+              "zone": "paradox",
+              "sat_ratio": 1.0,
+              "n_constraints": 2,
+              "n_timeout": 0,
+              "n_paradox": 2
+            },
+            {
+              "name": "implication_conflict_forms_paradox",
+              "domain": "logic",
+              "content": "if A then B. A. not B.",
+              "expected_verdict": "PARADOX",
+              "description": "implication plus opposite conclusion stays blocked",
+              "predicted_verdict": "PARADOX",
+              "passed": true,
+              "zone": "paradox",
+              "sat_ratio": 1.0,
+              "n_constraints": 3,
+              "n_timeout": 0,
+              "n_paradox": 3
+            }
+          ]
+        },
+        "code": {
+          "passed": 3,
+          "total": 3,
+          "accuracy": 1.0,
+          "cases": [
+            {
+              "name": "consistent_branching_code_verifies",
+              "domain": "code",
+              "content": "assert ready\nif cond:\n    pass\nelif other:\n    pass\nx == y",
+              "expected_verdict": "VERIFIED",
+              "description": "assertions, branch exclusivity, and equality remain consistent",
+              "predicted_verdict": "VERIFIED",
+              "passed": true,
+              "zone": "coherent",
+              "sat_ratio": 1.0,
+              "n_constraints": 6,
+              "n_timeout": 0,
+              "n_paradox": 0
+            },
+            {
+              "name": "opposing_asserts_form_paradox",
+              "domain": "code",
+              "content": "assert ready\nassert not ready",
+              "expected_verdict": "PARADOX",
+              "description": "opposed asserts should not pass the code gate",
+              "predicted_verdict": "PARADOX",
+              "passed": true,
+              "zone": "paradox",
+              "sat_ratio": 1.0,
+              "n_constraints": 2,
+              "n_timeout": 0,
+              "n_paradox": 2
+            },
+            {
+              "name": "equality_inequality_conflict_forms_paradox",
+              "domain": "code",
+              "content": "x == y\nx != y",
+              "expected_verdict": "PARADOX",
+              "description": "opposed relation constraints stay blocked",
+              "predicted_verdict": "PARADOX",
+              "passed": true,
+              "zone": "paradox",
+              "sat_ratio": 1.0,
+              "n_constraints": 2,
+              "n_timeout": 0,
+              "n_paradox": 2
+            }
+          ]
+        },
+        "math": {
+          "passed": 2,
+          "total": 2,
+          "accuracy": 1.0,
+          "cases": [
+            {
+              "name": "quantified_equality_verifies",
+              "domain": "math",
+              "content": "x = y. for all z. exists w",
+              "expected_verdict": "VERIFIED",
+              "description": "mixed equality and quantifier extraction returns a coherent verdict",
+              "predicted_verdict": "VERIFIED",
+              "passed": true,
+              "zone": "coherent",
+              "sat_ratio": 1.0,
+              "n_constraints": 3,
+              "n_timeout": 0,
+              "n_paradox": 0
+            },
+            {
+              "name": "chained_equalities_verify",
+              "domain": "math",
+              "content": "x = y. x = z.",
+              "expected_verdict": "VERIFIED",
+              "description": "simple equalities remain satisfiable",
+              "predicted_verdict": "VERIFIED",
+              "passed": true,
+              "zone": "coherent",
+              "sat_ratio": 1.0,
+              "n_constraints": 2,
+              "n_timeout": 0,
+              "n_paradox": 0
+            }
+          ]
+        },
+        "proof": {
+          "passed": 2,
+          "total": 2,
+          "accuracy": 1.0,
+          "cases": [
+            {
+              "name": "assumption_to_conclusion_verifies",
+              "domain": "proof",
+              "content": "assume A. therefore A.",
+              "expected_verdict": "VERIFIED",
+              "description": "basic proof step stays coherent",
+              "predicted_verdict": "VERIFIED",
+              "passed": true,
+              "zone": "coherent",
+              "sat_ratio": 1.0,
+              "n_constraints": 2,
+              "n_timeout": 0,
+              "n_paradox": 0
+            },
+            {
+              "name": "explicit_contradiction_forms_paradox",
+              "domain": "proof",
+              "content": "assume A. contradiction.",
+              "expected_verdict": "PARADOX",
+              "description": "explicit contradiction triggers the unresolved/paradox bucket",
+              "predicted_verdict": "PARADOX",
+              "passed": true,
+              "zone": "paradox",
+              "sat_ratio": 1.0,
+              "n_constraints": 3,
+              "n_timeout": 0,
+              "n_paradox": 3
+            }
+          ]
+        }
+      }
+    },
+    "partial": {
+      "passed": 2,
+      "total": 2,
+      "accuracy": 1.0,
+      "cases": [
+        {
+          "name": "atomic_prefix_extendable",
+          "content": "A",
+          "expected_state": "extendable",
+          "description": "simple atomic prefix is still extendable",
+          "domain": "auto",
+          "predicted_state": "extendable",
+          "passed": true,
+          "sat_ratio": 1.0,
+          "n_dead": 0,
+          "n_satisfied": 1,
+          "n_free": 0,
+          "n_unit": 0,
+          "contradiction": false
+        },
+        {
+          "name": "contradictory_prefix_prunable",
+          "content": "A. not A.",
+          "expected_state": "prunable",
+          "description": "direct contradiction should be safely pruned",
+          "domain": "auto",
+          "predicted_state": "prunable",
+          "passed": true,
+          "sat_ratio": 0.0,
+          "n_dead": 6,
+          "n_satisfied": 0,
+          "n_free": 0,
+          "n_unit": 0,
+          "contradiction": true
+        }
+      ]
+    }
+  },
+  "phase_transition": {
+    "n_vars": 24,
+    "n_instances": 8,
+    "budget": 80,
+    "ratios": [
+      {
+        "ratio": 3.2,
+        "n_clauses": 77,
+        "sat": 8,
+        "unsat": 0,
+        "timeout": 0,
+        "timeout_density": 0.0
+      },
+      {
+        "ratio": 4.2,
+        "n_clauses": 101,
+        "sat": 6,
+        "unsat": 2,
+        "timeout": 0,
+        "timeout_density": 0.0
+      },
+      {
+        "ratio": 4.4,
+        "n_clauses": 106,
+        "sat": 4,
+        "unsat": 4,
+        "timeout": 0,
+        "timeout_density": 0.0
+      },
+      {
+        "ratio": 5.0,
+        "n_clauses": 120,
+        "sat": 2,
+        "unsat": 6,
+        "timeout": 0,
+        "timeout_density": 0.0
+      }
+    ],
+    "peak_timeout_ratio": 3.2,
+    "peak_timeout_density": 0.0
+  },
+  "notes": [
+    "Task benchmarks are local proxy suites for the current verifier surface, not external LM leaderboard scores.",
+    "Phase-transition results are synthetic SAT stress tests aligned with the repo's stated emergence/timeout hypothesis."
+  ]
+}

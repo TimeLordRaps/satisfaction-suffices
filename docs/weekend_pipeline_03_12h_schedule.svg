@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 920" width="1500" height="920">
+  <defs>
+    <style>
+      .bg { fill:#0d1324; }
+      .outer { fill:#111c33; stroke:#64b6ff; stroke-width:2; rx:14; }
+      .grid { stroke:#2a3d63; stroke-width:1; }
+      .axis { stroke:#8cb7ff; stroke-width:1.8; }
+      .barA { fill:#3b82f6; }
+      .barB { fill:#22c55e; }
+      .barC { fill:#f59e0b; }
+      .barD { fill:#a855f7; }
+      .barE { fill:#ef4444; }
+      .title { fill:#eef6ff; font-family:monospace; font-size:30px; font-weight:bold; }
+      .h { fill:#a8d7ff; font-family:monospace; font-size:18px; font-weight:bold; }
+      .t { fill:#d7e8ff; font-family:monospace; font-size:14px; }
+      .tiny { fill:#9fc0e8; font-family:monospace; font-size:12px; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1500" height="920"/>
+  <rect class="outer" x="24" y="24" width="1452" height="872"/>
+  <text class="title" x="52" y="74">12-Hour Weekend Runbook (local 4090 mode)</text>
+  <text class="t" x="52" y="102">Track uses 10-hour core + 2-hour contingency/eval buffer with parallel experts via diagonal padded matrices.</text>
+
+  <rect x="60" y="130" width="1380" height="460" fill="#142445" stroke="#6ab7ff" stroke-width="1.5" rx="12"/>
+
+  <line class="axis" x1="120" y1="170" x2="120" y2="550"/>
+  <line class="axis" x1="120" y1="550" x2="1380" y2="550"/>
+
+  <line class="grid" x1="225" y1="170" x2="225" y2="550"/>
+  <line class="grid" x1="330" y1="170" x2="330" y2="550"/>
+  <line class="grid" x1="435" y1="170" x2="435" y2="550"/>
+  <line class="grid" x1="540" y1="170" x2="540" y2="550"/>
+  <line class="grid" x1="645" y1="170" x2="645" y2="550"/>
+  <line class="grid" x1="750" y1="170" x2="750" y2="550"/>
+  <line class="grid" x1="855" y1="170" x2="855" y2="550"/>
+  <line class="grid" x1="960" y1="170" x2="960" y2="550"/>
+  <line class="grid" x1="1065" y1="170" x2="1065" y2="550"/>
+  <line class="grid" x1="1170" y1="170" x2="1170" y2="550"/>
+  <line class="grid" x1="1275" y1="170" x2="1275" y2="550"/>
+  <line class="grid" x1="1380" y1="170" x2="1380" y2="550"/>
+
+  <text class="tiny" x="112" y="568">0h</text>
+  <text class="tiny" x="217" y="568">1h</text>
+  <text class="tiny" x="322" y="568">2h</text>
+  <text class="tiny" x="427" y="568">3h</text>
+  <text class="tiny" x="532" y="568">4h</text>
+  <text class="tiny" x="637" y="568">5h</text>
+  <text class="tiny" x="742" y="568">6h</text>
+  <text class="tiny" x="847" y="568">7h</text>
+  <text class="tiny" x="952" y="568">8h</text>
+  <text class="tiny" x="1057" y="568">9h</text>
+  <text class="tiny" x="1162" y="568">10h</text>
+  <text class="tiny" x="1262" y="568">11h</text>
+  <text class="tiny" x="1367" y="568">12h</text>
+
+  <text class="h" x="74" y="208">Base</text>
+  <rect class="barA" x="120" y="185" width="630" height="36" rx="6"/>
+  <text class="t" x="132" y="208">0h-6h Dense continuation on byteword SAT corpus (target window: 100M-200M local tokens)</text>
+
+  <text class="h" x="74" y="270">Experts (parallel)</text>
+  <rect class="barB" x="750" y="247" width="420" height="36" rx="6"/>
+  <text class="t" x="760" y="270">6h-10h E1 proof + E2 code + E3 math + E4 domain blend (diagonal-padded parallel batches)</text>
+
+  <text class="h" x="74" y="322">Parallel kernel mode</text>
+  <rect class="barD" x="750" y="299" width="420" height="36" rx="6"/>
+  <text class="t" x="760" y="322">Grouped GEMM / batched matmul, contextualized padded samples, scatter-gather combine</text>
+
+  <text class="h" x="74" y="374">Bridge</text>
+  <rect class="barE" x="1118" y="351" width="52" height="36" rx="6"/>
+  <text class="t" x="1126" y="374">9.5h-10h IKM bridge mix pass (Severian IKM + RP)</text>
+
+  <text class="h" x="74" y="426">Router</text>
+  <rect class="barC" x="1170" y="403" width="210" height="36" rx="6"/>
+  <text class="t" x="1180" y="426">10h-12h top-2 gate tuning + SAT-weighted eval</text>
+
+  <rect x="60" y="614" width="1380" height="252" fill="#132742" stroke="#6ab7ff" stroke-width="1.5" rx="12"/>
+  <text class="h" x="82" y="650">Operational checkboxes</text>
+  <text class="t" x="82" y="678">[ ] Freeze tokenizer + SAT framing before hour 0 (no schema drift mid-run)</text>
+  <text class="t" x="82" y="704">[ ] At hour 3 and 6: checkpoint + quick verdict sweep (verified/frontier/contradiction)</text>
+  <text class="t" x="82" y="730">[ ] During parallel expert block: run hourly 1k-sample gate sanity and expert entropy check</text>
+  <text class="t" x="82" y="756">[ ] Run 9.5h bridge pass on IKM + RP with strict markdown/system/instruction formatting</text>
+  <text class="t" x="82" y="782">[ ] During router block: enforce load-balance aux loss and overflow cap</text>
+  <text class="t" x="82" y="808">[ ] Final release gate: beat dense baseline on SAT-verdict weighted score in all tracked domains</text>
+  <text class="t" x="82" y="834">Contingency: if base underperforms by hour 4, pivot remaining time to stronger calibration + router diagnostics.</text>
+  <text class="tiny" x="82" y="848">File: docs/weekend_pipeline_03_12h_schedule.svg</text>
+</svg>

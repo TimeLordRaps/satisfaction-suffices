@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 980" width="1500" height="980">
+  <defs>
+    <style>
+      .bg { fill:#0a1122; }
+      .outer { fill:#111d37; stroke:#68bbff; stroke-width:2; rx:14; }
+      .frame { fill:#172a4b; stroke:#7fcbff; stroke-width:1.5; rx:10; }
+      .m0 { fill:#20365c; stroke:#9fd6ff; stroke-width:1; }
+      .m1 { fill:#1f6a4f; stroke:#8af0c1; stroke-width:1; }
+      .m2 { fill:#6b4a1f; stroke:#ffcc8e; stroke-width:1; }
+      .m3 { fill:#5a2b6f; stroke:#d6a2ff; stroke-width:1; }
+      .m4 { fill:#6b1f3e; stroke:#ffa2c5; stroke-width:1; }
+      .title { fill:#eef6ff; font-family:monospace; font-size:30px; font-weight:bold; }
+      .h { fill:#a9d9ff; font-family:monospace; font-size:18px; font-weight:bold; }
+      .t { fill:#d9e9ff; font-family:monospace; font-size:14px; }
+      .k { fill:#93f3c2; font-family:monospace; font-size:14px; }
+      .w { fill:#ffd39a; font-family:monospace; font-size:14px; }
+      .arr { stroke:#9dcdff; stroke-width:2.2; marker-end:url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9dcdff"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1500" height="980"/>
+  <rect class="outer" x="24" y="24" width="1452" height="932"/>
+
+  <text class="title" x="52" y="72">Diagonal-Padded Expert Parallelism (4 experts on one 4090)</text>
+  <text class="t" x="52" y="100">Idea: route contextualized samples by expert, pack into one block-diagonal batch, run grouped kernels, then scatter back.</text>
+
+  <rect class="frame" x="52" y="126" width="430" height="354"/>
+  <text class="h" x="74" y="160">1) Router bucketing</text>
+  <text class="t" x="74" y="188">Token assignments (top-2 or top-1 FT):</text>
+  <text class="t" x="74" y="214">E1: 512 seq chunks</text>
+  <text class="t" x="74" y="238">E2: 476 seq chunks</text>
+  <text class="t" x="74" y="262">E3: 603 seq chunks</text>
+  <text class="t" x="74" y="286">E4: 409 seq chunks</text>
+  <text class="k" x="74" y="320">Pad each bucket to tile multiple (e.g., 16 or 32)</text>
+  <text class="k" x="74" y="344">Maintain per-expert attention masks</text>
+  <text class="k" x="74" y="368">Keep context ids for scatter restore</text>
+  <text class="w" x="74" y="406">Benefit: one launch path instead of 4 serial expert launches</text>
+
+  <rect class="frame" x="516" y="126" width="430" height="354"/>
+  <text class="h" x="538" y="160">2) Block-diagonal packed tensor</text>
+  <text class="t" x="538" y="188">X_pack = diag(X_E1, X_E2, X_E3, X_E4)</text>
+
+  <rect class="m1" x="550" y="210" width="70" height="70"/>
+  <rect class="m0" x="620" y="210" width="50" height="70"/>
+  <rect class="m0" x="670" y="210" width="50" height="70"/>
+  <rect class="m0" x="720" y="210" width="50" height="70"/>
+
+  <rect class="m0" x="550" y="280" width="70" height="55"/>
+  <rect class="m2" x="620" y="280" width="50" height="55"/>
+  <rect class="m0" x="670" y="280" width="50" height="55"/>
+  <rect class="m0" x="720" y="280" width="50" height="55"/>
+
+  <rect class="m0" x="550" y="335" width="70" height="75"/>
+  <rect class="m0" x="620" y="335" width="50" height="75"/>
+  <rect class="m3" x="670" y="335" width="50" height="75"/>
+  <rect class="m0" x="720" y="335" width="50" height="75"/>
+
+  <rect class="m0" x="550" y="410" width="70" height="50"/>
+  <rect class="m0" x="620" y="410" width="50" height="50"/>
+  <rect class="m0" x="670" y="410" width="50" height="50"/>
+  <rect class="m4" x="720" y="410" width="50" height="50"/>
+
+  <text class="t" x="792" y="242">E1 active block</text>
+  <text class="t" x="792" y="300">E2 active block</text>
+  <text class="t" x="792" y="362">E3 active block</text>
+  <text class="t" x="792" y="430">E4 active block</text>
+
+  <rect class="frame" x="980" y="126" width="466" height="354"/>
+  <text class="h" x="1002" y="160">3) Kernel execution</text>
+  <text class="t" x="1002" y="188">Run grouped GEMM / batched matmul on packed blocks</text>
+  <text class="t" x="1002" y="214">Y_pack = grouped_ffn(X_pack, W_E1..W_E4)</text>
+  <text class="k" x="1002" y="246">Single scheduling stream, fewer launch stalls</text>
+  <text class="k" x="1002" y="270">Higher occupancy than serial per-expert microbatches</text>
+  <text class="k" x="1002" y="294">Use fused scatter-gather where possible</text>
+  <text class="w" x="1002" y="326">Watchouts: pad waste, imbalance, routing jitter</text>
+  <text class="t" x="1002" y="356">Mitigation: cap max bucket ratio + entropy regularization</text>
+  <text class="t" x="1002" y="380">Fallback: split into 2 packed groups when one expert dominates</text>
+  <text class="t" x="1002" y="434">Restore token order via inverse index map.</text>
+
+  <line class="arr" x1="482" y1="300" x2="516" y2="300"/>
+  <line class="arr" x1="946" y1="300" x2="980" y2="300"/>
+
+  <rect class="frame" x="52" y="516" width="1394" height="390"/>
+  <text class="h" x="74" y="550">Practical scheduler knobs for your 12-hour run</text>
+  <text class="t" x="74" y="580">- pad_multiple: 16 for stability, 32 for throughput if VRAM allows</text>
+  <text class="t" x="74" y="606">- max_tokens_per_pack: dynamic by free VRAM probe (leave 8-10% headroom)</text>
+  <text class="t" x="74" y="632">- rebalance trigger: if largest_bucket / smallest_bucket &gt; 1.8, force auxiliary load-balance pass</text>
+  <text class="t" x="74" y="658">- context-preserving pad: pad with masked contextualized states, never raw zeros into attention path</text>
+  <text class="t" x="74" y="684">- hourly KPI: tokens/sec, pad waste %, router entropy, contradiction-weighted loss</text>
+  <text class="t" x="74" y="710">- expected gain vs serial experts on single GPU: typically 1.2x-1.6x (depends on routing skew)</text>
+
+  <text class="k" x="74" y="752">Pseudo-flow:</text>
+  <text class="t" x="74" y="778">route -&gt; bucket_by_expert -&gt; diagonal_pad_pack -&gt; grouped_kernel -&gt; scatter_restore -&gt; loss</text>
+  <text class="t" x="74" y="806">Keep tokenizer + SAT framing invariant across this whole loop.</text>
+  <text class="t" x="74" y="852">File: docs/weekend_pipeline_05_diagonal_parallel.svg</text>
+</svg>
