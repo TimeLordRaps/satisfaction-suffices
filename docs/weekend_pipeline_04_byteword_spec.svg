@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 980" width="1500" height="980">
+  <defs>
+    <style>
+      .bg { fill:#0a1020; }
+      .outer { fill:#111b34; stroke:#66b9ff; stroke-width:2; rx:14; }
+      .frame { fill:#17284b; stroke:#7bc6ff; stroke-width:1.5; rx:10; }
+      .title { fill:#eef6ff; font-family:monospace; font-size:30px; font-weight:bold; }
+      .h { fill:#9fd7ff; font-family:monospace; font-size:18px; font-weight:bold; }
+      .t { fill:#d9e9ff; font-family:monospace; font-size:14px; }
+      .mono { fill:#b3f1ff; font-family:monospace; font-size:13px; }
+      .ok { fill:#8ff8bf; font-family:monospace; font-size:14px; }
+      .warn { fill:#ffd79b; font-family:monospace; font-size:14px; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1500" height="980"/>
+  <rect class="outer" x="24" y="24" width="1452" height="932"/>
+
+  <text class="title" x="52" y="74">Byteword / SAT Framing Spec (not plain English tokenization)</text>
+  <text class="t" x="52" y="102">Goal: encode logic-bearing structure first, natural language second, with deterministic SAT-oriented symbols.</text>
+
+  <rect class="frame" x="52" y="130" width="680" height="370"/>
+  <text class="h" x="74" y="164">1) Token classes (vocab target: 8192)</text>
+  <text class="mono" x="74" y="194">[SAT_OP]    AND OR NOT XOR IMPLIES IFF EXISTS FORALL</text>
+  <text class="mono" x="74" y="220">[SAT_META]  ASSERT PREMISE GOAL PROOF_STEP CONTRADICTION FRONTIER</text>
+  <text class="mono" x="74" y="246">[STRUCT]    ( ) [ ] { } : ; , . -&gt; =&gt; &lt;-&gt; |-</text>
+  <text class="mono" x="74" y="272">[DOMAIN]    CODE_, MATH_, BIO_, LAW_, TEMP_ prefixes</text>
+  <text class="mono" x="74" y="298">[BYTE]      b00 ... b255 fallback atoms</text>
+  <text class="mono" x="74" y="324">[CTRL]      &lt;bos&gt; &lt;eos&gt; &lt;pad&gt; &lt;sep&gt; &lt;domain:...&gt;</text>
+  <text class="warn" x="74" y="356">Do not train on raw bitstream tokens directly (8x sequence inflation).</text>
+  <text class="ok" x="74" y="384">Bytewords preserve compression + symbolic semantics for SAT trajectories.</text>
+  <text class="t" x="74" y="422">Expected byte fallback rate after SAT canonicalization: &lt; 12%</text>
+
+  <rect class="frame" x="768" y="130" width="680" height="370"/>
+  <text class="h" x="790" y="164">2) Canonicalization pipeline</text>
+  <text class="t" x="790" y="194">a) Normalize unicode, punctuation, and equation spacing</text>
+  <text class="t" x="790" y="220">b) Convert to SAT DSL skeleton (operators + scoped symbols)</text>
+  <text class="t" x="790" y="246">c) Attach trajectory markers: premise -&gt; transform -&gt; verdict</text>
+  <text class="t" x="790" y="272">d) Run SAT gate labels: VERIFIED / FRONTIER / CONTRADICTION / TIMEOUT</text>
+  <text class="t" x="790" y="298">e) Tokenize to bytewords, then fallback bXX where unresolved</text>
+  <text class="t" x="790" y="324">f) Emit packed records with domain tags and reward priors</text>
+  <text class="mono" x="790" y="356">Example record key: {domain, sat_form, trajectory, verdict, reward}</text>
+  <text class="t" x="790" y="422">Invariant: identical text must canonicalize to identical SAT form hash.</text>
+
+  <rect class="frame" x="52" y="526" width="1396" height="194"/>
+  <text class="h" x="74" y="560">3) Dataset mixture and sampling policy</text>
+  <text class="t" x="74" y="590">Base mix: 40% VERIFIED trajectories, 25% FRONTIER, 20% near-contradiction repairs, 15% hard negatives</text>
+  <text class="t" x="74" y="616">Expert mixes: Proof-heavy / Code-heavy / Math-heavy / Domain blend (all keep SAT verdict labels)</text>
+  <text class="t" x="74" y="642">Sampler: temperature by contradiction rarity + per-domain floor to avoid expert collapse.</text>
+  <text class="t" x="74" y="668">Batch schema frozen across base, REAP calibration, expert FT, and router stages.</text>
+  <text class="ok" x="74" y="696">Faith-test objective implemented: quality via SAT framing, not generic internet token mass.</text>
+
+  <rect class="frame" x="52" y="744" width="1396" height="182"/>
+  <text class="h" x="74" y="778">4) Validation checks before training</text>
+  <text class="t" x="74" y="806">[ ] Canonicalization collision rate &lt; 0.05%</text>
+  <text class="t" x="74" y="832">[ ] Byte fallback distribution stable across train/val/test</text>
+  <text class="t" x="74" y="858">[ ] SAT verdict labels reproducible (same input, same label) on two independent runs</text>
+  <text class="t" x="74" y="884">[ ] Tokenizer checksum committed with checkpoint metadata</text>
+  <text class="mono" x="74" y="910">File: docs/weekend_pipeline_04_byteword_spec.svg</text>
+</svg>

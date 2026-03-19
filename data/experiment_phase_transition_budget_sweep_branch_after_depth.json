@@ -1,0 +1,143 @@
+{
+  "n_vars": 40,
+  "n_instances": 10,
+  "budgets": [
+    20,
+    40,
+    80
+  ],
+  "runs": [
+    {
+      "n_vars": 40,
+      "n_instances": 10,
+      "budget": 20,
+      "ratios": [
+        {
+          "ratio": 4.0,
+          "n_clauses": 160,
+          "sat": 8,
+          "unsat": 0,
+          "timeout": 2,
+          "timeout_density": 0.2
+        },
+        {
+          "ratio": 4.2,
+          "n_clauses": 168,
+          "sat": 4,
+          "unsat": 0,
+          "timeout": 6,
+          "timeout_density": 0.6
+        },
+        {
+          "ratio": 4.4,
+          "n_clauses": 176,
+          "sat": 7,
+          "unsat": 1,
+          "timeout": 2,
+          "timeout_density": 0.2
+        },
+        {
+          "ratio": 4.6,
+          "n_clauses": 184,
+          "sat": 1,
+          "unsat": 0,
+          "timeout": 9,
+          "timeout_density": 0.9
+        }
+      ],
+      "peak_timeout_ratio": 4.6,
+      "peak_timeout_density": 0.9,
+      "total_timeouts": 19,
+      "mean_timeout_density": 0.475
+    },
+    {
+      "n_vars": 40,
+      "n_instances": 10,
+      "budget": 40,
+      "ratios": [
+        {
+          "ratio": 4.0,
+          "n_clauses": 160,
+          "sat": 8,
+          "unsat": 0,
+          "timeout": 2,
+          "timeout_density": 0.2
+        },
+        {
+          "ratio": 4.2,
+          "n_clauses": 168,
+          "sat": 4,
+          "unsat": 1,
+          "timeout": 5,
+          "timeout_density": 0.5
+        },
+        {
+          "ratio": 4.4,
+          "n_clauses": 176,
+          "sat": 7,
+          "unsat": 2,
+          "timeout": 1,
+          "timeout_density": 0.1
+        },
+        {
+          "ratio": 4.6,
+          "n_clauses": 184,
+          "sat": 1,
+          "unsat": 2,
+          "timeout": 7,
+          "timeout_density": 0.7
+        }
+      ],
+      "peak_timeout_ratio": 4.6,
+      "peak_timeout_density": 0.7,
+      "total_timeouts": 15,
+      "mean_timeout_density": 0.375
+    },
+    {
+      "n_vars": 40,
+      "n_instances": 10,
+      "budget": 80,
+      "ratios": [
+        {
+          "ratio": 4.0,
+          "n_clauses": 160,
+          "sat": 8,
+          "unsat": 1,
+          "timeout": 1,
+          "timeout_density": 0.1
+        },
+        {
+          "ratio": 4.2,
+          "n_clauses": 168,
+          "sat": 4,
+          "unsat": 3,
+          "timeout": 3,
+          "timeout_density": 0.3
+        },
+        {
+          "ratio": 4.4,
+          "n_clauses": 176,
+          "sat": 7,
+          "unsat": 3,
+          "timeout": 0,
+          "timeout_density": 0.0
+        },
+        {
+          "ratio": 4.6,
+          "n_clauses": 184,
+          "sat": 1,
+          "unsat": 9,
+          "timeout": 0,
+          "timeout_density": 0.0
+        }
+      ],
+      "peak_timeout_ratio": 4.2,
+      "peak_timeout_density": 0.3,
+      "total_timeouts": 4,
+      "mean_timeout_density": 0.1
+    }
+  ],
+  "strongest_peak_budget": 20,
+  "strongest_peak_ratio": 4.6,
+  "strongest_peak_density": 0.9
+}

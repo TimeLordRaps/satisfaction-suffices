@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 980" width="1500" height="980">
+  <defs>
+    <style>
+      .bg { fill:#0b111f; }
+      .outer { fill:#101a2f; stroke:#4aa7ff; stroke-width:2; rx:14; }
+      .box { fill:#172645; stroke:#6ec1ff; stroke-width:1.6; rx:10; }
+      .dec { fill:#2b2248; stroke:#b18cff; stroke-width:1.6; rx:10; }
+      .good { fill:#1e3f2f; stroke:#7ff0ab; stroke-width:1.6; rx:10; }
+      .warn { fill:#4a2f1f; stroke:#ffc28f; stroke-width:1.6; rx:10; }
+      .title { fill:#ecf4ff; font-family:monospace; font-size:30px; font-weight:bold; }
+      .h { fill:#a7d6ff; font-family:monospace; font-size:18px; font-weight:bold; }
+      .t { fill:#d8e8ff; font-family:monospace; font-size:14px; }
+      .arr { stroke:#95ccff; stroke-width:2.4; marker-end:url(#arrow); }
+      .note { fill:#9fffc6; font-family:monospace; font-size:14px; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#95ccff"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1500" height="980"/>
+  <rect class="outer" x="24" y="24" width="1452" height="932"/>
+  <text class="title" x="52" y="72">REAP Pipeline: 1.2B dense -&gt; 4x0.6B experts (2.4B total)</text>
+
+  <rect class="box" x="60" y="120" width="420" height="120"/>
+  <text class="h" x="82" y="154">Step 1 - Dense base continuation</text>
+  <text class="t" x="82" y="182">Input: byteword SAT-framed corpus</text>
+  <text class="t" x="82" y="204">Output: checkpoint C_base_1p2B</text>
+  <text class="t" x="82" y="226">Guard: contradiction ratio trend must improve</text>
+
+  <rect class="box" x="540" y="120" width="420" height="120"/>
+  <text class="h" x="562" y="154">Step 2 - Upcycle to MoE candidates</text>
+  <text class="t" x="562" y="182">Map dense FFN blocks into 8 candidate experts</text>
+  <text class="t" x="562" y="204">Shared attention + embeddings remain global</text>
+  <text class="t" x="562" y="226">Output: C_moe8_init</text>
+
+  <rect class="dec" x="1020" y="120" width="420" height="120"/>
+  <text class="h" x="1042" y="154">Step 3 - REAP scoring</text>
+  <text class="t" x="1042" y="182">Compute saliency = mean(gate * activation_norm)</text>
+  <text class="t" x="1042" y="204">Calibration: 2M-5M SAT-balanced tokens</text>
+  <text class="t" x="1042" y="226">Rank experts per layer by saliency</text>
+
+  <rect class="good" x="1020" y="306" width="420" height="120"/>
+  <text class="h" x="1042" y="340">Step 4 - Prune 50% experts</text>
+  <text class="t" x="1042" y="368">Keep top saliency experts: 8 -&gt; 4</text>
+  <text class="t" x="1042" y="390">Result: C_moe4_reap (4x0.6B total)</text>
+  <text class="t" x="1042" y="412">Topology preserved (no merge distortion)</text>
+
+  <rect class="box" x="540" y="306" width="420" height="120"/>
+  <text class="h" x="562" y="340">Step 5 - Expert specialization</text>
+  <text class="t" x="562" y="368">E1: proof, E2: code, E3: math, E4: domain mix</text>
+  <text class="t" x="562" y="390">Parallel mode: diagonal padded batches across all 4 experts</text>
+  <text class="t" x="562" y="412">Grouped GEMM + scatter/gather; LoRA/QLoRA allowed for VRAM headroom</text>
+
+  <rect class="dec" x="60" y="438" width="1380" height="52"/>
+  <text class="h" x="84" y="470">Step 5.5 - Bridge corpus injection (before MoE gate epochs)</text>
+  <text class="t" x="620" y="470">Severian/Internal-Knowledge-Map (4.69k) + Internal-Knowledge-Map-StoryWriter-RolePlaying (2.07k)</text>
+
+  <rect class="box" x="60" y="306" width="420" height="120"/>
+  <text class="h" x="82" y="340">Step 6 - Router optimization</text>
+  <text class="t" x="82" y="368">Train top-2 gate with load-balance aux loss</text>
+  <text class="t" x="82" y="390">Start with bridge corpus batches, then brief joint tuning</text>
+  <text class="t" x="82" y="412">Target: low overflow + high SAT verified ratio</text>
+
+  <rect class="good" x="60" y="500" width="1380" height="160"/>
+  <text class="h" x="84" y="536">Step 7 - Evaluation and gate criteria</text>
+  <text class="t" x="84" y="566">Primary: VERIFIED ratio, contradiction suppression, frontier utility, timeout reduction</text>
+  <text class="t" x="84" y="592">Secondary: expert entropy, per-domain win rate, active parameter efficiency</text>
+  <text class="t" x="84" y="618">Release checkpoint only if all four domains beat dense baseline on SAT-verdict weighted score</text>
+  <text class="note" x="84" y="644">Faith-test principle: keep data SAT-clean and trajectory-rich; architecture serves that objective.</text>
+
+  <rect class="warn" x="60" y="700" width="1380" height="216"/>
+  <text class="h" x="84" y="736">Implementation guardrails</text>
+  <text class="t" x="84" y="764">1) Do not use raw bit-stream tokens for training; use bytewords + SAT DSL symbols.</text>
+  <text class="t" x="84" y="790">2) REAP prunes experts; it is not a direct dense-&gt;expert splitter without upcycling.</text>
+  <text class="t" x="84" y="816">3) For parallel experts use diagonal-padded contextual batches + per-expert masks.</text>
+  <text class="t" x="84" y="842">4) Keep tokenizer fixed; track calibration drift (&gt;20% gate shift =&gt; rerun REAP pass).</text>
+  <text class="t" x="84" y="868">File: docs/weekend_pipeline_02_reap_flow.svg</text>
+
+  <line class="arr" x1="480" y1="180" x2="540" y2="180"/>
+  <line class="arr" x1="960" y1="180" x2="1020" y2="180"/>
+  <line class="arr" x1="1230" y1="240" x2="1230" y2="306"/>
+  <line class="arr" x1="1020" y1="366" x2="960" y2="366"/>
+  <line class="arr" x1="540" y1="366" x2="480" y2="366"/>
+  <line class="arr" x1="270" y1="426" x2="270" y2="438"/>
+  <line class="arr" x1="750" y1="490" x2="750" y2="500"/>
+</svg>
