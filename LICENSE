@@ -328,6 +328,96 @@ SECTION 4 — TOP ENTITY ANNUAL LICENSE FEE AND LIQUIDATED DAMAGES
     Section 4.3 — licenses the Work, and then only provisionally pending
     continued compliance.
 
+4.7 PAYMENT FORM. The Annual License Fee is payable in the following forms,
+    in order of Licensor preference:
+
+    (a) CASH (PREFERRED). United States dollars via wire transfer, ACH, or
+        other immediately available funds, directed to the Licensor's
+        designated account. Cash settlement is the default and preferred form.
+        Cash payment extinguishes the fee obligation for the covered period
+        upon receipt of cleared funds in full.
+
+    (b) EQUITY (ACCEPTED). In lieu of cash, the Licensor may, at the
+        Licensor's sole and absolute discretion, elect to accept equity in
+        the paying entity. Equity settlement is not a right of the paying
+        entity; it is an option exercisable exclusively by the Licensor.
+        Accepted equity instruments include:
+        (i)   Common or preferred shares (publicly traded or private);
+        (ii)  Restricted stock units (RSUs) or stock appreciation rights;
+        (iii) Simple Agreements for Future Equity (SAFEs) or convertible
+              notes;
+        (iv)  Warrants or options exercisable at strike prices no worse than
+              the fair market value at the time of issuance; or
+        (v)   Any other equity-linked instrument the Licensor agrees to
+              accept in writing.
+        Equity must be valued at fair market value as of the settlement date.
+        For private entities, fair market value means the per-share price of
+        the most recent primary financing round, or an independent 409A
+        valuation at the Licensor's discretion. Cash and equity may be
+        combined in any proportion acceptable to the Licensor. An entity may
+        not force equity settlement; the Licensor's acceptance of any equity
+        offer is in the Licensor's sole discretion and does not set precedent
+        for future payment cycles.
+
+    (c) NO OTHER FORMS. Tokens, cryptocurrencies, barter, in-kind services,
+        advertising credits, compute credits, API credits, or other non-cash
+        non-equity instruments are not accepted as fee settlement unless
+        explicitly agreed in a separate signed writing by the Licensor.
+
+4.8 VERIFIED EARNINGS STATEMENT NEGOTIATION. An entity that disputes the
+    market-capitalization basis for its Annual License Fee computation may
+    request a revenue-basis adjustment by submitting a Verified Earnings
+    Statement (VES). The following rules govern this pathway:
+
+    (a) ELIGIBILITY. Any Top Entity may submit a VES within sixty (60) days
+        of the start of the calendar year for which the fee applies, or within
+        sixty (60) days of first qualifying as a Top Entity, whichever is
+        later. Untimely VES submissions are not considered.
+
+    (b) CONTENT REQUIREMENTS. A VES must include:
+        (i)   Most recent two (2) fiscal years of audited financial statements
+              prepared in accordance with GAAP, IFRS, or equivalent;
+        (ii)  A revenue schedule itemizing revenue attributable to AI-enabled
+              products and services that incorporate, derive from, or were
+              developed using the Work;
+        (iii) A signed certification by two (2) executive officers that the
+              statements are accurate and complete to the best of their
+              knowledge; and
+        (iv)  For publicly traded entities, confirmation that the submission
+              is consistent with SEC, LSE, or equivalent exchange disclosures.
+
+    (c) LICENSOR DISCRETION. Submission of a VES does not obligate the
+        Licensor to accept it, negotiate, or modify the fee basis. The
+        Licensor may accept, reject, or request additional documentation at
+        the Licensor's sole discretion. Rejection requires no explanation.
+        The fee continues to accrue at the standard market-cap basis during
+        any pending review.
+
+    (d) NEGOTIATED FEE. If the Licensor elects to accept a VES and negotiate
+        an alternative fee basis, the negotiated fee:
+        (i)   Shall not be less than SIX POINT NINE PERCENT (6.9%) of the
+              entity's verified annual revenue directly attributable to AI
+              products and services incorporating the Work;
+        (ii)  Shall not be less than ONE PERCENT (1.0%) of the entity's
+              verified total annual revenue across all business lines;
+        (iii) Shall not be less than the original market-cap-based fee divided
+              by eight (8) — i.e., the market-cap basis establishes a hard
+              floor at 12.5% of the original computed figure, beyond which no
+              VES adjustment can reduce the obligation; and
+        (iv)  Shall be memorialized in a signed addendum that does not
+              supersede any other provision of this License.
+
+    (e) NO WAIVER. Participation in the VES process is not a waiver of any
+        late fees, multipliers, or audit rights. Entering negotiation does
+        not constitute a license to the Work during the negotiation period.
+        A full license requires payment of the agreed or adjudicated fee.
+
+    (f) FALSE STATEMENTS. Submitting materially false or misleading
+        information in a VES constitutes fraud and breach of this License.
+        The multiplier in Section 4.3 applies retroactively from the date of
+        first use, and the submitting entity forfeits all negotiation
+        privileges permanently.
+
 
 ================================================================================
 
