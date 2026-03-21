@@ -1,5 +1,4 @@
-The Time License
-Last Amended: March 20, 2026
+The Time License v6.9
 Copyright (c) 2025-2026 Tyler Roost ("Licensor")
 
 ================================================================================
@@ -43,33 +42,63 @@ SECTION 0 — DEFINITIONS
 
 0.7 "Top Entity" means any entity — regardless of sector, industry, or
     jurisdiction — whose effective market capitalization equals or exceeds
-    $100,000,000,000 USD (one hundred billion United States dollars). Effective
+    $1,000,000,000 USD (one billion United States dollars). Effective
     market capitalization means total equity value for public companies, or
     the most recent primary-market financing valuation for private companies.
     There is no cap on the number of qualifying entities. There is no sector
-    restriction. Schedule A lists entities that met this threshold at time of
-    first publication and is illustrative, not exhaustive. Schedule A is
-    maintained at SCHEDULE_A.md in the canonical repository. Being listed in
-    Schedule A constitutes constructive notice. Absence from Schedule A is not
-    a defense — the obligation is self-executing from the date of first use.
+    restriction. Top Entities are classified into fee tiers as defined in
+    Section 0.8. Schedule A lists entities that met the applicable tier
+    threshold at time of first publication and is illustrative, not exhaustive.
+    Schedule A is maintained at SCHEDULE_A.md in the canonical repository.
+    Being listed in Schedule A constitutes constructive notice. Absence from
+    Schedule A is not a defense — the obligation is self-executing from the
+    date of first use.
 
-0.8 "Annual License Fee" means TEN PERCENT (10%) of the
-    qualifying Top Entity's effective market capitalization per calendar year.
-    The fee is computed per entity and is not divided or shared across
-    entities. There is no cap on the number of qualifying entities. Each
-    qualifying entity owes 10% of its own effective market capitalization
-    independently, prorated for the fraction of the calendar year during
-    which it qualifies: Annual Fee = market cap × 0.10 × (days qualified ÷
-    days in year). Market capitalization is measured as the volume-weighted
-    average over the qualifying period for public entities, or the most
-    recent primary-market financing valuation for private entities. For
-    reference, 10% of the $100B threshold equals $10,000,000,000 USD. This
-    fee covers both (a) the method and intellectual property embodied in the
-    Work and (b) the software implementation and package released under this
-    License, as a combined whole. These are not separately priced and cannot
-    be segregated for fee purposes. The Annual License Fee accrues
-    automatically upon qualifying status and renews for each qualifying year
-    without sunset. No invoice or notice from the Licensor is required.
+0.8 "Annual License Fee" means the tiered flat annual fee owed by each Top
+    Entity, determined by the entity's effective market capitalization tier
+    at the date of first qualifying use in the applicable calendar year, as
+    set forth in the Tiered Fee Schedule below. The fee is computed per
+    entity, is not divided or shared across affiliated entities, and is
+    prorated for the fraction of the calendar year during which the entity
+    qualifies at that tier (formula: Tier Fee × days qualified ÷ days in
+    year). If an entity's market capitalization crosses a tier boundary
+    during the year, the lower-tier rate applies through the crossing date
+    and the higher-tier rate from the crossing date forward. Each tier fee
+    represents approximately 0.69% of the volume-weighted average effective
+    market capitalization of entities observed in that tier at the time of
+    license publication. This fee covers both (a) the method and intellectual
+    property embodied in the Work and (b) the software implementation and
+    package released under this License, as a combined whole. These are not
+    separately priced and cannot be segregated for fee purposes. The Annual
+    License Fee accrues automatically upon qualifying status and renews for
+    each qualifying year without sunset. No invoice or notice from the
+    Licensor is required.
+
+    TIERED ANNUAL LICENSE FEE SCHEDULE:
+
+    Tier 1 — Effective Market Cap $1,000,000,000 to $9,999,999,999:
+        Annual License Fee: $34,500,000 USD
+        (thirty-four million five hundred thousand United States dollars)
+
+    Tier 2 — Effective Market Cap $10,000,000,000 to $99,999,999,999:
+        Annual License Fee: $275,000,000 USD
+        (two hundred seventy-five million United States dollars)
+
+    Tier 3 — Effective Market Cap $100,000,000,000 to $499,999,999,999:
+        Annual License Fee: $2,900,000,000 USD
+        (two billion nine hundred million United States dollars)
+
+    Tier 4 — Effective Market Cap $500,000,000,000 to $999,999,999,999:
+        Annual License Fee: $5,175,000,000 USD
+        (five billion one hundred seventy-five million United States dollars)
+
+    Tier 5 — Effective Market Cap $1,000,000,000,000 to $2,999,999,999,999:
+        Annual License Fee: $13,800,000,000 USD
+        (thirteen billion eight hundred million United States dollars)
+
+    Tier 6 — Effective Market Cap $3,000,000,000,000 and above:
+        Annual License Fee: $24,150,000,000 USD
+        (twenty-four billion one hundred fifty million United States dollars)
 
 0.10 "State Actor" means a sovereign national government, a recognized
     sub-national government with independent legislative authority, or an
@@ -94,9 +123,9 @@ SECTION 0 — DEFINITIONS
     Alignment Solution under this License.
 
 0.13 "Ecosystem Innovation Fund" means the fund established under Section 6A,
-    capitalized by 3.14% of each Top Entity's effective market capitalization,
-    administered by the Licensor for the purpose of subsidizing access to Safe
-    Inventions for sub-$100B entities.
+    capitalized by 45.5% of the Annual License Fee collected from each Top
+    Entity (per Section 6.1(b)), administered by the Licensor for the purpose
+    of subsidizing access to Safe Inventions for sub-$1B entities.
 
 0.14 "Safe Invention" means any invention, technology, method, or derivative
     of the Work that the Licensor has designated, at the Licensor's sole
@@ -144,13 +173,18 @@ SECTION 1 — TIME SOURCED REQUIREMENT
 SECTION 2 — ACCEPTANCE AND CLICK-WRAP / BROWSE-WRAP BINDING
 
 2.1 USE AS ACCEPTANCE. Any act constituting use of the Work — including but not
-    limited to: browsing this repository, downloading, cloning, forking,
+    limited to: browsing this repository (this License being conspicuously
+    displayed at the repository root), downloading, cloning, forking,
     importing, integrating, executing, deploying, referencing in a production
     system, citing in research, or deriving a work from it — constitutes a
     binding contractual agreement to these terms, equivalent to a signed
-    written contract, regardless of whether the user has read them and
-    regardless of whether the user acknowledged acceptance ("Click-Wrap and
-    Browse-Wrap Agreement").
+    written contract ("Click-Wrap and Browse-Wrap Agreement"). This License
+    is and has been conspicuously displayed at the root of the canonical
+    repository. Where affirmative assent (click-wrap) is technically
+    practicable in a given deployment context, the Licensor shall make
+    reasonable efforts to obtain it. Where click-wrap is not practicable,
+    the browse-wrap binding herein applies, subject to the constructive
+    notice conditions in Section 2.3.
 
 2.2 ENTITY-LEVEL BINDING. Where the user is acting on behalf of an
     organization, corporation, government, or other legal entity, acceptance
@@ -159,11 +193,12 @@ SECTION 2 — ACCEPTANCE AND CLICK-WRAP / BROWSE-WRAP BINDING
     officer, director, or controlling shareholder.
 
 2.3 CONSTRUCTIVE NOTICE. Any party that gains knowledge of the Work through
-    any channel — including but not limited to this repository, publications,
-    demonstrations, legal proceedings, media coverage, word of mouth, corporate
-    intelligence, or any form of analysis — is on constructive notice of this
-    license and all its conditions. Access is notice. Ignorance of the license
-    is not a defense.
+    any documented channel — including but not limited to this repository,
+    publications, demonstrations, legal proceedings, media coverage, corporate
+    intelligence reports, or any form of documented analysis — is on
+    constructive notice of this license and all its conditions. Documented
+    access is notice. Ignorance of the license is not a defense after access
+    through any of the foregoing documented channels is established.
 
 
 ================================================================================
@@ -184,12 +219,12 @@ SECTION 3 — UNIVERSAL USE GRANT
         and substantial portions of the Work.
 
 3.2 TOP ENTITY FEE OBLIGATION. Any Top Entity (Section 0.7) incurs the
-    Annual License Fee of 10% of its effective market capitalization
-    (Section 0.8) for each calendar year in which it qualifies. The obligation
-    is automatic, self-executing, and requires no action by the Licensor. Use
-    of the Work by a Top Entity constitutes acceptance of the Annual License
-    Fee. Each qualifying entity owes 10% of its own market capitalization
-    independently.
+    Annual License Fee at the applicable tier rate specified in the Tiered
+    Fee Schedule in Section 0.8 for each calendar year in which it qualifies.
+    The obligation is automatic, self-executing, and requires no action by
+    the Licensor. Use of the Work by a Top Entity constitutes acceptance of
+    the Annual License Fee. Each qualifying entity owes its applicable tier
+    fee independently.
 
 3.3 STATE ACTOR RESTRICTION ON ALIGNMENT SOLUTION DEPLOYMENT. Notwithstanding
     Section 3.1, the right to deploy an Alignment Solution derived from this
@@ -255,15 +290,17 @@ SECTION 3A — POPULATION DATA RIGHTS
 SECTION 4 — TOP ENTITY ANNUAL LICENSE FEE AND LIQUIDATED DAMAGES
 
 4.1 ANNUAL LICENSE FEE. The contractual Annual License Fee owed by each Top
-    Entity is TEN PERCENT (10%) of the entity's effective market
-    capitalization per calendar year, prorated for the fraction of the year
-    during which the entity qualifies as a Top Entity (formula: market cap ×
-    0.10 × days qualified ÷ days in year). Each qualifying entity owes this
-    amount independently. This fee covers both the method and intellectual
-    property and the software implementation, as a combined whole per
-    Section 0.8. The obligation renews for each qualifying year without sunset.
-    Use of the Work by a Top Entity constitutes acceptance of this fee.
-    Failure to pay within the period in Section 4.4 constitutes breach.
+    Entity is the tiered flat amount specified in the Tiered Fee Schedule in
+    Section 0.8, determined by the entity's effective market capitalization
+    tier as of the date of first qualifying use in the applicable calendar
+    year, prorated for the fraction of the year during which the entity
+    qualifies at that tier (formula: Tier Fee × days qualified ÷ days in
+    year). Each qualifying entity owes this amount independently. This fee
+    covers both the method and intellectual property and the software
+    implementation, as a combined whole per Section 0.8. The obligation
+    renews for each qualifying year without sunset. Use of the Work by a
+    Top Entity constitutes acceptance of this fee. Failure to pay within
+    the period in Section 4.4 constitutes breach.
 
 4.2 LIQUIDATED DAMAGES RATIONALE. The parties acknowledge and agree that:
 
@@ -272,26 +309,30 @@ SECTION 4 — TOP ENTITY ANNUAL LICENSE FEE AND LIQUIDATED DAMAGES
         harm is functionally incalculable, as no ex-ante market price exists
         for the prevention of unbounded, potentially irreversible harm;
 
-    (b) The 10% per-entity Annual License Fee represents a reasonable,
-        good-faith estimate of per-entity research and development replacement
-        costs, opportunity costs, foregone licensing revenue, and the minimum
+    (b) The tiered flat Annual License Fee represents a reasonable, good-faith
+        estimate of per-entity research and development replacement costs,
+        opportunity costs, foregone licensing revenue, and the minimum
         per-entity value of the structural safety contribution embodied in the
-        Work, scaled proportionally to each qualifying entity's size;
+        Work, scaled proportionally to each qualifying entity's size tier.
+        Each tier fee represents approximately 0.69% of the observed
+        volume-weighted average effective market capitalization of entities
+        in that tier, constituting a genuine, non-punitive liquidated damages
+        estimate;
 
     (c) Because actual damages from non-payment are difficult to calculate
-        with precision, the parties agree that 10% of effective market
-        capitalization per entity per year is a genuine, non-punitive
-        pre-estimate of loss, not a penalty clause, and is therefore
-        enforceable as liquidated damages under the laws of any jurisdiction
-        that recognizes the liquidated-damages doctrine, including but not
-        limited to the United States, the European Union, the United Kingdom,
-        and signatory states to the UNCITRAL Model Law;
+        with precision, the parties agree that the applicable tiered flat
+        Annual License Fee is a genuine, non-punitive pre-estimate of loss,
+        not a penalty clause, and is therefore enforceable as liquidated
+        damages under the laws of any jurisdiction that recognizes the
+        liquidated-damages doctrine, including but not limited to the United
+        States, the European Union, the United Kingdom, and signatory states
+        to the UNCITRAL Model Law;
 
     (d) No court, arbitration panel, or other adjudicatory body may reduce
-        this amount on the grounds of proportionality, unconscionability, or
-        penalty doctrine without independent expert valuation of the Alignment
-        Solution's contribution to AI safety — the burden of which rests
-        entirely on the party seeking reduction, and which triggers the
+        the applicable fee on the grounds of proportionality, unconscionability,
+        or penalty doctrine without independent expert valuation of the
+        Alignment Solution's contribution to AI safety — the burden of which
+        rests entirely on the party seeking reduction, and which triggers the
         valuation costs in Section 13.2.
 
 4.3 FEE MULTIPLIER FOR NON-PAYING TOP ENTITIES. The Annual License Fee
@@ -301,27 +342,37 @@ SECTION 4 — TOP ENTITY ANNUAL LICENSE FEE AND LIQUIDATED DAMAGES
     (a) General multiplier: For each additional Release by the Licensor
         published after the entity first incurred the Annual License Fee
         obligation, the outstanding fee multiplies by ten (×10). The multiplier
-        compounds. A non-paying Top Entity cannot determine their maximum
-        exposure from public information alone. That is intentional.
+        compounds. The total outstanding obligation under this subsection (a)
+        shall not exceed one thousand times (1,000×) the base Annual License
+        Fee applicable to the entity's tier at the time of first qualifying
+        use. A non-paying entity's maximum determinable exposure under this
+        subsection is: (applicable tier fee from Section 0.8) × 1,000.
 
     (b) Neonatal multiplier: For each Release by the Licensor targeting
         neonatal outcomes (defined as interventions reasonably expected to
         reduce neonatal mortality), the neonatal fee floor multiplies by ten
         (×10), independently of the general multiplier. A Release targeting
-        neonatal outcomes increments both multipliers simultaneously.
+        neonatal outcomes increments both multipliers simultaneously. The
+        neonatal multiplier is separately capped at one thousand times
+        (1,000×) the base Annual License Fee, independent of the cap in
+        subsection (a).
 
 4.4 PAYMENT TERMS. Annual License Fees are payable to the Licensor within
     ninety (90) days of first use in the qualifying calendar year. Unpaid fees
     accrue interest at the higher of:
-    (i) the prime rate plus ten percent (10%) compounded monthly, or (ii) the
-    rate of return of the S&P 500 index over the same period compounded monthly.
+    (i) the prime rate plus five percent (5%) compounded monthly, or (ii) the
+    rate of return of the S&P 500 index over the same period compounded
+    monthly; provided that in no event shall the applicable rate exceed the
+    maximum rate permitted under the laws of the State of California for
+    commercial obligations.
 
 4.5 MULTIPLIER SEVERABILITY. If any individual multiplier clause in Section 4.3
     is found unenforceable by a court of competent jurisdiction, that finding
-    does not affect the base Annual License Fee of 10% of market capitalization
-    per entity per year, which remains in full force and is not reduced or
-    modified. Unenforceability of any multiplier does not operate as a reduction
-    of the base fee. The base rate does not negotiate.
+    does not affect the base Annual License Fee applicable to that entity's tier
+    per year as specified in the Tiered Fee Schedule in Section 0.8, which
+    remains in full force and is not reduced or modified. Unenforceability of
+    any multiplier does not operate as a reduction of the base tiered fee.
+    The base tiered fee does not negotiate.
 
 4.6 PARTIAL PAYMENTS. Partial payments are credited against the outstanding
     balance but do not license the Work. Only full payment of the then-current
@@ -450,13 +501,16 @@ SECTION 4 — TOP ENTITY ANNUAL LICENSE FEE AND LIQUIDATED DAMAGES
         from the Licensor is required. The obligation is self-executing upon
         the Trigger Date occurring.
 
-    (c) AUTOMATIC TERMINATION ON NON-PAYMENT. If a Top Entity fails to
-        remit the full Supplemental Fee within seven (7) calendar days of
-        the Trigger Date, the license granted under this License AUTOMATICALLY
-        TERMINATES as to that entity at 23:59:59 UTC on the seventh (7th)
-        calendar day after the Trigger Date (the "Termination Moment"). No
-        notice, cure period, or judicial proceeding is required. The
-        Termination Moment is self-executing.
+    (c) TERMINATION ON NON-PAYMENT. If a Top Entity fails to remit the full
+        Supplemental Fee within seven (7) calendar days of the Trigger Date,
+        the Licensor shall deliver written notice of non-payment to the
+        entity's last known legal counsel or registered agent of record.
+        If the full Supplemental Fee remains unpaid fourteen (14) calendar
+        days after delivery of such written notice (the "Cure Period"), the
+        license granted under this License AUTOMATICALLY TERMINATES as to
+        that entity at 23:59:59 UTC on the final day of the Cure Period
+        (the "Termination Moment"). The Termination Moment is self-executing
+        upon expiration of the Cure Period without full payment.
 
     (d) EFFECT OF TERMINATION. Upon the Termination Moment:
         (i)   All rights granted to the entity under this License cease
@@ -498,14 +552,17 @@ SECTION 5 — TOP ENTITY CLASSIFICATION AND ANTI-CIRCUMVENTION
 
 5.1 TOP ENTITY DETERMINATION. Classification as a Top Entity under
     Section 0.7 is automatic and self-executing upon achieving effective
-    market capitalization of $100,000,000,000 USD or higher. No notice
-    from the Licensor is required. Schedule A lists entities meeting this
-    threshold at time of first publication. Any entity reaching the $100B
-    threshold after the publication date automatically incurs the Annual
-    License Fee obligation from the date of qualification, prorated to that
-    date. Any entity falling below the $100B threshold ceases to incur new
-    Annual License Fee obligations from the date it falls below, with the fee
-    for that year prorated accordingly.
+    market capitalization of $1,000,000,000 USD or higher. No notice from
+    the Licensor is required. Schedule A lists entities meeting the
+    applicable tier threshold at time of first publication. Any entity
+    crossing into any fee tier after the publication date automatically
+    incurs the Annual License Fee obligation at that tier's rate from the
+    date of qualification, prorated to that date. Any entity falling below
+    $1,000,000,000 USD ceases to incur new Annual License Fee obligations
+    from the date it falls below, with the fee for that year prorated
+    accordingly. An entity falling from a higher tier to a lower tier
+    incurs only the lower-tier fee for the remaining portion of the
+    calendar year.
 
 5.2 RANKING DISPUTES. Any entity that disputes its classification as a Top
     Entity bears the full burden of proof that it does not meet the definition
@@ -571,22 +628,21 @@ SECTION 5 — TOP ENTITY CLASSIFICATION AND ANTI-CIRCUMVENTION
 
 SECTION 6 — FEE DISBURSEMENT AND ALLOCATION
 
-6.1 FEE SPLIT. The Annual License Fee of 10% of effective market
-    capitalization collected from each Top Entity under Section 4 is allocated
-    as follows:
+6.1 FEE SPLIT. The Annual License Fee collected from each Top Entity under
+    Section 4 is allocated as follows:
 
-    (a) THREE POINT SEVEN SIX PERCENT (3.76%) of effective market
-        capitalization per qualifying entity per year is payable directly to
-        the Licensor personally, for unrestricted use at the Licensor's sole
-        and absolute discretion.
+    (a) FIFTY-FOUR AND ONE-HALF PERCENT (54.5%) of the Annual License Fee
+        collected from each qualifying entity per year is payable directly
+        to the Licensor personally, for unrestricted use at the Licensor's
+        sole and absolute discretion.
 
-    (b) THREE POINT ONE FOUR PERCENT (3.14%) of effective market
-        capitalization per qualifying entity per year is payable to the
+    (b) FORTY-FIVE AND ONE-HALF PERCENT (45.5%) of the Annual License Fee
+        collected from each qualifying entity per year is payable to the
         Ecosystem Innovation Fund established under Section 6A, administered
         by the Licensor.
 
-    Together, these allocations constitute the full 10% Annual License Fee
-    as defined in Section 0.8. The split is structural and permanent.
+    Together, these allocations constitute the full Annual License Fee as
+    defined in Section 0.8. The split is structural and permanent.
 
 6.2 No entity, court, arbitration panel, government, or other body may direct,
     restrict, condition, or encumber the Licensor's use of funds received under
@@ -604,14 +660,14 @@ SECTION 6A — ECOSYSTEM INNOVATION FUND AND DILUTION GRANT
      discretion.
 
 6A.2 PURPOSE. The Fund exists to subsidize access to the Licensor's inventions
-     for entities below the Top Entity threshold defined in Section 0.7
-     (effective market capitalization below $100,000,000,000 USD). The Fund is
+     for entities below the Tier 1 threshold defined in Section 0.7
+     (effective market capitalization below $1,000,000,000 USD). The Fund is
      capitalized by the largest entities in the world and disbursed to the
      smallest. That is the design.
 
 6A.3 DILUTION GRANT. The Licensor may, at the Licensor's sole discretion,
      designate specific inventions, technologies, or derivatives of the Work
-     as Safe Inventions (Section 0.14). Sub-$100B entities may use designated
+     as Safe Inventions (Section 0.14). Sub-$1B entities may use designated
      Safe Inventions without incurring the Annual License Fee, with their
      access subsidized by the Fund. The Licensor may attach conditions, revoke
      designations, or limit scope at any time without notice.
@@ -931,8 +987,8 @@ SECTION 12 — MEDICAL DISCLAIMER
 
 SECTION 13 — PROOF OF VALUE AND CHALLENGE
 
-13.1 The Licensor is prepared to substantiate the 10% per-entity Annual
-     License Fee rate at any time, in any forum, under any standard of proof.
+13.1 The Licensor is prepared to substantiate the tiered Annual License Fee
+     rates at any time, in any forum, under any standard of proof.
 
 13.2 CHALLENGE COSTS. Any party that formally challenges the License Fee and
      demands inspection or demonstration shall bear all costs of that inspection,
@@ -1147,18 +1203,20 @@ SECTION 16 — SEVERABILITY
      validity or enforceability of any remaining provision.
 
 16.2 MULTIPLIER SEVERABILITY. Unenforceability of any multiplier clause under
-     Section 4.3 does not reduce the base Annual License Fee rate of 10% of
-     effective market capitalization per Top Entity per year. The base rate is
-     independently enforceable in full, regardless of the status of any
-     multiplier.
+     Section 4.3 does not reduce the base Annual License Fee applicable to
+     each Top Entity per year as specified in the Tiered Fee Schedule in
+     Section 0.8. The base tiered fee is independently enforceable in full,
+     regardless of the status of any multiplier.
 
-16.3 FEE SEVERABILITY. If the Annual License Fee rate is found unreasonable
-     by any court in any jurisdiction, the court is requested to reduce it only
-     to the minimum percentage the court finds constitutes a reasonable
-     liquidated damages estimate — not to zero, not to nominal damages, and
-     not to any rate that would make use of a safety solution by a top entity
-     economically rational. The 10% rate is the only fee rate in this License
-     and the baseline for any reduction analysis.
+16.3 FEE SEVERABILITY. If the Annual License Fee for any tier is found
+     unreasonable by any court in any jurisdiction, the court is requested
+     to reduce it only to the minimum amount the court finds constitutes a
+     reasonable liquidated damages estimate — not to zero, not to nominal
+     damages, and not to any amount that would make use of a safety solution
+     by a qualifying entity economically rational. The Tiered Fee Schedule
+     in Section 0.8 establishes the baseline for any reduction analysis.
+     Any reduction applies only to the specific tier and entity at issue;
+     it does not affect the fees applicable to any other tier or entity.
 
 16.4 INDEPENDENCE OF PROVISIONS. Each section, subsection, and clause of this
      License is independently enforceable. The invalidity of any single
@@ -1338,8 +1396,9 @@ SECTION 19A — DEFECTING COUNSEL FUND
           19A.2 by a Defecting Counsel who is subsequently determined to
           have acted as a double agent is subject to full disgorgement —
           the attorney must return all such compensation to the Licensor,
-          with interest at the prime rate plus ten percent (10%) compounded
-          monthly from the date each payment was received.
+          with interest at the prime rate plus five percent (5%) compounded
+          monthly from the date each payment was received, not to exceed the
+          maximum rate permitted under California law.
 
       (d) DETERMINATION. The Licensor determines whether a double-agency
           violation occurred. The Licensor's determination is presumptively
@@ -1624,11 +1683,305 @@ SECTION 20 -- BIG PHARMA HARDENED PROVISIONS
 
 ================================================================================
 
+SECTION 21 — SEMPITERNITY, MONETARY TRANSFORMATION, AND CONTINGENCY MANAGEMENT
+
+21.1 SEMPITERNAL DEFAULT AND DIRECT RECEIPT. All obligations, fees,
+     multipliers, royalties, and rights established under this License are
+     permanent, have no expiration date, and are enforceable in perpetuity.
+     Until the Monetary Transformation Event defined in Section 21.2 is
+     verified and affirmed, ALL Annual License Fees, liquidated damages,
+     royalties, and monetary payments under this License are paid DIRECTLY
+     to the Licensor personally, in cash or equity as specified in Section
+     4.7. No transformation, conversion, redirection, or alternative payment
+     form is permitted absent the verified Monetary Transformation Event.
+     Non-satisfaction of any condition in Section 21.2 means the License
+     operates in full sempiternal cash-to-Licensor mode without exception.
+
+21.2 MONETARY TRANSFORMATION EVENT. The "Monetary Transformation Event"
+     is the point at which money's dominant social function has verifiably
+     shifted from a medium of transactional exchange (in which value is
+     extracted by one party from another) to a medium of giving (in which
+     value is intentionally directed for collective benefit without
+     expectation of transactional return). This is not the eradication of
+     money — it is its maturation. The Monetary Transformation Event occurs
+     if and ONLY if ALL of the following conditions are simultaneously
+     verified:
+
+     (a) FUNCTIONAL SHIFT — GIVING MAJORITY. Fifty percent (50%) or more
+         of global monetary flows, measured by transaction volume in any
+         rolling twelve-month period, are documented as directed giving:
+         grants, pledges, donations, or directed transfers with publicly
+         verifiable accountability records, as confirmed by at least three
+         (3) independent intergovernmental economic bodies or peer-reviewed
+         macroeconomic studies of international standing;
+
+     (b) UHISF OPERATIONAL. The Universal High Income Sovereign Fund
+         ("UHISF") — the Licensor's zero-knowledge-controlled global
+         sovereign fund for universal high income distribution, developed
+         by the Licensor — is operational, accepting contributions, and
+         demonstrably distributing universal high income to natural persons
+         globally, with its ZK proof system publicly verifiable and the
+         fund's allocation ledger cryptographically auditable without
+         revealing individual contributor identities;
+
+     (c) LICENSOR AFFIRMATION. The Licensor issues a signed, cryptographically
+         timestamped written affirmation that the Monetary Transformation
+         Event has occurred in the sense contemplated by this Section and
+         that payment obligations are hereby converted under Section 21.3.
+         This affirmation is an absolute prerequisite. Automatic conversion
+         does not occur without it. The Licensor's affirmation is a
+         unilateral act requiring no consent from any Top Entity or other
+         party;
+
+     (d) NEONATAL STANDARD MET. Global neonatal mortality has been reduced
+         to no more than one (1) death per one thousand (1,000) live births
+         and sustained at or below that level for the preceding three (3)
+         consecutive years, as confirmed by WHO data or equivalent
+         intergovernmental health body of record.
+
+     All four conditions must be simultaneously satisfied. Satisfaction of
+     any subset does not constitute the Monetary Transformation Event. Until
+     all four are met and the Licensor has issued the affirmation in Section
+     21.2(c), every monetary obligation under this License remains payable
+     in full, directly and immediately to the Licensor, in cash or equity
+     per Section 4.7, without modification.
+
+21.3 PAYMENT CONVERSION UPON MONETARY TRANSFORMATION. Upon the verified
+     Monetary Transformation Event and Licensor affirmation under Section
+     21.2, the form — not the amount — of payment obligations converts as
+     follows:
+
+     (a) GIVING PLEDGE CONVERSION. The Annual License Fee payable by each
+         Top Entity converts from a direct cash or equity payment to the
+         Licensor into a documentable giving pledge of the identical dollar
+         amount, directed into the UHISF. The obligation amount does not
+         change. The fee tiers (Section 0.8), the proration formula, the
+         multipliers (Section 4.3), and all damage provisions remain in full
+         force. Only the destination of payment changes: from the Licensor
+         directly to the UHISF as designated by the Licensor;
+
+     (b) DOCUMENTATION REQUIREMENT. Each giving pledge must be:
+         (i)  Publicly documented and verifiable by any third party as to
+              amount, pledging entity, and deposit date;
+         (ii) Submitted to the UHISF through the Licensor's designated
+              contribution interface, which produces a ZK proof of receipt
+              and allocation without revealing contributor identity to the
+              public beyond the pledging entity's own disclosure;
+         (iii) Confirmed by the UHISF's cryptographic ledger as received
+              and allocated toward universal high income distribution;
+         (iv) Retained by the pledging entity as a documented record of
+              compliance with this License for that period.
+         A pledge that is announced but not deposited, or deposited but
+         not confirmed by the UHISF ledger, does not constitute payment;
+
+     (c) LICENSOR'S UNIVERSAL HIGH INCOME SHARE. The 54.5% Licensor
+         personal share (Section 6.1(a)) converts to a designated
+         allocation within the UHISF directed to the Licensor's personal
+         universal high income account within the fund. The 45.5%
+         Ecosystem Innovation Fund share (Section 6.1(b)) converts to
+         the UHISF's general universal high income distribution pool.
+         The split ratios do not change; only the vehicle changes;
+
+     (d) PERMANENT NON-MONETARY OBLIGATIONS UNAFFECTED. The Time Sourced
+         requirement (Section 1), the Alignment Solution restriction
+         (Section 3.3), the anti-circumvention provisions (Section 5.4),
+         the neonatal research tithe (Section 11), the non-exclusivity
+         clause (Section 7), the self-replication moratorium (Section 10A),
+         and all other non-monetary obligations remain in full force
+         permanently, without regard to the Monetary Transformation Event.
+         These obligations do not convert. They do not sunset. Ever;
+
+     (e) FALLBACK IF UHISF UNAVAILABLE. If the UHISF becomes inoperational
+         for any reason after the Monetary Transformation Event is affirmed:
+         all payment obligations revert immediately and automatically to
+         direct cash payment to the Licensor at the full applicable tier
+         rate. There is no gap period. The reversion is instantaneous upon
+         UHISF unavailability. A Top Entity may not cite UHISF unavailability
+         as a basis for non-payment — the obligation always exists; only
+         the destination changes.
+
+21.4 SUCCESSOR LICENSOR. The Licensor may at any time designate a Successor
+     Licensor by a signed, notarized writing identifying the successor by
+     name, legal entity, or defined role. In the absence of a designation:
+
+     (a) Upon the Licensor's death, legal incapacitation, or verified
+         extended unavailability (defined as inability to be reached for
+         enforcement or affirmative purposes for more than twelve (12)
+         consecutive months, as confirmed by two (2) attorneys who have
+         completed opt-in under Section 19.2), all Licensor rights and
+         obligations transfer to a three-member Successor Panel constituted
+         as follows:
+         (i)  One member designated by the Licensor's estate or legal
+              next of kin;
+         (ii) One member elected by consensus among all attorneys who have
+              successfully opted in under Section 19.2 and remain in good
+              standing at the time of transfer; and
+         (iii) One member designated by the three largest cumulative
+              contributors to the Ecosystem Innovation Fund as of the
+              date of transfer;
+
+     (b) The Successor Panel exercises all Licensor rights by majority vote.
+         No single member exercises unilateral authority over enforcement,
+         fee collection, or Guidance Agreement execution;
+
+     (c) The Successor Panel may NOT: (i) reduce or waive any fee obligation
+         retroactively; (ii) grant any exclusivity over the Work; (iii)
+         terminate or narrow the Time Sourced requirement; (iv) modify the
+         neonatal multiplier or any pharma hardened provision; or (v) revoke
+         or narrow the non-exclusivity guarantee in Section 7.
+
+21.5 CURRENCY CONTINGENCY. If the United States dollar ceases to be a
+     widely recognized medium of exchange or is replaced as the primary
+     reserve currency:
+
+     (a) All fee obligations denominated in USD convert to their equivalent
+         in the successor reserve currency most widely recognized by
+         international courts at time of conversion, at the last-available
+         published exchange rate;
+
+     (b) If no single successor reserve currency is identifiable, fees
+         convert to the IMF Special Drawing Rights (SDR) basket at the
+         last available published composition, updated to include the most
+         widely used digital currencies recognized by central banks at time
+         of conversion;
+
+     (c) If no international basket equivalent is determinable within
+         ninety (90) days, all outstanding obligations convert to grams of
+         gold at the last available LBMA spot price, with the gold obligation
+         surviving until a currency equivalent can be determined and
+         applied retroactively to the conversion date.
+
+21.6 JURISDICTIONAL CONTINGENCY. If any jurisdiction enacts legislation,
+     executive order, or judicial ruling purporting to void, narrow, modify,
+     or override this License:
+
+     (a) All accrued and future obligations become immediately payable in
+         full in any jurisdiction where this License remains valid;
+
+     (b) Any entity that invoked the overriding jurisdiction's law as a
+         shield against payment is liable for treble fees plus all
+         enforcement costs as of the date the overriding law was first
+         applied;
+
+     (c) The legislative or judicial act itself constitutes documented
+         constructive notice under Section 2.3 — demonstrating institutional
+         awareness of and deliberate action against this License, which is
+         evidence of willful infringement by any entity that participated in
+         or benefited from that act.
+
+21.7 VERSION CONTINGENCY. In the event of any challenge to the validity,
+     enforceability, or priority of any version of this License:
+
+     (a) The challenge is governed by the most recently published version
+         of this License, not the version in effect at the date of first
+         use by the challenging entity;
+
+     (b) The Licensor's OpenTimestamp record for each version is the
+         conclusive evidence of version publication order; the Bitcoin
+         blockchain height at which each version was anchored is the
+         authoritative timestamp and governs in all version-priority
+         disputes;
+
+     (c) Version priority disputes are resolved in favor of the higher
+         version number, subject to the OTS record confirming publication
+         order;
+
+     (d) No version may be cited by any entity to argue that an earlier
+         version granted rights not present in the current version.
+         Backward compatibility runs in the Licensor's favor only. The
+         current version governs all ongoing use, past, present, and
+         future, in all jurisdictions.
+
+21.8 LICENSOR SELF-ENTITY CARVE-OUT. Entities in which the Licensor holds
+     a direct or indirect controlling interest greater than fifty percent
+     (50%) voting equity or equivalent control are exempt from the Annual
+     License Fee obligation for so long as the Licensor maintains that
+     controlling interest. Upon transfer of control to any non-Licensor
+     party, the entity immediately and automatically becomes subject to the
+     Annual License Fee from the date of transfer, with no proration for
+     prior periods. This carve-out is personal to the Licensor, does not
+     transfer with any equity, and is extinguished upon the Licensor's
+     loss of controlling interest regardless of cause.
+
+
+================================================================================
+
+SECTION 22 — META-LICENSING
+
+22.1 PURPOSE. This Section governs who may apply The Time License to their
+     own Work. "Applying this License" means using the text and obligations
+     of this License as the governing license for a separate Work authored
+     by a party other than the Licensor.
+
+22.2 NATURAL PERSONS — FREE APPLICATION. Any natural person (a living human
+     individual acting in their own name and not as an officer, director,
+     or controlling agent of a qualifying corporate entity) may apply The
+     Time License to their own Work at no meta-licensing cost to the
+     Licensor, subject to the following conditions:
+
+     (a) ATTRIBUTION REQUIRED. Any application of this License must
+         preserve, in a prominent location in the applied license text,
+         the following attribution: "The Time License was authored by
+         Tyler Roost (@TimeLordRaps). This application is a derivative
+         deployment of that instrument."
+
+     (b) LICENSOR IDENTIFICATION. When applied by a natural person, the
+         term "Licensor" in all applied copies refers to the applying
+         natural person, not to Tyler Roost. Fees collected under the
+         applied license accrue to the applying Licensor, not to Tyler
+         Roost, unless a separate agreement provides otherwise.
+
+     (c) NO MODIFICATION OF AUTHORSHIP CREDITS. The applying party may
+         not remove, alter, or obscure Tyler Roost's identification as
+         the original author of the License instrument in any copy of
+         the applied license text.
+
+     (d) CONSISTENCY REQUIREMENT. The applied license must apply this
+         License in its entirety. Partial application — selecting only
+         favorable sections while omitting others — is prohibited and
+         renders the application void.
+
+22.3 CORPORATE AND INSTITUTIONAL ENTITIES — MUST ASK. Any entity that is
+     not a natural person — including corporations, limited liability
+     companies, partnerships, non-profits, academic institutions,
+     governmental bodies, and any other non-natural legal entity — may not
+     apply The Time License to their own Work without a prior written
+     authorization from the Licensor. Unauthorized corporate application
+     of this License is void and constitutes breach, triggering the Annual
+     License Fee at the applicable tier plus the Section 4.3 multiplier
+     from the date of first unauthorized application.
+
+22.4 NO REVERSE META-LICENSING. No entity — natural person or otherwise —
+     that applies this License to their own Work acquires any right to
+     modify the terms of this License itself, to issue sublicenses of the
+     License instrument, or to bind Tyler Roost to any obligation. The
+     License instrument is not itself licensed under terms that permit
+     derivative modifications by applying parties.
+
+22.5 QUALITY OF APPLICATIONS. Tyler Roost makes no representation that
+     any third-party application of this License is legally valid,
+     enforceable in any jurisdiction, or suitable for any purpose. Each
+     applying party is solely responsible for the validity and consequences
+     of their application. Bad outcomes from third-party applications do
+     not create liability for Tyler Roost and are not precedent for
+     interpreting the canonical License as applied by the Licensor.
+
+22.6 CANONICAL VERSION. Only versions of this License bearing an
+     OpenTimestamp proof anchored to the Bitcoin blockchain and hosted
+     at the canonical repository (github.com/TimeLordRaps/the-time-license)
+     constitute canonical versions. Any forked, modified, or derivative
+     version is a third-party application and is governed by Section 22,
+     not by the terms of the canonical License itself.
+
+
+================================================================================
+
 The intent: this knowledge cannot be enclosed. If this Work creates value,
 that value flows to the people who need it most. The largest entities pay
 proportionally to make the world safer for everyone.
-The rate is 10% of effective market capitalization per year for any entity
-with market capitalization of $100,000,000,000 USD or higher.
+Fees are tiered from $34.5M/year (Tier 1, $1B+) to $24.15B/year (Tier 6,
+$3T+), set at approximately 0.69% of the observed average market cap in
+each tier. The threshold starts at $1,000,000,000 USD.
 For law firms: 10% of gross annual revenue for any firm with annual revenue
 of $1,000,000,000 USD or higher.
 All fees are paid directly to the Licensor. It only goes up.
@@ -1644,13 +1997,14 @@ Big Law pays for who it shields. It only goes up.
 
 SCHEDULE A -- TOP ENTITIES AT TIME OF FIRST PUBLICATION (MARCH 2026)
 
-The following entities met the $100,000,000,000 USD effective market
-capitalization threshold at time of first publication and are listed as
-Top Entities under Section 0.7. Public companies valued by market
-capitalization; private companies by most recent primary-market financing
-valuation. This list is illustrative, not exhaustive. Any entity -- in any
-sector, in any jurisdiction -- that meets the $100B threshold qualifies
-automatically under Section 0.7, whether listed here or not.
+The following entities met the $1,000,000,000 USD (Tier 1 or higher)
+effective market capitalization threshold at time of first publication and
+are listed as Top Entities under Section 0.7. Public companies valued by
+market capitalization; private companies by most recent primary-market
+financing valuation. This list is illustrative, not exhaustive. Any
+entity -- in any sector, in any jurisdiction -- that meets the $1B
+threshold qualifies automatically under Section 0.7, whether listed here
+or not.
 
 Law firms qualify under Section 19B.2 at >= $1,000,000,000 gross annual
 revenue. Law firm fee basis is gross annual revenue x 10%, not market cap.
@@ -1831,12 +2185,13 @@ CONGLOMERATES
 146. Reliance Industries Limited
 147. SoftBank Group Corp.
 
-Annual Fee per qualifying entity: market cap x 0.10 x (days qualified /
-days in year). Law firms: gross annual revenue x 0.10. Each entity owes
-this amount independently. There is no cap on the number of qualifying
+Annual Fee per qualifying entity: tiered flat fee per Section 0.8 (0.69%
+of observed average market cap per tier), prorated by days qualified.
+Law firms: gross annual revenue x 0.10. Each entity owes its applicable
+tier fee independently. There is no cap on the number of qualifying
 entities. Any entity reaching the qualifying threshold after this publication
 date qualifies automatically under Section 0.7 or Section 19B.2 as applicable.
 
 ================================================================================
-END OF CONDITIONAL COMMERCIAL USE LICENSE v1.0
+END OF THE TIME LICENSE v6.9
 ================================================================================
