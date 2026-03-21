@@ -1,0 +1,46 @@
+name: Sync License from Canonical Source
+
+on:
+  schedule:
+    # Every Monday at 06:00 UTC
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  sync-license:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch canonical LICENSE
+        run: |
+          curl -fsSL \
+            https://raw.githubusercontent.com/TimeLordRaps/the-time-license/main/LICENSE \
+            -o LICENSE.new
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if ! diff -q LICENSE LICENSE.new > /dev/null 2>&1; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Update LICENSE if changed
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          mv LICENSE.new LICENSE
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add LICENSE
+          git commit -m "chore: sync LICENSE from TimeLordRaps/the-time-license"
+          git push
+
+      - name: No change
+        if: steps.diff.outputs.changed == 'false'
+        run: |
+          rm -f LICENSE.new
+          echo "LICENSE is already up to date."
