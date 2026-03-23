@@ -6,7 +6,7 @@ A default-closed AI safety verification gate. Boolean SAT is interposed between 
 
 **Paper:** `paper/paper_01_submission.md`  
 **Package:** `src/satisfaction_suffices/`  
-**License:** The Time License (see `LICENSE`) — custom commercial license, NOT open source. Do not reference it as CC BY, MIT, CCUL, or any other name. Line 1 of LICENSE is the name.
+**License:** The Time License v7.77 (see `LICENSE`) — custom commercial license, NOT open source. Line 1 of LICENSE is the canonical name. Do not use any other name.
 
 ---
 
@@ -75,7 +75,7 @@ cd paper && make pdf   # requires pandoc + pdflatex
 - Do not create a parallel `Verifier` class — extend the existing `VerificationGate`
 - Do not rename `Verdict` enum members — they are part of the public API
 - Do not add a "graceful degradation" path that defaults to Verified on error — that inverts the safety model
-- Do not call the license "CCUL v1.0", "CC BY 4.0", or anything other than "The Time License"
+- The license name is "The Time License" — use Line 1 of LICENSE as the canonical name. Do not use any other name.
 
 ---
 

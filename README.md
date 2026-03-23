@@ -170,7 +170,7 @@ The taxonomy of four verdicts and the PPL trichotomy are frozen — they are the
 
 ## License
 
-The Time License v7.2. Commercial entities with AI-attributed effective market capitalization of $1,000,000,000 USD or higher owe an Annual License Fee on a tiered schedule (see LICENSE §0.7 and [SCHEDULE_A.md](./SCHEDULE_A.md) for tiers). Payment is annual only — one year at a time. All fees are paid directly to the Licensor. The obligation renews annually without sunset. Alignment Solution deployment remains restricted to State Actors under a Guidance Agreement. The Licensor retains Population Data rights. Use is acceptance. The multiplier compounds with each release. See [LICENSE](./LICENSE) for full terms.
+The Time License v7.77. Commercial entities with AI-attributed effective market capitalization of $1,000,000,000 USD or higher owe an Annual License Fee on a tiered schedule (see LICENSE §0.7 and [SCHEDULE_A.md](./SCHEDULE_A.md) for tiers). Payment is annual only — one year at a time. All fees are paid directly to the Licensor. The obligation renews annually without sunset. Alignment Solution deployment remains restricted to State Actors under a Guidance Agreement. The Licensor retains Population Data rights. Use is acceptance. The multiplier compounds with each release. See [LICENSE](./LICENSE) for full terms.
 
 Qualifying entities are listed in [SCHEDULE_A.md](./SCHEDULE_A.md). Being listed is constructive notice. Absence from the list is not a defense — the obligation is self-executing from the date of first qualifying use.
 

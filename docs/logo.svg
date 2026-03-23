@@ -1,0 +1,35 @@
+<svg width="960" height="320" viewBox="0 0 960 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Satisfaction Suffices logo</title>
+  <desc id="desc">An academic SAT-gating logo with a lattice mark and Satisfaction Suffices wordmark.</desc>
+  <defs>
+    <linearGradient id="ss-panel" x1="28" y1="24" x2="212" y2="216" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="ss-accent" x1="58" y1="54" x2="184" y2="186" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7C3AED"/>
+      <stop offset="1" stop-color="#22C55E"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(34 34)">
+    <rect x="12" y="12" width="216" height="216" rx="48" fill="url(#ss-panel)"/>
+    <path d="M64 84L120 56L176 84L176 144L120 172L64 144Z" stroke="#CBD5E1" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M64 84L120 116L176 84" stroke="#64748B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M120 116V172" stroke="#64748B" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="64" cy="84" r="10" fill="#7C3AED"/>
+    <circle cx="120" cy="56" r="10" fill="#7C3AED"/>
+    <circle cx="176" cy="84" r="10" fill="#7C3AED"/>
+    <circle cx="64" cy="144" r="10" fill="#22C55E"/>
+    <circle cx="120" cy="172" r="10" fill="#22C55E"/>
+    <circle cx="176" cy="144" r="10" fill="#22C55E"/>
+    <path d="M88 118L108 138L152 92" stroke="url(#ss-accent)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M32 120H46" stroke="#94A3B8" stroke-width="8" stroke-linecap="round"/>
+    <path d="M194 120H208" stroke="#94A3B8" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(292 58)">
+    <text x="0" y="56" fill="#0F172A" font-size="60" font-weight="800" font-family="Inter, Segoe UI, Arial, sans-serif">satisfaction</text>
+    <text x="0" y="122" fill="#0F172A" font-size="60" font-weight="800" font-family="Inter, Segoe UI, Arial, sans-serif">suffices</text>
+    <text x="2" y="168" fill="#475569" font-size="28" font-weight="600" font-family="Inter, Segoe UI, Arial, sans-serif">SAT-gated structural containment</text>
+    <text x="2" y="210" fill="#7C3AED" font-size="20" font-weight="700" letter-spacing="0.14em" font-family="Inter, Segoe UI, Arial, sans-serif">VERIFY • CONSTRAIN • CONTAIN</text>
+  </g>
+</svg>

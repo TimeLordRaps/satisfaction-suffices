@@ -590,11 +590,7 @@ with gr.Blocks(
     **[Paper](https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/paper/paper_01_submission.md)** |
     **[GitHub](https://github.com/TimeLordRaps/satisfaction-suffices)** |
     **[PyPI](https://pypi.org/project/satisfaction-suffices/)** |
-<<<<<<< Updated upstream
-    **License: [The Time License v7.2](https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/LICENSE)**
-=======
-    **License: [The Time License](https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/LICENSE)**
->>>>>>> Stashed changes
+    **License: [The Time License v7.77](https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/LICENSE)**
 
     *The SAT solver does not have preferences. It has proofs.*
     """)

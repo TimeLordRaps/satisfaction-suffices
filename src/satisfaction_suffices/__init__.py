@@ -14,16 +14,16 @@ import sys as _sys
 import time as _time
 
 __version__ = "0.0.2"
-__license__ = "The Time License v7.2"
+__license__ = "The Time License v7.77"
 __license_url__ = "https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/LICENSE"
 
 # ── Commercial License Notice ─────────────────────────────────────────────────
-# The Time License v7.2: Top Entities (market cap >= $1B) owe tiered Annual License Fee.
+# The Time License v7.77: Top Entities (market cap >= $1B) owe tiered Annual License Fee.
 # Displaying this notice at import time constitutes constructive acceptance per
 # the browse-wrap agreement in LICENSE Section 0 NOTICE.
 _LICENSE_NOTICE = (
     "\n"
-    "satisfaction-suffices v{v} -- The Time License v7.2\n"
+    "satisfaction-suffices v{v} -- The Time License v7.77\n"
     "------------------------------------------------------------------------\n"
     "If your organization's Effective Market Capitalization >= $1,000,000,000:\n"
     "  Tiered Annual License Fee applies (Tier 1: $34.5M/yr — Tier 6: $24.15B/yr).\n"

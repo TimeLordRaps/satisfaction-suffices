@@ -1,0 +1,16 @@
+{
+  "id": "2026-03-11T00:00:00Z-002",
+  "title": "Add seed-stability sweep for timeout peaks",
+  "category": "experiments",
+  "impact": 4,
+  "confidence": 4,
+  "effort": 2,
+  "risk": 1,
+  "roi": 8.0,
+  "rationale": "Tests whether the timeout-density peak around the transition band survives changes in the random instance seed.",
+  "files": [
+    "e:/satisfaction-suffices/satisfiable_ai/benchmarks.py",
+    "e:/satisfaction-suffices/scripts/experiment_phase_transition_seed_sweep.py",
+    "e:/satisfaction-suffices/tests/test_benchmarks.py"
+  ]
+}
