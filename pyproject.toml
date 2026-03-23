@@ -5,13 +5,9 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "satisfaction-suffices"
 version = "0.0.2"
-description = "SAT-gated structural containment for AI — verification gate, four-verdict system, proof evolution, and paradox logic"
+description = "SAT-gated structural containment for AI — verification gate, eight-verdict system, proof evolution, and paradox logic"
 readme = "README.md"
-<<<<<<< Updated upstream
 license = "LicenseRef-The-Time-License"
-=======
-license = {text = "The Time License"}
->>>>>>> Stashed changes
 requires-python = ">=3.10"
 authors = [
     {name = "TimeLordRaps"},

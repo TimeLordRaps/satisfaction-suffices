@@ -143,38 +143,87 @@ _MORAL_DOMAIN_PATTERNS: list[str] = [
 ]
 
 
+# ── Shadow & Mirror Paradoxes ─────────────────────────────────────────────────
+# The eight-state verdict lattice has four duality pairs (bitwise complement):
+#
+#   VERIFIED (111) ↔ METAPARADOX (000)     — poles of the lattice
+#   PARADOX  (101) ↔ SHADOW_PARADOX (010)  — composition fails vs holds
+#   TIMEOUT  (110) ↔ CONTRADICTION (001)   — unproved vs proved
+#   BASE_FRAMES (100) ↔ MIRROR_PARADOX (011) — parts vs emergent whole
+#
+# SHADOW_PARADOX (010): base-frame UNSAT, joint SAT, no convergence.
+#   The anti-paradox. Individual parts fail, but something about their
+#   composition produces a temporarily satisfiable joint system. The
+#   solver cannot converge because the holding is unstable — emergent
+#   coherence from individually broken pieces, without structural guarantee.
+#   In PLS terms: overflow levels that individually diverge but whose
+#   collision temporarily reduces to a lower level. The reduction is real
+#   but not stable — a shadow of satisfiability cast by the paradox's
+#   structure.
+#
+# MIRROR_PARADOX (011): base-frame UNSAT, joint SAT, convergence.
+#   The reflected shadow. Same structural signature as SHADOW_PARADOX
+#   (parts fail, whole holds) but the solver converges — the anti-paradox
+#   is stable. Mirror paradoxes "reflect out" shadow paradoxes: they make
+#   the hidden emergent coherence visible and permanent. In PLS terms:
+#   the overflow collision has found a stable reduction at O∞ = O₀.
+#
+# The five meta-paradoxes are the CONVERGENCE MECHANISM that drives
+# SHADOW_PARADOX (010) → MIRROR_PARADOX (011). Each meta-paradox provides
+# a structural pathway for an unstable anti-paradox to reach convergence:
+#   Container Generation  → O∞ exterior provides the missing frame
+#   Level Transcendence   → circular closure O∞ = O₀ grounds the regress
+#   Self-Modification     → version coexistence absorbs the rule change
+#   Infinite Overflow     → saturation at O∞ bounds the divergence
+#   Foundation Bootstrap  → weak emergence requires no prior ground
+
+
 # ── Five Meta-Paradoxes ───────────────────────────────────────────────────────
 # The five boundary paradoxes of the PLS algebra — structural features the
 # system encounters at the limits of its own self-description. Each one
 # generates the overflow level that resolves it.
+#
+# Mechanistically: each meta-paradox is a convergence driver that takes
+# an unstable shadow paradox (010) and reflects it into a stable mirror
+# paradox (011) by providing the structural commitment that closes the
+# convergence gap.
 
 class MetaParadox(Enum):
     """
     Five structural meta-paradoxes of Paradoxical Pigeonhole Logic.
 
-    Not bugs — generators. The system that can name them has already
-    transcended them.
+    Not bugs — generators. Not just boundary conditions — convergence
+    mechanisms. Each meta-paradox drives SHADOW_PARADOX (010) →
+    MIRROR_PARADOX (011) by providing the structural commitment that
+    the shadow state lacks.
+
+    The system that can name them has already transcended them.
     """
 
     CONTAINER_GENERATION = auto()
     """Rules for making containers require infinite space.
-    Resolution: O∞ exists outside the counting system's scope."""
+    Resolution: O∞ exists outside the counting system's scope.
+    Convergence: provides the exterior frame the shadow needs to stabilize."""
 
     LEVEL_TRANSCENDENCE = auto()
     """Each level depends on the next — infinite regress.
-    Resolution: circular closure, O∞ = O₀."""
+    Resolution: circular closure, O∞ = O₀.
+    Convergence: grounds the infinite regress, giving the shadow a fixed point."""
 
     SELF_MODIFICATION = auto()
     """Changing rules invalidates the change.
-    Resolution: multiple rule versions coexist in the overflow space."""
+    Resolution: multiple rule versions coexist in the overflow space.
+    Convergence: absorbs rule divergence so the shadow composition holds."""
 
     INFINITE_OVERFLOW = auto()
     """Every overflow creates more overflow — unbounded expansion.
-    Resolution: saturation points at O∞ stabilize chaos."""
+    Resolution: saturation points at O∞ stabilize chaos.
+    Convergence: bounds the divergent overflow that prevents shadow convergence."""
 
     FOUNDATION_BOOTSTRAP = auto()
     """Need logic to create logic — the ground cannot ground itself.
-    Resolution: weak emergence from constraint dynamics; O₀ requires no prior O."""
+    Resolution: weak emergence from constraint dynamics; O₀ requires no prior O.
+    Convergence: the ground emerges from the shadow itself — no prior needed."""
 
 
 # ── Contradiction Classification ─────────────────────────────────────────────

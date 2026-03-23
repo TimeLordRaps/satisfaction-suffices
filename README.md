@@ -29,16 +29,26 @@ The gate is default-closed. The output does not exist until verification complet
 
 ---
 
-## Four Verdicts
+## Eight-State Verdict Lattice
 
-| Verdict | Meaning | Gate |
-|---|---|---|
-| **Verified** | Constraints satisfiable. Output is logically consistent. | Opens |
-| **Contradiction** | Provably unsatisfiable. Genuine logical impossibility. | Stays closed |
-| **Paradox** | Each group SAT individually — conjunction UNSAT. Structural fork. | Stays closed |
-| **Timeout** | Conflict budget exhausted. Status genuinely unknown. | Stays closed (default) |
+Three binary axes — **base-frame SAT** (B), **joint SAT** (J), **solver convergence** (C) — produce 2³ = 8 structurally distinct verification outcomes. Each bit pattern is a unique diagnostic state.
 
-The **Paradox / Timeout distinction** is the novel contribution. "This cannot be true" and "it has not yet been determined whether it can be true" are different statements. A system that conflates them will either over-reject or under-reject. Both are failure modes in safety-critical deployment.
+| Bits | Verdict | B | J | C | Gate | Character |
+|:----:|---|:---:|:---:|:---:|---|---|
+| 111 | **Verified** | ✅ | ✅ | ✅ | Opens | Top of the lattice — proceed |
+| 001 | **Contradiction** | ❌ | ❌ | ✅ | Permanent block | Proved impossible at every level |
+| 101 | **Paradox** | ✅ | ❌ | ✅ | Block (redesign) | Parts work, composition proved to fail |
+| 011 | **Mirror Paradox** | ❌ | ✅ | ✅ | Context-dependent | Reflected shadow: parts fail, whole stabilizes |
+| 110 | **Timeout** | ✅ | ✅ | ❌ | Block (default) | Looks promising, solver budget exhausted |
+| 000 | **Metaparadox** | ❌ | ❌ | ❌ | Permanent block | Absolute bottom — irreducible fixed point |
+| 010 | **Shadow Paradox** | ❌ | ✅ | ❌ | Block (unstable) | Anti-paradox: parts fail, whole holds temporarily |
+| 100 | **Base Frames** | ✅ | ❌ | ❌ | Context-dependent | Building blocks; composition not yet verified |
+
+**Duality pairs** (bitwise complement): Verified↔Metaparadox, Paradox↔Shadow Paradox, Timeout↔Contradiction, Base Frames↔Mirror Paradox.
+
+**The Paradox / Shadow Paradox duality** is the structural innovation. PARADOX (101): parts work, whole fails. SHADOW_PARADOX (010): parts fail, whole holds *temporarily* — the anti-paradox. Mirror paradoxes (011) "reflect out" shadow paradoxes by converging to stability. The five meta-paradoxes are the convergence mechanism that drives SHADOW → MIRROR.
+
+**The Paradox / Timeout distinction** remains load-bearing. "This cannot be true" and "it has not yet been determined whether it can be true" are different statements. A system that conflates them will either over-reject or under-reject. Both are failure modes in safety-critical deployment.
 
 ---
 

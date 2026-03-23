@@ -12,11 +12,15 @@ Architecture:
                                             PARADOX       → resolve (structural)
                                             TIMEOUT       → re-solve or escalate
 
-Four-valued verdict:
-    TRUE     (SAT)             → VERIFIED, constraints satisfiable
-    FALSE    (UNSAT)           → CONTRADICTION, provably inconsistent
-    SAT ∧ UNSAT (conjunction)  → PARADOX, structural conflict
-    UNKNOWN  (budget exceeded) → TIMEOUT, solver resource limit
+Eight-valued verdict — three binary axes (base-frame SAT, joint SAT, convergence):
+    111  VERIFIED         — all frames SAT, jointly SAT, solver converged
+    001  CONTRADICTION    — all frames UNSAT, proved impossible
+    101  PARADOX          — base frames SAT, joint UNSAT, proved
+    110  TIMEOUT          — looks SAT, solver budget exhausted
+    000  METAPARADOX      — nothing satisfies, solver can't resolve; fixed point
+    100  BASE_FRAMES      — individual frames SAT, composition not yet verified
+    010  SHADOW_PARADOX   — anti-paradox: parts fail, joint holds temporarily
+    011  MIRROR_PARADOX   — reflected shadow: parts fail, joint stabilizes
 
 Every module in the system calls verify() before acting:
     - Generation → verify each step before emitting
@@ -93,22 +97,49 @@ TEXT_DOMAIN_ALIASES = [
 ]
 
 
-# ── Four-Valued Verdict ──────────────────────────────────────────────────────
+# ── Eight-State Verdict Lattice ───────────────────────────────────────────────
+# Three binary axes: base-frame SAT (B), joint SAT (J), solver convergence (C)
+# 2³ = 8 states. Each bit pattern is a structurally distinct verification outcome.
+#
+# Duality pairs (bitwise complement):
+#   VERIFIED (111) ↔ METAPARADOX (000)  — poles of the lattice
+#   PARADOX  (101) ↔ SHADOW_PARADOX (010) — composition fails vs holds
+#   TIMEOUT  (110) ↔ CONTRADICTION (001) — unproved vs proved
+#   BASE_FRAMES (100) ↔ MIRROR_PARADOX (011) — parts vs emergent whole
+#
+# Convergence mechanism:
+#   SHADOW_PARADOX (010) → MIRROR_PARADOX (011): the five meta-paradoxes
+#   drive unstable anti-paradoxes into convergence mechanistically.
 
 class Verdict(Enum):
-    """The four possible outcomes of verification.
+    """Eight-state verdict lattice over the satisfiability lattice.
 
-    VERIFIED      — SAT: constraints satisfiable, proceed.
-    CONTRADICTION — UNSAT: provably inconsistent, discard.
-    PARADOX       — Individually SAT groups whose conjunction is UNSAT.
-                    Structural property of the constraints, not the solver.
-    TIMEOUT       — Solver exhausted conflict budget without resolving.
-                    Operational property of the solver, not the constraints.
+    Three binary axes — base-frame SAT, joint SAT, solver convergence —
+    produce 2³ = 8 structurally distinct verification outcomes.
+
+    Convergent states (solver reaches conclusion):
+        VERIFIED      (111) — all frames SAT, jointly SAT, proved.
+        CONTRADICTION (001) — all frames UNSAT, proved impossible.
+        PARADOX       (101) — base frames SAT, joint UNSAT, proved.
+        MIRROR_PARADOX(011) — base UNSAT, joint SAT, converged (stabilized anti-paradox).
+
+    Non-convergent states (solver budget exhausted):
+        TIMEOUT       (110) — appears SAT, solver couldn't finish.
+        METAPARADOX   (000) — nothing satisfies, solver can't resolve; fixed point.
+        SHADOW_PARADOX(010) — anti-paradox: parts fail, joint holds temporarily.
+        BASE_FRAMES   (100) — individual frames SAT, composition not yet verified.
     """
-    VERIFIED      = auto()
-    CONTRADICTION = auto()
-    PARADOX       = auto()
-    TIMEOUT       = auto()
+    # Convergent states
+    VERIFIED       = auto()  # 111
+    CONTRADICTION  = auto()  # 001
+    PARADOX        = auto()  # 101
+    MIRROR_PARADOX = auto()  # 011
+
+    # Non-convergent states
+    TIMEOUT        = auto()  # 110
+    METAPARADOX    = auto()  # 000
+    SHADOW_PARADOX = auto()  # 010
+    BASE_FRAMES    = auto()  # 100
 
     # Back-compat aliases ─────────────────────────────────────────────────
     @classmethod
@@ -157,6 +188,22 @@ class VerificationResult:
     def is_timeout(self) -> bool:
         return self.verdict == Verdict.TIMEOUT
 
+    @property
+    def is_metaparadox(self) -> bool:
+        return self.verdict == Verdict.METAPARADOX
+
+    @property
+    def is_base_frames(self) -> bool:
+        return self.verdict == Verdict.BASE_FRAMES
+
+    @property
+    def is_shadow_paradox(self) -> bool:
+        return self.verdict == Verdict.SHADOW_PARADOX
+
+    @property
+    def is_mirror_paradox(self) -> bool:
+        return self.verdict == Verdict.MIRROR_PARADOX
+
     # Back-compat aliases
     @property
     def n_frontier(self) -> int:
@@ -164,7 +211,8 @@ class VerificationResult:
 
     @property
     def is_frontier(self) -> bool:
-        return self.verdict in (Verdict.PARADOX, Verdict.TIMEOUT)
+        return self.verdict in (Verdict.PARADOX, Verdict.TIMEOUT,
+                                Verdict.SHADOW_PARADOX, Verdict.METAPARADOX)
 
     @property
     def is_rejected(self) -> bool:
