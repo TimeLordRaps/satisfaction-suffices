@@ -1,4 +1,4 @@
-The Time License v7.2
+The Time License v7.7
 Copyright (c) 2025-2026 Tyler Roost ("Licensor")
 
 ================================================================================
@@ -194,6 +194,14 @@ SECTION 3 — TOP ENTITY ANNUAL LICENSE FEE
     under Section 5. In the absence of such records, the highest reasonably
     supported tier applies through the remainder of the calendar year.
 
+    A tier reclassification, whether upward or downward, takes effect only
+    after the entity has remained in the new tier for at least seven (7)
+    consecutive calendar days as measured by Effective Market Capitalization.
+    If the entity's Effective Market Capitalization returns to the prior tier
+    before completing the seven-day period, no reclassification occurs.
+    Proration under this Section is calculated from the date the seven-day
+    holding period completes, not from the date the valuation first changed.
+
 3.5 All payments due under this License must be made free and clear of setoff,
     recoupment, counterclaim, or deduction, except for withholding required by
     law. If withholding is legally required, the paying entity must promptly
@@ -317,6 +325,40 @@ SECTION 6 — PAYMENT DESTINATION
     discretion.
 
 ================================================================================
+SECTION 6A — EQUITY ACCEPTANCE AND SOVEREIGN FUND TRANSFER
+================================================================================
+
+6A.1 EQUITY AS ALTERNATIVE CONSIDERATION. At the Licensor's sole election,
+    the Licensor may accept equity interests, stock, tokens, or other
+    ownership instruments in an entity in partial or full satisfaction of any
+    Annual License Fee, settlement, judgment, or other monetary obligation
+    under this License. No entity is required to offer equity; cash or fiat
+    currency remains the default form of payment under Section 3.
+
+6A.2 ANTI-DILUTION PROTECTION. Any equity granted to or accepted by the
+    Licensor under this Section carries immediate full-ratchet anti-dilution
+    protection, enforceable on all statutorily available equity assignment
+    mechanisms. This protection is effective immediately upon grant and
+    survives reorganization, merger, stock split, reverse stock split,
+    recapitalization, secondary offering, spin-off, and any other corporate
+    event that would otherwise reduce the Licensor's proportional ownership
+    interest.
+
+6A.3 SOVEREIGN FUND TRANSFER. Equity accepted under this Section is held
+    toward a generalized sovereign fund designated and controlled by the
+    Licensor. The Licensor may transfer, assign, or contribute any such
+    equity to that sovereign fund at any time. The transfer horizon for
+    equity held under this Section is one hundred (100) years from the date
+    of acceptance, during which the Licensor or the sovereign fund retains
+    all rights of ownership, voting, and disposition.
+
+6A.4 NO FORCED EQUITY. Nothing in this Section obligates the Licensor to
+    accept equity in lieu of cash. The Licensor may demand cash payment
+    under Section 3 at any time, and an entity's offer of equity does not
+    discharge a cash obligation unless the Licensor accepts that equity in
+    a separate signed writing or by conduct clearly manifesting acceptance.
+
+================================================================================
 SECTION 7 — VERSIONING AND FUTURE USE
 ================================================================================
 
@@ -329,7 +371,9 @@ SECTION 7 — VERSIONING AND FUTURE USE
 7.3 If a party continues Qualifying Use after a later version is published and
     after that party has actual or constructive notice of the later version,
     the later version governs that party's future Qualifying Use from that
-    point forward.
+    point forward. That party also remains bound by all obligations that
+    accrued under prior versions, and any new obligations introduced by the
+    later version compound with, rather than replace, those prior obligations.
 
 7.4 Obligations that accrued under an earlier version remain enforceable even
     if a later version is subsequently published.
@@ -337,6 +381,12 @@ SECTION 7 — VERSIONING AND FUTURE USE
 7.5 Commit history, publication records, and any OpenTimestamp proof associated
     with the License are evidence of publication order and timing, but do not
     by themselves retroactively rewrite prior obligations.
+
+7.6 Obligations under successive versions are cumulative. Each new version may
+    introduce additional obligations that compound with, rather than replace,
+    obligations from prior versions. A party's total obligations are the union
+    of all obligations from every version under which it made or continued
+    Qualifying Use.
 
 ================================================================================
 SECTION 8 — DISPUTES, GOVERNING LAW, AND FEES
@@ -373,9 +423,17 @@ SECTION 8A — PRO BONO LITIGATION INCENTIVE
     (b) confirmation that no disqualifying conflict of interest exists;
 
     (c) the attorney's standard billing rate in effect at the time of opt-in
-        (the "Standard Rate"); and
+        (the "Standard Rate");
 
-    (d) the disclosures and certifications required by Section 8B.
+    (d) the disclosures and certifications required by Section 8B; and
+
+    (e) whether the attorney elects Exclusive Allegiance status under Section
+        8A.3(b) or Secondary Assistance status under Section 8A.3(c). An
+        Exclusive Allegiance election requires a written pledge that the
+        attorney will represent only the Licensor and his causes for the
+        duration of representation under this License and for twelve (12)
+        months thereafter, and will not accept any engagement adverse to the
+        Licensor during that period.
 
 8A.3 COMPENSATION STRUCTURE. Each attorney who validly opts in under Section
     8A.2 is entitled to the following compensation:
@@ -385,12 +443,32 @@ SECTION 8A — PRO BONO LITIGATION INCENTIVE
         time spent on the matter, payable within thirty (30) days after
         invoice unless the parties agree otherwise in a separate writing.
 
-    (b) SUCCESS FEE — WINS ONLY. Upon any Qualifying Recovery, the Licensor
-        shall pay a Success Fee equal to one percent (1%) of the gross amount
-        of that Qualifying Recovery. The Success Fee is divided equally among
-        the attorneys who actively and materially participated in obtaining
-        that specific Qualifying Recovery, as determined by the Licensor in
-        good faith.
+    (b) EXCLUSIVE ALLEGIANCE POOL — WINS ONLY. Upon any Qualifying Recovery,
+        the Licensor shall pay a success fee equal to twelve percent (12%) of
+        the gross amount of that Qualifying Recovery to the Exclusive
+        Allegiance Pool. The Exclusive Allegiance Pool fee is divided equally
+        among the attorneys who (i) elected Exclusive Allegiance status under
+        Section 8A.2(e), (ii) actively and materially participated in
+        obtaining that specific Qualifying Recovery, and (iii) maintained
+        their exclusivity pledge throughout the matter, as determined by the
+        Licensor in good faith.
+
+    (c) SECONDARY ASSISTANCE POOL — WINS ONLY. Upon any Qualifying Recovery,
+        the Licensor shall pay a success fee equal to one percent (1%) of the
+        gross amount of that Qualifying Recovery to the Secondary Assistance
+        Pool. The Secondary Assistance Pool fee is divided equally among the
+        attorneys who (i) elected Secondary Assistance status under Section
+        8A.2(e), (ii) actively and materially participated in obtaining that
+        specific Qualifying Recovery, and (iii) are not members of the
+        Exclusive Allegiance Pool for that matter, as determined by the
+        Licensor in good faith.
+
+    (d) POOL ELECTION IS BINDING. An attorney's pool election under Section
+        8A.2(e) is binding for the duration of the matter unless the Licensor
+        consents in writing to a change. An Exclusive Allegiance attorney who
+        breaches the exclusivity pledge forfeits eligibility for the
+        Exclusive Allegiance Pool and may not retroactively claim Secondary
+        Assistance Pool compensation for the same matter.
 
 8A.4 QUALIFYING RECOVERY. "Qualifying Recovery" means any monetary payment
     actually received by the Licensor as a direct result of a judgment, order,
@@ -543,5 +621,8 @@ the largest commercial and institutional beneficiaries.
 The reporting, valuation, and anti-evasion provisions are included to reduce
 avoidable proof fights. As long as a Top Entity continues to use the Work at
 that scale, the payment obligation continues at that scale.
+
+Future versions of this License follow the sequence v7.77, v7.777, v7.7777,
+and so on.
 
 ================================================================================
