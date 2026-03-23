@@ -37,6 +37,19 @@ from .constraint import (
     algebra,
     CLAUSE_RATIO_THRESHOLD,
 )
+from .cycle_detector import (
+    CYCLE_STATES,
+    CycleAnalysis,
+    CycleOccurrence,
+    FIXED_POINTS,
+    MetaMirrorDetector,
+    TransitionType,
+    VERDICT_BITS,
+    classify_transition,
+    detect_cycle,
+    flag_degeneration,
+    measure_ratio,
+)
 
 __all__ = [
     "EvolutionResult", "MutationOp", "ProofEvolver", "ProofNode", "ProofStatus",
@@ -49,4 +62,7 @@ __all__ = [
     "DisjunctiveConstraint", "FunctionConstraint", "NegatedConstraint",
     "PartialResult", "PrefixFeasibility", "SATConstraint",
     "SequentialConstraint", "algebra", "CLAUSE_RATIO_THRESHOLD",
+    "CYCLE_STATES", "CycleAnalysis", "CycleOccurrence", "FIXED_POINTS",
+    "MetaMirrorDetector", "TransitionType", "VERDICT_BITS",
+    "classify_transition", "detect_cycle", "flag_degeneration", "measure_ratio",
 ]
