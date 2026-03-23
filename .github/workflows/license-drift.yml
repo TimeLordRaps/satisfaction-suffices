@@ -33,6 +33,7 @@ jobs:
             'Time License v6\b|Time License v6'
             'Time License v7\.0\b|Time License v7.0'
             'Time License v7\.1\b|Time License v7.1'
+            'Time License v7\.2\b|Time License v7.2'
             '\$42,000,000,000|old $42B fee cap'
             '\$42B|old $42B fee cap shorthand'
             '6\.9% of effective market capitalization|old 6.9% rate'
@@ -71,7 +72,7 @@ jobs:
             echo ""
             echo "============================================"
             echo "LICENSE DRIFT DETECTED"
-            echo "Update all references to The Time License v7.2"
+            echo "Update all references to The Time License v7.7"
             echo "Canonical source: https://github.com/TimeLordRaps/the-time-license"
             echo "============================================"
             exit 1
