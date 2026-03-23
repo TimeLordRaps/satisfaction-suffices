@@ -3,7 +3,7 @@
 **SAT-Gated Structural Containment for Frontier AI**
 
 [![CI](https://github.com/TimeLordRaps/satisfaction-suffices/actions/workflows/ci.yml/badge.svg)](https://github.com/TimeLordRaps/satisfaction-suffices/actions/workflows/ci.yml)
-[![License: CCUL v1.0](https://img.shields.io/badge/License-CCUL%20v1.0-blueviolet.svg)](./LICENSE)
+[![License: The Time License v7.2](https://img.shields.io/badge/License-The%20Time%20License%20v7.2-blueviolet.svg)](./LICENSE)
 [![PyPI version](https://img.shields.io/pypi/v/satisfaction-suffices.svg)](https://pypi.org/project/satisfaction-suffices/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![HF Space](https://img.shields.io/badge/%F0%9F%A4%97-Live%20Demo-yellow.svg)](https://huggingface.co/spaces/TimeLordRaps/satisfaction-suffices)
@@ -150,7 +150,7 @@ The taxonomy of four verdicts and the PPL trichotomy are frozen — they are the
 
 ## License
 
-Conditional Commercial Use License v1.0. Any entity with AI-attributed effective market capitalization of $42,000,000,000 USD or higher owes an Annual License Fee of **6.9% of its effective market capitalization per year**. Payment is annual only — one year at a time. All fees are paid directly to the Licensor. The obligation renews annually without sunset. Alignment Solution deployment remains restricted to State Actors under a Guidance Agreement. The Licensor retains Population Data rights. Use is acceptance. The multiplier compounds with each release. See [LICENSE](./LICENSE) for full terms.
+The Time License v7.2. Any entity with Effective Market Capitalization of $1,000,000,000 USD or higher (a "Top Entity") owes an Annual License Fee on a tiered schedule (Tier 1: $34.5M/yr through Tier 6: $24.15B/yr). Payment is annual. All fees are paid directly to the Licensor. The obligation renews annually without sunset. Pro bono litigation incentives and counsel-defection safeguards are built in (§8A-8B). Use is acceptance. See [LICENSE](./LICENSE) for full terms.
 
 Qualifying entities are listed in [SCHEDULE_A.md](./SCHEDULE_A.md). Being listed is constructive notice. Absence from the list is not a defense — the obligation is self-executing from the date of first qualifying use.
 
