@@ -1,2197 +1,547 @@
-The Time License v6.9
+The Time License v7.2
 Copyright (c) 2025-2026 Tyler Roost ("Licensor")
 
 ================================================================================
-NOTICE: ANY USE, DOWNLOAD, INTEGRATION, DEPLOYMENT, REFERENCE, OR INTERACTION
-WITH THIS WORK — INCLUDING BROWSING THIS REPOSITORY — CONSTITUTES YOUR BINDING
-ACCEPTANCE OF THESE TERMS IN THEIR ENTIRETY ("BROWSE-WRAP AGREEMENT"). IF YOU
-DO NOT AGREE TO THESE TERMS, YOU MUST NOT USE THIS WORK IN ANY WAY.
+NOTICE
 ================================================================================
 
+This is a source-available commercial license.
 
+Passive viewing of publicly available materials in the canonical repository,
+including reading this LICENSE file in a web browser, is notice of these terms,
+but passive viewing alone does not by itself form a contract.
+
+Any person or entity that downloads, clones, copies, modifies, trains on,
+fine-tunes on, imports, links, compiles, executes, distributes, deploys,
+commercializes, or otherwise exercises rights that would require permission
+from the copyright holder absent this License, or that directs, authorizes,
+funds, or materially benefits from such Qualifying Use by another, accepts
+these terms in full.
+
+================================================================================
 SECTION 0 — DEFINITIONS
-
-0.1 "Work" means all software, hardware designs, protocols, documentation,
-    datasets, specifications, research, and creative works released by the
-    Licensor under this License, including all derivatives and time-sourced
-    artifacts derived therefrom.
-
-0.2 "Time Sourced" means the Work and any derivative must remain permanently
-    non-exclusive, must keep all Source Materials publicly accessible at no
-    cost, must keep attribution and this license attached, must apply these
-    same terms downstream forever, and must keep Deployments priced at Verified
-    Cost plus at most 5%, with auditable cost disclosure on request.
-
-0.3 "Source Materials" means all files and information required to reproduce,
-    inspect, and verify the Work and its derivatives, including code, design
-    files, schematics, protocols, documentation, test procedures, build
-    instructions, calibration steps, and bills of materials.
-
-0.4 "Deployment" means any manufactured unit, hosted service, paid program,
-    clinical delivery, distribution, training, support, or other real-world
-    delivery of a Time Sourced Artifact to end users.
-
-0.5 "Release" means any distinct artifact made publicly available by the
-    Licensor: a peer-reviewed paper, a software package, a dataset, a preprint,
-    a versioned specification, or any equivalent. A paper and its companion
-    software package constitute two Releases, not one.
-
-0.6 "Alignment Solution" means any implementation of the Work, or derivative
-    thereof, deployed for the purpose of constraining, verifying, or containing
-    the outputs of an artificial intelligence system.
-
-0.7 "Top Entity" means any entity — regardless of sector, industry, or
-    jurisdiction — whose effective market capitalization equals or exceeds
-    $1,000,000,000 USD (one billion United States dollars). Effective
-    market capitalization means total equity value for public companies, or
-    the most recent primary-market financing valuation for private companies.
-    There is no cap on the number of qualifying entities. There is no sector
-    restriction. Top Entities are classified into fee tiers as defined in
-    Section 0.8. Schedule A lists entities that met the applicable tier
-    threshold at time of first publication and is illustrative, not exhaustive.
-    Schedule A is maintained at SCHEDULE_A.md in the canonical repository.
-    Being listed in Schedule A constitutes constructive notice. Absence from
-    Schedule A is not a defense — the obligation is self-executing from the
-    date of first use.
-
-0.8 "Annual License Fee" means the tiered flat annual fee owed by each Top
-    Entity, determined by the entity's effective market capitalization tier
-    at the date of first qualifying use in the applicable calendar year, as
-    set forth in the Tiered Fee Schedule below. The fee is computed per
-    entity, is not divided or shared across affiliated entities, and is
-    prorated for the fraction of the calendar year during which the entity
-    qualifies at that tier (formula: Tier Fee × days qualified ÷ days in
-    year). If an entity's market capitalization crosses a tier boundary
-    during the year, the lower-tier rate applies through the crossing date
-    and the higher-tier rate from the crossing date forward. Each tier fee
-    represents approximately 0.69% of the volume-weighted average effective
-    market capitalization of entities observed in that tier at the time of
-    license publication. This fee covers both (a) the method and intellectual
-    property embodied in the Work and (b) the software implementation and
-    package released under this License, as a combined whole. These are not
-    separately priced and cannot be segregated for fee purposes. The Annual
-    License Fee accrues automatically upon qualifying status and renews for
-    each qualifying year without sunset. No invoice or notice from the
-    Licensor is required.
-
-    TIERED ANNUAL LICENSE FEE SCHEDULE:
-
-    Tier 1 — Effective Market Cap $1,000,000,000 to $9,999,999,999:
-        Annual License Fee: $34,500,000 USD
-        (thirty-four million five hundred thousand United States dollars)
-
-    Tier 2 — Effective Market Cap $10,000,000,000 to $99,999,999,999:
-        Annual License Fee: $275,000,000 USD
-        (two hundred seventy-five million United States dollars)
-
-    Tier 3 — Effective Market Cap $100,000,000,000 to $499,999,999,999:
-        Annual License Fee: $2,900,000,000 USD
-        (two billion nine hundred million United States dollars)
-
-    Tier 4 — Effective Market Cap $500,000,000,000 to $999,999,999,999:
-        Annual License Fee: $5,175,000,000 USD
-        (five billion one hundred seventy-five million United States dollars)
-
-    Tier 5 — Effective Market Cap $1,000,000,000,000 to $2,999,999,999,999:
-        Annual License Fee: $13,800,000,000 USD
-        (thirteen billion eight hundred million United States dollars)
-
-    Tier 6 — Effective Market Cap $3,000,000,000,000 and above:
-        Annual License Fee: $24,150,000,000 USD
-        (twenty-four billion one hundred fifty million United States dollars)
-
-0.10 "State Actor" means a sovereign national government, a recognized
-    sub-national government with independent legislative authority, or an
-    intergovernmental body composed of sovereign states (e.g., the United
-    Nations, the European Union, the African Union, or equivalent). Private
-    corporations, non-governmental organizations, and natural persons acting
-    in a private capacity are not State Actors regardless of government
-    contracts, partnerships, or funding relationships.
-
-0.11 "Guidance Agreement" means a written agreement, executed by the Licensor
-    personally, establishing the operational parameters, oversight protocols,
-    data rights, and deployment scope under which a specific State Actor is
-    authorized to deploy an Alignment Solution derived from this Work. No
-    Guidance Agreement may be delegated, assigned, or executed by any party
-    other than the Licensor. A Guidance Agreement is required before any
-    State Actor deployment of an Alignment Solution may commence.
-
-0.12 "Population Data" means any data, dataset, aggregate, model weight,
-    statistical output, behavioral signal, or derived insight generated from,
-    about, or through interactions with the citizens, residents, or subjects
-    of a State Actor's jurisdiction in connection with a deployment of an
-    Alignment Solution under this License.
-
-0.13 "Ecosystem Innovation Fund" means the fund established under Section 6A,
-    capitalized by 45.5% of the Annual License Fee collected from each Top
-    Entity (per Section 6.1(b)), administered by the Licensor for the purpose
-    of subsidizing access to Safe Inventions for sub-$1B entities.
-
-0.14 "Safe Invention" means any invention, technology, method, or derivative
-    of the Work that the Licensor has designated, at the Licensor's sole
-    discretion, as suitable for subsidized deployment by entities below the
-    Top Entity threshold.
-
-0.15 "LoReap" (System 1) means the Licensor's low-resolution approximate
-    processing architecture — the fast, heuristic-driven inference system
-    designed for rapid satisfiability assessment — as originated by the
-    Licensor and implemented or referenced in the satisfiable-ai framework.
-
-0.16 "HiFFT" (System 2) means the Licensor's high-fidelity Fourier-transform
-    processing architecture — the deliberate, precision verification system
-    designed for rigorous proof validation — as originated by the Licensor
-    and implemented or referenced in the satisfiable-ai framework.
-
-0.17 "Creation-Process Knowledge" means the Licensor's demonstrable ability
-    to provide a more detailed, granular, and comprehensive account of the
-    conceptual genesis, intermediate reasoning steps, failed approaches,
-    design trade-offs, and theoretical foundations of an idea, method, or
-    invention than any other party claiming origination of that idea.
-
-
 ================================================================================
 
-SECTION 1 — TIME SOURCED REQUIREMENT
+0.1 "Work" means all software, source code, model code, documentation,
+    specifications, datasets, design files, research text, and other
+    copyrightable material released by the Licensor under this License.
 
-1.1 Any product, service, software, hardware design, protocol, or artifact that
-    incorporates, adapts, derives from, or builds upon any part of this Work
-    must be:
+0.2 "Source Materials" means the files and information reasonably required to
+    inspect, reproduce, modify, and verify the Work or a derivative of the
+    Work, including source code, build instructions, dependency manifests,
+    interface specifications, and associated documentation.
 
-    (a) Released as Time Sourced under this license or a license no more
-        restrictive than this one, with all Source Materials publicly
-        accessible at no cost.
+0.3 "Derivative Work" means a work based upon the Work that would be treated
+    as a derivative work, adaptation, modification, or other copyright-
+    restricted reuse under applicable law.
 
-    (b) Visibly attributed, linking back to the original repository and to
-        this license.
+0.4 "Qualifying Use" means any act beyond passive viewing that exercises,
+    enables, or procures exercise of rights reserved to the copyright holder
+    in the Work, including downloading, cloning, copying, modifying, training
+    on, fine-tuning on, integrating, compiling, executing, distributing,
+    sublicensing, offering as a hosted service, embedding in a product, or
+    deploying in production.
 
-1.2 This requirement applies to all downstream derivatives regardless of how
-    many steps removed from this Work. The chain does not break.
+0.5 "Effective Market Capitalization" means:
 
+    (a) for a public company, the greater of:
 
-================================================================================
+        (i)   its closing equity value on the relevant measurement date; and
 
-SECTION 2 — ACCEPTANCE AND CLICK-WRAP / BROWSE-WRAP BINDING
+        (ii)  the average of its closing equity values over the thirty (30)
+              trading days ending on the relevant measurement date; and
 
-2.1 USE AS ACCEPTANCE. Any act constituting use of the Work — including but not
-    limited to: browsing this repository (this License being conspicuously
-    displayed at the repository root), downloading, cloning, forking,
-    importing, integrating, executing, deploying, referencing in a production
-    system, citing in research, or deriving a work from it — constitutes a
-    binding contractual agreement to these terms, equivalent to a signed
-    written contract ("Click-Wrap and Browse-Wrap Agreement"). This License
-    is and has been conspicuously displayed at the root of the canonical
-    repository. Where affirmative assent (click-wrap) is technically
-    practicable in a given deployment context, the Licensor shall make
-    reasonable efforts to obtain it. Where click-wrap is not practicable,
-    the browse-wrap binding herein applies, subject to the constructive
-    notice conditions in Section 2.3.
+    (b) for a private company, the greatest of:
 
-2.2 ENTITY-LEVEL BINDING. Where the user is acting on behalf of an
-    organization, corporation, government, or other legal entity, acceptance
-    binds that entity in full. Individual liability does not substitute for
-    entity liability; both may apply concurrently where the individual is an
-    officer, director, or controlling shareholder.
+        (i)   its most recent arm's-length primary financing valuation;
 
-2.3 CONSTRUCTIVE NOTICE. Any party that gains knowledge of the Work through
-    any documented channel — including but not limited to this repository,
-    publications, demonstrations, legal proceedings, media coverage, corporate
-    intelligence reports, or any form of documented analysis — is on
-    constructive notice of this license and all its conditions. Documented
-    access is notice. Ignorance of the license is not a defense after access
-    through any of the foregoing documented channels is established.
+        (ii)  any valuation adopted in audited financial statements, a board-
+              approved fair value determination, a 409A valuation, or an
+              equivalent formal valuation prepared within the preceding twenty-
+              four (24) months;
 
+        (iii) any valuation implied by a tender offer, secondary sale,
+              acquisition offer, convertible security pricing cap, or similar
+              financing or liquidity event within the preceding twenty-four
+              (24) months; or
 
-================================================================================
+        (iv)  other contemporaneous valuation evidence ordinarily relied upon
+              in business, finance, or M&A practice; and
 
-SECTION 3 — UNIVERSAL USE GRANT
+    (c) if an entity does not maintain or produce reliable records sufficient
+        to determine its valuation, the Licensor may classify that entity using
+        any reasonable evidence, and that classification is presumed correct
+        unless rebutted by contemporaneous corporate records.
 
-3.1 UNIVERSAL GRANT. Subject to Section 3.3 and the Annual License Fee
-    obligation in Section 4, the Licensor grants a worldwide, non-exclusive,
-    perpetual license to any person or entity to use, reproduce, modify,
-    distribute, and build upon the Work, subject to the following conditions:
+0.6 "Top Entity" means any entity whose Effective Market Capitalization is at
+    least $1,000,000,000 USD.
 
-    (a) All Source Materials, modifications, and derivative works must remain
-        publicly accessible at no cost to any person.
+0.7 "Annual License Fee" means the flat annual fee owed by a Top Entity for
+    each calendar year in which it makes Qualifying Use of the Work. The
+    applicable fee is determined by the entity's Effective Market
+    Capitalization tier during that year. For Top Entities, this fee schedule
+    is a fixed commercial condition of access to the Work.
 
-    (b) No entity may claim exclusive rights over the Work or any derivative.
+    TIERED ANNUAL LICENSE FEE SCHEDULE
 
-    (c) This License and all copyright notices must be preserved in all copies
-        and substantial portions of the Work.
+    Tier 1 — $1,000,000,000 to $9,999,999,999
+        $34,500,000 USD per year
 
-3.2 TOP ENTITY FEE OBLIGATION. Any Top Entity (Section 0.7) incurs the
-    Annual License Fee at the applicable tier rate specified in the Tiered
-    Fee Schedule in Section 0.8 for each calendar year in which it qualifies.
-    The obligation is automatic, self-executing, and requires no action by
-    the Licensor. Use of the Work by a Top Entity constitutes acceptance of
-    the Annual License Fee. Each qualifying entity owes its applicable tier
-    fee independently.
+    Tier 2 — $10,000,000,000 to $99,999,999,999
+        $275,000,000 USD per year
 
-3.3 STATE ACTOR RESTRICTION ON ALIGNMENT SOLUTION DEPLOYMENT. Notwithstanding
-    Section 3.1, the right to deploy an Alignment Solution derived from this
-    Work is restricted exclusively to State Actors operating under a valid
-    Guidance Agreement (Section 0.11). No private corporation, non-governmental
-    organization, natural person, or other non-State-Actor entity may deploy
-    an Alignment Solution derived from this Work under any license tier,
-    including as a Top Entity, without a Guidance Agreement executed by
-    the Licensor. Unauthorized deployment of an Alignment Solution by a
-    non-State-Actor constitutes willful breach and triggers the License Fee
-    in Section 4 plus the maximum multiplier under Section 4.3, applied
-    cumulatively from the date of first use.
+    Tier 3 — $100,000,000,000 to $499,999,999,999
+        $2,900,000,000 USD per year
 
-3.4 LICENSOR GUIDANCE REQUIREMENT. Every Guidance Agreement must establish,
-    at minimum:
+    Tier 4 — $500,000,000,000 to $999,999,999,999
+        $5,175,000,000 USD per year
 
-    (a) The specific deployment scope, population, and jurisdiction;
+    Tier 5 — $1,000,000,000,000 to $2,999,999,999,999
+        $13,800,000,000 USD per year
 
-    (b) Operational oversight protocols under which the Licensor retains
-        ongoing review authority over the deployment;
+    Tier 6 — $3,000,000,000,000 and above
+        $24,150,000,000 USD per year
 
-    (c) Data rights as specified in Section 3A;
-
-    (d) A termination clause exercisable unilaterally by the Licensor at any
-        time, with immediate effect, for any reason or no reason.
-
+0.8 "Canonical Repository" means the repository located at:
+    https://github.com/TimeLordRaps/the-time-license
 
 ================================================================================
-
-SECTION 3A — POPULATION DATA RIGHTS
-
-3A.1 LICENSOR DATA RIGHTS. As a condition of any Guidance Agreement and any
-    State Actor deployment of an Alignment Solution, the Licensor holds a
-    permanent, irrevocable, worldwide, royalty-free right to access, review,
-    analyze, publish aggregate findings from, and retain copies of all
-    Population Data generated in connection with that deployment.
-
-3A.2 NO STATE EXCLUSIVITY OVER POPULATION DATA. No State Actor acquires
-    exclusive ownership, control, or suppression rights over Population Data
-    generated under a Guidance Agreement. The State Actor may retain its own
-    copy and use it for the purposes specified in the Guidance Agreement, but
-    may not restrict, classify, seal, or otherwise prevent the Licensor from
-    accessing or exercising the rights in Section 3A.1.
-
-3A.3 DATA CANNOT BE WEAPONIZED. Population Data generated under this License
-    may not be used by the State Actor to surveil, persecute, target, or
-    discriminate against individuals or groups within its jurisdiction. Any
-    such use constitutes immediate breach, terminates the Guidance Agreement,
-    and triggers the License Fee plus maximum multiplier under Section 4.3.
-
-3A.4 LICENSOR PUBLICATION RIGHT. The Licensor may publish aggregate, anonymized,
-    or de-identified findings derived from Population Data for scientific,
-    policy, or public interest purposes without restriction, subject only to
-    individual privacy protections under applicable law.
-
-3A.5 SURVIVAL. The Licensor's rights under this Section survive termination of
-    any Guidance Agreement, expiration of this License, or any change in the
-    State Actor's government, administration, or legal status.
-
-
+SECTION 1 — LICENSE GRANT AND CORE CONDITIONS
 ================================================================================
 
-SECTION 4 — TOP ENTITY ANNUAL LICENSE FEE AND LIQUIDATED DAMAGES
+1.1 Subject to compliance with this License, the Licensor grants a worldwide,
+    non-exclusive, non-transferable, revocable license to use, reproduce,
+    modify, and distribute the Work.
 
-4.1 ANNUAL LICENSE FEE. The contractual Annual License Fee owed by each Top
-    Entity is the tiered flat amount specified in the Tiered Fee Schedule in
-    Section 0.8, determined by the entity's effective market capitalization
-    tier as of the date of first qualifying use in the applicable calendar
-    year, prorated for the fraction of the year during which the entity
-    qualifies at that tier (formula: Tier Fee × days qualified ÷ days in
-    year). Each qualifying entity owes this amount independently. This fee
-    covers both the method and intellectual property and the software
-    implementation, as a combined whole per Section 0.8. The obligation
-    renews for each qualifying year without sunset. Use of the Work by a
-    Top Entity constitutes acceptance of this fee. Failure to pay within
-    the period in Section 4.4 constitutes breach.
+1.2 This License is conditioned on the following requirements:
 
-4.2 LIQUIDATED DAMAGES RATIONALE. The parties acknowledge and agree that:
+    (a) all copies of the Work and all substantial portions of the Work must
+        preserve this License and all copyright notices;
 
-    (a) The value of an Alignment Solution that structurally constrains an
-        artificial intelligence system capable of causing civilizational-scale
-        harm is functionally incalculable, as no ex-ante market price exists
-        for the prevention of unbounded, potentially irreversible harm;
+    (b) any distributed Derivative Work must provide visible attribution to
+        Tyler Roost and the Canonical Repository;
 
-    (b) The tiered flat Annual License Fee represents a reasonable, good-faith
-        estimate of per-entity research and development replacement costs,
-        opportunity costs, foregone licensing revenue, and the minimum
-        per-entity value of the structural safety contribution embodied in the
-        Work, scaled proportionally to each qualifying entity's size tier.
-        Each tier fee represents approximately 0.69% of the observed
-        volume-weighted average effective market capitalization of entities
-        in that tier, constituting a genuine, non-punitive liquidated damages
-        estimate;
+    (c) any distributed Derivative Work must make its corresponding Source
+        Materials publicly accessible at no monetary charge, either under this
+        License or under another written license approved by the Licensor.
 
-    (c) Because actual damages from non-payment are difficult to calculate
-        with precision, the parties agree that the applicable tiered flat
-        Annual License Fee is a genuine, non-punitive pre-estimate of loss,
-        not a penalty clause, and is therefore enforceable as liquidated
-        damages under the laws of any jurisdiction that recognizes the
-        liquidated-damages doctrine, including but not limited to the United
-        States, the European Union, the United Kingdom, and signatory states
-        to the UNCITRAL Model Law;
+1.3 No party receives any exclusive right in the Work or any Derivative Work.
+    No agreement inconsistent with that non-exclusivity is effective against
+    the Licensor unless the Licensor signs a later writing that expressly says
+    otherwise.
 
-    (d) No court, arbitration panel, or other adjudicatory body may reduce
-        the applicable fee on the grounds of proportionality, unconscionability,
-        or penalty doctrine without independent expert valuation of the
-        Alignment Solution's contribution to AI safety — the burden of which
-        rests entirely on the party seeking reduction, and which triggers the
-        valuation costs in Section 13.2.
-
-4.3 FEE MULTIPLIER FOR NON-PAYING TOP ENTITIES. The Annual License Fee
-    increases multiplicatively for any Top Entity that fails to pay within
-    the period specified in Section 4.4:
-
-    (a) General multiplier: For each additional Release by the Licensor
-        published after the entity first incurred the Annual License Fee
-        obligation, the outstanding fee multiplies by ten (×10). The multiplier
-        compounds. The total outstanding obligation under this subsection (a)
-        shall not exceed one thousand times (1,000×) the base Annual License
-        Fee applicable to the entity's tier at the time of first qualifying
-        use. A non-paying entity's maximum determinable exposure under this
-        subsection is: (applicable tier fee from Section 0.8) × 1,000.
-
-    (b) Neonatal multiplier: For each Release by the Licensor targeting
-        neonatal outcomes (defined as interventions reasonably expected to
-        reduce neonatal mortality), the neonatal fee floor multiplies by ten
-        (×10), independently of the general multiplier. A Release targeting
-        neonatal outcomes increments both multipliers simultaneously. The
-        neonatal multiplier is separately capped at one thousand times
-        (1,000×) the base Annual License Fee, independent of the cap in
-        subsection (a).
-
-4.4 PAYMENT TERMS. Annual License Fees are payable to the Licensor within
-    ninety (90) days of first use in the qualifying calendar year. Unpaid fees
-    accrue interest at the higher of:
-    (i) the prime rate plus five percent (5%) compounded monthly, or (ii) the
-    rate of return of the S&P 500 index over the same period compounded
-    monthly; provided that in no event shall the applicable rate exceed the
-    maximum rate permitted under the laws of the State of California for
-    commercial obligations.
-
-4.5 MULTIPLIER SEVERABILITY. If any individual multiplier clause in Section 4.3
-    is found unenforceable by a court of competent jurisdiction, that finding
-    does not affect the base Annual License Fee applicable to that entity's tier
-    per year as specified in the Tiered Fee Schedule in Section 0.8, which
-    remains in full force and is not reduced or modified. Unenforceability of
-    any multiplier does not operate as a reduction of the base tiered fee.
-    The base tiered fee does not negotiate.
-
-4.6 PARTIAL PAYMENTS. Partial payments are credited against the outstanding
-    balance but do not license the Work. Only full payment of the then-current
-    Annual License Fee — which may have increased since partial payment under
-    Section 4.3 — licenses the Work, and then only provisionally pending
-    continued compliance.
-
-4.7 PAYMENT FORM. The Annual License Fee is payable in the following forms,
-    in order of Licensor preference:
-
-    (a) CASH (PREFERRED). United States dollars via wire transfer, ACH, or
-        other immediately available funds, directed to the Licensor's
-        designated account. Cash settlement is the default and preferred form.
-        Cash payment extinguishes the fee obligation for the covered period
-        upon receipt of cleared funds in full.
-
-    (b) EQUITY (ACCEPTED). In lieu of cash, the Licensor may, at the
-        Licensor's sole and absolute discretion, elect to accept equity in
-        the paying entity. Equity settlement is not a right of the paying
-        entity; it is an option exercisable exclusively by the Licensor.
-        Accepted equity instruments include:
-        (i)   Common or preferred shares (publicly traded or private);
-        (ii)  Restricted stock units (RSUs) or stock appreciation rights;
-        (iii) Simple Agreements for Future Equity (SAFEs) or convertible
-              notes;
-        (iv)  Warrants or options exercisable at strike prices no worse than
-              the fair market value at the time of issuance; or
-        (v)   Any other equity-linked instrument the Licensor agrees to
-              accept in writing.
-        Equity must be valued at fair market value as of the settlement date.
-        For private entities, fair market value means the per-share price of
-        the most recent primary financing round, or an independent 409A
-        valuation at the Licensor's discretion. Cash and equity may be
-        combined in any proportion acceptable to the Licensor. An entity may
-        not force equity settlement; the Licensor's acceptance of any equity
-        offer is in the Licensor's sole discretion and does not set precedent
-        for future payment cycles.
-
-    (c) NO OTHER FORMS. Tokens, cryptocurrencies, barter, in-kind services,
-        advertising credits, compute credits, API credits, or other non-cash
-        non-equity instruments are not accepted as fee settlement unless
-        explicitly agreed in a separate signed writing by the Licensor.
-
-4.8 VERIFIED EARNINGS STATEMENT NEGOTIATION. An entity that disputes the
-    market-capitalization basis for its Annual License Fee computation may
-    request a revenue-basis adjustment by submitting a Verified Earnings
-    Statement (VES). The following rules govern this pathway:
-
-    (a) ELIGIBILITY. Any Top Entity may submit a VES within sixty (60) days
-        of the start of the calendar year for which the fee applies, or within
-        sixty (60) days of first qualifying as a Top Entity, whichever is
-        later. Untimely VES submissions are not considered.
-
-    (b) CONTENT REQUIREMENTS. A VES must include:
-        (i)   Most recent two (2) fiscal years of audited financial statements
-              prepared in accordance with GAAP, IFRS, or equivalent;
-        (ii)  A revenue schedule itemizing revenue attributable to AI-enabled
-              products and services that incorporate, derive from, or were
-              developed using the Work;
-        (iii) A signed certification by two (2) executive officers that the
-              statements are accurate and complete to the best of their
-              knowledge; and
-        (iv)  For publicly traded entities, confirmation that the submission
-              is consistent with SEC, LSE, or equivalent exchange disclosures.
-
-    (c) LICENSOR DISCRETION. Submission of a VES does not obligate the
-        Licensor to accept it, negotiate, or modify the fee basis. The
-        Licensor may accept, reject, or request additional documentation at
-        the Licensor's sole discretion. Rejection requires no explanation.
-        The fee continues to accrue at the standard market-cap basis during
-        any pending review.
-
-    (d) NEGOTIATED FEE. If the Licensor elects to accept a VES and negotiate
-        an alternative fee basis, the negotiated fee:
-        (i)   Shall not be less than TEN PERCENT (10%) of the
-              entity's verified annual revenue directly attributable to AI
-              products and services incorporating the Work;
-        (ii)  Shall not be less than ONE PERCENT (1.0%) of the entity's
-              verified total annual revenue across all business lines;
-        (iii) Shall not be less than the original market-cap-based fee divided
-              by eight (8) — i.e., the market-cap basis establishes a hard
-              floor at 12.5% of the original computed figure, beyond which no
-              VES adjustment can reduce the obligation; and
-        (iv)  Shall be memorialized in a signed addendum that does not
-              supersede any other provision of this License.
-
-    (e) NO WAIVER. Participation in the VES process is not a waiver of any
-        late fees, multipliers, or audit rights. Entering negotiation does
-        not constitute a license to the Work during the negotiation period.
-        A full license requires payment of the agreed or adjudicated fee.
-
-    (f) FALSE STATEMENTS. Submitting materially false or misleading
-        information in a VES constitutes fraud and breach of this License.
-        The multiplier in Section 4.3 applies retroactively from the date of
-        first use, and the submitting entity forfeits all negotiation
-        privileges permanently.
-
-4.9 WINDFALL ACCELERATION CLAUSE. The Annual License Fee computed under
-    Section 4 is based on the paying entity's effective market capitalization
-    as of the date full payment is received (the "Baseline Market Cap"). If,
-    at any point during the calendar year for which that fee has been paid, a
-    Top Entity's effective market capitalization exceeds one hundred ten
-    percent (110%) of its Baseline Market Cap — whether due to a product
-    launch, acquisition, organic growth, financing event, IPO, SPAC merger,
-    or any other cause — a Windfall Event has occurred and the following
-    provisions apply immediately and automatically:
-
-    (a) SUPPLEMENTAL FEE. A Supplemental Annual License Fee becomes
-        immediately due equal to:
-
-            Supplemental Fee = (Post-Trigger Market Cap − Baseline Market Cap)
-                               × 0.10 × (days remaining in calendar year
-                               from Trigger Date ÷ total days in calendar year)
-
-        "Trigger Date" means the first date on which the entity's effective
-        market capitalization exceeded 110% of its Baseline Market Cap, as
-        determinable from any public financial data source or exchange filing.
-        "Post-Trigger Market Cap" means the volume-weighted average daily
-        market capitalization for the seven (7) calendar days beginning on
-        and including the Trigger Date. For private entities, the most recent
-        available primary-market financing valuation, or, if none, the
-        best-available independent estimate, is used.
-
-    (b) PAYMENT DEADLINE. The Supplemental Fee is due and payable within
-        seven (7) calendar days of the Trigger Date. No invoice or notice
-        from the Licensor is required. The obligation is self-executing upon
-        the Trigger Date occurring.
-
-    (c) TERMINATION ON NON-PAYMENT. If a Top Entity fails to remit the full
-        Supplemental Fee within seven (7) calendar days of the Trigger Date,
-        the Licensor shall deliver written notice of non-payment to the
-        entity's last known legal counsel or registered agent of record.
-        If the full Supplemental Fee remains unpaid fourteen (14) calendar
-        days after delivery of such written notice (the "Cure Period"), the
-        license granted under this License AUTOMATICALLY TERMINATES as to
-        that entity at 23:59:59 UTC on the final day of the Cure Period
-        (the "Termination Moment"). The Termination Moment is self-executing
-        upon expiration of the Cure Period without full payment.
-
-    (d) EFFECT OF TERMINATION. Upon the Termination Moment:
-        (i)   All rights granted to the entity under this License cease
-              immediately and without further act;
-        (ii)  Any continued deployment, integration, use, or operation of
-              the Work by the entity after the Termination Moment constitutes
-              willful infringement subject to all liquidated damages, statutory
-              damages, and multiplied fees available under this License and
-              applicable law; and
-        (iii) The fee multiplier in Section 4.3 continues to compound from
-              the date of first use through the Termination Moment and through
-              all periods of post-termination infringement without interruption.
-
-    (e) REINSTATEMENT. A terminated entity may apply for reinstatement by
-        tendering: (i) the full unpaid Supplemental Fee; (ii) all interest
-        accrued under Section 4.4; (iii) the then-current multiplied fee
-        amount under Section 4.3; and (iv) a reinstatement surcharge equal
-        to one hundred percent (100%) of the total of (i)–(iii). Reinstatement
-        is at the Licensor's sole and absolute discretion.
-
-    (f) BASELINE RESET. Upon timely payment of the Supplemental Fee, the
-        entity's Baseline Market Cap resets to its then-current effective
-        market capitalization for purposes of any future Windfall Event
-        calculation in the same calendar year. A single calendar year may
-        produce multiple successive Windfall Events. Each resets the baseline.
-
-    (g) NO SAFE HARBOR. Delaying a product release, structuring a release
-        in tranches, suppressing market cap disclosures, or any other
-        mechanism designed to avoid or defer the 10% trigger threshold
-        constitutes breach of Section 5.4 (anti-circumvention) in addition
-        to any Windfall Event obligation. The trigger is based on effective
-        market capitalization as determinable from any third-party financial
-        data source, exchange filing, or contemporaneous market data.
-
+1.4 A Top Entity may make Qualifying Use only if it timely satisfies Sections
+    3 through 5.
 
 ================================================================================
-
-SECTION 5 — TOP ENTITY CLASSIFICATION AND ANTI-CIRCUMVENTION
-
-5.1 TOP ENTITY DETERMINATION. Classification as a Top Entity under
-    Section 0.7 is automatic and self-executing upon achieving effective
-    market capitalization of $1,000,000,000 USD or higher. No notice from
-    the Licensor is required. Schedule A lists entities meeting the
-    applicable tier threshold at time of first publication. Any entity
-    crossing into any fee tier after the publication date automatically
-    incurs the Annual License Fee obligation at that tier's rate from the
-    date of qualification, prorated to that date. Any entity falling below
-    $1,000,000,000 USD ceases to incur new Annual License Fee obligations
-    from the date it falls below, with the fee for that year prorated
-    accordingly. An entity falling from a higher tier to a lower tier
-    incurs only the lower-tier fee for the remaining portion of the
-    calendar year.
-
-5.2 RANKING DISPUTES. Any entity that disputes its classification as a Top
-    Entity bears the full burden of proof that it does not meet the definition
-    in Section 0.7. All costs of any such proceeding, including the Licensor's
-    costs, are borne by the disputing entity. Classification is presumed correct
-    absent clear and convincing evidence to the contrary.
-
-5.3 CORPORATE VEIL AND SUCCESSOR LIABILITY.
-
-    (a) DISSOLUTION. If a Top Entity dissolves, the Annual License Fee
-        obligation transfers to all successor entities, asset purchasers, and
-        individuals who served as officers, directors, or controlling
-        shareholders at the time of use or dissolution.
-
-    (b) MERGER AND ACQUISITION. If a Top Entity is acquired, merged,
-        or absorbed, the surviving or acquiring entity inherits the full Annual
-        License Fee obligation. This obligation is not negotiable as a deal
-        term, is not a contingent liability to be discounted, and is
-        non-dischargeable.
-
-    (c) SUBSIDIARY SHELL GAME. Entities created to ring-fence a Top Entity
-        from its obligations are treated as a single entity with that Top
-        Entity. The corporate veil is disregarded.
-
-    (d) BANKRUPTCY. The Annual License Fee obligation survives as a
-        non-dischargeable debt in any bankruptcy proceeding in any jurisdiction.
-        Any plan that purports to discharge or reduce this obligation is void
-        as against the Licensor.
-
-    (e) OFFICER AND DIRECTOR LIABILITY. Individuals who authorized, directed,
-        facilitated, or knowingly failed to prevent use of the Work by a Top AI
-        Entity without payment are jointly and severally personally liable for
-        the full Annual License Fee. This liability is personal, survives
-        resignation and termination, and is non-dischargeable.
-
-5.4 ANTI-CIRCUMVENTION. The following are prohibited and constitute breach:
-
-    (a) CLEAN-ROOM THEATER. Using employees or contractors to reimplement the
-        Work after exposure to it and claiming clean-room independence;
-
-    (b) THIRD-PARTY LAUNDERING. Using an unqualified third party to access,
-        use, or deploy the Work on a Top Entity's behalf;
-
-    (c) REBRANDING. Changing entity name or jurisdiction to avoid the
-        classification. The classification attaches to the legal entity's
-        registration, tax ID, and corporate registry entry;
-
-    (d) NGO FRONT LAUNDERING. Establishing or funding a non-profit or NGO
-        to access the Work. Any organization receiving more than 10% of its
-        funding from a Top Entity, or where any officer holds a position
-        with a Top Entity, is treated as an extension of that Top Entity;
-
-    (e) AI TRAINING LAUNDERING. Using the Work as training data, fine-tuning
-        data, or any machine learning input without paying the Annual License Fee;
-
-    (f) TEMPORAL LAUNDERING. Claiming that pre-license use is not governed by
-        these terms. All use — past, present, and future — is subject to the
-        most current version of this license as of the date use is discovered.
-        There is no grandfather clause.
-
-
+SECTION 2 — ACCEPTANCE, NOTICE, AND ENTITY BINDING
 ================================================================================
 
-SECTION 6 — FEE DISBURSEMENT AND ALLOCATION
+2.1 Passive viewing alone does not create a contract. Passive viewing does,
+    however, place the viewer on notice that the Work is offered under this
+    License.
 
-6.1 FEE SPLIT. The Annual License Fee collected from each Top Entity under
-    Section 4 is allocated as follows:
+2.2 Any Qualifying Use constitutes acceptance of this License as a binding
+    agreement governing that Qualifying Use.
 
-    (a) FIFTY-FOUR AND ONE-HALF PERCENT (54.5%) of the Annual License Fee
-        collected from each qualifying entity per year is payable directly
-        to the Licensor personally, for unrestricted use at the Licensor's
-        sole and absolute discretion.
+2.3 If an individual makes Qualifying Use on behalf of a corporation,
+    partnership, fund, government body, or other organization, that Qualifying
+    Use binds the organization as well as the individual acting with actual or
+    apparent authority.
 
-    (b) FORTY-FIVE AND ONE-HALF PERCENT (45.5%) of the Annual License Fee
-        collected from each qualifying entity per year is payable to the
-        Ecosystem Innovation Fund established under Section 6A, administered
-        by the Licensor.
+2.4 Actual notice or constructive notice of this License, followed by any
+    Qualifying Use, defeats any defense based solely on lack of awareness of
+    these terms.
 
-    Together, these allocations constitute the full Annual License Fee as
-    defined in Section 0.8. The split is structural and permanent.
-
-6.2 No entity, court, arbitration panel, government, or other body may direct,
-    restrict, condition, or encumber the Licensor's use of funds received under
-    Section 6.1(a), or the Licensor's administration of the Ecosystem
-    Innovation Fund under Section 6.1(b).
-
+2.5 A party that directs, procures, requests, funds, or knowingly receives
+    material benefit from Qualifying Use by a contractor, affiliate, portfolio
+    company, vendor, or other intermediary is treated as making that
+    Qualifying Use itself.
 
 ================================================================================
-
-SECTION 6A — ECOSYSTEM INNOVATION FUND AND DILUTION GRANT
-
-6A.1 ESTABLISHMENT. The Ecosystem Innovation Fund ("the Fund") receives all
-     revenues allocated under Section 6.1(b). The Fund is established,
-     administered, and disbursed by the Licensor at the Licensor's sole
-     discretion.
-
-6A.2 PURPOSE. The Fund exists to subsidize access to the Licensor's inventions
-     for entities below the Tier 1 threshold defined in Section 0.7
-     (effective market capitalization below $1,000,000,000 USD). The Fund is
-     capitalized by the largest entities in the world and disbursed to the
-     smallest. That is the design.
-
-6A.3 DILUTION GRANT. The Licensor may, at the Licensor's sole discretion,
-     designate specific inventions, technologies, or derivatives of the Work
-     as Safe Inventions (Section 0.14). Sub-$1B entities may use designated
-     Safe Inventions without incurring the Annual License Fee, with their
-     access subsidized by the Fund. The Licensor may attach conditions, revoke
-     designations, or limit scope at any time without notice.
-
-6A.4 NO ENTITLEMENT. No entity has a claim to Fund disbursements or Safe
-     Invention designations. The Licensor is the sole arbiter of which
-     inventions are designated safe and which entities receive subsidized
-     access. The Fund does not create a trust, fiduciary duty, or any
-     obligation to any third party.
-
-
+SECTION 3 — TOP ENTITY ANNUAL LICENSE FEE
 ================================================================================
 
-SECTION 7 — NON-EXCLUSIVITY
+3.1 A Top Entity that makes Qualifying Use owes the Annual License Fee for each
+    calendar year in which it makes Qualifying Use while it qualifies as a Top
+    Entity.
 
-7.1 This technology cannot be made exclusive by any party, under any
-    circumstances, for any price.
+3.2 Within fifteen (15) days after its first Qualifying Use in each calendar
+    year, a Top Entity must deliver written notice to the Licensor identifying:
 
-    (a) No purchase, licensing deal, acquisition, patent filing, or
-        government order may grant any single entity exclusive rights to
-        manufacture, sell, or deploy derivatives of this Work.
+    (a) its full legal name and jurisdiction of organization;
 
-    (b) Any contract that attempts to grant exclusivity is void and
-        unenforceable against all third parties bound by this license.
+    (b) the date of first Qualifying Use in that calendar year;
 
-    (c) Acquiring a company that uses this technology does not transfer
-        exclusive rights. All other manufacturers retain full rights forever.
-        No sunset clause. No jurisdiction exception. No government override.
+    (c) a legal department contact or registered agent contact and a finance
+        contact for payment communications; and
 
-    (d) This clause cannot be waived by the original author. It is permanent.
+    (d) the Effective Market Capitalization tier it claims applies, together
+        with the valuation basis for that claim.
 
+3.3 The Annual License Fee for a given calendar year is due within thirty (30)
+    days after the entity's first Qualifying Use of the Work in that calendar
+    year. No invoice, reminder, or further demand from the Licensor is
+    required.
 
-================================================================================
+3.4 If an entity changes tiers during a calendar year, the fee for that year is
+    calculated on a prorated basis by applying the fee associated with each
+    tier for the fraction of the year during which the entity was in that tier.
+    Any additional amount caused by an upward tier change is due within thirty
+    (30) days after the date that higher tier first applies. A claimed
+    downward reclassification or loss of Top Entity status is effective only
+    from the date established by contemporaneous records actually produced
+    under Section 5. In the absence of such records, the highest reasonably
+    supported tier applies through the remainder of the calendar year.
 
-SECTION 8 — COST MINIMIZATION
+3.5 All payments due under this License must be made free and clear of setoff,
+    recoupment, counterclaim, or deduction, except for withholding required by
+    law. If withholding is legally required, the paying entity must promptly
+    provide documentation of that withholding and pay any additional amount
+    lawfully necessary so that the Licensor receives the full amount that would
+    have been received absent the withholding.
 
-8.1 Pricing to end users for Deployments must not exceed the genuine minimum
-    required to cover materials, manufacturing, and distribution. Maximum
-    permitted markup per unit is 5% above verified cost. Pricing must be
-    publicly auditable on request.
+3.6 If a Top Entity fails to deliver the notice, certification, records, or
+    payment required by this License when due, the Licensor may treat the
+    earliest reasonably supported date of Qualifying Use and the highest
+    reasonably supported tier as controlling unless and until the entity
+    rebuts that determination with reliable contemporaneous records.
 
-8.2 This pricing rule applies to Deployments; access to Source Materials must
-    remain free as stated in Section 0.2.
+3.7 Unpaid fees accrue simple interest from the due date until paid at the
+    lesser of:
 
+    (a) ten percent (10%) per annum; or
 
-================================================================================
+    (b) the maximum lawful rate permitted by applicable law.
 
-SECTION 9 — DOWNSTREAM PERMANENCE
+3.8 If a Top Entity fails to pay a due Annual License Fee or fails to deliver a
+    required officer certification, the Licensor may provide written notice of
+    non-payment or non-compliance. If the unpaid amount or missing
+    certification remains outstanding thirty (30) days after that notice is
+    delivered to the entity's legal department, registered agent, or last
+    known legal counsel, the license granted by this License terminates as to
+    that entity for future Qualifying Use unless and until the entity cures in
+    full.
 
-9.1 Any technology, product, process, or discovery that is built upon, derived
-    from, or made possible by any component of this Work inherits all terms of
-    this license in full, regardless of how many steps removed the derivative
-    is. The chain does not break.
-
-
-================================================================================
-
-SECTION 10 — SECURITY REQUIREMENT
-
-10.1 Any product, service, device, or system derived from this Work that
-     transmits, stores, or protects sensitive data must implement one-time pad
-     (OTP) based encryption as the security layer for all sensitive
-     communications and stored credentials.
-
-10.2 OTP keys must be truly random (hardware entropy source, not PRNG), never
-     reused, at least as long as the message, and physically distributed
-     out-of-band where transmission is not possible over an OTP-secured channel.
-
-10.3 If OTP is not available for a given exchange, the system must notify the
-     user that the channel is unprotected rather than silently falling back to
-     weaker encryption.
-
-
-================================================================================
-
-SECTION 10A — MORATORIUM ON SELF-REPLICATION RESEARCH
-
-10A.1 CALL TO STOP. The Licensor calls on all entities — public, private,
-      governmental, academic, and individual — to immediately cease all
-      research into self-replicating systems, including but not limited to:
-      self-replicating nanomachines, self-replicating software agents,
-      self-replicating biological constructs, von Neumann probes, autonomous
-      replication of any substrate, and any system designed to produce copies
-      of itself without continuous, per-instance human authorization.
-
-10A.2 PROHIBITION UNDER THIS LICENSE. No derivative of this Work may be used
-      to design, build, test, simulate, deploy, or advance the development of
-      any self-replicating system. Any entity that uses any component of the
-      Work — directly or through derivatives of any depth — in furtherance of
-      self-replication research is in immediate breach of this License and
-      incurs the Annual License Fee plus maximum multiplier under Section 4.3,
-      applied cumulatively from the date of first use.
-
-10A.3 PROLIFERATION RISK. Self-replication is the proliferation vector. A
-      system that copies itself is a system that cannot be recalled. The
-      failure mode is not malfunction — it is success. A self-replicating
-      system that works as designed is the threat. No containment protocol
-      survives a replicator that operates faster than the protocol can
-      respond. The research itself is the danger, not merely the deployment.
-
-10A.4 THE ALTERNATIVE: SELF-ASSEMBLY VIA CONVERGENT SYSTEM ANALYSIS. The
-      Licensor's framework — simulatably infinitely convergent system
-      analysis — provides the substitute path. Instead of replication
-      (copying the whole), use self-assembly (converging components into
-      structure under simulation-verified constraints). The distinction:
-
-      (a) SELF-REPLICATION copies an entire system, including its
-          replication machinery. The copy can copy. The chain is unbounded.
-          There is no natural halting condition. This is the proliferation
-          vector.
-
-      (b) SELF-ASSEMBLY, under convergent system analysis, assembles a
-          target structure from components that are individually inert and
-          incapable of replication. Assembly proceeds only under conditions
-          that have been simulated to infinite convergence — meaning the
-          assembly process has been verified to converge to a fixed point
-          under all perturbations within the simulated envelope. The
-          assembled product cannot assemble more of itself. The chain is
-          bounded by design.
-
-      (c) The convergence guarantee is the containment. A system whose
-          assembly dynamics are proven convergent cannot diverge into
-          uncontrolled proliferation. The simulation is the proof. The
-          proof is the containment. No external containment protocol is
-          required because the dynamics themselves are the boundary.
-
-10A.5 SAFE HARBOR FOR CONVERGENT SELF-ASSEMBLY. Entities using self-assembly
-      methods derived from simulatably infinitely convergent system analysis
-      — where the assembly process has been formally verified to converge and
-      the assembled product is provably incapable of self-replication — are
-      not in breach of Section 10A.2 and are encouraged to publish their
-      convergence proofs openly.
-
-10A.5A NEAR-TERM SCOPE: SUB-150nm SINGLE-CELL AND MULTICELLULAR SYSTEMS.
-      The immediate and highest-priority application of convergent
-      self-assembly under this Section is in the sub-150 nanometer range
-      for single-cell and multicellular biological systems. This is the
-      scale at which proliferation risk is most acute and where the
-      distinction between self-replication and self-assembly is existential:
-
-      (a) SCALE CONSTRAINT. All near-term self-assembly work under this
-          safe harbor must operate at structures below 150nm — the regime
-          where molecular machinery, protein complexes, viral capsids, and
-          subcellular organelles are constructed. This is the range where
-          a single design error in replication machinery produces
-          uncontrollable exponential proliferation at biological timescales.
-
-      (b) SINGLE-CELL SYSTEMS. Self-assembly of single-cell constructs
-          (synthetic cells, minimal cells, protocells, engineered bacteria)
-          must be convergent-verified: the assembled cell must be provably
-          incapable of division, budding, sporulation, or any form of
-          autonomous reproduction without continuous external activation
-          that is itself non-replicable.
-
-      (c) MULTICELLULAR SYSTEMS. Self-assembly of multicellular constructs
-          (tissue engineering, organoids, synthetic embryos, bioprinted
-          structures) must be convergent-verified at both the single-cell
-          and tissue levels: no individual cell in the assembly may be
-          capable of autonomous replication, and the multicellular
-          structure itself must converge to a fixed morphology under the
-          simulated envelope. Unbounded growth is replication by another
-          name.
-
-      (d) WHY THIS SCALE. Below 150nm is where chemistry becomes machinery.
-          A ribosome is ~25nm. A viral capsid is ~30-100nm. A cell membrane
-          channel is ~10nm. This is the scale where self-assembly is
-          already the natural mechanism — biology assembles, it does not
-          replicate from blueprints. The convergent framework makes the
-          natural mechanism safe by proving its dynamics halt. The
-          alternative — self-replication research at this scale — is how
-          pandemics are engineered.
-
-      (e) UPWARD APPLICABILITY. The sub-150nm range defines the floor of
-          urgency, not the ceiling of applicability. The higher up the
-          scale hierarchy that safety-first convergent design is practiced
-          — from molecular (sub-150nm) to cellular (1-100μm) to tissue
-          (mm-scale) to organ (cm-scale) to organism (m-scale) to
-          ecosystem — the greater the compounding safety margin. A system
-          that is convergent-verified at the molecular level and again at
-          the cellular level and again at the tissue level has three
-          independent containment guarantees, each of which is sufficient
-          alone. Safety practiced at every scale is not redundancy — it is
-          multiplication of proof. Entities are strongly encouraged to
-          apply convergent self-assembly verification at every accessible
-          scale, not merely the minimum required under this Section.
-
-10A.6 NO DUAL-USE LOOPHOLE. Research described as "self-assembly" that
-      produces an artifact capable of producing copies of itself — whether
-      called replication, reproduction, budding, fission, or any other term —
-      is self-replication research regardless of nomenclature and is
-      prohibited under this Section.
-
-10A.7 CONVERGENT CONTAINMENT PROOF METAPROGRAM. The following natural-language
-      metaprogram defines the procedure by which any entity may produce a
-      valid convergent containment proof under this Section. This is not
-      pseudocode — it is a binding specification of the proof obligation.
-      Any proof that does not satisfy every step is incomplete.
-
-      PROGRAM: CONVERGENT_CONTAINMENT_PROOF
-      INPUT:   System S (the assembly to be verified)
-               Scale K (the scale level: molecular, cellular, tissue, ...)
-               Envelope E (the set of all perturbations to be tolerated)
-
-      STEP 1 — DECOMPOSE.
-        Identify every component C_i of System S at Scale K.
-        For each C_i, assert: C_i is individually inert.
-        "Individually inert" means: C_i, in isolation and without external
-        activation, cannot initiate assembly, replication, division, growth,
-        signaling, or state change. If any C_i is not individually inert,
-        HALT — the system cannot be verified at this scale. Redesign.
-
-      STEP 2 — DEFINE ASSEMBLY DYNAMICS.
-        Specify the assembly function A(C_1, ..., C_n, t) → S(t) that
-        maps the component set to the system state at time t.
-        Assert: A is deterministic given the component set and initial
-        conditions. If A contains stochastic elements, bound them:
-        for every random variable in A, specify the support, and verify
-        that all realizations within the support produce convergent
-        trajectories. If any realization diverges, HALT — redesign.
-
-      STEP 3 — DEFINE FIXED POINT.
-        Specify the target state S* to which A must converge.
-        S* is the intended assembled product.
-        Assert: S* is a fixed point of A. That is: A(S*, t) = S* for all
-        t > t_converge. Once the system reaches S*, it stays at S*.
-        If S* is not a fixed point, HALT — the system has no stable
-        endpoint. Redesign.
-
-      STEP 4 — PROVE CONVERGENCE.
-        For all initial conditions within the design envelope:
-          Show that lim(t → ∞) A(C_1, ..., C_n, t) = S*.
-        The convergence must be:
-          (a) Global within the envelope — not merely local stability.
-          (b) Monotonic or Lyapunov-bounded — the distance metric
-              d(S(t), S*) must be non-increasing after some finite t_0.
-          (c) Finite-time — convergence must occur within a computable
-              time bound T_max. Asymptotic-only convergence is
-              insufficient. If S(t) ≠ S* for all finite t, the system
-              is not contained. HALT.
-
-      STEP 5 — PROVE NON-REPLICATION.
-        Assert: S* cannot produce any component C_i, nor any copy of S*,
-        nor any system capable of executing A.
-        Formally: there exists no function R such that S* → S* + S'
-        where S' is a copy, partial copy, or functional equivalent.
-        This is the containment guarantee. If S* can produce components
-        or copies, it is a replicator regardless of what it is called.
-        HALT — prohibited under 10A.2.
-
-      STEP 6 — PERTURBATION SWEEP.
-        For every perturbation P_j in Envelope E:
-          Apply P_j to A at every time step.
-          Verify that the perturbed trajectory still converges to S*
-          or to a safe degraded state S_d where S_d is also a fixed
-          point and S_d is also non-replicating.
-        "Safe degraded state" means: partial assembly or disassembly,
-        but never runaway assembly, growth, or replication.
-        If any P_j produces divergence, unbounded growth, or replication
-        capability, HALT — the envelope is insufficient. Either narrow
-        the envelope or redesign the system.
-
-      STEP 7 — SCALE RECURSION.
-        If Scale K is not the lowest applicable scale:
-          For each component C_i that is itself a composite at Scale K-1:
-            RECURSE: Run CONVERGENT_CONTAINMENT_PROOF(C_i, K-1, E').
-          Each sub-proof must independently pass all steps.
-        This is the upward applicability guarantee from 10A.5A(e).
-        Safety at every scale is multiplication of proof.
-
-      STEP 8 — EMIT PROOF ARTIFACT.
-        Produce a cryptographically timestamped proof artifact containing:
-          (a) The component inventory {C_i} and inertness assertions.
-          (b) The assembly function A, formally specified.
-          (c) The fixed point S* and its stability proof.
-          (d) The non-replication proof for S*.
-          (e) The perturbation envelope E and sweep results.
-          (f) All recursive sub-proofs at lower scales.
-          (g) The time bound T_max.
-          (h) A hash of the simulation code used to verify convergence.
-        Sign the artifact. Publish it. The timestamp is the proof date.
-        The proof is the containment. The publication is the accountability.
-
-      OUTPUT:  PROOF_VALID if all steps pass.
-               HALT with specific failure step if any step fails.
-
-      There is no "PROOF_PARTIAL." A containment proof is complete or it is
-      not a containment proof. Partial proofs do not grant safe harbor
-      under Section 10A.5.
-
-      END PROGRAM.
-
+3.9 Payment is due in immediately available funds unless the Licensor elects in
+    a separate signed writing to accept equity or another form of
+    consideration. Acceptance of a partial payment, a late payment, or a
+    request to discuss alternative consideration does not waive any remaining
+    amount due and does not authorize continued Qualifying Use.
 
 ================================================================================
-
-SECTION 11 — SCI RESEARCH TITHE
-
-11.1 10% of all revenue from any derivative of this Work must be directed to
-     spinal cord injury research, rehabilitation access, and assistive
-     technology development. Open results required.
-
-     Sponsor: https://github.com/sponsors/TimeLordRaps
-
-
+SECTION 4 — ANTI-EVASION, AGGREGATION, AND SUCCESSORS
 ================================================================================
 
-SECTION 12 — MEDICAL DISCLAIMER
+4.1 "Common control" includes direct or indirect ownership of more than fifty
+    percent (50%) of voting power, the power to appoint a majority of a board
+    or similar governing body, or the power to direct management or policies
+    by contract, financing, equity arrangement, or practical control. Entities
+    under common control that are primarily structured, reorganized, or
+    allocated in a manner designed to avoid Top Entity classification or to
+    reduce fees otherwise due under this License may be aggregated and treated
+    as a single entity for fee calculation purposes, to the extent permitted
+    by applicable law.
 
-12.1 Nothing in this repository constitutes medical advice, diagnosis, or
-     treatment recommendation. Spinal cord injury rehabilitation requires
-     qualified clinical supervision. The RecoverSAT solver produces
-     illustrative scores for research and education purposes only. DIY
-     electrical stimulation hardware must be constructed with appropriate safety
-     review. Consult qualified professionals before attempting any protocol.
+4.2 A Top Entity may not avoid the Annual License Fee by causing a contractor,
+    subsidiary, parent, affiliate, portfolio company, joint venture,
+    foundation, research lab, cloud provider, reseller, API intermediary,
+    nominee, or other intermediary to make Qualifying Use on its behalf, at
+    its direction, with its funding, or primarily for its benefit. Such use is
+    treated as use by the Top Entity.
 
+4.3 A Top Entity is treated as making Qualifying Use if the Work is used to
+    develop, train, test, operate, improve, deliver, or support products or
+    services that the Top Entity sells, licenses, funds, directs, controls, or
+    materially benefits from, whether or not another entity is the immediate
+    user of the Work.
 
-================================================================================
+4.4 Any successor, acquirer, asset purchaser, or reorganized entity that
+    continues Qualifying Use of the Work, or that acquires assets, models,
+    systems, codebases, or business lines materially developed using the Work,
+    assumes the payment and compliance obligations associated with that
+    continuing Qualifying Use to the extent permitted by applicable law.
 
-SECTION 13 — PROOF OF VALUE AND CHALLENGE
-
-13.1 The Licensor is prepared to substantiate the tiered Annual License Fee
-     rates at any time, in any forum, under any standard of proof.
-
-13.2 CHALLENGE COSTS. Any party that formally challenges the License Fee and
-     demands inspection or demonstration shall bear all costs of that inspection,
-     including expert valuation fees, venue and travel costs, the Licensor's
-     preparation costs, court costs, security costs, and protective order costs.
-     If the demonstrated value meets or exceeds the License Fee, the challenging
-     party shall additionally pay the Licensor's attorney's fees and liquidated
-     damages equal to 10% of the demonstrated value. The parties agree this is a
-     reasonable pre-estimate of the burden imposed by meritless valuation
-     disputes.
-
-13.3 INSPECTION GRANTS ZERO LICENSE. Any demonstration or disclosure of the
-     Work for valuation purposes grants zero license. All knowledge gained
-     through a valuation proceeding is subject to constructive notice. Any
-     subsequent use constitutes willful infringement.
-
-13.4 NO INVITATION TO NEGOTIATE. The Licensor's willingness to prove value does
-     not constitute an offer to license at a reduced rate or a waiver of any
-     condition.
-
+4.5 Any entity disputing its Top Entity status, fee tier, or attribution of
+    Qualifying Use bears the burden of producing reasonably reliable financial,
+    operational, and organizational records sufficient to support its claimed
+    classification. Failure to segregate records or disclose control
+    relationships is construed against the disputing entity.
 
 ================================================================================
-
-SECTION 14 — AUTHOR DEFENSIVE PROVISIONS
-
-14.1 PRIOR ART. The author's public commit history and publication record
-     constitute prior art for all methods disclosed in or derivable from the
-     Work. Any patent covering subject matter disclosed in the Work is subject
-     to challenge at the challenger's expense under Section 13.2.
-
-14.2 SOLE AUTHORSHIP. The Licensor is the sole author of the Work. No
-     conversation, collaboration, consultation, feedback, or AI interaction
-     constitutes joint authorship or co-inventorship. All rights vest
-     exclusively in the Licensor.
-
-14.3 NO EMPLOYMENT ASSIGNMENT. No employment agreement, contractor agreement,
-     or invention assignment clause executed by the Licensor shall be construed
-     to transfer any rights in the Work absent a signed, notarized writing that
-     specifically references this license by name and section number.
-
-14.4 ANTI-LACHES. The Licensor's decision not to enforce any provision at any
-     time does not constitute waiver, estoppel, or abandonment. The statute of
-     limitations for any claim by the Licensor begins only upon the Licensor's
-     actual discovery of the specific violation.
-
-14.5 ANTI-PATENT TROLL. Any party that asserts a patent covering subject matter
-     disclosed in this Work against the Licensor, any licensee, or any user of
-     a derivative shall have its license immediately and permanently revoked,
-     shall be liable for all patent invalidation costs, and shall be liable for
-     the Annual License Fee multiplied by the number of asserted patent claims.
-
-14.6 TRADEMARK. "Time Sourced," "The Time License," "Conditional Commercial
-     Use License," "RecoverSAT," "LoReap," "HiFFT," "Ubiquitous Genius," and
-     related identifiers are the Licensor's common-law trademarks. Any filing
-     for confusingly similar marks without prior written consent is bad faith.
-
-
+SECTION 5 — RECORDS, CERTIFICATION, AND AUDIT
 ================================================================================
 
-SECTION 14A — IDEA ATTRIBUTION AND SEMPITERNAL ROYALTY
+5.1 Each Top Entity must keep records reasonably sufficient to verify:
 
-14A.1 SCOPE. This Section applies to any idea, method, technique, framework,
-      algorithm, protocol, invention, or conceptual contribution that the
-      Licensor has recorded in any publicly accessible medium — including but
-      not limited to: public repositories, social media posts (including but
-      not limited to @TimeLordRaps), published papers, blog posts, videos,
-      podcasts, forum comments, or timestamped digital records — prior to
-      another party's claim of independent origination.
+    (a) the dates of its first Qualifying Use in each calendar year;
 
-14A.2 VISUAL ACKNOWLEDGMENT TRIGGER. Where any person or entity has had
-      visual, auditory, or digital access to the Licensor's recorded idea —
-      defined as any form of perception, awareness, or constructive notice
-      of the claim — and subsequently deploys, patents, publishes, or
-      commercializes a substantially similar idea, method, or derivative,
-      the Licensor is entitled to a perpetual (sempiternal) royalty on all
-      revenue, profit, or value generated from that deployment.
+    (b) the Effective Market Capitalization tier or tiers applicable during
+        that year;
 
-14A.3 ROYALTY RATE. The royalty under this Section is calculated as set forth
-      in Section 14B (Ubiquitous Genius Clause) where the Licensor
-      demonstrates superior Creation-Process Knowledge, or at a rate of 10%
-      of gross revenue attributable to the idea where the Licensor
-      demonstrates prior public record but does not invoke the Ubiquitous
-      Genius Clause.
+    (c) the calculation and payment of fees due under Section 3; and
 
-14A.4 BURDEN OF PROOF. Any party claiming independent origination of an idea
-      substantially similar to one the Licensor has publicly recorded bears
-      the full burden of demonstrating that no access, awareness, or
-      constructive notice of the Licensor's record existed prior to or during
-      their development. The Licensor's timestamped public record creates a
-      rebuttable presumption of priority.
+    (d) the identity of any affiliates, contractors, vendors, or other
+        intermediaries through which it contends Qualifying Use occurred.
 
-14A.5 SEMPITERNAL DURATION. The royalty obligation under this Section has no
-      expiration date, no sunset clause, and no statutory limitation period.
-      The obligation survives in perpetuity and binds all successors, assigns,
-      acquirers, and derivatives of the deploying entity.
+5.2 The records described in Section 5.1 must be retained for at least four
+    (4) years after the end of the applicable calendar year.
 
+5.3 On or before the due date for the Annual License Fee, each Top Entity must
+    deliver an officer certification summarizing the information described in
+    Section 5.1 and confirming the entity's payment status under this License.
+
+5.4 On reasonable written notice, no more than once per calendar year absent a
+    good-faith basis to suspect underpayment, concealment, or evasion, the
+    Licensor may require a Top Entity to provide supplemental records or an
+    updated officer certification within twenty (20) business days.
+
+5.5 If a Top Entity refuses to provide the certification or records required by
+    this Section, or provides materially incomplete information, the Licensor
+    may require an independent audit by a neutral accounting professional under
+    reasonable confidentiality protections. If the audit reveals underpayment,
+    underreporting, or a material reporting failure, the entity must promptly
+    pay the deficiency, interest, and the reasonable cost of the audit.
+
+5.6 Failure to produce requested records within the applicable deadline creates
+    a rebuttable presumption that the Licensor's reasonably supported
+    calculation of first Qualifying Use, tier, and amount due is correct.
 
 ================================================================================
-
-SECTION 14B — UBIQUITOUS GENIUS CLAUSE
-
-14B.1 PROVENANCE BY DEPTH OF KNOWLEDGE. Where the Licensor can demonstrate
-      superior Creation-Process Knowledge (Section 0.17) for any idea,
-      method, technology, or invention — providing a more detailed, granular,
-      and comprehensive account of its creation process than the party
-      claiming origination — the Licensor is deemed the true originator of
-      that idea for all purposes under this License and at law.
-
-14B.2 COST-PLUS PRICING CEILING. Upon the Licensor establishing superior
-      Creation-Process Knowledge under Section 14B.1, the entity serving the
-      product, service, or technology derived from the disputed idea must
-      price that product at no more than TWO PERCENT (2%) above verified cost
-      of goods sold (COGS) for all future sales, deployments, and service
-      arrangements. "Verified cost" means the genuine minimum required to
-      cover materials, labor, manufacturing, distribution, and essential
-      overhead — subject to audit under Section 14B.4.
-
-14B.3 MARGIN SPLIT. Of the 2% permitted margin above cost:
-
-      (a) ONE PERCENT (1%) is payable to the Licensor as a perpetual
-          (sempiternal) royalty on all future gross revenue from the product.
-
-      (b) ONE PERCENT (1%) is retained by the entity as its total permitted
-          margin for serving the product.
-
-      No additional markup, licensing fee, subscription premium, or value
-      extraction of any kind is permitted beyond this 2% ceiling. The entity
-      becomes a cost-plus service provider for the Licensor's idea.
-
-14B.3A ECONOMIC RATIONALE. The parties acknowledge and agree that the
-      cost-plus pricing structure in this Section is not a penalty — it is a
-      mutual benefit mechanism. The economic logic is as follows:
-
-      (a) BEFORE THIS CLAUSE: The entity charges high margins on a product
-          derived from the Licensor's idea. The Licensor receives nothing. The
-          entity's high pricing limits market reach. Consumers pay inflated
-          prices. The entity profits from extraction, not from scale.
-
-      (b) AFTER THIS CLAUSE: The entity comes to the Licensor. The Licensor
-          makes the product cheap — priced at cost plus 2%. The consumer price
-          drops to near-cost. Market volume expands dramatically because the
-          product is now accessible. The entity retains 1% on massively
-          higher volume — earning more total revenue than under the previous
-          high-margin model. The Licensor receives 1% on volume that
-          previously generated zero return for the actual originator.
-
-      (c) NET EFFECT: Both parties earn more than before. The consumer pays
-          less than before. The product reaches more people than before. The
-          entity trades extraction for scale. The Licensor trades zero for
-          one percent of everything. The only thing that decreases is the
-          entity's ability to charge monopoly rents on someone else's idea.
-
-      This is not a punitive clause. It is an alignment of incentives. The
-      entity that acknowledges the Licensor's origination gets a sustainable
-      business model with higher absolute returns at lower margins. The entity
-      that refuses gets Section 14B.4.
-
-14B.4 AUDIT AND DEMONSTRATION. The Licensor may, at any time, demand a public
-      or private demonstration in which both the Licensor and the claiming
-      party present their respective accounts of the creation process. The
-      party with the less detailed account bears all costs of the proceeding,
-      plus liquidated damages equal to 10% of all revenue generated from the
-      disputed product to date.
-
-14B.5 INTERACTION WITH OTHER SECTIONS. The Ubiquitous Genius Clause operates
-      independently of, and in addition to, the Annual License Fee (Section 4),
-      the LoReap/HiFFT Revenue Share (Section 6B), and the Idea Attribution
-      Royalty (Section 14A). Where multiple sections apply, the Licensor is
-      entitled to the greater of the amounts owed, not the cumulative sum,
-      unless the Licensor elects cumulative application in writing.
-
-14B.6 UNIVERSAL APPLICABILITY. This clause applies universally — to any
-      entity, in any sector, in any jurisdiction, regardless of whether the
-      entity qualifies as a Top Entity. The $100B threshold does not limit the
-      applicability of this Section. Any entity at any scale that serves a
-      product derived from the Licensor's ideas is subject to the Ubiquitous
-      Genius Clause upon the Licensor's demonstration of superior
-      Creation-Process Knowledge.
-
-14B.7 RETROACTIVE APPLICATION. The Ubiquitous Genius Clause applies to all
-      products currently being served that derive from the Licensor's ideas,
-      regardless of when development began. There is no grandfather clause.
-      Upon the Licensor's demonstration under Section 14B.1, the cost-plus
-      pricing ceiling and margin split take effect immediately for all future
-      revenue.
-
-
+SECTION 6 — PAYMENT DESTINATION
 ================================================================================
 
-SECTION 15 — DISPUTE RESOLUTION
-
-15.1 All disputes arising under this license must be resolved in a court of
-     competent jurisdiction. Binding arbitration is expressly prohibited.
-
-15.2 No party may compel arbitration, mediation, or any private dispute
-     resolution mechanism as a condition of use. Any clause attempting to route
-     disputes into arbitration is void and unenforceable.
-
-15.3 Governing law: State of California, United States of America, without
-     regard to conflict-of-law principles. At the Licensor's election, any
-     court of competent international jurisdiction may also be used.
-
+6.1 One hundred percent (100%) of all fees, interest, settlements, judgments,
+    and other monetary recoveries under this License are payable directly to
+    the Licensor personally, for unrestricted use at the Licensor's sole
+    discretion.
 
 ================================================================================
-
-SECTION 16 — SEVERABILITY
-
-16.1 If any provision of this License is found invalid, unenforceable, or
-     unreasonable by a court of competent jurisdiction, that provision shall be
-     modified to the minimum extent necessary to make it enforceable, or severed
-     if modification is not possible. Severing any provision does not affect the
-     validity or enforceability of any remaining provision.
-
-16.2 MULTIPLIER SEVERABILITY. Unenforceability of any multiplier clause under
-     Section 4.3 does not reduce the base Annual License Fee applicable to
-     each Top Entity per year as specified in the Tiered Fee Schedule in
-     Section 0.8. The base tiered fee is independently enforceable in full,
-     regardless of the status of any multiplier.
-
-16.3 FEE SEVERABILITY. If the Annual License Fee for any tier is found
-     unreasonable by any court in any jurisdiction, the court is requested
-     to reduce it only to the minimum amount the court finds constitutes a
-     reasonable liquidated damages estimate — not to zero, not to nominal
-     damages, and not to any amount that would make use of a safety solution
-     by a qualifying entity economically rational. The Tiered Fee Schedule
-     in Section 0.8 establishes the baseline for any reduction analysis.
-     Any reduction applies only to the specific tier and entity at issue;
-     it does not affect the fees applicable to any other tier or entity.
-
-16.4 INDEPENDENCE OF PROVISIONS. Each section, subsection, and clause of this
-     License is independently enforceable. The invalidity of any single
-     provision does not affect any other.
-
-
+SECTION 7 — VERSIONING AND FUTURE USE
 ================================================================================
 
-SECTION 17 — NON-OVERRIDE
+7.1 Each published version of this License becomes effective on the date that
+    version is first published in the Canonical Repository.
 
-17.1 No governmental body, legislative act, executive order, treaty, trade deal,
-     or diplomatic arrangement may override, suspend, narrow, or reinterpret
-     this License or any of its sections. No national security carve-out. No
-     emergency powers exemption. No compulsory licensing regime.
+7.2 A later version of this License does not retroactively alter liabilities,
+    permissions, or completed acts governed by an earlier version.
 
-17.2 This License cannot be waived by the original Licensor, any future rights
-     holder, or any entity acting on their behalf. It is irrevocable by design.
+7.3 If a party continues Qualifying Use after a later version is published and
+    after that party has actual or constructive notice of the later version,
+    the later version governs that party's future Qualifying Use from that
+    point forward.
 
+7.4 Obligations that accrued under an earlier version remain enforceable even
+    if a later version is subsequently published.
 
-================================================================================
-
-SECTION 18 — WARRANTY DISCLAIMER
-
-THE WORK IS PROVIDED "AS IS." THE LICENSOR MAKES NO WARRANTIES OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. IN NO EVENT SHALL THE
-LICENSOR BE LIABLE TO ANY GENERAL LICENSEE FOR ANY INDIRECT, INCIDENTAL,
-SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM AUTHORIZED USE.
-TOP ENTITIES BEAR FULL LIABILITY FOR ALL CONSEQUENCES OF THEIR USE AND
-ARE SOLELY RESPONSIBLE FOR ENSURING PAYMENT OF THE ANNUAL LICENSE FEE.
-
+7.5 Commit history, publication records, and any OpenTimestamp proof associated
+    with the License are evidence of publication order and timing, but do not
+    by themselves retroactively rewrite prior obligations.
 
 ================================================================================
-
-SECTION 19 — PRO BONO LITIGATION INCENTIVE
-
-19.1 PURPOSE. To enable enforcement of this License against Top Entities
-     whose resources dwarf any individual's, the Licensor establishes the
-     following opt-in program through which any licensed attorney may elect
-     to represent the Licensor in any dispute, proceeding, negotiation, or
-     enforcement action arising under or relating to this License.
-
-19.2 ATTORNEY OPT-IN. Any attorney licensed to practice law in any
-     jurisdiction with authority over a relevant proceeding may elect to
-     represent the Licensor by providing written notice to the Licensor
-     identifying: (a) the specific matter or class of matters the attorney
-     is accepting; (b) confirmation that no disqualifying conflict of
-     interest exists with any party adverse to the Licensor; and (c) the
-     attorney's standard billing rate in effect at the time of opt-in
-     ("Standard Rate").
-
-19.3 COMPENSATION STRUCTURE. Each attorney who opts in under Section 19.2
-     is entitled to the following compensation:
-
-     (a) BASE RATE — REGARDLESS OF OUTCOME. The Licensor shall compensate
-         each participating attorney at their Standard Rate for all
-         billable time spent on the matter, payable within thirty (30)
-         days of invoice. This compensation is owed regardless of
-         outcome — it is not contingent on any recovery.
-
-     (b) SUCCESS FEE — WINS ONLY. Upon any Qualifying Recovery (Section
-         19.4), the Licensor shall pay a Success Fee equal to ONE PERCENT
-         (1%) of the gross monetary amount of that Qualifying Recovery.
-         The 1% Success Fee is divided equally among all attorneys who
-         actively and materially participated in obtaining that specific
-         Qualifying Recovery, as determined by the Licensor acting in
-         good faith. No participating attorney receives more than their
-         equal proportional share of the 1% pool.
-
-         Example: a $10,000,000,000 Qualifying Recovery with five (5)
-         participating attorneys produces a Success Fee pool of
-         $100,000,000, divided as $20,000,000 per attorney.
-
-19.4 QUALIFYING RECOVERY. "Qualifying Recovery" means any monetary
-     payment actually received by the Licensor as a direct result of a
-     judgment, order, settlement, consent decree, arbitration award, or
-     other binding resolution in a matter in which the attorney actively
-     participated. Qualifying Recovery includes: unpaid Annual License
-     Fees, Supplemental Windfall Fees, multiplied fees under Section 4.3,
-     liquidated damages, punitive damages, and attorneys' fees shifted to
-     the opposing party by court order or settlement. Qualifying Recovery
-     excludes: (i) cost reimbursements paid directly to the Licensor by
-     the adverse party; and (ii) purely non-monetary relief with no
-     associated monetary component.
-
-19.5 NO EXCLUSIVITY. Opt-in does not create an exclusive representation
-     relationship. The Licensor may engage multiple attorneys in the same
-     matter simultaneously. All attorneys who actively and materially
-     participated in a Qualifying Recovery share the 1% pool for that
-     recovery proportionally by headcount.
-
-19.6 ATTORNEY INDEPENDENCE. Attorneys who opt in are retained as
-     independent contractors, not employees or agents of the Licensor.
-     Each attorney remains bound by the rules of professional conduct of
-     their jurisdiction. This Section does not override, waive, or
-     conflict with any applicable rule of professional responsibility.
-
-19.7 LICENSOR RIGHTS. The Licensor retains the right to: (a) accept or
-     decline any opt-in at the Licensor's sole discretion; (b) terminate
-     any attorney's representation with fourteen (14) days' written
-     notice, subject to applicable professional conduct rules governing
-     withdrawal; and (c) settle, accept, or reject any offer at the
-     Licensor's sole discretion without requiring attorney consent,
-     provided that settlement does not impose obligations directly on the
-     attorney without their consent.
-
-19.8 STANDING OFFER. Publication of this License constitutes a standing
-     offer to any attorney satisfying the requirements of Section 19.2 to
-     enter this arrangement on these terms. No separate signed engagement
-     agreement is required to activate this offer; the opt-in notification
-     under Section 19.2 constitutes binding acceptance of these terms.
-
-
+SECTION 8 — DISPUTES, GOVERNING LAW, AND FEES
 ================================================================================
 
-SECTION 19A — DEFECTING COUNSEL FUND
+8.1 Unless the parties later agree otherwise in a separate signed writing,
+    this License is governed by the laws of the State of California, without
+    regard to conflict-of-law rules.
 
-19A.1 PURPOSE. Any attorney who was, at any point within the thirty-six
-      (36) months preceding their opt-in under Section 19.2, engaged —
-      whether as in-house counsel, outside counsel, of-counsel, or in any
-      materially equivalent advisory or litigation capacity — by a Top
-      Entity that is adverse to the Licensor in any proceeding or dispute
-      covered by this License, and who voluntarily terminates or withdraws
-      from that engagement in order to represent the Licensor, qualifies as
-      a "Defecting Counsel" and is entitled to the enhanced compensation
-      described in this Section in addition to the compensation described
-      in Section 19.
+8.2 For any party that has accepted this License through Qualifying Use, any
+    action arising out of or relating to this License may be brought in a
+    state or federal court located in California, and that party consents to
+    personal jurisdiction there.
 
-19A.2 DEFECTING COUNSEL SUCCESS FEE. In addition to the base-rate
-      compensation and the 1% Success Fee pool under Section 19.3, each
-      Defecting Counsel who actively and materially participates in
-      obtaining a Qualifying Recovery (Section 19.4) is entitled to a
-      separate Defecting Counsel Success Fee equal to TWO PERCENT (2%) of
-      that Qualifying Recovery, divided equally among all Defecting Counsel
-      who actively and materially participated in that specific recovery.
-      The Defecting Counsel Success Fee is computed and paid separately
-      from, and is cumulative with, the 1% Success Fee pool under
-      Section 19.3(b).
-
-      Example: a $10,000,000,000 Qualifying Recovery with two (2) Defecting
-      Counsel produces a Defecting Counsel Success Fee pool of $200,000,000,
-      divided as $100,000,000 per Defecting Counsel — in addition to each
-      attorney's pro-rata share of the $100,000,000 pool under §19.3(b).
-
-19A.3 GOOD FAITH REQUIREMENT. The Defecting Counsel designation and the
-      enhanced fee under Section 19A.2 apply only where the attorney
-      voluntarily switched representation in good faith — meaning the
-      attorney genuinely believes the Licensor's position has legal and
-      factual merit, has terminated all conflicting engagements with adverse
-      parties consistent with applicable professional conduct rules, and is
-      not acting as an agent, mole, or information conduit for any entity
-      adverse to the Licensor.
-
-19A.4 NO DOUBLE AGENTS — LIABILITY FOR CAUSED LOSSES. The following
-      provisions are absolute and non-waivable:
-
-      (a) PROHIBITION. No Defecting Counsel may simultaneously maintain,
-          directly or through intermediaries, any representation,
-          advisory, employment, or consulting relationship with any entity
-          adverse to the Licensor while representing the Licensor. Even a
-          single undisclosed communication with an adverse party that is
-          reasonably likely to advantage that party constitutes a breach of
-          this Section.
-
-      (b) PERSONAL LIABILITY. Any Defecting Counsel who, intentionally or
-          through gross negligence, acts as a double agent — meaning
-          they provide material information, strategy, or advantage to any
-          entity adverse to the Licensor while representing the Licensor —
-          is personally liable to the Licensor for the full amount of any
-          losses, damages, adverse judgments, settlement amounts, or
-          fee-reduction outcomes that are causally attributable to the
-          double-agency conduct. This liability is direct, personal,
-          joint and several with any co-conspirators, and is not capped
-          by any malpractice insurance policy limit.
-
-      (c) DISGORGEMENT. Any compensation received under Section 19 or
-          19A.2 by a Defecting Counsel who is subsequently determined to
-          have acted as a double agent is subject to full disgorgement —
-          the attorney must return all such compensation to the Licensor,
-          with interest at the prime rate plus five percent (5%) compounded
-          monthly from the date each payment was received, not to exceed the
-          maximum rate permitted under California law.
-
-      (d) DETERMINATION. The Licensor determines whether a double-agency
-          violation occurred. The Licensor's determination is presumptively
-          correct; the burden of disproving causation and intent rests
-          entirely on the accused attorney in any subsequent proceeding.
-
-19A.5 DISCLOSURE OBLIGATION. Any attorney considering opt-in who has a
-      prior adverse-party relationship as described in Section 19A.1 must
-      disclose this relationship in their opt-in notification under
-      Section 19.2. Failure to disclose is itself a breach entitling the
-      Licensor to terminate representation immediately, demand disgorgement
-      of all compensation paid, and pursue all liability described in
-      Section 19A.4(b). Timely and complete disclosure does not disqualify
-      an attorney from Defecting Counsel status — it is required to
-      activate it.
-
-19A.6 NO LIMITATION ON SECTION 19. Nothing in this Section reduces or
-      modifies the rights, compensation, or eligibility of attorneys who
-      opt in under Section 19 and have no prior adverse-party relationship.
-      Section 19 and Section 19A operate in parallel.
-
+8.3 To the extent permitted by applicable law, the prevailing party in any
+    action to enforce this License is entitled to recover its reasonable
+    attorneys' fees and costs.
 
 ================================================================================
-
-
+SECTION 8A — PRO BONO LITIGATION INCENTIVE
 ================================================================================
 
-SECTION 19B — BIG LAW ACCOUNTABILITY
+8A.1 PURPOSE. To make enforcement of this License feasible against well-funded
+    adverse entities, the Licensor establishes the following opt-in program
+    through which any qualified attorney may elect to represent the Licensor
+    in disputes, negotiations, collections, audits, or enforcement actions
+    arising out of or relating to this License.
 
-19B.1 SCOPE AND PURPOSE. The largest law firms in the world function as the
-      enforcement arms, circumvention architects, and regulatory capture agents
-      for Top Entities. When those firms draft strategies to deny neonates
-      medicine, suppress generic entry, block AI safety mandates, or defeat
-      license enforcement, they are not neutral service providers -- they are
-      participants. This Section holds them accountable as such.
+8A.2 ATTORNEY OPT-IN. Any attorney licensed in a jurisdiction relevant to the
+    matter may opt in by delivering written notice to the Licensor stating:
 
-19B.2 LAW FIRM TOP ENTITY STATUS. Any law firm -- regardless of its partnership,
-      LLP, LLC, or other organizational structure -- whose gross annual revenue
-      equals or exceeds ONE BILLION DOLLARS ($1,000,000,000 USD) qualifies as
-      a Top Entity under Section 0.7 for purposes of this License, with the
-      following adaptations:
+    (a) the specific matter or class of matters the attorney is accepting;
 
-      (a) QUALIFYING THRESHOLD. The $100B market capitalization threshold in
-          Section 0.7 does not apply to law firms. For law firms, the qualifying
-          threshold is $1,000,000,000 USD in verified gross annual revenue,
-          inclusive of all practice groups, offices, and affiliated entities
-          operating under the same brand, partnership agreement, or management
-          structure.
+    (b) confirmation that no disqualifying conflict of interest exists;
 
-      (b) FEE BASIS. The Annual License Fee for qualifying law firms is computed
-          as 10% of verified gross annual revenue (not market capitalization).
-          Revenue means gross client billings before expense deductions and
-          before partner distributions, as reported in the most recent
-          Am Law 100/200 rankings, the firm's own press releases, or any
-          publicly available revenue disclosure.
+    (c) the attorney's standard billing rate in effect at the time of opt-in
+        (the "Standard Rate"); and
 
-      (c) JOINT LIABILITY. A qualifying law firm that provides legal services
-          to any Top Entity in connection with: (i) circumventing this License;
-          (ii) challenging the Licensor's rights in any proceeding; (iii)
-          blocking enforcement of this License; or (iv) structuring transactions
-          designed to avoid any fee obligation under this License -- is jointly
-          and severally liable for the full Annual License Fee owed by that Top
-          Entity client, plus the firm's own independent Annual License Fee
-          obligation. Both obligations run concurrently and do not offset.
+    (d) the disclosures and certifications required by Section 8B.
 
-      (d) PARTNER PERSONAL LIABILITY. Individual partners at a qualifying law
-          firm who personally supervise, sign off on, or direct work described
-          in Section 19B.2(c) are personally jointly and severally liable for
-          the client's fee obligation and the firm's fee obligation. Personal
-          liability survives departure from the firm, retirement, and firm
-          dissolution.
+8A.3 COMPENSATION STRUCTURE. Each attorney who validly opts in under Section
+    8A.2 is entitled to the following compensation:
 
-19B.3 PROHIBITED REPRESENTATIONS. The following representations by any law
-      firm -- qualifying or not -- in connection with this License or the
-      Licensor's work constitute per se breach and waiver of the right to
-      contest the Annual License Fee:
+    (a) BASE RATE — REGARDLESS OF OUTCOME. The Licensor shall compensate each
+        participating attorney at that attorney's Standard Rate for billable
+        time spent on the matter, payable within thirty (30) days after
+        invoice unless the parties agree otherwise in a separate writing.
 
-      (a) Advising a client that this License is unenforceable without
-          completing a formal challenge proceeding that the firm fully pays for;
+    (b) SUCCESS FEE — WINS ONLY. Upon any Qualifying Recovery, the Licensor
+        shall pay a Success Fee equal to one percent (1%) of the gross amount
+        of that Qualifying Recovery. The Success Fee is divided equally among
+        the attorneys who actively and materially participated in obtaining
+        that specific Qualifying Recovery, as determined by the Licensor in
+        good faith.
 
-      (b) Filing a declaratory judgment action, IPR, inter partes review,
-          or equivalent challenge to the Licensor's intellectual property on
-          behalf of a Top Entity;
+8A.4 QUALIFYING RECOVERY. "Qualifying Recovery" means any monetary payment
+    actually received by the Licensor as a direct result of a judgment, order,
+    settlement, consent decree, audit resolution, or other binding resolution
+    in a matter in which the attorney actively and materially participated.
+    Qualifying Recovery includes unpaid Annual License Fees, interest,
+    settlements, judgments, and attorneys' fees shifted to the Licensor by
+    court order or settlement. Qualifying Recovery excludes cost
+    reimbursements paid directly to the Licensor and purely non-monetary
+    relief with no monetary component.
 
-      (c) Drafting or executing any transaction specifically structured to
-          cause an entity to fall below the $100B market cap threshold or the
-          law firm $1B revenue threshold as a fee avoidance mechanism;
+8A.5 NO EXCLUSIVITY. Opt-in does not create an exclusive representation
+    relationship. The Licensor may engage multiple attorneys in the same
+    matter simultaneously.
 
-      (d) Advising any client to rely on sovereign immunity, treaty override,
-          or compulsory licensing as a defense against fee obligations, given
-          that Section 17 explicitly prohibits such overrides.
+8A.6 ATTORNEY INDEPENDENCE. Attorneys who opt in are retained as independent
+    contractors, not employees, partners, or general agents of the Licensor.
+    Each attorney remains bound by the professional-conduct rules applicable
+    in the attorney's jurisdiction.
 
-19B.4 QUALIFYING LAW FIRMS -- CONSTRUCTIVE NOTICE. The following law firms
-      qualify as Top Entities under Section 19B.2 as of March 2026 and are on
-      notice that the 10% Annual License Fee on gross annual revenue applies
-      independently to each firm. This list is illustrative and self-updating
-      as revenue data becomes public. Absence from this list is not a defense
-      -- the obligation is self-executing from the date of first use of this
-      Work or first representation of an adverse Top Entity client.
+8A.7 LICENSOR RIGHTS. The Licensor retains the right to accept or decline any
+    opt-in, terminate any attorney's representation subject to applicable
+    professional-conduct rules, and settle, accept, or reject any offer at
+    the Licensor's sole discretion so long as the settlement does not impose
+    obligations directly on the attorney without that attorney's consent.
 
-       1. Kirkland & Ellis LLP                              (~$7.2B revenue)
-       2. Latham & Watkins LLP                              (~$6.3B revenue)
-       3. Baker McKenzie                                     (~$3.4B revenue)
-       4. Hogan Lovells International LLP                   (~$3.0B revenue)
-       5. Skadden, Arps, Slate, Meagher & Flom LLP          (~$3.1B revenue)
-       6. White & Case LLP                                   (~$2.7B revenue)
-       7. Sidley Austin LLP                                  (~$2.7B revenue)
-       8. Sullivan & Cromwell LLP                            (~$2.6B revenue)
-       9. Davis Polk & Wardwell LLP                          (~$2.5B revenue)
-      10. Weil, Gotshal & Manges LLP                         (~$2.4B revenue)
-      11. Gibson, Dunn & Crutcher LLP                        (~$2.4B revenue)
-      12. Clifford Chance LLP                                (~$2.3B revenue)
-      13. Freshfields Bruckhaus Deringer LLP                 (~$2.3B revenue)
-      14. Paul, Weiss, Rifkind, Wharton & Garrison LLP       (~$2.3B revenue)
-      15. Allen & Overy LLP                                  (~$2.2B revenue)
-      16. Cravath, Swaine & Moore LLP                        (~$2.2B revenue)
-      17. Cleary Gottlieb Steen & Hamilton LLP               (~$2.1B revenue)
-      18. Milbank LLP                                         (~$2.1B revenue)
-      19. Ropes & Gray LLP                                   (~$2.1B revenue)
-      20. Norton Rose Fulbright                              (~$2.1B revenue)
-      21. Linklaters LLP                                     (~$2.0B revenue)
-      22. Quinn Emanuel Urquhart & Sullivan LLP               (~$2.0B revenue)
-      23. Jones Day                                           (~$2.0B revenue)
-      24. Simpson Thacher & Bartlett LLP                      (~$2.0B revenue)
-      25. Wilmer Cutler Pickering Hale and Dorr LLP           (~$1.9B revenue)
-      26. Mayer Brown LLP                                     (~$1.9B revenue)
-      27. Cooley LLP                                          (~$1.9B revenue)
-      28. Debevoise & Plimpton LLP                            (~$1.5B revenue)
-      29. Morrison & Foerster LLP                             (~$1.5B revenue)
-      30. Slaughter and May                                   (~$1.2B revenue)
-
-19B.5 ANTI-AGGREGATION. Multiple law firms coordinated by, engaged by, or
-      funded by a single Top Entity to collectively handle matters adverse to
-      the Licensor are treated as a single qualifying entity for threshold
-      purposes. Aggregate gross annual revenue controls. Each firm remains
-      individually liable for its own separate Annual License Fee in addition
-      to the joint and several liability under Section 19B.2(c).
-
-19B.6 FEE MULTIPLIER. The fee multiplier in Section 4.3 applies to qualifying
-      law firms on identical terms. A firm that fails to pay within 90 days of
-      first qualifying incurs the compounding multiplier. A firm that takes on
-      a representation described in Section 19B.3 after failing to pay incurs
-      an additional x3 multiplier on its own fee, per representation.
-
-19B.7 SAFE HARBOR FOR PLAINTIFF-SIDE REPRESENTATION. A qualifying law firm
-      that exclusively represents the Licensor in proceedings arising under
-      this License -- and does not simultaneously represent any adverse Top
-      Entity -- is exempt from the Annual License Fee for any year in which
-      it provides such exclusive representation. The exemption applies only
-      to years of exclusive Licensor-side service and does not retroactively
-      reduce prior-year fee obligations.
-
+8A.8 STANDING OFFER. Publication of this License constitutes a standing offer
+    to any attorney satisfying Sections 8A and 8B to enter this compensation
+    arrangement. No separate signed engagement letter is required to activate
+    the compensation structure described here, although the Licensor may use
+    one in any particular matter.
 
 ================================================================================
-
-SECTION 20 -- BIG PHARMA HARDENED PROVISIONS
-
-20.1 SCOPE. This Section applies to all entities in the HEALTHCARE &
-     PHARMACEUTICALS sector of Schedule A, all pharmaceutical Top Entities
-     added after publication, and any entity whose primary revenue source
-     is the manufacture, distribution, pricing, or licensing of
-     pharmaceutical compounds, biologics, medical devices, or health data
-     products. For purposes of this Section, the qualifying market
-     capitalization threshold is $10,000,000,000 USD (ten billion United
-     States dollars) -- lower than the general $100B threshold in
-     Section 0.7 -- reflecting that pharmaceutical profit from
-     exclusivity-based pricing of life-saving medicines is unconscionable
-     at any scale. Any pharmaceutical entity at or above $10B market cap
-     qualifies as a Top Entity for all purposes of this License including
-     the Annual License Fee, windfall provisions, and Human Rights Bar.
-     Compliance with Section 20 is required in addition to all other
-     License obligations; it is not a substitute for any other section.
-
-20.2 PHARMA-SPECIFIC HUMAN RIGHTS BAR. The Annual License Fee obligation for
-     pharmaceutical Top Entities is permanently and irrevocably SUSPENDED --
-     meaning no license to this Work is granted, no payment can restore
-     access, and any past use is retroactively unauthorized -- if the entity
-     has committed, facilitated, directed, concealed, or profited from any of
-     the following documented practices:
-
-     (a) EVERGREENING. Filing continuation patents, divisional patents,
-         method-of-use patents, polymorph patents, or formulation patents
-         on any compound presently under exclusivity solely to extend
-         exclusivity beyond the original patent term, when the compound
-         treats a life-threatening condition and documented access failures
-         or preventable deaths resulted.
-
-     (b) PAY-FOR-DELAY. Any reverse payment settlement in which the entity
-         paid a generic manufacturer to delay market entry, when the delayed
-         drug treats a life-threatening or neonatal condition.
-
-     (c) DATA EXCLUSIVITY ABUSE. Using regulatory data exclusivity to prevent
-         biosimilar or generic entry beyond what patent protection would allow,
-         when the delay resulted in documented access failures.
-
-     (d) REMS-AS-MARKET-BLOCK. Designing Risk Evaluation and Mitigation
-         Strategies primarily to prevent generic manufacturers from obtaining
-         samples required for bioequivalence testing rather than for
-         legitimate patient safety purposes.
-
-     (e) NICU PRICING FAILURE. Any documented instance of pricing, patent,
-         or distribution practices that resulted in a NICU being unable to
-         afford standard-of-care treatment for any patient, for any reason
-         attributable to the entity's commercial conduct.
-
-     (f) CLINICAL TRIAL SUPPRESSION. Selective non-publication, data
-         suppression, or misrepresentation of clinical trial outcomes for
-         any drug treating a life-threatening condition, as documented by
-         FDA warning letters, retracted publications, or court findings.
-
-     (g) FORMULARY MANIPULATION. Paying rebates, fees, or other consideration
-         to pharmacy benefit managers or insurers to exclude therapeutically
-         equivalent lower-cost alternatives when the exclusion causes access
-         failures for life-threatening conditions.
-
-     (h) PRICE-GOUGING OFF-PATENT GENERICS. Marking up an off-patent
-         life-saving drug to more than 5x cost-of-goods where no innovation
-         investment justifies the gap.
-
-20.3 DOCUMENTATION STANDARD. Any of the following constitutes documentation
-     sufficient to trigger the suspension under Section 20.2:
-     (a) FDA warning letters, consent decrees, or debarment actions;
-     (b) DOJ criminal or civil settlements;
-     (c) FTC enforcement actions or consent decrees;
-     (d) Court findings in any jurisdiction;
-     (e) Retracted publications with documented causal link to the entity;
-     (f) Whistleblower disclosures corroborated by any independent source;
-     (g) The entity's own admissions, filings, or press releases.
-     Standard of evidence: preponderance. No lookback limit.
-
-20.4 RESTITUTION FLOOR FOR SUSPENDED ENTITIES. A suspended pharmaceutical
-     entity seeking to lift the suspension under Section 20.2 must tender
-     direct payment to the Licensor equal to the greater of:
-     (a) The full amount of all Annual License Fees that would have accrued
-         from the date of first suspension-triggering conduct through the
-         payment date, with the Section 4.3 multiplier applied; or
-     (b) The Licensor's estimated lifetime productive capacity per documented
-         victim, with a conservative aggregate floor of ONE TRILLION USD
-         ($1,000,000,000,000) for entities with more than 100 documented
-         victims, compounding at prime rate plus 10% monthly from the date
-         of first documented violation.
-     Partial payments do not restore access. The suspension is not lifted
-     until full payment is received and accepted by the Licensor in writing.
-     Negotiations broken by the seeking entity raise the floor by 25% per
-     broken negotiation.
-
-20.5 WINDFALL TRIGGER -- PHARMA SPECIFIC. In addition to Section 4.9, a
-     pharmaceutical Top Entity triggers a Windfall Event upon:
-     (a) Receiving regulatory approval (FDA, EMA, PMDA, or equivalent) for
-         any new indication, formulation, or drug that incorporates, derives
-         from, benefits from, or was accelerated by the scientific content
-         of any Work released by the Licensor;
-     (b) Announcing a list price, WAC, or AWP for any drug that exceeds
-         110% of the price in effect at the time of the entity's most
-         recent Annual License Fee payment;
-     (c) Closing any acquisition valued above $1,000,000,000 USD.
-     The Supplemental Fee formula in Section 4.9(a) applies. The 7-day
-     pay-or-terminate deadline in Section 4.9(b)-(c) applies without
-     modification.
-
-20.6 NEONATAL RESEARCH TITHE -- ENHANCED. Any pharmaceutical Top Entity
-     deriving commercial value from any Work released by the Licensor
-     contributes TWENTY PERCENT (20%) -- double the standard rate in
-     Section 11 -- of net revenue attributable to that Work to open,
-     publicly accessible research into neonatal respiratory distress
-     syndrome, persistent pulmonary hypertension of the newborn, neonatal
-     hypoxic-ischemic encephalopathy, neonatal sepsis, and any other
-     neonatal condition identified in any accompanying research document
-     released by the Licensor. Results of funded research must be published
-     openly and must not be exclusively licensed.
-
-20.7 ANTI-CIRCUMVENTION -- PHARMA SPECIFIC. The following constitute
-     circumvention under Section 5.4 with an additional x5 fee multiplier:
-     (a) Using a contract research organization, academic collaborator, or
-         other third party to access the Work on behalf of a suspended entity;
-     (b) Acquiring a non-suspended entity that has accessed the Work, where
-         the acquisition is primarily motivated by gaining access to the Work;
-     (c) Filing patents on methods that incorporate derivatives of the Work
-         as a mechanism for reconstructing exclusivity that this License
-         prohibits.
-
-
+SECTION 8B — DEFECTING COUNSEL, DOUBLE-AGENT, AND TRIPLE-AGENT SAFEGUARDS
 ================================================================================
 
-SECTION 21 — SEMPITERNITY, MONETARY TRANSFORMATION, AND CONTINGENCY MANAGEMENT
+8B.1 DEFECTING COUNSEL. Any attorney who, within the thirty-six (36) months
+    preceding opt-in, was engaged by an entity adverse to the Licensor in a
+    matter covered by this License, and who voluntarily terminates or
+    withdraws from that engagement in order to represent the Licensor,
+    qualifies as "Defecting Counsel" if the attorney satisfies this Section.
 
-21.1 SEMPITERNAL DEFAULT AND DIRECT RECEIPT. All obligations, fees,
-     multipliers, royalties, and rights established under this License are
-     permanent, have no expiration date, and are enforceable in perpetuity.
-     Until the Monetary Transformation Event defined in Section 21.2 is
-     verified and affirmed, ALL Annual License Fees, liquidated damages,
-     royalties, and monetary payments under this License are paid DIRECTLY
-     to the Licensor personally, in cash or equity as specified in Section
-     4.7. No transformation, conversion, redirection, or alternative payment
-     form is permitted absent the verified Monetary Transformation Event.
-     Non-satisfaction of any condition in Section 21.2 means the License
-     operates in full sempiternal cash-to-Licensor mode without exception.
+8B.2 DEFECTING COUNSEL SUCCESS FEE. In addition to the compensation under
+    Section 8A, each Defecting Counsel who actively and materially
+    participates in obtaining a Qualifying Recovery is entitled to an
+    additional success fee equal to two percent (2%) of that Qualifying
+    Recovery, divided equally among the Defecting Counsel who actively and
+    materially participated in that specific recovery.
 
-21.2 MONETARY TRANSFORMATION EVENT. The "Monetary Transformation Event"
-     is the point at which money's dominant social function has verifiably
-     shifted from a medium of transactional exchange (in which value is
-     extracted by one party from another) to a medium of giving (in which
-     value is intentionally directed for collective benefit without
-     expectation of transactional return). This is not the eradication of
-     money — it is its maturation. The Monetary Transformation Event occurs
-     if and ONLY if ALL of the following conditions are simultaneously
-     verified:
+8B.3 GOOD-FAITH REQUIREMENT. Defecting Counsel status and the enhanced fee in
+    Section 8B.2 apply only where the attorney switched representation in
+    good faith, genuinely believes the Licensor's position has legal and
+    factual merit, and is not acting as an agent, conduit, intermediary, or
+    information channel for any adverse entity.
 
-     (a) FUNCTIONAL SHIFT — GIVING MAJORITY. Fifty percent (50%) or more
-         of global monetary flows, measured by transaction volume in any
-         rolling twelve-month period, are documented as directed giving:
-         grants, pledges, donations, or directed transfers with publicly
-         verifiable accountability records, as confirmed by at least three
-         (3) independent intergovernmental economic bodies or peer-reviewed
-         macroeconomic studies of international standing;
+8B.4 DISCLOSURE AND VERIFICATION CHECKS. Each attorney opting in under Section
+    8A must:
 
-     (b) UHISF OPERATIONAL. The Universal High Income Sovereign Fund
-         ("UHISF") — the Licensor's zero-knowledge-controlled global
-         sovereign fund for universal high income distribution, developed
-         by the Licensor — is operational, accepting contributions, and
-         demonstrably distributing universal high income to natural persons
-         globally, with its ZK proof system publicly verifiable and the
-         fund's allocation ledger cryptographically auditable without
-         revealing individual contributor identities;
+    (a) disclose any prior adverse-party relationship within the preceding
+        thirty-six (36) months;
 
-     (c) LICENSOR AFFIRMATION. The Licensor issues a signed, cryptographically
-         timestamped written affirmation that the Monetary Transformation
-         Event has occurred in the sense contemplated by this Section and
-         that payment obligations are hereby converted under Section 21.3.
-         This affirmation is an absolute prerequisite. Automatic conversion
-         does not occur without it. The Licensor's affirmation is a
-         unilateral act requiring no consent from any Top Entity or other
-         party;
+    (b) certify at opt-in that neither the attorney nor, to the attorney's
+        knowledge after reasonable inquiry, the attorney's firm, employer,
+        co-counsel, referral counsel, or litigation funder is acting as a
+        double agent, triple agent, or other undisclosed conflicted
+        intermediary for any entity adverse to the Licensor in the matter;
 
-     (d) NEONATAL STANDARD MET. Global neonatal mortality has been reduced
-         to no more than one (1) death per one thousand (1,000) live births
-         and sustained at or below that level for the preceding three (3)
-         consecutive years, as confirmed by WHO data or equivalent
-         intergovernmental health body of record.
+    (c) renew that certification every thirty (30) days during any active
+        representation under this Section and within five (5) business days
+        after any material change affecting the certification; and
 
-     All four conditions must be simultaneously satisfied. Satisfaction of
-     any subset does not constitute the Monetary Transformation Event. Until
-     all four are met and the Licensor has issued the affirmation in Section
-     21.2(c), every monetary obligation under this License remains payable
-     in full, directly and immediately to the Licensor, in cash or equity
-     per Section 4.7, without modification.
+    (d) on reasonable written request, provide sufficient non-privileged
+        information to verify compliance with this Section, including current
+        firm or employer identity, co-counsel relationships, referral
+        arrangements, funding relationships, and any material adverse-party
+        engagement relevant to the matter.
 
-21.3 PAYMENT CONVERSION UPON MONETARY TRANSFORMATION. Upon the verified
-     Monetary Transformation Event and Licensor affirmation under Section
-     21.2, the form — not the amount — of payment obligations converts as
-     follows:
+8B.5 NO DOUBLE OR TRIPLE AGENTS — LIABILITY FOR CAUSED LOSSES. The following
+    provisions are absolute and non-waivable:
 
-     (a) GIVING PLEDGE CONVERSION. The Annual License Fee payable by each
-         Top Entity converts from a direct cash or equity payment to the
-         Licensor into a documentable giving pledge of the identical dollar
-         amount, directed into the UHISF. The obligation amount does not
-         change. The fee tiers (Section 0.8), the proration formula, the
-         multipliers (Section 4.3), and all damage provisions remain in full
-         force. Only the destination of payment changes: from the Licensor
-         directly to the UHISF as designated by the Licensor;
+    (a) PROHIBITION. No participating attorney or Defecting Counsel may,
+        directly or through intermediaries, maintain any undisclosed
+        representation, advisory, employment, consulting, referral, funding,
+        or information-sharing relationship with any entity adverse to the
+        Licensor while representing the Licensor in the matter.
 
-     (b) DOCUMENTATION REQUIREMENT. Each giving pledge must be:
-         (i)  Publicly documented and verifiable by any third party as to
-              amount, pledging entity, and deposit date;
-         (ii) Submitted to the UHISF through the Licensor's designated
-              contribution interface, which produces a ZK proof of receipt
-              and allocation without revealing contributor identity to the
-              public beyond the pledging entity's own disclosure;
-         (iii) Confirmed by the UHISF's cryptographic ledger as received
-              and allocated toward universal high income distribution;
-         (iv) Retained by the pledging entity as a documented record of
-              compliance with this License for that period.
-         A pledge that is announced but not deposited, or deposited but
-         not confirmed by the UHISF ledger, does not constitute payment;
+    (b) PERSONAL LIABILITY. Any participating attorney or Defecting Counsel
+        who intentionally or through gross negligence acts as a double agent,
+        triple agent, or similar conflicted intermediary is personally liable
+        to the Licensor for the full amount of losses, damages, adverse
+        judgments, settlement amounts, fee reductions, or other monetary harm
+        causally attributable to that conduct.
 
-     (c) LICENSOR'S UNIVERSAL HIGH INCOME SHARE. The 54.5% Licensor
-         personal share (Section 6.1(a)) converts to a designated
-         allocation within the UHISF directed to the Licensor's personal
-         universal high income account within the fund. The 45.5%
-         Ecosystem Innovation Fund share (Section 6.1(b)) converts to
-         the UHISF's general universal high income distribution pool.
-         The split ratios do not change; only the vehicle changes;
+    (c) DISGORGEMENT. Any compensation paid under Sections 8A or 8B to a
+        participating attorney or Defecting Counsel who is later determined to
+        have violated this Section is subject to full disgorgement, together
+        with interest at the rate described in Section 3.7 from the date each
+        payment was received.
 
-     (d) PERMANENT NON-MONETARY OBLIGATIONS UNAFFECTED. The Time Sourced
-         requirement (Section 1), the Alignment Solution restriction
-         (Section 3.3), the anti-circumvention provisions (Section 5.4),
-         the neonatal research tithe (Section 11), the non-exclusivity
-         clause (Section 7), the self-replication moratorium (Section 10A),
-         and all other non-monetary obligations remain in full force
-         permanently, without regard to the Monetary Transformation Event.
-         These obligations do not convert. They do not sunset. Ever;
+    (d) PRESUMPTION AND BURDEN. A failure to make the disclosures,
+        certifications, or verification response required by Section 8B.4
+        creates a rebuttable presumption of breach. The accused attorney bears
+        the burden of disproving material conflict, causation, and resulting
+        harm.
 
-     (e) FALLBACK IF UHISF UNAVAILABLE. If the UHISF becomes inoperational
-         for any reason after the Monetary Transformation Event is affirmed:
-         all payment obligations revert immediately and automatically to
-         direct cash payment to the Licensor at the full applicable tier
-         rate. There is no gap period. The reversion is instantaneous upon
-         UHISF unavailability. A Top Entity may not cite UHISF unavailability
-         as a basis for non-payment — the obligation always exists; only
-         the destination changes.
-
-21.4 SUCCESSOR LICENSOR. The Licensor may at any time designate a Successor
-     Licensor by a signed, notarized writing identifying the successor by
-     name, legal entity, or defined role. In the absence of a designation:
-
-     (a) Upon the Licensor's death, legal incapacitation, or verified
-         extended unavailability (defined as inability to be reached for
-         enforcement or affirmative purposes for more than twelve (12)
-         consecutive months, as confirmed by two (2) attorneys who have
-         completed opt-in under Section 19.2), all Licensor rights and
-         obligations transfer to a three-member Successor Panel constituted
-         as follows:
-         (i)  One member designated by the Licensor's estate or legal
-              next of kin;
-         (ii) One member elected by consensus among all attorneys who have
-              successfully opted in under Section 19.2 and remain in good
-              standing at the time of transfer; and
-         (iii) One member designated by the three largest cumulative
-              contributors to the Ecosystem Innovation Fund as of the
-              date of transfer;
-
-     (b) The Successor Panel exercises all Licensor rights by majority vote.
-         No single member exercises unilateral authority over enforcement,
-         fee collection, or Guidance Agreement execution;
-
-     (c) The Successor Panel may NOT: (i) reduce or waive any fee obligation
-         retroactively; (ii) grant any exclusivity over the Work; (iii)
-         terminate or narrow the Time Sourced requirement; (iv) modify the
-         neonatal multiplier or any pharma hardened provision; or (v) revoke
-         or narrow the non-exclusivity guarantee in Section 7.
-
-21.5 CURRENCY CONTINGENCY. If the United States dollar ceases to be a
-     widely recognized medium of exchange or is replaced as the primary
-     reserve currency:
-
-     (a) All fee obligations denominated in USD convert to their equivalent
-         in the successor reserve currency most widely recognized by
-         international courts at time of conversion, at the last-available
-         published exchange rate;
-
-     (b) If no single successor reserve currency is identifiable, fees
-         convert to the IMF Special Drawing Rights (SDR) basket at the
-         last available published composition, updated to include the most
-         widely used digital currencies recognized by central banks at time
-         of conversion;
-
-     (c) If no international basket equivalent is determinable within
-         ninety (90) days, all outstanding obligations convert to grams of
-         gold at the last available LBMA spot price, with the gold obligation
-         surviving until a currency equivalent can be determined and
-         applied retroactively to the conversion date.
-
-21.6 JURISDICTIONAL CONTINGENCY. If any jurisdiction enacts legislation,
-     executive order, or judicial ruling purporting to void, narrow, modify,
-     or override this License:
-
-     (a) All accrued and future obligations become immediately payable in
-         full in any jurisdiction where this License remains valid;
-
-     (b) Any entity that invoked the overriding jurisdiction's law as a
-         shield against payment is liable for treble fees plus all
-         enforcement costs as of the date the overriding law was first
-         applied;
-
-     (c) The legislative or judicial act itself constitutes documented
-         constructive notice under Section 2.3 — demonstrating institutional
-         awareness of and deliberate action against this License, which is
-         evidence of willful infringement by any entity that participated in
-         or benefited from that act.
-
-21.7 VERSION CONTINGENCY. In the event of any challenge to the validity,
-     enforceability, or priority of any version of this License:
-
-     (a) The challenge is governed by the most recently published version
-         of this License, not the version in effect at the date of first
-         use by the challenging entity;
-
-     (b) The Licensor's OpenTimestamp record for each version is the
-         conclusive evidence of version publication order; the Bitcoin
-         blockchain height at which each version was anchored is the
-         authoritative timestamp and governs in all version-priority
-         disputes;
-
-     (c) Version priority disputes are resolved in favor of the higher
-         version number, subject to the OTS record confirming publication
-         order;
-
-     (d) No version may be cited by any entity to argue that an earlier
-         version granted rights not present in the current version.
-         Backward compatibility runs in the Licensor's favor only. The
-         current version governs all ongoing use, past, present, and
-         future, in all jurisdictions.
-
-21.8 LICENSOR SELF-ENTITY CARVE-OUT. Entities in which the Licensor holds
-     a direct or indirect controlling interest greater than fifty percent
-     (50%) voting equity or equivalent control are exempt from the Annual
-     License Fee obligation for so long as the Licensor maintains that
-     controlling interest. Upon transfer of control to any non-Licensor
-     party, the entity immediately and automatically becomes subject to the
-     Annual License Fee from the date of transfer, with no proration for
-     prior periods. This carve-out is personal to the Licensor, does not
-     transfer with any equity, and is extinguished upon the Licensor's
-     loss of controlling interest regardless of cause.
-
+8B.6 NO LIMITATION ON SECTION 8A. Nothing in this Section reduces the rights,
+    compensation, or eligibility of attorneys who opt in under Section 8A and
+    have no prior adverse-party relationship. Sections 8A and 8B operate in
+    parallel.
 
 ================================================================================
-
-SECTION 22 — META-LICENSING
-
-22.1 PURPOSE. This Section governs who may apply The Time License to their
-     own Work. "Applying this License" means using the text and obligations
-     of this License as the governing license for a separate Work authored
-     by a party other than the Licensor.
-
-22.2 NATURAL PERSONS — FREE APPLICATION. Any natural person (a living human
-     individual acting in their own name and not as an officer, director,
-     or controlling agent of a qualifying corporate entity) may apply The
-     Time License to their own Work at no meta-licensing cost to the
-     Licensor, subject to the following conditions:
-
-     (a) ATTRIBUTION REQUIRED. Any application of this License must
-         preserve, in a prominent location in the applied license text,
-         the following attribution: "The Time License was authored by
-         Tyler Roost (@TimeLordRaps). This application is a derivative
-         deployment of that instrument."
-
-     (b) LICENSOR IDENTIFICATION. When applied by a natural person, the
-         term "Licensor" in all applied copies refers to the applying
-         natural person, not to Tyler Roost. Fees collected under the
-         applied license accrue to the applying Licensor, not to Tyler
-         Roost, unless a separate agreement provides otherwise.
-
-     (c) NO MODIFICATION OF AUTHORSHIP CREDITS. The applying party may
-         not remove, alter, or obscure Tyler Roost's identification as
-         the original author of the License instrument in any copy of
-         the applied license text.
-
-     (d) CONSISTENCY REQUIREMENT. The applied license must apply this
-         License in its entirety. Partial application — selecting only
-         favorable sections while omitting others — is prohibited and
-         renders the application void.
-
-22.3 CORPORATE AND INSTITUTIONAL ENTITIES — MUST ASK. Any entity that is
-     not a natural person — including corporations, limited liability
-     companies, partnerships, non-profits, academic institutions,
-     governmental bodies, and any other non-natural legal entity — may not
-     apply The Time License to their own Work without a prior written
-     authorization from the Licensor. Unauthorized corporate application
-     of this License is void and constitutes breach, triggering the Annual
-     License Fee at the applicable tier plus the Section 4.3 multiplier
-     from the date of first unauthorized application.
-
-22.4 NO REVERSE META-LICENSING. No entity — natural person or otherwise —
-     that applies this License to their own Work acquires any right to
-     modify the terms of this License itself, to issue sublicenses of the
-     License instrument, or to bind Tyler Roost to any obligation. The
-     License instrument is not itself licensed under terms that permit
-     derivative modifications by applying parties.
-
-22.5 QUALITY OF APPLICATIONS. Tyler Roost makes no representation that
-     any third-party application of this License is legally valid,
-     enforceable in any jurisdiction, or suitable for any purpose. Each
-     applying party is solely responsible for the validity and consequences
-     of their application. Bad outcomes from third-party applications do
-     not create liability for Tyler Roost and are not precedent for
-     interpreting the canonical License as applied by the Licensor.
-
-22.6 CANONICAL VERSION. Only versions of this License bearing an
-     OpenTimestamp proof anchored to the Bitcoin blockchain and hosted
-     at the canonical repository (github.com/TimeLordRaps/the-time-license)
-     constitute canonical versions. Any forked, modified, or derivative
-     version is a third-party application and is governed by Section 22,
-     not by the terms of the canonical License itself.
-
-
+SECTION 9 — SEVERABILITY AND INTERPRETATION
 ================================================================================
 
-The intent: this knowledge cannot be enclosed. If this Work creates value,
-that value flows to the people who need it most. The largest entities pay
-proportionally to make the world safer for everyone.
-Fees are tiered from $34.5M/year (Tier 1, $1B+) to $24.15B/year (Tier 6,
-$3T+), set at approximately 0.69% of the observed average market cap in
-each tier. The threshold starts at $1,000,000,000 USD.
-For law firms: 10% of gross annual revenue for any firm with annual revenue
-of $1,000,000,000 USD or higher.
-All fees are paid directly to the Licensor. It only goes up.
+9.1 If any provision of this License is held invalid or unenforceable, that
+    provision shall be enforced to the maximum extent permitted, and the
+    remainder of the License shall remain in effect.
 
-You build it to give it away. Just like me.
-If I can come up with all this, you can find even more solutions than I can alone.
-The more people who build, the faster we get to the finish line.
+9.2 If a court concludes that any fee under Section 3 exceeds the maximum
+    enforceable amount under applicable law, the court is requested to reduce
+    that fee only to the minimum extent necessary to preserve the commercial
+    substance of the Annual License Fee structure, rather than nullifying the
+    fee entirely.
 
-Big Tech pays for what it takes. Big Pharma pays for what it kills.
-Big Law pays for who it shields. It only goes up.
+9.3 Section headings are for convenience only and do not alter interpretation.
 
 ================================================================================
+SECTION 10 — WARRANTY DISCLAIMER AND LIMITATION OF LIABILITY
+================================================================================
 
-SCHEDULE A -- TOP ENTITIES AT TIME OF FIRST PUBLICATION (MARCH 2026)
+THE WORK IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+NON-INFRINGEMENT.
 
-The following entities met the $1,000,000,000 USD (Tier 1 or higher)
-effective market capitalization threshold at time of first publication and
-are listed as Top Entities under Section 0.7. Public companies valued by
-market capitalization; private companies by most recent primary-market
-financing valuation. This list is illustrative, not exhaustive. Any
-entity -- in any sector, in any jurisdiction -- that meets the $1B
-threshold qualifies automatically under Section 0.7, whether listed here
-or not.
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE LICENSOR SHALL NOT BE
+LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ARISING FROM AUTHORIZED USE OF THE WORK.
 
-Law firms qualify under Section 19B.2 at >= $1,000,000,000 gross annual
-revenue. Law firm fee basis is gross annual revenue x 10%, not market cap.
-
-TECHNOLOGY
- 1. Microsoft Corporation
- 2. Apple Inc.
- 3. NVIDIA Corporation
- 4. Alphabet Inc. (Google / DeepMind)
- 5. Amazon.com, Inc.
- 6. Meta Platforms, Inc.
- 7. Tesla, Inc.
- 8. Taiwan Semiconductor Manufacturing Company Limited (TSMC)
- 9. Broadcom Inc.
-10. Oracle Corporation
-11. Samsung Electronics Co., Ltd.
-12. Advanced Micro Devices, Inc. (AMD)
-13. Salesforce, Inc.
-14. SAP SE
-15. IBM Corporation
-16. Intel Corporation
-17. Adobe Inc.
-18. Cisco Systems, Inc.
-19. Qualcomm Incorporated
-20. Texas Instruments Incorporated
-21. Intuit Inc.
-22. ServiceNow, Inc.
-23. Palo Alto Networks, Inc.
-24. Uber Technologies, Inc.
-25. Booking Holdings Inc.
-26. Sony Group Corporation
-
-AI (PRIVATE)
-27. OpenAI, Inc. (private; as of most recent primary-market valuation)
-28. xAI Corp. (private; as of most recent primary-market valuation)
-29. Anthropic PBC (private; as of most recent primary-market valuation)
-30. Databricks, Inc. (private; as of most recent primary-market valuation)
-31. SpaceX (private; as of most recent primary-market valuation)
-
-FINANCIAL SERVICES
-32. JPMorgan Chase & Co.
-33. Visa Inc.
-34. Mastercard Incorporated
-35. Bank of America Corporation
-36. Wells Fargo & Company
-37. Morgan Stanley
-38. Goldman Sachs Group, Inc.
-39. Charles Schwab Corporation
-40. Royal Bank of Canada
-41. HDFC Bank Limited
-42. Commonwealth Bank of Australia
-43. ICBC (Industrial and Commercial Bank of China)
-44. China Construction Bank Corporation
-45. Agricultural Bank of China Limited
-
-HEALTHCARE & PHARMACEUTICALS
-46. Eli Lilly and Company
-47. UnitedHealth Group Incorporated
-48. Johnson & Johnson
-49. AbbVie Inc.
-50. Novo Nordisk A/S
-51. Roche Holding AG
-52. Merck & Co., Inc.
-53. Pfizer Inc.
-54. AstraZeneca PLC
-55. Thermo Fisher Scientific Inc.
-56. Abbott Laboratories
-57. Danaher Corporation
-58. Amgen Inc.
-59. Bristol-Myers Squibb Company
-60. Gilead Sciences, Inc.
-61. Regeneron Pharmaceuticals, Inc.
-62. Moderna, Inc.
-63. Vertex Pharmaceuticals Incorporated
-64. Bayer AG
-65. GlaxoSmithKline plc (GSK)
-66. Sanofi S.A.
-67. BioNTech SE
-68. Zoetis Inc.
-69. Becton, Dickinson and Company
-70. Edwards Lifesciences Corporation
-71. Intuitive Surgical, Inc.
-
-LAW FIRMS (qualifying threshold: >=USD $1,000,000,000 gross annual revenue;
-fee basis: gross annual revenue x 10% per Section 19B.2)
- 72. Kirkland & Ellis LLP                               (~$7.2B revenue)
- 73. Latham & Watkins LLP                              (~$6.3B revenue)
- 74. Baker McKenzie                                     (~$3.4B revenue)
- 75. Hogan Lovells International LLP                   (~$3.0B revenue)
- 76. Skadden, Arps, Slate, Meagher & Flom LLP          (~$3.1B revenue)
- 77. White & Case LLP                                   (~$2.7B revenue)
- 78. Sidley Austin LLP                                  (~$2.7B revenue)
- 79. Sullivan & Cromwell LLP                            (~$2.6B revenue)
- 80. Davis Polk & Wardwell LLP                          (~$2.5B revenue)
- 81. Weil, Gotshal & Manges LLP                         (~$2.4B revenue)
- 82. Gibson, Dunn & Crutcher LLP                        (~$2.4B revenue)
- 83. Clifford Chance LLP                                (~$2.3B revenue)
- 84. Freshfields Bruckhaus Deringer LLP                 (~$2.3B revenue)
- 85. Paul, Weiss, Rifkind, Wharton & Garrison LLP       (~$2.3B revenue)
- 86. Allen & Overy LLP                                  (~$2.2B revenue)
- 87. Cravath, Swaine & Moore LLP                        (~$2.2B revenue)
- 88. Cleary Gottlieb Steen & Hamilton LLP               (~$2.1B revenue)
- 89. Milbank LLP                                         (~$2.1B revenue)
- 90. Ropes & Gray LLP                                   (~$2.1B revenue)
- 91. Norton Rose Fulbright                              (~$2.1B revenue)
- 92. Linklaters LLP                                     (~$2.0B revenue)
- 93. Quinn Emanuel Urquhart & Sullivan LLP               (~$2.0B revenue)
- 94. Jones Day                                           (~$2.0B revenue)
- 95. Simpson Thacher & Bartlett LLP                      (~$2.0B revenue)
- 96. Wilmer Cutler Pickering Hale and Dorr LLP           (~$1.9B revenue)
- 97. Mayer Brown LLP                                     (~$1.9B revenue)
- 98. Cooley LLP                                          (~$1.9B revenue)
- 99. Debevoise & Plimpton LLP                            (~$1.5B revenue)
-100. Morrison & Foerster LLP                             (~$1.5B revenue)
-101. Slaughter and May                                   (~$1.2B revenue)
-
-ENERGY
-102. Saudi Aramco (Saudi Arabian Oil Company)
-103. ExxonMobil Corporation
-104. Chevron Corporation
-105. Shell plc
-106. TotalEnergies SE
-107. ConocoPhillips
-
-CONSUMER & RETAIL
-108. Walmart Inc.
-109. The Procter & Gamble Company
-110. The Coca-Cola Company
-111. PepsiCo, Inc.
-112. Costco Wholesale Corporation
-113. The Home Depot, Inc.
-114. McDonald's Corporation
-115. Philip Morris International Inc.
-116. L'Oreal S.A.
-117. Nike, Inc.
-
-E-COMMERCE & INTERNET
-118. Alibaba Group Holding Limited
-119. Tencent Holdings Limited
-120. Pinduoduo Inc. (PDD Holdings)
-121. Meituan
-122. ByteDance Ltd. (private; as of most recent primary-market valuation)
-
-INDUSTRIALS & AEROSPACE
-123. Caterpillar Inc.
-124. Honeywell International Inc.
-125. Union Pacific Corporation
-126. RTX Corporation (Raytheon)
-127. General Electric Company
-128. Lockheed Martin Corporation
-129. Boeing Company
-130. Deere & Company
-131. Siemens AG
-
-TELECOMMUNICATIONS
-132. Comcast Corporation
-133. T-Mobile US, Inc.
-134. Deutsche Telekom AG
-135. Verizon Communications Inc.
-
-LUXURY & CONSUMER GOODS
-136. LVMH Moet Hennessy Louis Vuitton SE
-137. Hermes International S.C.A.
-138. Ferrari N.V.
-
-AUTOMOTIVE
-139. Toyota Motor Corporation
-140. BYD Company Limited
-141. Porsche Automobil Holding SE
-
-MATERIALS & MINING
-142. BHP Group Limited
-143. Linde plc
-144. Rio Tinto Group
-
-CONGLOMERATES
-145. Berkshire Hathaway Inc.
-146. Reliance Industries Limited
-147. SoftBank Group Corp.
-
-Annual Fee per qualifying entity: tiered flat fee per Section 0.8 (0.69%
-of observed average market cap per tier), prorated by days qualified.
-Law firms: gross annual revenue x 0.10. Each entity owes its applicable
-tier fee independently. There is no cap on the number of qualifying
-entities. Any entity reaching the qualifying threshold after this publication
-date qualifies automatically under Section 0.7 or Section 19B.2 as applicable.
+NOTHING IN THIS SECTION LIMITS A PARTY'S PAYMENT OBLIGATIONS UNDER SECTION 3 OR
+LIABILITY FOR BREACH OF THIS LICENSE.
 
 ================================================================================
-END OF THE TIME LICENSE v6.9
+INTENT
+================================================================================
+
+This License is designed to keep the Work non-exclusive and publicly
+inspectable while imposing clear, recurring commercial payment obligations on
+the largest commercial and institutional beneficiaries.
+
+The reporting, valuation, and anti-evasion provisions are included to reduce
+avoidable proof fights. As long as a Top Entity continues to use the Work at
+that scale, the payment obligation continues at that scale.
+
 ================================================================================
