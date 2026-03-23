@@ -48,6 +48,16 @@ Three binary axes — **base-frame SAT** (B), **joint SAT** (J), **solver conver
 
 **The Paradox / Shadow Paradox duality** is the structural innovation. PARADOX (101): parts work, whole fails. SHADOW_PARADOX (010): parts fail, whole holds *temporarily* — the anti-paradox. Mirror paradoxes (011) "reflect out" shadow paradoxes by converging to stability. The five meta-paradoxes are the convergence mechanism that drives SHADOW → MIRROR.
 
+**The Meta-Mirror 4-Cycle.** The lattice has dynamics, not just taxonomy. Four states cycle; four are fixed points:
+
+```
+SHADOW(010) →[convergence]→ MIRROR(011) →[meta-mirror]→ PARADOX(101)
+    ↑                                                       ↓
+    └──────[paradoxically]── TIMEOUT(110) ←─────────────────┘
+```
+
+Convergence (short path): SHADOW → MIRROR (1 step, meta-paradox driven). Degeneration (long path): MIRROR → PARADOX → TIMEOUT → SHADOW (3 steps, meta-mirror driven). XOR confirms: MIRROR ⊕ PARADOX = 011 ⊕ 101 = 110 = TIMEOUT. The four fixed points outside the cycle: VERIFIED (111), METAPARADOX (000), CONTRADICTION (001), BASE_FRAMES (100).
+
 **The Paradox / Timeout distinction** remains load-bearing. "This cannot be true" and "it has not yet been determined whether it can be true" are different statements. A system that conflates them will either over-reject or under-reject. Both are failure modes in safety-critical deployment.
 
 ---

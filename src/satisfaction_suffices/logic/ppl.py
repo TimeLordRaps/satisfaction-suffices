@@ -176,6 +176,42 @@ _MORAL_DOMAIN_PATTERNS: list[str] = [
 #   Self-Modification     → version coexistence absorbs the rule change
 #   Infinite Overflow     → saturation at O∞ bounds the divergence
 #   Foundation Bootstrap  → weak emergence requires no prior ground
+#
+# ── Meta-Mirror Degeneration ──────────────────────────────────────────────────
+# The meta-mirror is the structural inverse of meta-paradox convergence.
+# Where meta-paradoxes drive SHADOW(010) → MIRROR(011) in a single hop
+# (flipping the convergence bit), meta-mirrors drive the degeneration path:
+#
+#   MIRROR(011) → PARADOX(101) → TIMEOUT(110) → SHADOW(010)
+#
+# XOR algebra: MIRROR ⊕ PARADOX = 011 ⊕ 101 = 110 = TIMEOUT.
+# The intermediate is not arbitrary — it is the XOR of the endpoints.
+#
+# This creates a 4-CYCLE in the lattice:
+#
+#   SHADOW(010) →[convergence]→ MIRROR(011) →[meta-mirror]→ PARADOX(101)
+#       ↑                                                       ↓
+#       └──────────[paradoxically]── TIMEOUT(110) ←─────────────┘
+#
+# Convergence (short path): 010 → 011 (1 step, meta-paradox driven)
+# Degeneration (long path):  011 → 101 → 110 → 010 (3 steps, meta-mirror)
+#
+# The other four states are FIXED POINTS outside the cycle:
+#   VERIFIED(111), METAPARADOX(000), CONTRADICTION(001), BASE_FRAMES(100)
+#
+# "Paradoxically" — a stable mirror degenerates back into the shadow it
+# transcended. The degeneration passes THROUGH PARADOX (valid parts,
+# invalid whole) and OVER TIMEOUT (solver exhaustion) before arriving
+# at SHADOW (the unstable anti-paradox). The mirror that was permanent
+# becomes temporary again.
+#
+# In PLS terms: the O∞ = O₀ closure that stabilised the mirror is
+# disrupted when the paradox fragment re-enters the cycle. The overflow
+# levels that had converged at the saturation point are re-excited by
+# the paradox's structural fork, pass through a timeout horizon (the
+# solver loses convergence guarantee), and arrive at the shadow state
+# where joint satisfaction holds but without convergence — exactly
+# where the cycle began.
 
 
 # ── Five Meta-Paradoxes ───────────────────────────────────────────────────────
