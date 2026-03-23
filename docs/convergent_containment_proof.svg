@@ -30,7 +30,7 @@
 
   <!-- Title -->
   <text x="450" y="45" text-anchor="middle" fill="#e0e0e0" font-size="22" font-weight="bold" letter-spacing="2">CONVERGENT CONTAINMENT PROOF</text>
-  <text x="450" y="70" text-anchor="middle" fill="#888" font-size="13" letter-spacing="4">METAPROGRAM — CCUL §10A.7</text>
+  <text x="450" y="70" text-anchor="middle" fill="#888" font-size="13" letter-spacing="4">METAPROGRAM — The Time License §10A.7</text>
 
   <!-- Input block -->
   <rect x="200" y="85" width="500" height="55" rx="6" fill="#0e1a30" stroke="#334" stroke-width="1"/>
@@ -199,5 +199,5 @@
   <text x="450" y="1145" text-anchor="middle" fill="#666" font-size="11">P(failure) = P₁ × P₂ × P₃ × ... × Pₙ — each scale is an independent containment guarantee</text>
 
   <!-- Attribution -->
-  <text x="450" y="1185" text-anchor="middle" fill="#444" font-size="10">CCUL v1.0 §10A — Tyler Roost (@TimeLordRaps) — March 2026</text>
+  <text x="450" y="1185" text-anchor="middle" fill="#444" font-size="10">The Time License v7.77 §10A — Tyler Roost (@TimeLordRaps) — March 2026</text>
 </svg>
