@@ -35,4 +35,5 @@ preferred-citation:
     - family-names: Roost
       given-names: Tyler
   year: 2026
-  notes: "Preprint — see paper/paper_01_submission.md"
+  url: "https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/paper/paper_01_submission.md"
+  notes: "Preprint — add doi: field after Zenodo deposit"

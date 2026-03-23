@@ -82,4 +82,8 @@ def transfer(amount, balance):
 
 ## License
 
+<<<<<<< Updated upstream
 The Time License v7.2. See [LICENSE](https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/LICENSE).
+=======
+The Time License. See [LICENSE](https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/LICENSE).
+>>>>>>> Stashed changes

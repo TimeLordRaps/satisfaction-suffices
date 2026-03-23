@@ -71,6 +71,6 @@ The Paradox/Timeout distinction is novel. "This cannot be true" and "it has not 
   year      = {2026},
   url       = {https://github.com/TimeLordRaps/satisfaction-suffices},
   version   = {0.0.2},
-  license   = {The Time License v7.2}
+  license   = {The Time License}
 }
 ```
