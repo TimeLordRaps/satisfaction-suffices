@@ -28,4 +28,4 @@ All notable changes to this project will be documented in this file.
 - Text and code constraint extractors.
 - DPLL solver with WalkSAT fallback.
 - ZK proof-stamped CI/CD pipeline.
-- Conditional Commercial Use License v1.0.
+- The Time License v7.2.

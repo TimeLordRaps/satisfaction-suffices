@@ -3,7 +3,7 @@
 > Referenced in: [LICENSE](./LICENSE) Section 5.1
 >
 > This registry constitutes formal notice to each listed entity that it qualifies
-> as a Top Entity under Section 0.7 of the Conditional Commercial Use License v1.0
+> as a Top Entity under Section 0.7 of the The Time License v7.2
 > and that the Annual License Fee obligation (Section 4.1) has accrued or is accruing.
 >
 > **Being listed = notice given.** The obligation is self-executing (LICENSE Section 3.2).
