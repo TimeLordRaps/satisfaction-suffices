@@ -7,7 +7,7 @@ name = "satisfaction-suffices"
 version = "0.0.2"
 description = "SAT-gated structural containment for AI — verification gate, four-verdict system, proof evolution, and paradox logic"
 readme = "README.md"
-license = {text = "Conditional Commercial Use License v1.0"}
+license = "LicenseRef-The-Time-License"
 requires-python = ">=3.10"
 authors = [
     {name = "TimeLordRaps"},
