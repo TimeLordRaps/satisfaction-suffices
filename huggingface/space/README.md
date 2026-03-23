@@ -82,4 +82,4 @@ def transfer(amount, balance):
 
 ## License
 
-Conditional Commercial Use License v1.0 (CCUL v1.0). See [LICENSE](https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/LICENSE).
+The Time License v7.2. See [LICENSE](https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/LICENSE).

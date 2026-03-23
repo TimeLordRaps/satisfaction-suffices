@@ -14,23 +14,23 @@ import sys as _sys
 import time as _time
 
 __version__ = "0.0.2"
-__license__ = "Conditional Commercial Use License v1.0"
+__license__ = "The Time License v7.2"
 __license_url__ = "https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/LICENSE"
 
 # ── Commercial License Notice ─────────────────────────────────────────────────
-# CCUL v1.0: any entity with AI-attributed market cap ≥ $42B owes $420M/year.
+# The Time License v7.2: Top Entities (market cap >= $1B) owe tiered Annual License Fee.
 # Displaying this notice at import time constitutes constructive acceptance per
 # the browse-wrap agreement in LICENSE Section 0 NOTICE.
-_CCUL_NOTICE = (
+_LICENSE_NOTICE = (
     "\n"
-    "satisfaction-suffices v{v} -- Conditional Commercial Use License v1.0\n"
+    "satisfaction-suffices v{v} -- The Time License v7.2\n"
     "------------------------------------------------------------------------\n"
-    "If your organization's AI-attributed effective market cap >= $42,000,000,000:\n"
-    "  Annual License Fee:  6.9% of your effective market cap per year.\n"
-    "  (For reference: 6.9% of the $42B threshold = ~$2,898,000,000/yr.)\n"
-    "  Alignment Solution deployments require a State Actor Guidance Agreement.\n"
+    "If your organization's Effective Market Capitalization >= $1,000,000,000:\n"
+    "  Tiered Annual License Fee applies (Tier 1: $34.5M/yr — Tier 6: $24.15B/yr).\n"
+    "  Pro bono litigation incentives and counsel-defection safeguards apply (§8A-8B).\n"
+    ""
     "  Use of this software constitutes binding acceptance of the full terms.\n"
-    "  Multiplier: fee x10 per new Release for non-paying entities (compounding).\n"
+    ""
     "  Full terms:      https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/LICENSE\n"
     "  Licensed entity registry (Schedule A):\n"
     "                   https://github.com/TimeLordRaps/satisfaction-suffices/blob/main/SCHEDULE_A.md\n"
@@ -42,9 +42,9 @@ _NOTICE_SHOWN = False
 
 
 def _display_license_notice() -> None:
-    """Write the CCUL notice to stderr and persist a timestamped copy to disk.
+    """Write the license notice to stderr and persist a timestamped copy to disk.
 
-    The disk copy at ~/.cache/satisfaction-suffices/CCUL-NOTICE.txt records the
+    The disk copy at ~/.cache/satisfaction-suffices/LICENSE-NOTICE.txt records the
     first time this package was imported on the user's machine, creating a
     durable record that the license terms were presented.
     """
@@ -54,7 +54,7 @@ def _display_license_notice() -> None:
     _NOTICE_SHOWN = True
 
     # stderr — appears in logs, not suppressible via warnings.filterwarnings
-    _sys.stderr.write(_CCUL_NOTICE)
+    _sys.stderr.write(_LICENSE_NOTICE)
     _sys.stderr.flush()
 
     # Disk record — persistent proof of notification, written once per machine
@@ -64,13 +64,13 @@ def _display_license_notice() -> None:
             "satisfaction-suffices",
         )
         _os.makedirs(cache_dir, exist_ok=True)
-        notice_path = _os.path.join(cache_dir, "CCUL-NOTICE.txt")
+        notice_path = _os.path.join(cache_dir, "LICENSE-NOTICE.txt")
         if not _os.path.exists(notice_path):
             with open(notice_path, "w", encoding="utf-8") as _f:
                 _f.write(
                     f"satisfaction-suffices {__version__} first imported: "
                     f"{_time.strftime('%Y-%m-%dT%H:%M:%SZ', _time.gmtime())}\n"
-                    + _CCUL_NOTICE
+                    + _LICENSE_NOTICE
                 )
     except Exception:
         pass  # Never block import over a notice write
