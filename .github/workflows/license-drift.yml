@@ -1,0 +1,80 @@
+name: License Drift Check
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  drift-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for stale license references
+        run: |
+          set -euo pipefail
+
+          FAIL=0
+
+          # Patterns that indicate stale/wrong license references
+          # Each pattern: "regex|human-readable label"
+          PATTERNS=(
+            'CCUL|CCUL reference'
+            'Conditional Commercial Use License|old license name'
+            'CC BY 4\.0|CC BY 4.0 misattribution'
+            'Time License v1\b|Time License v1'
+            'Time License v2\b|Time License v2'
+            'Time License v3\b|Time License v3'
+            'Time License v4\b|Time License v4'
+            'Time License v5\b|Time License v5'
+            'Time License v6\b|Time License v6'
+            'Time License v7\.0\b|Time License v7.0'
+            'Time License v7\.1\b|Time License v7.1'
+            '\$42,000,000,000|old $42B fee cap'
+            '\$42B|old $42B fee cap shorthand'
+            '6\.9% of effective market capitalization|old 6.9% rate'
+          )
+
+          # Files/paths to exclude from scanning
+          EXCLUDE_ARGS=(
+            --exclude-dir=.git
+            --exclude-dir=node_modules
+            --exclude-dir=__pycache__
+            --exclude-dir=.venv
+            --exclude='LICENSE'
+            --exclude='LICENSE.md'
+            --exclude='LICENSE.txt'
+            --exclude='LICENSE.ots'
+            --exclude='sync-license.yml'
+            --exclude='license-drift.yml'
+            --exclude='CHANGELOG.md'
+            --exclude='*.ots'
+          )
+
+          for entry in "${PATTERNS[@]}"; do
+            pattern="${entry%%|*}"
+            label="${entry##*|}"
+
+            matches=$(grep -rn -P "$pattern" . "${EXCLUDE_ARGS[@]}" 2>/dev/null || true)
+            if [ -n "$matches" ]; then
+              echo "::error::Stale reference found — $label"
+              echo "$matches"
+              echo ""
+              FAIL=1
+            fi
+          done
+
+          if [ "$FAIL" -eq 1 ]; then
+            echo ""
+            echo "============================================"
+            echo "LICENSE DRIFT DETECTED"
+            echo "Update all references to The Time License v7.2"
+            echo "Canonical source: https://github.com/TimeLordRaps/the-time-license"
+            echo "============================================"
+            exit 1
+          fi
+
+          echo "No license drift detected."
