@@ -1,9 +1,8 @@
-name: Sync License from Canonical Source
+name: Sync LICENSE
 
 on:
   schedule:
-    # Every Monday at 06:00 UTC
-    - cron: '0 6 * * 1'
+    - cron: '17 4 * * *'
   workflow_dispatch:
 
 jobs:
@@ -13,34 +12,12 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-
-      - name: Fetch canonical LICENSE
+      - name: Fetch canonical LICENSE from GitHub Pages
+        run: curl -fsSL https://timelordraps.github.io/the-time-license/LICENSE -o LICENSE
+      - name: Commit synced LICENSE
         run: |
-          curl -fsSL \
-            https://raw.githubusercontent.com/TimeLordRaps/the-time-license/main/LICENSE \
-            -o LICENSE.new
-
-      - name: Check for changes
-        id: diff
-        run: |
-          if ! diff -q LICENSE LICENSE.new > /dev/null 2>&1; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Update LICENSE if changed
-        if: steps.diff.outputs.changed == 'true'
-        run: |
-          mv LICENSE.new LICENSE
-          git config user.name  "github-actions[bot]"
+          git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add LICENSE
-          git commit -m "chore: sync LICENSE from TimeLordRaps/the-time-license"
+          git add LICENSE .github/workflows/sync-license.yml
+          git diff --cached --quiet || git commit -m "chore: sync LICENSE from canonical"
           git push
-
-      - name: No change
-        if: steps.diff.outputs.changed == 'false'
-        run: |
-          rm -f LICENSE.new
-          echo "LICENSE is already up to date."
