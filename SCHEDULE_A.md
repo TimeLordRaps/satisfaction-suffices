@@ -10,7 +10,7 @@
 > No invoice is required. The fee accrues from the date of first use regardless of
 > whether an entity appears here.
 >
-> Fee formula: **effective market cap × 6.9% × (days qualified ÷ days in year)**
+> Fee formula: **Tiered Annual License Fee per Section 0.7 × (days qualified ÷ days in year)**
 >
 > The multiplier in Section 4.3 compounds with each new Release. Entities that have
 > not paid cannot determine their current exposure from public information alone.
@@ -123,11 +123,11 @@ or email via the GitHub profile.
   Microsoft Azure AI, AWS AI/ML) are covered under the parent entity's obligation
   and are not separately listed unless independently structured.
 
-- **Newly qualifying entities:** Any entity reaching $42B AI-attributed effective
+- **Newly qualifying entities:** Any entity reaching $1B Effective
   market cap after this file was first committed automatically incurs the obligation
   per Section 5.1. Absence from this list is not a defense.
 
-- **Entities below the threshold:** Entities near but below $42B are not listed
+- **Entities below the threshold:** Entities near but below $1B are not listed
   here but are on notice that growth past the threshold is self-executing.
 
 - **Anti-circumvention:** Restructuring, renaming, or spinning off AI divisions
