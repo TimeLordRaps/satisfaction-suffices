@@ -1,10 +1,8 @@
 name: License Drift Check
 
 on:
-  push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
+  schedule:
+    - cron: '0 19 * * 1'   # Every Monday at noon Pacific (19:00 UTC)
   workflow_dispatch:
 
 jobs:
@@ -34,6 +32,7 @@ jobs:
             'Time License v7\.0\b|Time License v7.0'
             'Time License v7\.1\b|Time License v7.1'
             'Time License v7\.2\b|Time License v7.2'
+            'Time License v7\.7\b|Time License v7.7'
             '\$42,000,000,000|old $42B fee cap'
             '\$42B|old $42B fee cap shorthand'
             '6\.9% of effective market capitalization|old 6.9% rate'
@@ -72,7 +71,7 @@ jobs:
             echo ""
             echo "============================================"
             echo "LICENSE DRIFT DETECTED"
-            echo "Update all references to The Time License v7.7"
+            echo "Update all references to The Time License v7.77"
             echo "Canonical source: https://github.com/TimeLordRaps/the-time-license"
             echo "============================================"
             exit 1
