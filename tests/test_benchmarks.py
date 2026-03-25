@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from satisfiable_ai.benchmarks import (
+from satisfaction_suffices.benchmarks import (
     run_phase_transition_benchmark,
     run_phase_transition_budget_sweep,
     run_relevance_benchmarks,
 )
-from satisfiable_ai.verifier import evaluate_partial, verify
+from satisfaction_suffices.verifier import evaluate_partial, verify
 
 
 def test_math_quantifier_case_no_longer_crashes() -> None:
