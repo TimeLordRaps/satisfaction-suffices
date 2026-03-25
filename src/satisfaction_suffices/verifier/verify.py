@@ -868,8 +868,12 @@ class ProofConstraintExtractor(ConstraintExtractor):
     THEREFORE_PAT = re.compile(r"(?:therefore|hence|thus|so|then|conclude)\s+(.+?)(?:\.|$)", re.IGNORECASE | re.MULTILINE)
     BY_PAT = re.compile(r"(?:by|from|using|via)\s+(.+?)(?:\.|,|$)", re.IGNORECASE | re.MULTILINE)
     # Only match Lean4-style bare tactics, not English uses of these words.
-    # "contradiction" and "absurd" as standalone proof tactics (one per line).
-    CONTRA_PAT = re.compile(r"^\s*(?:contradiction|absurd)\s*$", re.IGNORECASE | re.MULTILINE)
+    # "contradiction" and "absurd" as standalone proof tactics.
+    # Match on own line (Lean4) or as a sentence after period/semicolon boundary.
+    CONTRA_PAT = re.compile(
+        r"(?:^\s*|[.;]\s*)(?:contradiction|absurd)\s*[.!]?\s*$",
+        re.IGNORECASE | re.MULTILINE,
+    )
     QED_PAT = re.compile(r"(?:qed|□|∎|proved|done)", re.IGNORECASE)
 
     # Lean4-style
