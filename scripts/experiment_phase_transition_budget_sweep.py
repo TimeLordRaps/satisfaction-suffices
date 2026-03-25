@@ -4,13 +4,8 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-import sys
 
-ROOT = Path(__file__).resolve().parent.parent
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
-
-from satisfiable_ai.benchmarks import run_phase_transition_budget_sweep
+from satisfaction_suffices.benchmarks import run_phase_transition_budget_sweep
 
 
 def _parse_int_csv(text: str) -> tuple[int, ...]:
