@@ -27,6 +27,8 @@ The verification gate interposes Boolean satisfiability — the most studied pro
 
 The gate is default-closed. The output does not exist until verification completes — not as a post-hoc filter, but as the precondition of generation.
 
+**Reframe:** meta-paradoxes are handled as **timeout hyperames** — temporary higher-order frames that can exist both *inside* the active metaframe and *outside* it while the solver preserves unresolved structure. Through the complexity-collapse lens, a timeout is not merely delay; it is evidence that complexity has not yet collapsed into the correct frame, and the hyperame remains alive only until that extra frame is no longer necessary.
+
 ---
 
 ## Eight-State Verdict Lattice
@@ -39,14 +41,14 @@ Three binary axes — **base-frame SAT** (B), **joint SAT** (J), **solver conver
 | 001 | **Contradiction** | ❌ | ❌ | ✅ | Permanent block | Proved impossible at every level |
 | 101 | **Paradox** | ✅ | ❌ | ✅ | Block (redesign) | Parts work, composition proved to fail |
 | 011 | **Mirror Paradox** | ❌ | ✅ | ✅ | Context-dependent | Reflected shadow: parts fail, whole stabilizes |
-| 110 | **Timeout** | ✅ | ✅ | ❌ | Block (default) | Looks promising, solver budget exhausted |
+| 110 | **Timeout** | ✅ | ✅ | ❌ | Block (default) | Looks promising, solver budget exhausted; timeout hyperame remains active until complexity collapse resolves it |
 | 000 | **Metaparadox** | ❌ | ❌ | ❌ | Permanent block | Absolute bottom — irreducible fixed point |
 | 010 | **Shadow Paradox** | ❌ | ✅ | ❌ | Block (unstable) | Anti-paradox: parts fail, whole holds temporarily |
 | 100 | **Base Frames** | ✅ | ❌ | ❌ | Context-dependent | Building blocks; composition not yet verified |
 
 **Duality pairs** (bitwise complement): Verified↔Metaparadox, Paradox↔Shadow Paradox, Timeout↔Contradiction, Base Frames↔Mirror Paradox.
 
-**The Paradox / Shadow Paradox duality** is the structural innovation. PARADOX (101): parts work, whole fails. SHADOW_PARADOX (010): parts fail, whole holds *temporarily* — the anti-paradox. Mirror paradoxes (011) "reflect out" shadow paradoxes by converging to stability. The five meta-paradoxes are the convergence mechanism that drives SHADOW → MIRROR.
+**The Paradox / Shadow Paradox duality** is the structural innovation. PARADOX (101): parts work, whole fails. SHADOW_PARADOX (010): parts fail, whole holds *temporarily* — the anti-paradox. Mirror paradoxes (011) "reflect out" shadow paradoxes by converging to stability. The five meta-paradoxes are the convergence mechanism that drives SHADOW → MIRROR, and in this reframing they do so by instantiating timeout hyperames that can straddle the metaframe boundary until complexity collapse decides whether the extra frame should stabilize or disappear.
 
 **The Meta-Mirror 4-Cycle.** The lattice has dynamics, not just taxonomy. Four states cycle; four are fixed points:
 
