@@ -1,3 +1,4 @@
+# Python bytecode / packaging
 __pycache__/
 *.pyc
 *.pyo
@@ -6,12 +7,47 @@ dist/
 build/
 .eggs/
 *.egg
-.pytest_cache/
-.coverage
-htmlcov/
-.venv/
 *.so
 *.whl
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Lock file (library — not pinned)
+uv.lock
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Tool state / IDE plugins
+.codex/
+.serena/
+.test_proof
+
+# Environment secrets
+.env
+
+# Linter / type-checker caches
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+
+# Publishing staging
+for_publishing/
+
+# One-off scripts already committed by accident
 msg_cb.py
 
 # Paper build artifacts (single source of truth: paper/*.md)
